@@ -13,7 +13,7 @@
                         <div class="tp-hero-five-section-wrap">
                             <div class="tp-hero-five-section-box z-index">
                                 <h3 class="tp-hero-title-5 hero-text-anim-2">
-                                    <i><i class="child-2" style="font-family: 'Font Awesome 5 Pro';">İşletmeniz için <br></i></i>
+                                    <i><i class="child-2" style="font-family: 'Font Awesome 5 Pro';">İşletmeniz için 1<br></i></i>
                                     <i>
                                         <i class="child-2" style="font-family: 'Font Awesome 5 Pro';">
                                             En İyi <span class="child-1 p-relative">Randevu
