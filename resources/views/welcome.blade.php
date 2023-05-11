@@ -24,7 +24,7 @@
                                             <br>
                                         </i>
                                     </i>
-                                    <i><i class="child-2"><span class="child-2">Yönetimi</span>  <br></i></i>
+                                    <i><i class="child-2"><span class="child-2">Yönetim</span>  <br></i></i>
                                     <i><i class="child-2">Yazılımı</i></i>
                                 </h3>
                                 <p class="wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
