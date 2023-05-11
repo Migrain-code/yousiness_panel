@@ -1,0 +1,1 @@
+ln -s /home/hizliappy/public_html/storage/app/public /home/hizliappy/public_html/public/storage
