@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 Route::controller(\App\Http\Controllers\HomeController::class)->group(function (){
-    /*Route::get('/send-sms', 'sendSms');*/
     Route::get('/', 'index')->name('welcome');
     Route::post('/bilgi-al', 'getInfo')->name('getInfo');
     Route::get('/kategori-detay/{slug}', 'categoryDetail')->name('categoryDetail');
@@ -48,7 +47,7 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
         Route::resource('appointment', \App\Http\Controllers\Business\AppointmentController::class);
         Route::get('appointment/reject/{id}', [\App\Http\Controllers\Business\AppointmentController::class, 'reject'])->name('appointment.reject');
         Route::get('appointment/accept/{id}', [\App\Http\Controllers\Business\AppointmentController::class, 'accept'])->name('appointment.accept');
-
+        Route::resource('businessNote', \App\Http\Controllers\Business\BusinessNoteController::class);
         Route::post('personelService', [\App\Http\Controllers\Business\AppointmentController::class, 'personel'])->name('personelService');
         Route::post('businessCustomer/{id}', [\App\Http\Controllers\Business\CustomerController::class, 'delete'])->name('customer.delete');
         Route::post('packagePayments', [\App\Http\Controllers\Business\PackageSaleController::class, 'payments'])->name('package.payments');

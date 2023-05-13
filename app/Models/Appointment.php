@@ -12,7 +12,7 @@ class Appointment extends Model
     const STATUS_LIST=[
         0 => [
             'html' => '<span class="badge light badge-warning fw-bolder px-2 py-2">Onay Bekliyor</span>',
-            'text' => 'Onay Bekliyor'
+            'text' => 'Onay Bekliyor',
         ],
         1 => [
             'html' => '<span class="badge light badge-success fw-bolder px-2 py-2">Onaylandı</span>',

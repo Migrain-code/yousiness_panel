@@ -88,4 +88,9 @@ class Business extends Authenticatable
         return $this->hasOne(District::class, 'id', 'district');
 
     }
+
+    public function notes()
+    {
+        return $this->hasMany(BusinessNote::class, 'business_id', 'id');
+    }
 }

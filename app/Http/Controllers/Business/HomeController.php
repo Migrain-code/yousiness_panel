@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Business;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 use App\Models\District;
 use App\Models\ServiceSubCategory;
 use Illuminate\Http\Request;
@@ -15,21 +16,23 @@ class HomeController extends Controller
     {
         if (auth('business')->user()->password_status == 1){
             return view('business.update_password');
-        }else{
-            $appointment=[];
+        }
+        else{
+
             $earning=0;
 
-            foreach (auth('business')->user()->appointments as $row){
-                if(Carbon::parse($row->start_time)->format('d.m.Y') == Carbon::now()->format('d.m.Y')){
-                    $appointment[]=$row;
-                }
-                foreach ($row->services as $service){
-                    $earning+=$service->service->price;
-                }
+            $todayAppointments= Appointment::where('business_id',auth('business')->id())
+                ->where('status', 1)
+                ->whereRaw("STR_TO_DATE(start_time, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
+                ->orderByRaw("STR_TO_DATE(start_time, '%d.%m.%Y %H:%i')")
+                ->get();
+
+            $appointments = auth('business')->user()->appointments()->where('status', 7)->get();
+            foreach ($appointments as $row){
+                    $earning+=$row->calculateTotal($row->services);
             }
 
-            $todayAppointment=count($appointment);
-            return view('business.home', compact('todayAppointment', 'earning'));
+            return view('business.home', compact('todayAppointments', 'earning'));
         }
     }
 
