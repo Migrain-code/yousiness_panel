@@ -1,124 +1,305 @@
-@php use Illuminate\Support\Carbon; @endphp
+
 @extends('business.layouts.master')
 @section('links')
-    <link href="/admin/assets/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
-          rel="stylesheet" type="text/css"/>
-
+    <link href="/panel/assets/vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+        @media (max-width: 768px) {
+            .swiper-slide {
+                width: 100% !important;
+            }
+        }
+    </style>
 @endsection
 @section('content')
     <div class="row">
         <div class="col-xl-12">
-            <div class="page-titles style1">
-                <div class="d-flex align-items-center">
-                    <h2 class="heading">
-                        Randevular
-                    </h2>
-                </div>
-                <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
-						<span class="input-group-addon d-flex align-items-center">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-								<path d="M12 14.0001C12.1978 14.0001 12.3911 13.9415 12.5556 13.8316C12.72 13.7217 12.8482 13.5655 12.9239 13.3828C12.9996 13.2001 13.0194 12.999 12.9808 12.805C12.9422 12.611 12.847 12.4329 12.7071 12.293C12.5673 12.1531 12.3891 12.0579 12.1951 12.0193C12.0011 11.9807 11.8 12.0005 11.6173 12.0762C11.4346 12.1519 11.2784 12.2801 11.1685 12.4445C11.0586 12.609 11 12.8023 11 13.0001C11 13.2653 11.1054 13.5197 11.2929 13.7072C11.4804 13.8947 11.7348 14.0001 12 14.0001ZM17 14.0001C17.1978 14.0001 17.3911 13.9415 17.5556 13.8316C17.72 13.7217 17.8482 13.5655 17.9239 13.3828C17.9996 13.2001 18.0194 12.999 17.9808 12.805C17.9422 12.611 17.847 12.4329 17.7071 12.293C17.5673 12.1531 17.3891 12.0579 17.1951 12.0193C17.0011 11.9807 16.8 12.0005 16.6173 12.0762C16.4346 12.1519 16.2784 12.2801 16.1685 12.4445C16.0586 12.609 16 12.8023 16 13.0001C16 13.2653 16.1054 13.5197 16.2929 13.7072C16.4804 13.8947 16.7348 14.0001 17 14.0001ZM12 18.0001C12.1978 18.0001 12.3911 17.9415 12.5556 17.8316C12.72 17.7217 12.8482 17.5655 12.9239 17.3828C12.9996 17.2001 13.0194 16.999 12.9808 16.805C12.9422 16.611 12.847 16.4328 12.7071 16.293C12.5673 16.1531 12.3891 16.0579 12.1951 16.0193C12.0011 15.9807 11.8 16.0005 11.6173 16.0762C11.4346 16.1519 11.2784 16.2801 11.1685 16.4445C11.0586 16.609 11 16.8023 11 17.0001C11 17.2653 11.1054 17.5197 11.2929 17.7072C11.4804 17.8947 11.7348 18.0001 12 18.0001ZM17 18.0001C17.1978 18.0001 17.3911 17.9415 17.5556 17.8316C17.72 17.7217 17.8482 17.5655 17.9239 17.3828C17.9996 17.2001 18.0194 16.999 17.9808 16.805C17.9422 16.611 17.847 16.4328 17.7071 16.293C17.5673 16.1531 17.3891 16.0579 17.1951 16.0193C17.0011 15.9807 16.8 16.0005 16.6173 16.0762C16.4346 16.1519 16.2784 16.2801 16.1685 16.4445C16.0586 16.609 16 16.8023 16 17.0001C16 17.2653 16.1054 17.5197 16.2929 17.7072C16.4804 17.8947 16.7348 18.0001 17 18.0001ZM7 14.0001C7.19778 14.0001 7.39112 13.9415 7.55557 13.8316C7.72002 13.7217 7.84819 13.5655 7.92388 13.3828C7.99957 13.2001 8.01937 12.999 7.98078 12.805C7.9422 12.611 7.84696 12.4329 7.70711 12.293C7.56725 12.1531 7.38907 12.0579 7.19509 12.0193C7.00111 11.9807 6.80004 12.0005 6.61732 12.0762C6.43459 12.1519 6.27841 12.2801 6.16853 12.4445C6.05865 12.609 6 12.8023 6 13.0001C6 13.2653 6.10536 13.5197 6.29289 13.7072C6.48043 13.8947 6.73478 14.0001 7 14.0001ZM19 4.00011H18V3.00011C18 2.73489 17.8946 2.48054 17.7071 2.293C17.5196 2.10546 17.2652 2.00011 17 2.00011C16.7348 2.00011 16.4804 2.10546 16.2929 2.293C16.1054 2.48054 16 2.73489 16 3.00011V4.00011H8V3.00011C8 2.73489 7.89464 2.48054 7.70711 2.293C7.51957 2.10546 7.26522 2.00011 7 2.00011C6.73478 2.00011 6.48043 2.10546 6.29289 2.293C6.10536 2.48054 6 2.73489 6 3.00011V4.00011H5C4.20435 4.00011 3.44129 4.31618 2.87868 4.87879C2.31607 5.4414 2 6.20446 2 7.00011V19.0001C2 19.7958 2.31607 20.5588 2.87868 21.1214C3.44129 21.684 4.20435 22.0001 5 22.0001H19C19.7956 22.0001 20.5587 21.684 21.1213 21.1214C21.6839 20.5588 22 19.7958 22 19.0001V7.00011C22 6.20446 21.6839 5.4414 21.1213 4.87879C20.5587 4.31618 19.7956 4.00011 19 4.00011ZM20 19.0001C20 19.2653 19.8946 19.5197 19.7071 19.7072C19.5196 19.8947 19.2652 20.0001 19 20.0001H5C4.73478 20.0001 4.48043 19.8947 4.29289 19.7072C4.10536 19.5197 4 19.2653 4 19.0001V10.0001H20V19.0001ZM20 8.00011H4V7.00011C4 6.73489 4.10536 6.48054 4.29289 6.293C4.48043 6.10546 4.73478 6.00011 5 6.00011H19C19.2652 6.00011 19.5196 6.10546 19.7071 6.293C19.8946 6.48054 20 6.73489 20 7.00011V8.00011ZM7 18.0001C7.19778 18.0001 7.39112 17.9415 7.55557 17.8316C7.72002 17.7217 7.84819 17.5655 7.92388 17.3828C7.99957 17.2001 8.01937 16.999 7.98078 16.805C7.9422 16.611 7.84696 16.4328 7.70711 16.293C7.56725 16.1531 7.38907 16.0579 7.19509 16.0193C7.00111 15.9807 6.80004 16.0005 6.61732 16.0762C6.43459 16.1519 6.27841 16.2801 6.16853 16.4445C6.05865 16.609 6 16.8023 6 17.0001C6 17.2653 6.10536 17.5197 6.29289 17.7072C6.48043 17.8947 6.73478 18.0001 7 18.0001Z"
-                                      fill="var(--primary)"/>
-							</svg>
-						</span>
-                    <div class="calender-picker">
-                        <h6 class="fs-14 mb-0 ms-2 font-w600">Bugün</h6>
-                        <input class="form-control" type="text" readonly="">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="page-titles">
+                        <div class="d-flex align-items-center">
+                            <h2 class="heading"> Randevular </h2>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row mx-4">
-        @include('business.layouts.component.alert')
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Randevu Listesi</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Randevu
-                        Oluştur
-                    </button>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="example3" class="display" style="min-width: 845px">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>Müşteri Adı</th>
-                                <th>Personel Adı</th>
-                                <th>Randevu Zamanı</th>
-                                <th>Randevu Durumu</th>
-                                <th>İşlemler</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @forelse(auth('business')->user()->appointments as $appointment)
-                                <tr>
-                                    <td>
-                                        <img class="rounded-circle" width="35"
-                                             src="{{asset($appointment->customer->image)}}" alt="">
-                                    </td>
-                                    <td>
-                                        {{$appointment->customer->name}}
-                                    </td>
-                                    <td>
-                                        @forelse($appointment->services as $service)
-                                            {{$service->personel->name." ,"}}
-                                        @empty
 
-                                        @endforelse
-                                    </td>
+            <div class="row wow fadeInUp main-card" data-wow-delay="0.7s">
+                <!-- ----column-- -->
+                <div class="col-xxl-8 col-xl-9">
+                    <div class="swiper ticketing-Swiper position-relative overflow-hidden">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide">
+                                <div class="card ticket blue">
+                                    <div class="back-image">
+                                        <svg width="102" height="100" viewBox="0 0 102 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g opacity="0.3">
+                                                <path d="M89.3573 123.082C59.4605 115.689 41.2417 85.3438 48.6706 55.2997C56.0995 25.2556 86.3609 6.89766 116.258 14.2901C146.155 21.6826 164.373 52.028 156.944 82.0721C149.516 112.116 119.254 130.474 89.3573 123.082Z" stroke="white"/>
+                                                <path d="M91.021 116.351C64.8418 109.878 48.891 83.2911 55.4008 56.964C61.9106 30.6368 88.4137 14.5476 114.593 21.0208C140.772 27.4941 156.723 54.0807 150.213 80.4078C143.703 106.735 117.2 122.824 91.021 116.351Z" stroke="white"/>
+                                                <path d="M82.6265 121.417C56.4473 114.944 40.4965 88.3576 47.0063 62.0304C53.5161 35.7033 80.0191 19.6141 106.198 26.0873C132.378 32.5605 148.328 59.1471 141.819 85.4743C135.309 111.801 108.806 127.891 82.6265 121.417Z" stroke="white"/>
+                                                <path d="M73.9723 126.42C47.9385 119.983 32.1005 93.4265 38.6109 67.0969C45.1213 40.7672 71.5104 24.6525 97.5442 31.0897C123.578 37.527 139.416 64.0831 132.906 90.4127C126.395 116.742 100.006 132.857 73.9723 126.42Z" stroke="white"/>
+                                                <path d="M65.3189 131.422C39.1396 124.949 23.1888 98.3625 29.6986 72.0353C36.2084 45.7082 62.7115 29.6189 88.8908 36.0922C115.07 42.5654 131.021 69.152 124.511 95.4792C118.001 121.806 91.4981 137.896 65.3189 131.422Z" stroke="white"/>
+                                                <path d="M56.6647 136.425C30.6309 129.987 14.7929 103.431 21.3033 77.1017C27.8137 50.7721 54.2027 34.6573 80.2365 41.0946C106.27 47.5318 122.108 74.0879 115.598 100.418C109.088 126.747 82.6985 142.862 56.6647 136.425Z" stroke="white"/>
+                                                <circle cx="59.7333" cy="94.0209" r="48.8339" transform="rotate(103.889 59.7333 94.0209)" stroke="white"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="title">
+                                            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
+                                            </svg>
+                                            <h4>Toplam Randevu</h4>
+                                        </div>
+                                        <div  class="chart-num">
+                                            <h2>{{authUser()->appointments->count()}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card ticket secondary">
+                                    <div class="back-image">
+                                        <svg width="102" height="100" viewBox="0 0 102 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g opacity="0.3">
+                                                <path d="M89.3573 123.082C59.4605 115.689 41.2417 85.3438 48.6706 55.2997C56.0995 25.2556 86.3609 6.89766 116.258 14.2901C146.155 21.6826 164.373 52.028 156.944 82.0721C149.516 112.116 119.254 130.474 89.3573 123.082Z" stroke="white"/>
+                                                <path d="M91.021 116.351C64.8418 109.878 48.891 83.2911 55.4008 56.964C61.9106 30.6368 88.4137 14.5476 114.593 21.0208C140.772 27.4941 156.723 54.0807 150.213 80.4078C143.703 106.735 117.2 122.824 91.021 116.351Z" stroke="white"/>
+                                                <path d="M82.6265 121.417C56.4473 114.944 40.4965 88.3576 47.0063 62.0304C53.5161 35.7033 80.0191 19.6141 106.198 26.0873C132.378 32.5605 148.328 59.1471 141.819 85.4743C135.309 111.801 108.806 127.891 82.6265 121.417Z" stroke="white"/>
+                                                <path d="M73.9723 126.42C47.9385 119.983 32.1005 93.4265 38.6109 67.0969C45.1213 40.7672 71.5104 24.6525 97.5442 31.0897C123.578 37.527 139.416 64.0831 132.906 90.4127C126.395 116.742 100.006 132.857 73.9723 126.42Z" stroke="white"/>
+                                                <path d="M65.3189 131.422C39.1396 124.949 23.1888 98.3625 29.6986 72.0353C36.2084 45.7082 62.7115 29.6189 88.8908 36.0922C115.07 42.5654 131.021 69.152 124.511 95.4792C118.001 121.806 91.4981 137.896 65.3189 131.422Z" stroke="white"/>
+                                                <path d="M56.6647 136.425C30.6309 129.987 14.7929 103.431 21.3033 77.1017C27.8137 50.7721 54.2027 34.6573 80.2365 41.0946C106.27 47.5318 122.108 74.0879 115.598 100.418C109.088 126.747 82.6985 142.862 56.6647 136.425Z" stroke="white"/>
+                                                <circle cx="59.7333" cy="94.0209" r="48.8339" transform="rotate(103.889 59.7333 94.0209)" stroke="white"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="title">
+                                            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
+                                            </svg>
+                                            <h4>Tamamlanan</h4>
+                                        </div>
+                                        <div  class="chart-num">
+                                            <h2>{{authUser()->appointments()->where('status', 7)->count()}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card ticket pink">
+                                    <div class="back-image">
+                                        <svg width="102" height="100" viewBox="0 0 102 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g opacity="0.3">
+                                                <path d="M89.3573 123.082C59.4605 115.689 41.2417 85.3438 48.6706 55.2997C56.0995 25.2556 86.3609 6.89766 116.258 14.2901C146.155 21.6826 164.373 52.028 156.944 82.0721C149.516 112.116 119.254 130.474 89.3573 123.082Z" stroke="white"/>
+                                                <path d="M91.021 116.351C64.8418 109.878 48.891 83.2911 55.4008 56.964C61.9106 30.6368 88.4137 14.5476 114.593 21.0208C140.772 27.4941 156.723 54.0807 150.213 80.4078C143.703 106.735 117.2 122.824 91.021 116.351Z" stroke="white"/>
+                                                <path d="M82.6265 121.417C56.4473 114.944 40.4965 88.3576 47.0063 62.0304C53.5161 35.7033 80.0191 19.6141 106.198 26.0873C132.378 32.5605 148.328 59.1471 141.819 85.4743C135.309 111.801 108.806 127.891 82.6265 121.417Z" stroke="white"/>
+                                                <path d="M73.9723 126.42C47.9385 119.983 32.1005 93.4265 38.6109 67.0969C45.1213 40.7672 71.5104 24.6525 97.5442 31.0897C123.578 37.527 139.416 64.0831 132.906 90.4127C126.395 116.742 100.006 132.857 73.9723 126.42Z" stroke="white"/>
+                                                <path d="M65.3189 131.422C39.1396 124.949 23.1888 98.3625 29.6986 72.0353C36.2084 45.7082 62.7115 29.6189 88.8908 36.0922C115.07 42.5654 131.021 69.152 124.511 95.4792C118.001 121.806 91.4981 137.896 65.3189 131.422Z" stroke="white"/>
+                                                <path d="M56.6647 136.425C30.6309 129.987 14.7929 103.431 21.3033 77.1017C27.8137 50.7721 54.2027 34.6573 80.2365 41.0946C106.27 47.5318 122.108 74.0879 115.598 100.418C109.088 126.747 82.6985 142.862 56.6647 136.425Z" stroke="white"/>
+                                                <circle cx="59.7333" cy="94.0209" r="48.8339" transform="rotate(103.889 59.7333 94.0209)" stroke="white"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="title">
+                                            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
+                                            </svg>
+                                            <h4>İptal Edilen</h4>
+                                        </div>
+                                        <div  class="chart-num">
+                                            <h2>{{authUser()->appointments()->where('status', 8)->count()}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card ticket black">
+                                    <div class="back-image">
+                                        <svg width="102" height="100" viewBox="0 0 102 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g opacity="0.3">
+                                                <path d="M89.3573 123.082C59.4605 115.689 41.2417 85.3438 48.6706 55.2997C56.0995 25.2556 86.3609 6.89766 116.258 14.2901C146.155 21.6826 164.373 52.028 156.944 82.0721C149.516 112.116 119.254 130.474 89.3573 123.082Z" stroke="white"/>
+                                                <path d="M91.021 116.351C64.8418 109.878 48.891 83.2911 55.4008 56.964C61.9106 30.6368 88.4137 14.5476 114.593 21.0208C140.772 27.4941 156.723 54.0807 150.213 80.4078C143.703 106.735 117.2 122.824 91.021 116.351Z" stroke="white"/>
+                                                <path d="M82.6265 121.417C56.4473 114.944 40.4965 88.3576 47.0063 62.0304C53.5161 35.7033 80.0191 19.6141 106.198 26.0873C132.378 32.5605 148.328 59.1471 141.819 85.4743C135.309 111.801 108.806 127.891 82.6265 121.417Z" stroke="white"/>
+                                                <path d="M73.9723 126.42C47.9385 119.983 32.1005 93.4265 38.6109 67.0969C45.1213 40.7672 71.5104 24.6525 97.5442 31.0897C123.578 37.527 139.416 64.0831 132.906 90.4127C126.395 116.742 100.006 132.857 73.9723 126.42Z" stroke="white"/>
+                                                <path d="M65.3189 131.422C39.1396 124.949 23.1888 98.3625 29.6986 72.0353C36.2084 45.7082 62.7115 29.6189 88.8908 36.0922C115.07 42.5654 131.021 69.152 124.511 95.4792C118.001 121.806 91.4981 137.896 65.3189 131.422Z" stroke="white"/>
+                                                <path d="M56.6647 136.425C30.6309 129.987 14.7929 103.431 21.3033 77.1017C27.8137 50.7721 54.2027 34.6573 80.2365 41.0946C106.27 47.5318 122.108 74.0879 115.598 100.418C109.088 126.747 82.6985 142.862 56.6647 136.425Z" stroke="white"/>
+                                                <circle cx="59.7333" cy="94.0209" r="48.8339" transform="rotate(103.889 59.7333 94.0209)" stroke="white"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="title">
+                                            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
+                                            </svg>
+                                            <h4>Ödemesi Alınmamış</h4>
+                                        </div>
+                                        <div  class="chart-num">
+                                            <h2>{{authUser()->appointments()->where('status', 5)->count()}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
+                            <div class="card">
+                                <div class="card-header border-0 flex-wrap">
+                                    <h2 class="heading">Tüm Randevular</h2>
+                                    <div class="d-flex align-items-center">
+                                        <select class="image-select default-select dashboard-select me-4" aria-label="Default">
+                                            <option selected>Bu Ay</option>
+                                            <option value="1">Bu Hafta</option>
+                                            <option value="2">Bu Yıl</option>
+                                        </select>
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0);" class="btn-link btn sharp tp-btn btn-primary pill" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8.33319 9.99985C8.33319 10.9203 9.07938 11.6665 9.99986 11.6665C10.9203 11.6665 11.6665 10.9203 11.6665 9.99986C11.6665 9.07938 10.9203 8.33319 9.99986 8.33319C9.07938 8.33319 8.33319 9.07938 8.33319 9.99985Z" fill="#ffffff"/>
+                                                    <path d="M8.33319 3.33329C8.33319 4.25376 9.07938 4.99995 9.99986 4.99995C10.9203 4.99995 11.6665 4.25376 11.6665 3.33329C11.6665 2.41282 10.9203 1.66663 9.99986 1.66663C9.07938 1.66663 8.33319 2.41282 8.33319 3.33329Z" fill="#ffffff"/>
+                                                    <path d="M8.33319 16.6667C8.33319 17.5871 9.07938 18.3333 9.99986 18.3333C10.9203 18.3333 11.6665 17.5871 11.6665 16.6667C11.6665 15.7462 10.9203 15 9.99986 15C9.07938 15 8.33319 15.7462 8.33319 16.6667Z" fill="#ffffff"/>
+                                                </svg>
 
-                                    <td>{{Carbon::parse($appointment->start_time)->format('d.m.Y H:i:s')}}</td>
-                                    <td>
-                                        {!! $appointment->status('html') !!}
-                                    </td>
-
-                                    <td>
-                                        <div class="basic-dropdown">
-                                            <div class="btn-group dropstart mb-1">
-                                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                                        data-bs-toggle="dropdown">
-                                                    İşlemler
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item"
-                                                       href="{{route('business.appointment.show', $appointment->id)}}">Detay</a>
-                                                    <a class="dropdown-item"
-                                                       href="{{route('business.appointment.reject', $appointment->id)}}">İptal
-                                                        Et</a>
-                                                    @if(auth('business')->user()->approve_type != 1)
-                                                        <a class="dropdown-item"
-                                                           href="{{route('business.appointment.accept', $appointment->id)}}">Randevuyu
-                                                            Onayla</a>
-                                                    @endif
-                                                    @if($appointment->status== 3)
-                                                        <a class="dropdown-item" href="javascript:void(0);">Randevuyu
-                                                            Tamamla</a>
-                                                    @endif
-
-
-                                                    @if($appointment->status == 5)
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item" href="javascript:void(0);">Ödemeyi
-                                                            Onayla</a>
-                                                    @endif
-                                                </div>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="javascript:void(0);">Excel</a>
+                                                <a class="dropdown-item" href="javascript:void(0);">PDF</a>
                                             </div>
                                         </div>
-                                    </td>
-                                </tr>
-                            @empty
-                            @endforelse
-                            </tbody>
-                        </table>
+                                    </div>
+                                </div>
+                                <div class="card-body py-3">
+                                    <div class="table-responsive">
+                                        <table class="table-responsive-lg table display mb-4 order-table card-table text-black no-footer student-tbl" id="example3">
+                                            <thead>
+                                                <tr>
+                                                    <th>Müşteri Adı</th>
+                                                    <th style="max-width: 150px">Randevu Tarihi</th>
+                                                    <th class="text-left" style="max-width: 150px;">Durumu</th>
+                                                    <th style="text-align: left">Tutar</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @forelse(authUser()->appointments as $appointment)
+                                                    <tr>
+                                                        <td class="whitesp-no p-0">
+                                                            <div class="d-flex py-sm-3 py-1 align-items-center trans-info">
+														<span class="icon me-3">
+															<img src="{{image($appointment->customer->image)}}" width="50px">
+														</span>
+                                                                <div >
+                                                                    <h6 class="font-w500 fs-15 mb-0">{{$appointment->customer->name}}</h6>
+                                                                    <span class="fs-14 font-w400"><a href="tel:{{$appointment->customer->phone}}"> {{$appointment->customer->phone}}</a></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitesp-no" style="max-width: 150px;">
+                                                                <a href="#" class="tb-mail">
+                                                                    {{$appointment->start_time->format('d.m.Y H:i')}}
+                                                                </a>
+                                                        </td>
+                                                        <td class="text-left" style="max-width: 150px">
+                                                            {!! $appointment->status("html") !!}
+                                                        </td>
+                                                        <td class= "doller" style="text-align: left !important;">$60,00</td>
+                                                        <td>
+                                                            <div class="basic-dropdown">
+                                                                <div class="btn-group dropstart mb-1">
+                                                                    <button type="button" class="btn btn-primary dropdown-toggle"
+                                                                            data-bs-toggle="dropdown">
+                                                                        İşlemler
+                                                                    </button>
+                                                                    <div class="dropdown-menu">
+                                                                        <a class="dropdown-item"
+                                                                           href="{{route('business.appointment.show', $appointment->id)}}">Detay</a>
+                                                                        <a class="dropdown-item"
+                                                                           href="{{route('business.appointment.reject', $appointment->id)}}">İptal
+                                                                            Et</a>
+                                                                        @if(auth('business')->user()->approve_type != 1)
+                                                                            <a class="dropdown-item"
+                                                                               href="{{route('business.appointment.accept', $appointment->id)}}">Randevuyu
+                                                                                Onayla</a>
+                                                                        @endif
+                                                                        @if($appointment->status== 3)
+                                                                            <a class="dropdown-item" href="javascript:void(0);">Randevuyu
+                                                                                Tamamla</a>
+                                                                        @endif
+
+
+                                                                        @if($appointment->status == 5)
+                                                                            <div class="dropdown-divider"></div>
+                                                                            <a class="dropdown-item" href="javascript:void(0);">Ödemeyi
+                                                                                Onayla</a>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @empty
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <div class="alert alert-warning"> Randevu Kaydı Bulunamadı </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforelse
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- ----/column-- -->
                     </div>
+                    <!-- /--row-- -->
                 </div>
+                <!-- ----/column-- -->
+                <!-- ----column-- -->
+                <div class="col-xxl-4 col-xl-3">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card event-agenda  h-auto">
+                                <div class="card-header border-0 pb-0">
+                                    <div>
+                                        <h2 class="heading">Bugünkü Randevular</h2>
+                                    </div>
+
+                                </div>
+                                <div class="card-body loadmore-content  recent-activity-wrapper p-3 pt-0" id="RecentActivityContent">
+                                    @forelse($todayAppointments as $appointment)
+                                        <div class="d-flex align-items-center event" start-time="{{\Illuminate\Support\Carbon::parse($appointment->start_time)->format('H:i')}}">
+                                            <span class="event-date">
+                                                <h4>1</h4>
+                                                <span>DEC</span>
+                                            </span>
+                                            <div class="event-info">
+                                                <h6><a href="{{route('business.appointment.show', $appointment->id)}}">{{$appointment->customer->name}}</a></h6>
+                                                <span>{{\Illuminate\Support\Carbon::parse($appointment->start_time)->format('H:i'). ' - '. \Illuminate\Support\Carbon::parse($appointment->end_time)->format('H:i')}}</span>
+                                            </div>
+
+                                        </div>
+                                    @empty
+                                        <div class="alert alert-warning">
+                                            Bugüne Ait Randevu Kaydı Bulunamadı
+                                        </div>
+                                    @endforelse
+
+                                </div>
+                                <!--
+                                     <div class="card-footer text-center border-0 pt-0">
+                                    <a href="javascript:void(0);" class="btn btn-block light btn-secondary" id="RecentActivity">View More</a>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- ----/column-- -->
             </div>
         </div>
     </div>
@@ -187,9 +368,39 @@
 @endsection
 @section('scripts')
 
-    <script src="/admin/assets/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
-    <script src="/admin/assets/js/plugins-init/material-date-picker-init.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/panel/assets/vendor/swiper/js/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.ticketing-Swiper', {
+            speed: 1500,
+            slidesPerView: 4,
+            spaceBetween: 40,
+            parallax: true,
+            loop:true,
+            breakpoints: {
+
+                300: {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                },
+                576: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                991: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1600: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+            },
+        });
+    </script>
     <script>
         $(document).ready(function () {
             $('#example3').DataTable();
@@ -199,28 +410,25 @@
         })
     </script>
     <script>
-        $("#personel_id").on("change", function () {
-            let deg = $(this).val();
-            $.ajax({
-                'url': '{{route('business.personelService')}}',
-                'type': "POST",
-                'data': {
-                    _token: "{{csrf_token()}}",
-                    'personel_id': deg,
-                },
-                'dataType': "JSON",
-                success: function (data) {
-                    if (data.length > 0) {
-                        $.each(data, function (i, e) {
-                            $("#service_id").append('<option value="' + e.id + '">' + e.sub_category.name + '(' + e.gender.name + ')' + '</option>')
-                        });
-                    } else {
-                        $("#service_id").append('<option>Personele tanımlı hizmet yok</option>')
-                    }
+        function clearPastAppointments() {
+            var now = new Date();
+            var currentHour = now.getHours();
+            var currentMinute = now.getMinutes();
 
+            var currentTime = currentHour.toString().padStart(2, '0') + ':' + currentMinute.toString().padStart(2, '0');
+
+            $('div[start-time]').each(function() {
+                var startTime = $(this).attr('start-time');
+                if (startTime < currentTime) {
+                    $(this).remove();
                 }
-            })
-        })
+            });
+        }
+
+        $(document).ready(function() {
+            clearPastAppointments();
+            setInterval(clearPastAppointments, 60000);
+        });
     </script>
 
 @endsection
