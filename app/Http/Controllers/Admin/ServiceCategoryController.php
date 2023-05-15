@@ -91,7 +91,12 @@ class ServiceCategoryController extends Controller
     {
         $serviceCategory->name=$request->input('name');
         $serviceCategory->type_id=$request->input('type_id');
-
+        if($request->hasFile('cover_image')){
+            $serviceCategory->cover_image='storage/'. $request->file('cover_image')->store('service_images');
+        }
+        if($request->hasFile('icon')){
+            $serviceCategory->image='storage/'. $request->file('icon')->store('service_icons');
+        }
         if ($serviceCategory->save()){
             return to_route('admin.serviceCategory.index')->with('response', [
                 'status'=>"success",

@@ -91,6 +91,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('activity', \App\Http\Controllers\Admin\ActivityController::class);
         Route::resource('comment', \App\Http\Controllers\Admin\CommentController::class);
         Route::resource('faq', \App\Http\Controllers\Admin\FaqController::class);
+        Route::resource('businessFaq', \App\Http\Controllers\Admin\BusinessFaqController::class);
+        Route::resource('businessBlog', \App\Http\Controllers\Admin\BusinessBlogController::class);
         Route::resource('socialMedia', \App\Http\Controllers\Admin\SocialMediaController::class);
         Route::resource('ads', \App\Http\Controllers\Admin\AdsController::class);
         Route::resource('page', \App\Http\Controllers\Admin\PageController::class);
@@ -120,13 +122,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::post('comment/update-status', [\App\Http\Controllers\Admin\CommentController::class, 'updateStatus'])->name('comment.updateStatus');
         Route::post('activity/update-status', [\App\Http\Controllers\Admin\ActivityController::class, 'updateStatus'])->name('activity.updateStatus');
         Route::post('blog/update-status', [\App\Http\Controllers\Admin\BlogController::class, 'updateStatus'])->name('blog.updateStatus');
+        Route::post('business/blog/update-status', [\App\Http\Controllers\Admin\BusinessBlogController::class, 'updateStatus'])->name('businessBlog.updateStatus');
+
         Route::post('city', [\App\Http\Controllers\Admin\HomeController::class, 'district'])->name('city');
         Route::post('subCategory', [\App\Http\Controllers\Admin\HomeController::class, 'subCategory'])->name('subCategory');
 
         /*Ajax Post Url end*/
-
         Route::get('/update-category', [\App\Http\Controllers\Admin\SettingController::class, 'uCategory']);
-        Route::get('/settings', [\App\Http\Controllers\Admin\SettingController::class, 'edit'])->name('settings');
-        Route::post('/settings', [\App\Http\Controllers\Admin\SettingController::class, 'update']);
+        Route::get('/business-settings', [\App\Http\Controllers\Admin\SettingController::class, 'businessEdit'])->name('business.settings');
+        Route::get('/user-settings', [\App\Http\Controllers\Admin\SettingController::class, 'userEdit'])->name('user.settings');
+        /*Route::get('/business-main-page', [\App\Http\Controllers\Admin\SettingController::class, 'businessEdit'])->name('business.settings');*/
+        Route::get('/anasayfa/guncelle', [\App\Http\Controllers\Admin\MaingPageController::class, 'userEdit'])->name('user.mainPage');
+
+        Route::post('/main-page-update', [\App\Http\Controllers\Admin\MaingPageController::class, 'section_update'])->name('user.mainPage.update');
+
+        Route::post('/settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
     });
 });

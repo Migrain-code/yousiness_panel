@@ -18,7 +18,8 @@ class ServiceSubCategoryController extends Controller
     public function index()
     {
         $categories= ServiceCategory::all();
-        $subCategories=ServiceSubCategory::all();
+        $subCategories=ServiceSubCategory::orderBy('featured', 'DESC')->get();
+
         return view('admin.service_sub_category.index', compact('subCategories', 'categories'));
     }
 
@@ -91,6 +92,10 @@ class ServiceSubCategoryController extends Controller
     {
         $serviceSubCategory->category_id=$request->category_id;
         $serviceSubCategory->name=$request->name;
+        $serviceSubCategory->featured=$request->number;
+        if ($request->hasFile('icon')){
+            $serviceSubCategory->icon='storage/'. $request->file('icon')->store('sub_category_icons');
+        }
         if ($serviceSubCategory->save()){
             return to_route('admin.serviceSubCategory.index')->with('response', [
                 'status'=>"success",

@@ -80,11 +80,13 @@ class SponsorController extends Controller
      */
     public function update(Request $request, Sponsor $sponsor)
     {
+
         $sponsor->name=$request->name;
         if ($request->hasFile('image')){
             $sponsor->image='storage/'.$request->file('image')->store('sponsor');
         }
         $sponsor->link=$request->link;
+
         if ($sponsor->save()){
             return to_route('admin.sponsor.index')->with('status', 'Sponsor Güncellendi');
         }

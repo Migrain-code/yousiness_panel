@@ -2,58 +2,73 @@
 @section('links')
     <link href="/admin/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 
+    <style>
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: 800px !important;
+                margin: 1.75rem auto;
+            }
+        }
+    </style>
 @endsection
 @section('content')
     <div class="col-xl-12">
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Hizmet Alt Kategorileri / Liste
+                    Sponsor İşlemleri
                 </h2>
             </div>
         </div>
     </div>
     <div class="col-12">
         @include('admin.layouts.component.alert')
+        @if($errors->any())
+
+            <ul class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
     </div>
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Hizmet Alt Kategorileri Listesi
+                    Sponsor Listesi
                 </h4>
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalCenter">
                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
+                        <div class="modal-content" style="width: 800px">
                             <div class="modal-header">
-                                <h5 class="modal-title">Hizmet Alt Kategorileri Ekle</h5>
+                                <h5 class="modal-title">Sponsor Ekle</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
-                            <form method="post" action="{{route('admin.serviceSubCategory.store')}}">
-                            <div class="modal-body">
+                            <form method="post" style="width: 800px" action="{{route('admin.sponsor.store')}}" enctype="multipart/form-data">
+                                <div class="modal-body">
                                     @csrf
-                                    <label>Üst Kategori Adı</label>
-                                    <select name="category_id" class="form-control mb-2">
-                                        <option>Üst Kategori seçiniz</option>
-                                        @forelse($categories as $category)
-                                           <option value="{{$category->id}}">{{$category->name}}</option>
-                                        @empty
-
-                                        @endforelse
-                                    </select>
-                                <div class="mb-3">
-                                        <label>Kategori Adı</label>
-                                        <input type="text" class="form-control input-default " name="name" placeholder="Örneğin(Berber)">
+                                    <div class="mb-3">
+                                        <label>Adı</label>
+                                        <input type="text" class="form-control input-default " value="{{old('name')}}" name="name" >
                                     </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
-                                <button type="submit" class="btn btn-primary">Kaydet</button>
-                            </div>
+                                    <div class="mb-3">
+                                        <label>Linki</label>
+                                        <input type="text" class="form-control input-default " value="{{old('link')}}" name="link" >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Görseli / Logosu</label>
+                                        <input type="file" accept=".png, .jpg, .jpeg" class="form-control input-default " value="{{old('image')}}" name="image" >
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -62,35 +77,31 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="example" class="display" style="min-width: 845px">
+                    <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>Üst Kategori Adı</th>
-                            <th>Kategori Adı</th>
-                            <th>Sıra</th>
+                            <th>Görsel</th>
+                            <th>Ad</th>
                             <th>İşlemler</th>
                         </tr>
                         </thead>
                         <tbody>
-                            @forelse($subCategories as $subCategorie)
-                                <tr class="rowDelete">
-                                    <td>{{$subCategorie->category->name}}</td>
-                                    <td>
-                                        {{$subCategorie->name}}
-                                    </td>
-                                    <td>{{$subCategorie->featured}}</td>
-                                    <td>
-                                        <a class="btn btn-primary" href="{{route('admin.serviceSubCategory.edit', $subCategorie->id)}}"><i class="fa fa-edit"></i></a>
-                                        <button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.serviceSubCategory.destroy', $subCategorie->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
-                                    </td>
-                                </tr>
-                            @endforelse
+                        @forelse($sponsors as $sponsor)
+                            <tr class="rowDelete">
+                                <td><a href="{{$sponsor->link}}"><img src="{{asset($sponsor->image)}}" style="width: 50px"></a></td>
+                                <td>{{$sponsor->name}}</td>
+                                <td>
+                                    <a class="btn btn-primary" style="margin-right: 0px;" href="{{route('admin.sponsor.edit', $sponsor->id)}}"><i class="fa fa-edit"></i></a>
+                                    <button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.sponsor.destroy', $sponsor->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5">
+                                    <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                </td>
+                            </tr>
+                        @endforelse
                         </tbody>
 
                     </table>
@@ -105,9 +116,7 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="/admin/assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="/admin/assets/js/plugins-init/datatables.init.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         function deleteAction(hostUrl, index){
             var table = $('#example').DataTable();

@@ -41,7 +41,7 @@
                 </div>
                 <div class="row">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i> İşletme Ekle</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i> Personel Ekle</button>
                         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenter3"><i class="fa fa-plus-circle"></i> Sponsor Ekle</button>
                         <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2"><i class="fa fa-list"></i> Katılımcı Listesi</button>
                         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter4"><i class="fa fa-list"></i> Sponsor Listesi</button>
@@ -131,20 +131,20 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content" style="width: 800px">
                 <div class="modal-header">
-                    <h5 class="modal-title">İşletme Ekle</h5>
+                    <h5 class="modal-title">Personel Ekle</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
                 <form method="post" style="width: 800px" action="{{route('admin.activity.storeBusiness')}}">
                     <div class="modal-body">
                         @csrf
-                        <label>İşletme Seçiniz</label>
+                        <label>Personel Seçiniz</label>
                        <select multiple name="businesses[]" style="width: 100%;" class="form-control">
 
-                           @forelse($businesses as $business)
-                                <option value="{{$business->id}}">{{$business->name}}</option>
+                           @forelse($personels as $personal)
+                                <option value="{{$personal->id}}">{{$personal->name}}</option>
                            @empty
-                            <option value="">Ekleyebileceğiniz İşletme Bulunamadı</option>
+                            <option value="">Ekleyebileceğiniz Personel Bulunamadı</option>
                            @endforelse
                        </select>
                         <input type="hidden" name="activity_id" value="{{$activity->id}}">
@@ -175,26 +175,24 @@
                     <table class="table table-responsive-md" id="myTable2">
                         <thead style="color: black">
                         <tr>
-                            <th><strong>İşletme Adı</strong></th>
-                            <th><strong>Katılımcı Kodu</strong></th>
+                            <th><strong>Personel Adı</strong></th>
                             <th><strong>Durumu</strong></th>
                             <th><strong>İşlemler</strong></th>
                         </tr>
                         </thead>
                         <tbody>
-                            @forelse($activity->businesses as $activityBusiness)
+                            @forelse($activity->personels as $activityPersonel)
                                 <tr>
-                                    <td>{{$activityBusiness->business->name}}</td>
-                                    <td>{{$activityBusiness->activity_code}}</td>
+                                    <td>{{$activityPersonel->personel->name}}</td>
                                     <td>
-                                       @if($activityBusiness->status == 1)
+                                       @if($activityPersonel->status == 1)
                                             <span class="badge badge-success">Kabul Edildi</span>
                                         @else
                                             <span class="badge badge-danger">İptal Edildi</span>
                                         @endif
                                     </td>
                                     <td>
-                                        <button class="btn btn-warning" onclick="cancelActivityBusiness('{{$activityBusiness->id}}')">Kabul / İptal</button>
+                                        <button class="btn btn-warning" onclick="cancelActivityBusiness('{{$activityPersonel->id}}')">Kabul / İptal</button>
                                     </td>
                                 </tr>
                             @empty

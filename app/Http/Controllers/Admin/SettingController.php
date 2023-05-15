@@ -15,19 +15,19 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class SettingController extends Controller
 {
-    /**
-     * @param $page
-     * @return Application|Factory|View
-     */
-    public function edit()
+
+    public function businessEdit()
     {
-        return view('admin.settings.index');
+        return view('admin.settings.business');
+    }
+    public function userEdit()
+    {
+        return view('admin.settings.user');
     }
 
     public function uCategory()
     {
-        Excel::import(new CategoryImport(), 'C:\\Users\\Migrain\\Desktop\\hizli_randevu\\hizli_randevu.xlsx');
-
+        /*Excel::import(new CategoryImport(), 'C:\\Users\\Migrain\\Desktop\\hizli_randevu\\hizli_randevu.xlsx');*/
     }
     /**
      * @param Request $request

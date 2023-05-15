@@ -28,7 +28,7 @@ class ActivitySponsorController extends Controller
             $activitySponsor->status=boolval($request->input('status'));
         }
 
-        $activitySponsor->image=$request->file('image')->store('activity_sponsor_images');
+        $activitySponsor->image='storage/'.$request->file('image')->store('activity_sponsor_images');
         if ($activitySponsor->save()){
             return to_route('admin.activity.edit', $request->input('activity_id'))->with('response', [
                 'status'=>"success",
@@ -68,8 +68,10 @@ class ActivitySponsorController extends Controller
      */
     public function update(Request $request, ActivitySponsor $activitySponsor)
     {
+
+
         if ($request->hasFile('image')){
-            $activitySponsor->image=$request->file('image')->store('activity_sponsor_images');
+            $activitySponsor->image='storage/'.$request->file('image')->store('activity_sponsor_images');
         }
         if ($request->input('status')){
 

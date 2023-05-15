@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use App\Models\ActivityBusiness;
 use App\Models\Business;
+use App\Models\Personel;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
@@ -80,18 +81,18 @@ class ActivityController extends Controller
     {
 
         $b_id=[];
-        $activityBusinesses=ActivityBusiness::where('activity_id', $activity->id)->get();
-        foreach ($activityBusinesses as $business){
-            $b_id[]=$business->business_id;
+        $activityPpersonels=ActivityBusiness::where('activity_id', $activity->id)->get();
+        foreach ($activityPpersonels as $personel){
+            $b_id[]=$personel->personel_id;
         }
-        $businesses=[];
-        foreach (Business::all() as $business){
-            if (in_array($business->id, $b_id) == false){
-               $businesses[]=$business;
+        $personels=[];
+        foreach (Personel::all() as  $personel){
+            if (in_array($personel->id, $b_id) == false){
+               $personels[]= $personel;
             }
         }
 
-        return view('admin.activity.edit', compact('activity', 'businesses'));
+        return view('admin.activity.edit', compact('activity', 'personels'));
     }
 
     public function storeBusiness(Request $request)
@@ -103,7 +104,7 @@ class ActivityController extends Controller
         ]);
         foreach ($request->businesses as $id){
             $activityBusiness=new ActivityBusiness();
-            $activityBusiness->business_id=$id;
+            $activityBusiness->personel_id=$id;
             $activityBusiness->activity_id=$request->activity_id;
             $activityBusiness->activity_code=Str::random(15);
             $activityBusiness->save();

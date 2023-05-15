@@ -23,7 +23,7 @@
                 --}}
             </div>
             <div class="card-body">
-                <form method="post" action="{{route('admin.serviceCategory.update', $serviceCategory->id)}}">
+                <form method="post" action="{{route('admin.serviceCategory.update', $serviceCategory->id)}}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
@@ -38,8 +38,18 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label>Özellik Adı</label>
+                        <label>Kategori Adı</label>
                         <input type="text" class="form-control input-default " name="name" value="{{$serviceCategory->name}}" placeholder="Örneğin(Randevu Hatırlatma)">
+                    </div>
+                    <div class="mb-3">
+                        <label>Tanıtım Görseli</label>
+                        <input type="file" class="form-control input-default " accept=".png, .jpg, .jpeg" name="cover_image" placeholder="">
+                        <img class="mt-2" src="{{asset($serviceCategory->cover_image)}}" style="width: 100px">
+                    </div>
+                    <div class="mb-3">
+                        <label>İkon</label>
+                        <input type="file" class="form-control input-default " accept=".png, .jpg, .jpeg" name="icon" placeholder="">
+                        <img class="mt-2" src="{{asset($serviceCategory->image)}}" style="width: 50px">
                     </div>
                     <div class="mb-3 text-center">
                         <button type="submit" class="btn btn-primary">Kaydet</button>

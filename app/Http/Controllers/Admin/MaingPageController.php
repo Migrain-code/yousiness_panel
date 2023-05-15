@@ -3,21 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\ForBusiness;
-use App\Models\Swiper;
+use App\Models\MaingPage;
 use Illuminate\Http\Request;
 
-class ForBusinessController extends Controller
+class MaingPageController extends Controller
 {
-    public function index()
+    public function userEdit()
     {
-        $swipers=Swiper::latest()->get();
+
         $sections = [];
-        foreach (ForBusiness::all() as $item) {
+        foreach (MaingPage::all() as $item) {
             $sections[$item->name] = $item->value;
         }
-
-        return view('admin.about.index', compact('sections', 'swipers'));
+        return view('admin.main-page.user', compact('sections'));
     }
 
     public function section_update(Request $request)
@@ -27,7 +25,7 @@ class ForBusinessController extends Controller
                 $item = 'storage/' . $request->file($key)->store('forBusiness');
             }
 
-            $query = ForBusiness::query()->whereName($key)->first();
+            $query = MaingPage::query()->whereName($key)->first();
             if ($query) {
                 if ($query->value != $item) {
                     $query->name = $key;
@@ -35,7 +33,7 @@ class ForBusinessController extends Controller
                     $query->save();
                 }
             } else {
-                $newQuery = new ForBusiness();
+                $newQuery = new MaingPage();
                 $newQuery->name = $key;
                 $newQuery->value = $item;
                 $newQuery->save();
@@ -44,12 +42,12 @@ class ForBusinessController extends Controller
         if (\request()->ajax()) {
             return response()->json([
                 'status' => 'success',
-                'message' => 'Ayarlar başarıyla kaydedildi.'
+                'message' => 'Anasayfa başarıyla kaydedildi.'
             ]);
         } else {
             return back()->with('response', [
                 'status'=>"success",
-                'message'=>"İşletmeler İçin Sayfası güncellendi."
+                'message'=>"Anasayfa güncellendi."
             ]);
         }
     }

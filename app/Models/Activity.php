@@ -10,7 +10,7 @@ class Activity extends Model
     use HasFactory;
     protected $dates=['start_date', 'stop_date'];
 
-    public function businesses()
+    public function personels()
     {
         return $this->hasMany(ActivityBusiness::class, 'activity_id', 'id');
     }

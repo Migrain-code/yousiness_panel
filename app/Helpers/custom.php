@@ -7,6 +7,9 @@ function storage($path): string
 function image($path){
     return env('REMOTE_URL').'/'.$path;
 }
+function setting($key){
+    return config('settings.'.$key);
+}
 function authUser(){
     if (auth('business')->check()){
         return auth('business')->user();
