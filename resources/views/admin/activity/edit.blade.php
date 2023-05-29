@@ -75,7 +75,7 @@
                             <textarea class="sm-note" name="description">{!! $activity->description !!}{{old('description')}}</textarea>
                         </div>
                         <div class="mb-3">
-                            <label>Meta Key</label>
+                            <label>Meta Title</label>
                             <input type="text" class="form-control input-default " value="{{$activity->meta_keys}}{{old('meta_keys')}}" name="meta_keys" >
                         </div>
                         <div class="mb-3">
@@ -110,12 +110,14 @@
                             <input type="hidden" name="activity_id" value="{{$activity->id}}">
                         </div>
                         <div class="row">
-
                             <div class="form-check custom-checkbox my-3">
                                 <label class="form-check-label" for="customCheckBox1">Ana Sponsor Mu?</label>
                                 <input type="checkbox" name="status" class="form-check-input" id="customCheckBox1">
-
                             </div>
+                        </div>
+                        <div class="row">
+                            <label>Metin Giriniz</label>
+                            <input type="text" name="name" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">

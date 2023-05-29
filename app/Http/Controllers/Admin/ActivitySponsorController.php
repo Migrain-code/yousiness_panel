@@ -19,20 +19,21 @@ class ActivitySponsorController extends Controller
     public function store(Request $request)
     {
         //$request->dd();
-        $activitySponsor=new ActivitySponsor();
-        $activitySponsor->activity_id=$request->input('activity_id');
-        if (boolval($request->input('status')) == 1){
-            $activities=ActivitySponsor::where('activity_id', $request->input('activity_id'))->update([
-                'status'=>0,
+        $activitySponsor = new ActivitySponsor();
+        $activitySponsor->activity_id = $request->input('activity_id');
+        if (boolval($request->input('status')) == 1) {
+            $activities = ActivitySponsor::where('activity_id', $request->input('activity_id'))->update([
+                'status' => 0,
             ]);
-            $activitySponsor->status=boolval($request->input('status'));
+            $activitySponsor->status = boolval($request->input('status'));
+        } else {
+            $activitySponsor->name = $request->input('name');
         }
-
-        $activitySponsor->image='storage/'.$request->file('image')->store('activity_sponsor_images');
-        if ($activitySponsor->save()){
+        $activitySponsor->image = 'storage/' . $request->file('image')->store('activity_sponsor_images');
+        if ($activitySponsor->save()) {
             return to_route('admin.activity.edit', $request->input('activity_id'))->with('response', [
-                'status'=>"success",
-                'message'=>"Sponsor Eklendi",
+                'status' => "success",
+                'message' => "Sponsor Eklendi",
             ]);
         }
     }
@@ -70,22 +71,23 @@ class ActivitySponsorController extends Controller
     {
 
 
-        if ($request->hasFile('image')){
-            $activitySponsor->image='storage/'.$request->file('image')->store('activity_sponsor_images');
+        if ($request->hasFile('image')) {
+            $activitySponsor->image = 'storage/' . $request->file('image')->store('activity_sponsor_images');
         }
-        if ($request->input('status')){
+        if ($request->input('status')) {
 
             ActivitySponsor::where('activity_id', $activitySponsor->activity_id)->update([
-                'status'=>0,
+                'status' => 0,
             ]);
-
-            $activitySponsor->status=boolval($request->input('status'));
+            $activitySponsor->status = boolval($request->input('status'));
+        } else {
+            $activitySponsor->name = $request->input('name');
         }
 
-        if ($activitySponsor->save()){
+        if ($activitySponsor->save()) {
             return to_route('admin.activity.edit', $activitySponsor->activity_id)->with('response', [
-                'status'=>"success",
-                'message'=>"Sponsor Bilgisi Güncellendi",
+                'status' => "success",
+                'message' => "Sponsor Bilgisi Güncellendi",
             ]);
         }
     }
@@ -98,9 +100,9 @@ class ActivitySponsorController extends Controller
      */
     public function destroy(ActivitySponsor $activitySponsor)
     {
-        if ($activitySponsor->delete()){
+        if ($activitySponsor->delete()) {
             return response()->json([
-               'status'=>"success",
+                'status' => "success",
             ]);
         }
     }

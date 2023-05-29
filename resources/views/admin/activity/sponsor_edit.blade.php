@@ -48,6 +48,10 @@
                             <input type="checkbox" name="status" class="form-check-input" id="customCheckBox1" @checked($activitySponsor->status == 1)>
                         </div>
                     </div>
+                    <div class="row">
+                        <label>Metin Giriniz</label>
+                        <input type="text" name="name" value="{{$activitySponsor->name}}" class="form-control">
+                    </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
