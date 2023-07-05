@@ -16,7 +16,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Reklam İşlemleri
+                    Öne Çıkan İşletmeler İşlemleri
                 </h2>
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Paylaşılan Listesi
+                    Öne Çıkarılan Listesi
                 </h4>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
@@ -45,25 +45,36 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content" style="width: 800px">
                             <div class="modal-header">
-                                <h5 class="modal-title">Reklam Ekle</h5>
+                                <h5 class="modal-title">Soru/Cevap Ekle</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
-                            <form method="post" style="width: 800px" action="{{route('admin.ads.store')}}" enctype="multipart/form-data">
+                            <form method="post" style="width: 800px" action="{{route('admin.featuredCategorie.store')}}">
                                 <div class="modal-body">
                                     @csrf
                                     <div class="mb-3">
-                                        <label>Başlık</label>
-                                        <input type="text" class="form-control input-default " value="{{old('title')}}" name="title" >
+                                        <label>Meta Başlık Giriniz</label>
+                                        <input type="text" name="meta_title" class="form-control input-default">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Görsel</label>
-                                        <input type="file" class="form-control input-default " value="{{old('image')}}" name="image" >
+                                        <label>Meta Açıklama Giriniz</label>
+                                        <input type="text" name="meta_description" class="form-control input-default">
                                     </div>
-
                                     <div class="mb-3">
-                                        <label>Linki</label>
-                                        <input type="text" class="form-control input-default " value="{{old('link')}}" name="link" >
+                                        <label>İşletme Kategorisi Seçiniz</label>
+                                        <select class="form-control input-default " name="category_id">
+                                            @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Şehir Seçiniz</label>
+                                        <select class="form-control input-default " multiple name="city_ids[]">
+                                            @foreach($cities as $city)
+                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -81,21 +92,28 @@
                     <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>Görsel</th>
-                            <th>Başlık</th>
-                            <th>Link</th>
+                            <th>Kategori Adı</th>
+                            <th>Şehir Sayısı</th>
+                            <th>Durum</th>
                             <th>İşlemler</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @forelse($ads as $ad1)
+                        @forelse($featuredCategories as $featuredCategory)
                             <tr class="rowDelete">
-                                <td><img src="{{asset($ad1->image)}}" width="50px"></td>
-                                <td>{{$ad1->title}}</td>
-                                <td><a href="{{$ad1->link}}" target="_blank">{{$ad1->link}}</a></td>
+                                <td>{{$featuredCategory->category->name}}</td>
+                                <td>{{$featuredCategory->cities->count(). " Şehir"}}</td>
                                 <td>
-                                    <a class="btn btn-primary" style="margin-right: 0px;" href="{{route('admin.ads.edit', $ad1->id)}}"><i class="fa fa-edit"></i></a>
-                                    <button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.ads.destroy', $ad1->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>
+                                    @if($featuredCategory->status == 0)
+                                        <span class="badge badge-warning">Yayında Değil</span>
+                                    @else
+                                        <span class="badge badge-success">Yayında</span>
+
+                                    @endif
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary" style="margin-right: 0px;" href="{{route('admin.featuredCategorie.edit', $featuredCategory->id)}}"><i class="fa fa-edit"></i></a>
+                                    <button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.featuredCategorie.destroy', $featuredCategory->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                         @empty

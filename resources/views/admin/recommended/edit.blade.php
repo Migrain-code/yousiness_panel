@@ -7,7 +7,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                   Reklam Düzenle
+                   Önerilen Link Düzenle
                 </h2>
             </div>
         </div>
@@ -26,28 +26,25 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                   <h3> {{$ads->title}}</h3>
+                   <h3> {{$recommendedLink->id}}</h3>
                 </div>
             </div>
             <div class="card-body">
-                <form method="post" action="{{route('admin.ads.update', $ads->id)}}" enctype="multipart/form-data">
-                        @method('PUT')
+                <form method="post" action="{{route('admin.recommendedLink.update', $recommendedLink->id)}}">
                         @csrf
+                        @method('PUT')
                         <div class="mb-3">
-                            <label>Başlık</label>
-                            <input type="text" class="form-control input-default " value="{{$ads->title}} {{old('title')}}" name="title" >
+                            <label>Başlık Giriniz</label>
+                            <input type="text" name="title" value="{{$recommendedLink->title}}" class="form-control input-default">
                         </div>
                         <div class="mb-3">
-                            <label>Görsel</label>
-                            <input type="file" class="form-control input-default " name="image" >
+                            <label>Link Giriniz</label>
+                            <input type="text" name="link" value="{{$recommendedLink->url}}" class="form-control input-default">
                         </div>
-                        <div class="mb-3">
 
-                            <img src="{{asset($ads->image)}}" width="100px">
-                        </div>
                         <div class="mb-3">
-                            <label>Linki</label>
-                            <input type="text" class="form-control input-default " value="{{$ads->link}} {{old('link')}}" name="link" >
+                            <label>Durum</label>
+                            <input type="checkbox" class="form-check" name="status" @checked($recommendedLink->status == 1)> @if($recommendedLink->status == 1 ) Aktif @else Pasif @endif
                         </div>
 
                     <div class="modal-footer">

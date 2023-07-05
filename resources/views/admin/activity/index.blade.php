@@ -123,7 +123,6 @@
                                         <span class="badge badge-success">Yayında</span>
 
                                     @endif
-
                                 </td>
                                 <td>
                                     <a class="btn btn-primary" style="margin-right: 0px;" href="{{route('admin.activity.edit', $activity->id)}}"><i class="fa fa-edit"></i></a>

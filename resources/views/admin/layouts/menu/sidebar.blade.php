@@ -62,9 +62,7 @@
                     </span>
                 </a>
                 <ul  @if(request()->routeIs('admin.blog.*')) class="mm-collapse mm-show" aria-expanded="true" @else aria-expanded="false" @endif>
-                    <li>
-                        <a href="{{route('admin.activity.index')}}">Etkinlik İşlemleri</a>
-                    </li>
+
                     <li>
                         <a href="{{route('admin.comment.index')}}">Yorum İşlemleri</a>
                     </li>
@@ -118,6 +116,15 @@
                     </li>
                     <li>
                         <a href="{{route('admin.user.mainPage')}}">Anasayfa İşlemleri</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.featuredCategorie.index')}}">Öne Çıkanlar</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.recommendedLink.index')}}">Önerilen Linkler</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.activity.index')}}">Etkinlik İşlemleri</a>
                     </li>
                     <li>
                         <a href="{{route('admin.user.settings')}}">Ayarlar</a>

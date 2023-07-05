@@ -83,6 +83,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::middleware('cookieAccess')->group(function(){});
     Route::middleware('auth:admin')->group(function () {
         Route::get('/home', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
+        Route::resource('featuredCategorie', \App\Http\Controllers\Admin\FeaturedCategorieController::class);
+        Route::resource('recommendedLink', \App\Http\Controllers\RecommendedLinkController::class);
         Route::resource('page', \App\Http\Controllers\Admin\PageController::class);
         Route::resource('user', \App\Http\Controllers\Admin\UserController::class);
         Route::resource('faq', \App\Http\Controllers\Admin\FaqController::class);

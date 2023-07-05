@@ -38,7 +38,7 @@ class AdsController extends Controller
         $ads=new Ads();
         $ads->title=$request->input('title');
         $ads->link=$request->input('link');
-        $ads->image='storage/'.$request->file('image')->store('ads_image');
+        $ads->image='storage/'.$request->file('image')->store('adds_image');
         if ($ads->save()){
             return to_route('admin.ads.index')->with('response', [
                 'status'=>"success",
@@ -82,7 +82,7 @@ class AdsController extends Controller
         $ads->title=$request->input('title');
         $ads->link=$request->input('link');
         if ($request->hasFile('image')){
-            $ads->image='storage/'.$request->file('image')->store('ads_image');
+            $ads->image='storage/'.$request->file('image')->store('adds_image');
         }
         if ($ads->save()){
             return to_route('admin.ads.edit', $ads->id)->with('response', [
