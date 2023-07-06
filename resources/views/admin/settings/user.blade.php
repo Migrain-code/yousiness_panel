@@ -12,10 +12,20 @@
                     <div class="card-body">
                         <!--begin:::Tabs-->
                         <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x border-transparent fs-4 fw-semibold mb-15">
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary active" data-bs-toggle="tab" href="#kt_ecommerce_settings_general">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
+                                    <span class="svg-icon svg-icon-2 me-2">
+														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M11 2.375L2 9.575V20.575C2 21.175 2.4 21.575 3 21.575H9C9.6 21.575 10 21.175 10 20.575V14.575C10 13.975 10.4 13.575 11 13.575H13C13.6 13.575 14 13.975 14 14.575V20.575C14 21.175 14.4 21.575 15 21.575H21C21.6 21.575 22 21.175 22 20.575V9.575L13 2.375C12.4 1.875 11.6 1.875 11 2.375Z" fill="currentColor" />
+														</svg>
+													</span>
+                                    <!--end::Svg Icon-->Genel</a>
+                            </li>
                             <!--begin:::Tab item-->
                             <!--end:::Tab item-->
                             <li class="nav-item">
-                                <a class="nav-link text-active-primary active" data-bs-toggle="tab" href="#kt_ecommerce_settings_customers">
+                                <a class="nav-link text-active-primary" data-bs-toggle="tab" href="#kt_ecommerce_settings_customers">
                                     <!--begin::Svg Icon | path: icons/duotune/communication/com014.svg-->
                                     <span class="svg-icon svg-icon-2 me-2">
 														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,8 +73,123 @@
                         <!--end:::Tabs-->
                         <!--begin:::Tab content-->
                         <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="kt_ecommerce_settings_general" role="tabpanel">
+                                <!--begin::Form-->
+                                <form enctype="multipart/form-data" class="form" action="{{route('admin.settings.update')}}" method="post">
+                                    @csrf
+                                    <!--begin::Heading-->
+                                    <div class="row mb-3">
+                                        <div class="col-md-9 offset-md-3">
+                                            <h2>Genel Ayarlar</h2>
+                                        </div>
+                                    </div>
+                                    <!--end::Heading-->
+                                    <!--begin::Input group-->
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span class="required">Site Başlık</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the title of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <input type="text" class="form-control form-control-solid" name="speed_site_title" value="{{setting('speed_site_title')}}" />
+                                            <!--end::Input-->
+                                        </div>
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span>Meta Açıklamaları</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set keywords for the store separated by a comma."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <textarea type="text" class="form-control form-control-solid" name="speed_meta_description">{{config('settings.speed_meta_description')}}</textarea>
+                                            <!--end::Input-->
+                                        </div>
+                                    </div>
+
+                                    <!--begin::Input group-->
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span>Logo (White Tema)</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <input type="file" class="form-control form-control-solid" name="speed_logo_white" value="{{setting('speed_logo_white')}}" />
+                                            <img src="{{asset(setting('speed_logo_white'))}}" class="mt-2">
+                                        </div>
+                                    </div>
+
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span>Logo (Dark Tema)</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <input type="file" class="form-control form-control-solid" name="speed_logo_dark" value="{{setting('speed_logo_dark')}}" />
+                                            <img src="{{asset(setting('speed_logo_dark'))}}" class="mt-2">
+                                        </div>
+                                    </div>
+
+                                    <!--end::Input group-->
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span>Favicon</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <input type="file" class="form-control form-control-solid" name="speed_favicon" value="{{setting('speed_favicon')}}" />
+                                            <img src="{{asset(setting('speed_favicon'))}}" width="100px"  class="mt-2">
+                                        </div>
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Action buttons-->
+                                    <div class="row py-5">
+                                        <div class="col-md-9 offset-md-3">
+                                            <div class="d-flex">
+                                                <!--begin::Button-->
+                                                <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Cancel</button>
+                                                <!--end::Button-->
+                                                <!--begin::Button-->
+                                                <button type="submit" class="btn btn-primary">
+                                                    <span class="indicator-label">Kaydet</span>
+                                                </button>
+                                                <!--end::Button-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Action buttons-->
+                                </form>
+                                <!--end::Form-->
+                            </div>
+
                             <!--begin:::Tab pane-->
-                            <div class="tab-pane fade active show" id="kt_ecommerce_settings_customers" role="tabpanel">
+                            <div class="tab-pane fade" id="kt_ecommerce_settings_customers" role="tabpanel">
                                 <!--begin::Form-->
                                 <form method="post" class="form" action="{{route('admin.forBusiness.section_update')}}" enctype="multipart/form-data">
                                     @csrf

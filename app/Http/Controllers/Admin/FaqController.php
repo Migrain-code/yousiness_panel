@@ -11,7 +11,7 @@ class FaqController extends Controller
 {
     public function index()
     {
-        $faqs=Faq::latest()->get();
+        $faqs = Faq::latest()->get();
         return view('admin.faq.index', compact('faqs'));
     }
 
@@ -23,8 +23,8 @@ class FaqController extends Controller
         $faq->save();
 
         return to_route('admin.faq.index')->with('response', [
-            'status'=>"success",
-            'message'=>'S.S.S başarıyla eklendi'
+            'status' => "success",
+            'message' => 'S.S.S başarıyla eklendi'
         ]);
     }
 
@@ -40,8 +40,8 @@ class FaqController extends Controller
         $faq->answer = $request->answer;
         $faq->save();
         return to_route('admin.faq.index')->with('response', [
-            'status'=>"success",
-            'message'=>'S.S.S başarıyla güncellendi'
+            'status' => "success",
+            'message' => 'S.S.S başarıyla güncellendi'
         ]);
     }
 

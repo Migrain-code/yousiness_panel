@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Business;
 use App\Models\BusinessCategory;
 use App\Models\BusinessContact;
+use App\Models\BusinessFaq;
 use App\Models\BusinessInfo;
 use App\Models\BusinessService;
 use App\Models\BussinessPackage;
@@ -119,7 +120,7 @@ class HomeController extends Controller
 
     public function faq()
     {
-        $faqs=Faq::all();
+        $faqs=BusinessFaq::all();
         return view('support.index', compact('faqs'));
     }
     public function contact()
