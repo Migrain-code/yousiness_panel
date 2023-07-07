@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class BlogComment extends Model
 {
     use HasFactory;
-    public function business()
+    public function customer()
     {
-        return $this->hasOne(Business::class, 'id', 'business_id');
+        return $this->hasOne(Customer::class, 'id', 'customer_id');
     }
 }

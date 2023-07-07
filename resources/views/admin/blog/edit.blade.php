@@ -4,6 +4,7 @@
 
 @endsection
 @section('content')
+    @include('admin.layouts.component.alert')
     <div class="col-xl-12">
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
@@ -65,6 +66,58 @@
             </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-header">
+            <h1>Blog Yorumları</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example" class="display" style="min-width: 845px;width: 100%">
+                    <thead>
+                    <tr>
+                        <th>Görsel</th>
+                        <th>Müşterei Adı</th>
+                        <th>Yorum</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @forelse($blog->comments as $comment)
+                        <tr class="rowDelete">
+                            <td><img src="{{image($comment->customer->image)}}" width="50px"></td>
+                            <td>{{$comment->customer->name}}</td>
+                            <td>
+                                {{substr(strip_tags($comment->comment), 0, 50) . "..."}}
+                            </td>
+                            <td>
+                                @if($comment->status == 0)
+                                    <span class="badge badge-warning">Yayında Değil</span>
+                                @else
+                                    <span class="badge badge-success">Yayında</span>
+
+                                @endif
+
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" style="margin-right: 0px;" href="{{route('admin.blogComment.edit', $comment->id)}}"><i class="fa fa-edit"></i></a>
+                                <button type="button" class="btn btn-warning" onclick="statusAction('{{$comment->id}}')"><i class="fa fa-check-circle"></i></button>
+                                <button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.blogComment.destroy', $comment->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5">
+                                <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                            </td>
+                        </tr>
+                    @endforelse
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('scripts')
     <script>
@@ -79,5 +132,91 @@
                 { value: 'Email', title: 'Email' },
             ]
         });
+    </script>
+    <script>
+        function statusAction(id){
+            $.ajax({
+                url:'{{route('admin.blogComment.store')}}',
+                type: "POST",
+                data:{
+                    id:id,
+                    _token:'{{csrf_token()}}'
+                },
+                dataType:"JSON",
+                success:function (res){
+                    if(res.status=="success"){
+                        Swal.fire({
+                            text: res.message,
+                            icon: "success",
+                            buttonsStyling: false,
+                            confirmButtonText: "Tamam!",
+                            customClass: {
+                                confirmButton: "btn btn-primary",
+                            }
+                        });
+
+                    }
+                }
+            })
+        }
+        function deleteAction(hostUrl, index){
+            var table = $('#example').DataTable();
+            Swal.fire({
+                text: "Bu kaydı silmek istediğine eminmisin?",
+                icon: "warning",
+                showCancelButton: true,
+                buttonsStyling: false,
+                confirmButtonText: "Evet, Sil!",
+                cancelButtonText: "İptal et",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                    cancelButton: "btn btn-danger"
+                },
+                customStyle: {
+                    confirmButton:"margin-right:10px",
+                }
+            }).then(function (result) {
+                if (result.value) {
+                    $.ajax({
+                        url:hostUrl,
+                        type: "POST",
+                        data:{
+                            _method:"DELETE",
+                            _token:'{{csrf_token()}}'
+                        },
+                        dataType:"JSON",
+                        success:function (res){
+                            if(res.status=="success"){
+                                table
+                                    .row( $(this).parents('tr') )
+                                    .remove()
+                                    .draw();
+                                Swal.fire({
+                                    text: "Kayıt Silindi!.",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Tamam!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary",
+                                    }
+                                });
+                                table.row(index).remove().draw();
+                            }
+                        }
+                    })
+                } else if (result.dismiss === 'cancel') {
+                    Swal.fire({
+                        text: "İşlem İptal Edildi!.",
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Tamam!",
+                        customClass: {
+                            confirmButton: "btn btn-primary",
+                        }
+                    });
+                }
+            });
+
+        }
     </script>
 @endsection

@@ -90,6 +90,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('faq', \App\Http\Controllers\Admin\FaqController::class);
         Route::resource('sponsor', \App\Http\Controllers\Admin\SponsorController::class);
         Route::resource('blog', \App\Http\Controllers\Admin\BlogController::class);
+        Route::resource('blogComment', \App\Http\Controllers\BlogCommentController::class);
         Route::resource('activity', \App\Http\Controllers\Admin\ActivityController::class);
         Route::resource('comment', \App\Http\Controllers\Admin\CommentController::class);
         Route::resource('faq', \App\Http\Controllers\Admin\FaqController::class);
