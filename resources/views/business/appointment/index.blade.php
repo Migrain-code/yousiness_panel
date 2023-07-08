@@ -303,7 +303,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" style="width: 90% !important;" tabindex="-1" role="dialog"
+    {{--
+        <div class="modal fade bd-example-modal-lg" style="width: 90% !important;" tabindex="-1" role="dialog"
          aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content" style="width: 120% !important;">
@@ -365,6 +366,7 @@
             </div>
         </div>
     </div>
+    --}}
 @endsection
 @section('scripts')
 

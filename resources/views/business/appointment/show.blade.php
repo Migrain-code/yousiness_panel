@@ -13,7 +13,7 @@
                             <div class="user-head">
                                 <div class="user-info">
                                     <div class="user-photo" style="margin-top: 0px !important;">
-                                        <img src="{{asset($appointment->customer->image)}}" class="img-fluid rounded-circle" alt="">
+                                        <img src="{{image($appointment->customer->image)}}" class="img-fluid rounded-circle" alt="">
                                     </div>
                                     <div class="user-details">
                                         <div>
