@@ -26,7 +26,7 @@
 
             <div class="row wow fadeInUp main-card" data-wow-delay="0.7s">
                 <!-- ----column-- -->
-                <div class="col-xxl-8 col-xl-9">
+                <div class="col-xxl-12 col-xl-12">
                     <div class="swiper ticketing-Swiper position-relative overflow-hidden">
                         <div class="swiper-wrapper ">
                             <div class="swiper-slide">
@@ -258,48 +258,7 @@
                     <!-- /--row-- -->
                 </div>
                 <!-- ----/column-- -->
-                <!-- ----column-- -->
-                <div class="col-xxl-4 col-xl-3">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card event-agenda  h-auto">
-                                <div class="card-header border-0 pb-0">
-                                    <div>
-                                        <h2 class="heading">Bugünkü Randevular</h2>
-                                    </div>
 
-                                </div>
-                                <div class="card-body loadmore-content  recent-activity-wrapper p-3 pt-0" id="RecentActivityContent">
-                                    @forelse($todayAppointments as $appointment)
-                                        <div class="d-flex align-items-center event" start-time="{{\Illuminate\Support\Carbon::parse($appointment->start_time)->format('H:i')}}">
-                                            <span class="event-date">
-                                                <h4>1</h4>
-                                                <span>DEC</span>
-                                            </span>
-                                            <div class="event-info">
-                                                <h6><a href="{{route('business.appointment.show', $appointment->id)}}">{{$appointment->customer->name}}</a></h6>
-                                                <span>{{\Illuminate\Support\Carbon::parse($appointment->start_time)->format('H:i'). ' - '. \Illuminate\Support\Carbon::parse($appointment->end_time)->format('H:i')}}</span>
-                                            </div>
-
-                                        </div>
-                                    @empty
-                                        <div class="alert alert-warning">
-                                            Bugüne Ait Randevu Kaydı Bulunamadı
-                                        </div>
-                                    @endforelse
-
-                                </div>
-                                <!--
-                                     <div class="card-footer text-center border-0 pt-0">
-                                    <a href="javascript:void(0);" class="btn btn-block light btn-secondary" id="RecentActivity">View More</a>
-                                </div>
-                                -->
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- ----/column-- -->
             </div>
         </div>
     </div>

@@ -63,10 +63,10 @@
                                         <td>{{$package->personel->name}}</td>
                                         <td>{{$package_types[$package->type]}}</td>
                                         <td>{{$package->amount}}</td>
-                                        <td>{{$package->amount - $package->used_amount}}</td>
+                                        <td>{{$package->amount - $package->usages()->sum('amount')}}</td>
                                         <td>{{$package->total}} &#8378;</td>
-                                        <td>{{$package->payed}}</td>
-                                        <td>{{$package->total - $package->payed}}</td>
+                                        <td>{{$package->payeds()->sum('price')}}</td>
+                                        <td>{{$package->total - $package->payeds()->sum('price')}}</td>
                                         <td>
                                             <div class="basic-dropdown">
                                                 <div class="btn-group dropstart mb-1">
@@ -115,7 +115,7 @@
                             <tr>
                                 <th><strong>Personel</strong></th>
                                 <th><strong>Kullanılan Adet</strong></th>
-                                <th><strong>İşem Tarihi</strong></th>
+                                <th><strong>İşlem Tarihi</strong></th>
                             </tr>
                             </thead>
                             <tbody>

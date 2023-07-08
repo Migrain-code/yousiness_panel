@@ -21,4 +21,14 @@ class PackageSale extends Model
     {
         return $this->hasOne(BusinessService::class,'id', 'service_id');
     }
+
+    public function usages()
+    {
+        return $this->hasMany(PackageUsage::class,'package_id', 'id');
+    }
+
+    public function payeds()
+    {
+        return $this->hasMany(PackagePayment::class,'package_id', 'id');
+    }
 }

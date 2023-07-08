@@ -93,10 +93,9 @@
                                 <label class="form-label">Müşteri <span class="text-warning">{{auth('business')->user()->customers->count() == 0 ? "(Müşteriler menüsünden müşteri ekleyin)":""}} </span></label>
                                 <select name="customer_id" class="form-control">
                                     <option>Müşteri Seçiniz</option>
-                                    @forelse(auth('business')->user()->customers as $customer)
-                                        <option value="{{$customer->customer->id}}">{{$customer->customer->name}}</option>
+                                    @forelse($customers as $customer)
+                                        <option value="{{$customer->id}}">{{$customer->name}}</option>
                                     @empty
-
                                     @endforelse
                                 </select>
                             </div>

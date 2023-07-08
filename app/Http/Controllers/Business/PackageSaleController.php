@@ -25,6 +25,7 @@ class PackageSaleController extends Controller
             'Dakika'
         ];
         $customers = Customer::all();
+
         return view('business.package.index', compact('package_types', 'customers'));
     }
 
@@ -50,8 +51,6 @@ class PackageSaleController extends Controller
             $usage->amount=$request->amount;
             $usage->created_at=$request->operation_date;
             if ($usage->save()){
-                $findPackage->amount=$findPackage->amount - $request->amount;
-                $findPackage->save();
                 return response()->json([
                     'status'=>"success",
                     'data'=>$usage
