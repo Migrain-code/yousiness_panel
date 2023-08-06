@@ -42,7 +42,7 @@
         <a href="{{route('business.home')}}" class="brand-logo">
             <img src="{{asset(config('settings.bussiness_logo'))}}" style="width: 75px">
             <div class="brand-title">
-                HızlıAppy
+                Yousiness
             </div>
 
         </a>

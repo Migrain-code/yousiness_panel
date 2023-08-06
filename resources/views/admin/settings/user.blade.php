@@ -107,7 +107,7 @@
                                         <div class="col-md-9">
                                             <!--begin::Input-->
                                             <input type="file" class="form-control form-control-solid" name="speed_logo_white" value="{{setting('speed_logo_white')}}" />
-                                            <img src="{{asset(setting('speed_logo_white'))}}" class="mt-2">
+                                            <img src="{{asset(setting('speed_logo_white'))}}" style="width: 50px" class="mt-2">
                                         </div>
                                     </div>
 
@@ -123,7 +123,7 @@
                                         <div class="col-md-9">
                                             <!--begin::Input-->
                                             <input type="file" class="form-control form-control-solid" name="speed_logo_dark" value="{{setting('speed_logo_dark')}}" />
-                                            <img src="{{asset(setting('speed_logo_dark'))}}" class="mt-2">
+                                            <img src="{{asset(setting('speed_logo_dark'))}}" style="width: 50px"  class="mt-2">
                                         </div>
                                     </div>
 

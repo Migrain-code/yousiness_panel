@@ -31,13 +31,14 @@ class HomeController extends Controller
 
     public function index()
     {
-        $business_categories=BusinessCategory::latest()->get();
+        return to_route('business.login');
+        /*$business_categories=BusinessCategory::latest()->get();
         $proparties=Propartie::latest()->take(6)->get();
         $comments=Comment::latest()->get();
         $monthlyPackages=BussinessPackage::where('type', 0)->get();
         $yearlyPackages=BussinessPackage::where('type', 1)->get();
 
-        return view('welcome', compact('business_categories', 'comments', 'proparties', 'monthlyPackages', 'yearlyPackages'));
+        return view('welcome', compact('business_categories', 'comments', 'proparties', 'monthlyPackages', 'yearlyPackages'));*/
     }
     /*public function sendSms()
     {

@@ -12,7 +12,9 @@
                 <div class="col-xxl-7 col-xl-7 col-lg-7 d-none d-lg-block">
                     <div class="header-bottom__main-menu header-bottom__main-menu-4 header-bottom__main-menu-inner">
                         <nav id="mobile-menu" style="display: block;margin-left: 30px;">
-                            <ul>
+                            {{--
+                        
+                                <ul>
                                 <li>
                                     <a href="/">Anasayfa</a>
                                 </li>
@@ -27,6 +29,7 @@
                                 <li><a href="{{route('faq')}}" class="pr-10">Destek <i class="fa fa-headphones "></i></a></li>
 
                             </ul>
+                            ---}}
                         </nav>
                     </div>
                 </div>

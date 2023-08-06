@@ -142,19 +142,21 @@
                 <div class="col-xxl-7 col-xl-7 col-lg-7 d-none d-lg-block">
                     <div class="header-bottom__main-menu header-bottom__main-menu-4 header-bottom__main-menu-inner">
                         <nav id="mobile-menu-2">
-                            <ul>
-                                <li>
-                                    <a href="{{route('welcome')}}.html">Anasayfa</a>
-                                </li>
-                                <li><a href="{{route('propartie.index')}}">Özellikler</a></li>
-                                <li>
-                                    <a href="{{route('blog.index')}}">Blog</a>
-                                </li>
-                                <li><a href="{{route('packages')}}">Paketlerimiz</a></li>
-                                <li><a href="{{route('faq')}}"><i class="fa fa-headphones me-1"></i>Destek</a></li>
-
-                                <li><a href="{{route('contact')}}">İletişim</a></li>
-                            </ul>
+                            {{--
+                                <ul>
+                                    <li>
+                                        <a href="{{route('welcome')}}.html">Anasayfa</a>
+                                    </li>
+                                    <li><a href="{{route('propartie.index')}}">Özellikler</a></li>
+                                    <li>
+                                        <a href="{{route('blog.index')}}">Blog</a>
+                                    </li>
+                                    <li><a href="{{route('packages')}}">Paketlerimiz</a></li>
+                                    <li><a href="{{route('faq')}}"><i class="fa fa-headphones me-1"></i>Destek</a></li>
+    
+                                    <li><a href="{{route('contact')}}">İletişim</a></li>
+                                </ul>
+                            --}}
                         </nav>
                     </div>
                 </div>
@@ -192,7 +194,7 @@
                     </div>
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
-                            <h4 class="signin-banner-title tp-char-animation">HızlıAppy <br>
+                            <h4 class="signin-banner-title tp-char-animation">Yousiness <br>
                                 Sistemine Hoşgeldiniz.</h4>
                         </div>
                         <div class="signin-banner-img-box position-relative">
@@ -219,7 +221,7 @@
                         @include('layouts.component.error')
 
                         <div class="signin-banner-title-box">
-                            <h4 class="signin-banner-from-title">HızlıAppy Numara Doğrulama</h4>
+                            <h4 class="signin-banner-from-title">Yousiness Numara Doğrulama</h4>
                         </div>
 
                         <div class="signin-banner-from-box">

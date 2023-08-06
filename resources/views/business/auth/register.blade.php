@@ -65,7 +65,7 @@
         </div>
         <div class="tpoffcanvas__logo text-center">
             <a href="{{route('welcome')}}">
-                <img src="{{asset(config('settings.bussiness_main_white_logo'))}}" alt="">
+                <!--<img src="{{asset(config('settings.bussiness_main_white_logo'))}}" alt="">-->
             </a>
         </div>
         <div class="mobile-menu"></div>
@@ -111,7 +111,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="header-signin-logo">
-                        <a href="{{route('welcome')}}"><img src="/business/assets/img/logo/logo-white.svg" alt=""></a>
+                        <a href="{{route('welcome')}}"><!--<img src="/business/assets/img/logo/logo-white.svg" alt=""></a>-->
                     </div>
                 </div>
                 <div class="col-6">
@@ -139,19 +139,21 @@
                 <div class="col-xxl-7 col-xl-7 col-lg-7 d-none d-lg-block">
                     <div class="header-bottom__main-menu header-bottom__main-menu-4 header-bottom__main-menu-inner">
                         <nav id="mobile-menu-2">
-                            <ul>
-                                <li>
-                                    <a href="{{route('welcome')}}.html">Anasayfa</a>
-                                </li>
-                                <li><a href="{{route('propartie.index')}}">Özellikler</a></li>
-                                <li>
-                                    <a href="{{route('blog.index')}}">Blog</a>
-                                </li>
-                                <li><a href="{{route('packages')}}">Paketlerimiz</a></li>
-                                <li><a href="{{route('faq')}}"><i class="fa fa-headphones me-1"></i>Destek</a></li>
-
-                                <li><a href="{{route('contact')}}">İletişim</a></li>
-                            </ul>
+                            {{--
+                                <ul>
+                                    <li>
+                                        <a href="{{route('welcome')}}.html">Anasayfa</a>
+                                    </li>
+                                    <li><a href="{{route('propartie.index')}}">Özellikler</a></li>
+                                    <li>
+                                        <a href="{{route('blog.index')}}">Blog</a>
+                                    </li>
+                                    <li><a href="{{route('packages')}}">Paketlerimiz</a></li>
+                                    <li><a href="{{route('faq')}}"><i class="fa fa-headphones me-1"></i>Destek</a></li>
+    
+                                    <li><a href="{{route('contact')}}">İletişim</a></li>
+                                </ul>
+                            --}}
                         </nav>
                     </div>
                 </div>
@@ -188,7 +190,7 @@
                     </div>
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
-                            <h4 class="signin-banner-title tp-char-animation"> HızlıAppy'e sizde katılın.</h4>
+                            <h4 class="signin-banner-title tp-char-animation"> Yousiness'e sizde katılın.</h4>
                         </div>
                         <div class="signin-banner-img-box position-relative">
                             <div class="signin-banner-img signin-img-1 d-none d-md-block z-index-3">
@@ -254,7 +256,7 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="padding: 9px;margin-top: 0px !important;">
                                                     <label class="form-check-label" for="flexCheckDefault" style="line-height: 1.3em">
-                                                        HızlıAppy Teknoloji A.Ş. tarafından ürün ve hizmetlerinin tanıtımı için tarafımla iletişime geçilmesini kabul ediyorum.
+                                                        Yousiness tarafından ürün ve hizmetlerinin tanıtımı için tarafımla iletişime geçilmesini kabul ediyorum.
                                                     </label>
                                                 </div>
                                             </div>

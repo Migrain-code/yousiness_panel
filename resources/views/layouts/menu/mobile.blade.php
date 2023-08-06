@@ -33,7 +33,7 @@
         </div>
         <div class="tpoffcanvas__logo text-center">
             <a href="index.html">
-                <img src="/business/assets/img/logo/logo-white.svg" alt="">
+               <!-- <img src="/business/assets/img/logo/logo-white.svg" alt="">-->
             </a>
         </div>
         <div class="mobile-menu"></div>

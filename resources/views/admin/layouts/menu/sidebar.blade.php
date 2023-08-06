@@ -74,7 +74,7 @@
             <li @if(request()->routeIs('admin.blog.*')) class="mm-active"  @endif >
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">public</i>
-                    <span class="nav-text">Hızlı Appy Site İşlemleri
+                    <span class="nav-text">Site İşlemleri (Patron)
                     </span>
                 </a>
                 <ul  @if(request()->routeIs('admin.businessBlog.*')) class="mm-collapse mm-show" aria-expanded="true" @else aria-expanded="false" @endif>
@@ -98,7 +98,7 @@
             <li @if(request()->routeIs('admin.blog.*')) class="mm-active"  @endif >
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">public</i>
-                    <span class="nav-text">Hızlı Randevu Site İşlemleri
+                    <span class="nav-text">Site İşlemleri (Müşteri)
                     </span>
                 </a>
                 <ul  @if(request()->routeIs('admin.blog.*')) class="mm-collapse mm-show" aria-expanded="true" @else aria-expanded="false" @endif>
