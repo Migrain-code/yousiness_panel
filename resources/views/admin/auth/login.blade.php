@@ -17,7 +17,7 @@
     <meta property="og:description" content="FinLab : Crypto Trading UI Codeigniter Admin Dashboard" />
     <meta property="og:image" content="../social-image.html" />
     <meta name="format-detection" content="telephone=no">
-    <title>Yousiness Admin Panel</title>
+    <title>Yousiness Admin Panel Girişi</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/admin/assets/images/favicon.png">
     <link href="/admin/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
