@@ -10,7 +10,7 @@
         }
     </style>
 
-    <script src="https://cdn.tiny.cloud/1/3e9f0ko5d22o4nthbxsin4hqt7rnt5376x7a91hjt1rqfoee/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/siujjt1n16xiz0ek0nnb9yq3uepb8nlpa6v4ptkxfeuuxo4l/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 @endsection
 @section('content')
     @if($errors->any())
