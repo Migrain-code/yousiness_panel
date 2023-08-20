@@ -5,14 +5,14 @@
             <div class="row g-0 align-items-center">
                 <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-6">
                     <div class="header-bottom__logo">
-                        <a class="white-logo" href="/"><img src="{{asset(config('settings.bussiness_main_white_logo'))}}" alt=""></a>
-                        <a class="black-logo" href="/"><img src="{{asset(config('settings.bussiness_main_white_logo'))}}" alt=""></a>
+                        <a class="white-logo" href="/"><img src="{{asset(setting('bussiness_main_white_logo'))}}" alt=""></a>
+                        <a class="black-logo" href="/"><img src="{{asset(setting('bussiness_main_white_logo'))}}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xxl-7 col-xl-7 col-lg-7 d-none d-lg-block">
                     <div class="header-bottom__main-menu header-bottom__main-menu-4 header-bottom__main-menu-inner">
                         <nav id="mobile-menu" style="display: block;margin-left: 30px;">
-                            {{--
+
                         
                                 <ul>
                                 <li>
@@ -29,7 +29,7 @@
                                 <li><a href="{{route('faq')}}" class="pr-10">Destek <i class="fa fa-headphones "></i></a></li>
 
                             </ul>
-                            ---}}
+
                         </nav>
                     </div>
                 </div>

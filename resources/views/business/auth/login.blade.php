@@ -111,7 +111,7 @@
                 <div class="col-6">
                     <div class="header-signin-logo">
                         <a href="{{route('welcome')}}">
-                            <img src="{{asset(config('settings.bussiness_main_white_logo'))}}" alt="">
+                            <img src="{{asset(config('settings.bussiness_main_white_logo'))}}" alt="" style="max-width: 270px">
                         </a>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                 <div class="col-xxl-7 col-xl-7 col-lg-7 d-none d-lg-block">
                     <div class="header-bottom__main-menu header-bottom__main-menu-4 header-bottom__main-menu-inner">
                         <nav id="mobile-menu-2">
-                            {{--
+
                                 <ul>
                                 <li>
                                     <a href="{{route('welcome')}}.html">Anasayfa</a>
@@ -156,7 +156,7 @@
 
                                 <li><a href="{{route('contact')}}">İletişim</a></li>
                             </ul>
-                            --}}
+
                         </nav>
                     </div>
                 </div>

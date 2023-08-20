@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keys')">
-    <title>@yield('title', config('settings.bussiness_site_title'). "|". " Anasayfa")</title>
+    <title>@yield('title', setting('appy_site_title'). " | ". "Anasayfa")</title>
 
     <meta name="author" content="{{config('settings.site_owner')}}">
     <!-- Place favicon.ico in the root directory -->

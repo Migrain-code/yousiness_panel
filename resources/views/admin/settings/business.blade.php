@@ -132,7 +132,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <!--begin::Input-->
-                                            <input type="file" class="form-control form-control-solid" name="appy_logo_white" value="{{setting('appy_logo_white')}}" />
+                                            <input type="file" class="form-control form-control-solid" name="bussiness_main_white_logo" value="{{setting('bussiness_main_white_logo')}}" />
                                         </div>
                                     </div>
                                     <!--end::Input group-->
@@ -147,7 +147,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <!--begin::Input-->
-                                            <input type="file" class="form-control form-control-solid" name="appy_favicon" value="{{setting('appy_favicon')}}" />
+                                            <input type="file" class="form-control form-control-solid" name="bussiness_main_favicon" value="{{setting('bussiness_main_favicon')}}" />
                                         </div>
                                     </div>
 

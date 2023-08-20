@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keys')">
-    <title>@yield('title', config('settings.bussiness_site_title') .'|'. ' İşletme Kayıt')</title>
+    <title>@yield('title', config('settings.appy_site_title') .' | '. 'İşletme Kayıt')</title>
     <style>
         .btn-mobile-menu-free{
             background: #4CAF50 !important;
@@ -64,9 +64,10 @@
             <button class="close-btn"><i class="fal fa-times"></i></button>
         </div>
         <div class="tpoffcanvas__logo text-center">
-            <a href="{{route('welcome')}}">
-                <!--<img src="{{asset(config('settings.bussiness_main_white_logo'))}}" alt="">-->
-            </a>
+
+                <a href="{{route('welcome')}}">
+                    <img src="{{asset(setting('bussiness_main_white_logo'))}}" alt="">
+                </a>
         </div>
         <div class="mobile-menu"></div>
         <div class="tpoffcanvas__instagram text-center">
@@ -111,7 +112,9 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="header-signin-logo">
-                        <a href="{{route('welcome')}}"><!--<img src="/business/assets/img/logo/logo-white.svg" alt=""></a>-->
+                        <a href="{{route('welcome')}}">
+                         <img src="{{asset(setting('bussiness_main_white_logo'))}}" alt="" style="max-width: 270px">
+                        </a>
                     </div>
                 </div>
                 <div class="col-6">
@@ -133,13 +136,13 @@
             <div class="row g-0 align-items-center">
                 <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-6">
                     <div class="header-bottom__logo">
-                        <a href="{{route('welcome')}}"><img src="/business/assets/img/logo/logo-white.svg" alt=""></a>
+                        <a href="{{route('welcome')}}"><img src="{{asset(setting('bussiness_main_white_logo'))}}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xxl-7 col-xl-7 col-lg-7 d-none d-lg-block">
                     <div class="header-bottom__main-menu header-bottom__main-menu-4 header-bottom__main-menu-inner">
                         <nav id="mobile-menu-2">
-                            {{--
+
                                 <ul>
                                     <li>
                                         <a href="{{route('welcome')}}.html">Anasayfa</a>
@@ -153,7 +156,7 @@
     
                                     <li><a href="{{route('contact')}}">İletişim</a></li>
                                 </ul>
-                            --}}
+
                         </nav>
                     </div>
                 </div>

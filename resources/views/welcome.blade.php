@@ -359,7 +359,7 @@
                     <div class="col-12">
                         <div class="journey-section-box">
                             <h5 class="inner-section-subtitle pb-10"></h5>
-                            <h3 class="ab-brand-title pb-0 mb-0">Kimler HızlıAppy Kullanıyor?</h3>
+                            <h3 class="ab-brand-title pb-0 mb-0">Kimler {{setting('appy_site_title')}} Kullanıyor?</h3>
                         </div>
                     </div>
                 </div>

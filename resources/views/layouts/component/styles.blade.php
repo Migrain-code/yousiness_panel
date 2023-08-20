@@ -1,4 +1,4 @@
-<link rel="shortcut icon" type="image/x-icon" href="{{asset(config('settings.bussiness_favicon'))}}">
+<link rel="shortcut icon" type="image/x-icon" href="{{asset(setting('bussiness_main_favicon'))}}">
 
 <!-- CSS here -->
 <link rel="stylesheet" href="/business/assets/css/bootstrap.min.css">
