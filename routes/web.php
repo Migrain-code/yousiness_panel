@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-dd("Tasarım yapıyoruz. Devre dışı bıraktık");
+
 Route::controller(\App\Http\Controllers\HomeController::class)->group(function (){
     Route::get('/', 'index')->name('welcome');
     Route::post('/bilgi-al', 'getInfo')->name('getInfo');
