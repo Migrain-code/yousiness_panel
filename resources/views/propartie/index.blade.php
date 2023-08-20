@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-xl-9 col-lg-7">
                         <div class="breadcrumb__content">
-                            <h3 class="breadcrumb__title tp-char-animation">HızlıAppy tüm özellikleri</h3>
+                            <h3 class="breadcrumb__title tp-char-animation">{{setting('appy_site_title')}} tüm özellikleri</h3>
 
                             <div class="breadcrumb__list wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".4s">
                                 <span class="child-one"><a href="/">Anasayfa</a></span>
