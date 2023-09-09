@@ -1,4 +1,4 @@
-<div class="tp-cta-area pt-120 pb-120 mb-120 tp-cta-five-bg p-relative" data-background="/business/assets/img/cta/cta-bg-5-1.png">
+<div class="tp-cta-area pt-120 pb-120 mb-120 tp-cta-five-bg p-relative" data-background="" style="background-color: #d59c4b">
     <div class="tp-cta-five-shape-1 d-none d-md-block">
         <img src="/business/assets/img/cta/cta-shape-5-1.png" alt="">
     </div>

@@ -187,7 +187,7 @@
         <main style="background-color: rgba(240,240,243,0.53)">
 
             <div class="signin-banner-area signin-banner-main-wrap d-flex align-items-center">
-                <div class="signin-banner-left-box signin-banner-bg p-relative" data-background="/business/assets/img/login/login-bg-shape.png">
+                <div class="signin-banner-left-box signin-banner-bg p-relative" data-background="" style="background-color: #d59c4b">
                     <div class="signin-banner-bottom-shape">
                         <img src="assets/img/login/login-shape-1.png" alt="">
                     </div>
