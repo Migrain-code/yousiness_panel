@@ -170,8 +170,7 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-header">
-                                <button id="authorize_button" onclick="handleAuthClick()">Google Takvime Aktar</button>
-                                <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
+                                <button id="authorize_button" class="btn btn-primary" onclick="handleAuthClick()">Google Takvime Bağlan</button>
 
                             </div>
                             <div class="card-body">
@@ -383,7 +382,7 @@
 
         // Authorization scopes required by the API; multiple scopes can be
         // included, separated by spaces.
-        const SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
+        const SCOPES = 'https://www.googleapis.com/auth/calendar';
 
         let tokenClient;
         let gapiInited = false;
@@ -442,9 +441,11 @@
                 if (resp.error !== undefined) {
                     throw (resp);
                 }
-                document.getElementById('signout_button').style.visibility = 'visible';
-                document.getElementById('authorize_button').innerText = 'Refresh';
-                addEventToCalendar("Muhammet Türkmen", "2023-09-15T14:30:00Z");
+
+                document.getElementById('authorize_button').innerText = 'Takvime Ekle';
+                if(document.getElementById('authorize_button').innerText == 'Takvime Ekle'){
+                    addEventToCalendar();
+                }
             };
 
             if (gapi.client.getToken() === null) {
@@ -468,48 +469,132 @@
                 google.accounts.oauth2.revoke(token.access_token);
                 gapi.client.setToken('');
                 document.getElementById('content').innerText = '';
-                document.getElementById('authorize_button').innerText = 'Authorize';
-                document.getElementById('signout_button').style.visibility = 'hidden';
+                document.getElementById('authorize_button').innerText = 'Takvime Bağlan';
             }
         }
 
-        async function addEventToCalendar(customerName, appointmentTime) {
-            const event = {
-                'summary': 'Google I/O 2015',
-                'location': '800 Howard St., San Francisco, CA 94103',
-                'description': 'A chance to hear more about Google\'s developer products.',
-                'start': {
-                    'dateTime': '2023-09-10T20:00:00-20:30',
-                    'timeZone': 'America/Los_Angeles'
+        async function addEventToCalendar() {
+            const eventsToAdd = [
+                @forelse ($appointments as $appointment)
+                {
+                    'summary': '{{$appointment->customer->name}}',
+                    'location': '{{$appointment->business->name}}',
+                    'description': '{{$appointment->note}}',
+                    'start': {
+                        'dateTime': '{{\Illuminate\Support\Carbon::parse($appointment->start_time)->toIso8601String()}}',
+                        'timeZone': 'Europe/Istanbul'
+                    },
+                    'end': {
+                        'dateTime': '{{\Illuminate\Support\Carbon::parse($appointment->end_time)->toIso8601String()}}',
+                        'timeZone': 'Europe/Istanbul'
+                    },
+                    'recurrence': [],
+                    'attendees': [
+                        @foreach($appointment->services as $service)
+                            {'email': '{{$service->personel->email}}'},
+                        @endforeach
+                    ],
+                    'reminders': {
+                        'useDefault': false,
+                        'overrides': [
+                            {'method': 'email', 'minutes': 120},
+                            {'method': 'popup', 'minutes': 10}
+                        ]
+                    }
                 },
-                'end': {
-                    'dateTime': '2015-05-28T17:00:00-07:00',
-                    'timeZone': 'America/Los_Angeles'
+                @empty
+                @endforelse
+            ];
+
+            addMultipleEventsToCalendar(eventsToAdd);
+        }
+        async function addEventToCalendar() {
+            const eventsToAdd = [
+                    @forelse ($appointments as $appointment)
+                {
+                    'summary': '{{$appointment->customer->name}}',
+                    'location': '{{$appointment->business->name}}',
+                    'description': '{{$appointment->note}}',
+                    'start': {
+                        'dateTime': '{{\Illuminate\Support\Carbon::parse($appointment->start_time)->toIso8601String()}}',
+                        'timeZone': 'Europe/Istanbul'
+                    },
+                    'end': {
+                        'dateTime': '{{\Illuminate\Support\Carbon::parse($appointment->end_time)->toIso8601String()}}',
+                        'timeZone': 'Europe/Istanbul'
+                    },
+                    'recurrence': [],
+                    'attendees': [
+                            @foreach($appointment->services as $service)
+                        {'email': '{{$service->personel->email}}'},
+                        @endforeach
+                    ],
+                    'reminders': {
+                        'useDefault': false,
+                        'overrides': [
+                            {'method': 'email', 'minutes': 120},
+                            {'method': 'popup', 'minutes': 10}
+                        ]
+                    }
                 },
-                'recurrence': [
-                    'RRULE:FREQ=DAILY;COUNT=2'
-                ],
-                'attendees': [
-                    {'email': 'lpage@example.com'},
-                    {'email': 'sbrin@example.com'}
-                ],
-                'reminders': {
-                    'useDefault': false,
-                    'overrides': [
-                        {'method': 'email', 'minutes': 24 * 60},
-                        {'method': 'popup', 'minutes': 10}
-                    ]
+                @empty
+                @endforelse
+            ];
+
+            // Eklenmiş olan randevuların ID'lerini tutmak için bir dizi oluşturun
+            const addedEventIds = [];
+
+            try {
+                // Mevcut randevuları alın
+                const existingEvents = await gapi.client.calendar.events.list({
+                    'calendarId': 'primary',
+                    'timeMin': (new Date()).toISOString(),
+                    'showDeleted': false,
+                    'singleEvents': true,
+                    'maxResults': 100, // Gerekirse sayıyı artırın
+                    'orderBy': 'startTime',
+                });
+
+                // Eklenmiş olan randevuların ID'lerini toplayın
+                if (existingEvents.result.items) {
+                    existingEvents.result.items.forEach((event) => {
+                        addedEventIds.push(event.id);
+                    });
                 }
-            };
 
-            const request = gapi.client.calendar.events.insert({
-                'calendarId': 'primary',
-                'resource': event
-            });
+                // Yeni randevuları eklerken kontrol edin
+                const batch = gapi.client.newBatch();
+                eventsToAdd.forEach((event, index) => {
+                    // Eğer bu randevu daha önce eklenmemişse, ekleyin
+                    if (!addedEventIds.includes(index.toString())) {
+                        batch.add(gapi.client.calendar.events.insert({
+                            'calendarId': 'primary',
+                            'resource': event,
+                        }), {'id': index.toString()});
+                    }
+                });
 
-            request.execute(function(event) {
-                appendPre('Event created: ' + event.htmlLink);
-            });
+                const response = await batch;
+                alert('Takvime Eklendi', response);
+            } catch (err) {
+                console.error('Error adding events: ', err);
+            }
+        }
+        async function addMultipleEventsToCalendar(events) {
+            try {
+                const batch = gapi.client.newBatch();
+                events.forEach((event, index) => {
+                    batch.add(gapi.client.calendar.events.insert({
+                        'calendarId': 'primary',
+                        'resource': event,
+                    }), {'id': index.toString()});
+                });
+
+                const response = await batch;
+                alert('Takvime Eklendi', response);
+            } catch (err) {
+                console.error('Error adding events: ', err);
+            }
         }
 
     </script>
