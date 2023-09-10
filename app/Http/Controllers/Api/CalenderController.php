@@ -51,7 +51,13 @@ class CalenderController extends Controller
 
     public function exportGoogle()
     {
-        GoogleCalender::setCalendar(auth('business')->user()->appointments);
+        $googleCalendar = new GoogleCalender();
+        $event = $googleCalendar->createEvent(
+            'Etkinlik Başlığı',
+            'Etkinlik Açıklaması',
+            '2023-09-15T10:00:00',
+            '2023-09-15T12:00:00'
+        );
         return back()->with('response', [
             'status' => "success",
             'message' => "Takvime Eklendi",

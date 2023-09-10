@@ -1,43 +1,48 @@
 <?php
-
 namespace App\Services;
+use Google\Client;
+use Google\Service\Calendar;
+use Google\Service\Calendar\Event;
 
 class GoogleCalender
 {
-    public static function setCalendar($appointments)
+    protected $client;
+    protected $service;
+
+    public function __construct()
     {
+        // Google Client oluşturma ve kimlik doğrulama ayarları
+        $this->client = new Client();
+        $this->client->setAuthConfig(env('GOOGLE_CREDENTIALS_JSON'));
+        $this->client->setScopes([Calendar::CALENDAR_EVENTS]);
 
-        $client = new \Google_Client();
-        $client->setAuthConfig([
-            'web' => [
-                'client_id' => env('GOOGLE_CLIENT_ID'),
-                'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-                'redirect_uri' => env('GOOGLE_REDIRECT_URI'),
-            ],
-        ]);
-        $client->setScopes([\Google_Service_Calendar::CALENDAR_EVENTS]);
+        // Google Service oluşturma
+        $this->service = new Calendar($this->client);
+    }
 
-        $service = new \Google_Service_Calendar($client);
-
-        $event = new \Google_Service_Calendar_Event([
-            'summary' => 'Etkinlik Başlığı',
-            'description' => 'Etkinlik Açıklaması',
+    public function createEvent($summary, $description, $startDateTime, $endDateTime)
+    {
+        // Etkinlik nesnesi oluşturma
+        $event = new Event([
+            'summary' => $summary,
+            'description' => $description,
             'start' => [
-                'dateTime' => '2023-09-15T10:00:00',
+                'dateTime' => $startDateTime,
                 'timeZone' => 'Europe/Istanbul',
             ],
             'end' => [
-                'dateTime' => '2023-09-15T12:00:00',
+                'dateTime' => $endDateTime,
                 'timeZone' => 'Europe/Istanbul',
             ],
         ]);
 
-        $calendarId = env('GOOGLE_CALENDAR_ID'); // Takvim ID'si, projenizde tanımladığınız bir değişken olarak kullanabilirsiniz.
+        // Takvim ID'sini ayarlama (örneğin, varsayılan takvim)
+        $calendarId = 'primary';
 
-        $event = $service->events->insert($calendarId, $event);
+        // Etkinliği eklemek
+        $event = $this->service->events->insert($calendarId, $event);
 
-        return true;
+        // Etkinlik ekledikten sonra başka bir işlem yapabilirsiniz
+        return $event;
     }
-
-
 }
