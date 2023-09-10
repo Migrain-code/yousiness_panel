@@ -51,16 +51,37 @@ class CalenderController extends Controller
 
     public function exportGoogle()
     {
-        $googleCalendar = new GoogleCalender();
-        $event = $googleCalendar->createEvent(
-            'Etkinlik Başlığı',
-            'Etkinlik Açıklaması',
-            '2023-09-15T10:00:00',
-            '2023-09-15T12:00:00'
-        );
-        return back()->with('response', [
-            'status' => "success",
-            'message' => "Takvime Eklendi",
-        ]);
+        $apiKey = 'AIzaSyAESuQeot_Y76HEPqe1sx8vf2pgzfpuDVQ'; // Google Takvim API için API anahtarı
+        $googleCalendar = new GoogleCalender($apiKey);
+
+        $calendarId = 'primary'; // Takvim ID'si, varsayılan takvim için 'primary' kullanabilirsiniz.
+
+        $eventData = [
+            'summary' => 'Etkinlik Başlığı',
+            'description' => 'Etkinlik Açıklaması',
+            'start' => [
+                'dateTime' => '2023-09-15T10:00:00',
+                'timeZone' => 'Europe/Istanbul',
+            ],
+            'end' => [
+                'dateTime' => '2023-09-15T12:00:00',
+                'timeZone' => 'Europe/Istanbul',
+            ],
+        ];
+
+        $response = $googleCalendar->createEvent($calendarId, $eventData);
+
+        if ($response !== false) {
+            return back()->with('response', [
+                'status' => "success",
+                'message' => "Takvime Eklendi",
+            ]);
+        } else {
+            return back()->with('response', [
+                'status' => "danger",
+                'message' => "Hata",
+            ]);
+        }
+
     }
 }

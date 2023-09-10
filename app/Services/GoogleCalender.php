@@ -2,66 +2,34 @@
 
 namespace App\Services;
 
-use Google\Client;
-use Google\Service\Calendar;
-use Google\Service\Calendar\Event;
-
 class GoogleCalender
 {
-    protected $client;
-    protected $service;
+    private $apiKey;
 
-    public function __construct()
+    public function __construct($apiKey)
     {
-        // Google Client oluşturma ve kimlik doğrulama ayarları
-        $this->client = new Client([
-            'client_id' => "449337264437-njtrb3c4t391i80dp0c72pm0sh88970l.apps.googleusercontent.com",
-            'client_secret' => "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",
-            'redirect_uri' =>  "https://panel.yousiness.com",
-        ]);
-        $this->client->setAuthConfig([
-            "web" => [
-                "client_id" => "449337264437-njtrb3c4t391i80dp0c72pm0sh88970l.apps.googleusercontent.com",
-                "project_id" => "calendertest-398614",
-                "auth_uri" => "https://accounts.google.com/o/oauth2/auth",
-                "token_uri" => "https://oauth2.googleapis.com/token",
-                "auth_provider_x509_cert_url" => "https://www.googleapis.com/oauth2/v1/certs",
-                "client_secret" => "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",
-                "javascript_origins" => [
-                    "http://127.0.0.1:8001",
-                    "https://panel.yousiness.com"
-                ]
-            ]
-        ]);
-        $this->client->setScopes([Calendar::CALENDAR_EVENTS]);
-
-        // Google Service oluşturma
-        $this->service = new Calendar($this->client);
+        $this->apiKey = $apiKey;
     }
 
-    public function createEvent($summary, $description, $startDateTime, $endDateTime)
+    public function createEvent($calendarId, $eventData)
     {
-        // Etkinlik nesnesi oluşturma
-        $event = new Event([
-            'summary' => $summary,
-            'description' => $description,
-            'start' => [
-                'dateTime' => $startDateTime,
-                'timeZone' => 'Europe/Istanbul',
-            ],
-            'end' => [
-                'dateTime' => $endDateTime,
-                'timeZone' => 'Europe/Istanbul',
-            ],
-        ]);
+        $url = "https://www.googleapis.com/calendar/v3/calendars/{$calendarId}/events?key={$this->apiKey}";
 
-        // Takvim ID'sini ayarlama (örneğin, varsayılan takvim)
-        $calendarId = 'primary';
+        $headers = ['Content-Type: application/json'];
 
-        // Etkinliği eklemek
-        $event = $this->service->events->insert($calendarId, $event);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($eventData));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        // Etkinlik ekledikten sonra başka bir işlem yapabilirsiniz
-        return $event;
+        $response = curl_exec($ch);
+
+        if ($response === false) {
+            return false;
+        } else {
+            return json_decode($response, true);
+        }
     }
 }
