@@ -423,6 +423,74 @@
 </div>
 
 
+
+
+        <!-- tp-cta-area-end -->
+        <div class="tp-sales-area tp-sales-space" style="padding-top: 90px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 order-1 order-md-1 wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.5s; animation-name: tpfadeLeft;">
+                        <div class="tp-sales-section-box pb-20">
+                            <h3 class="tp-section-title-3 pb-15" style="font-size: 40px;">Salonunuzu Güçlendirin</h3>
+                            <p class="tp-title-anim" style="perspective: 300px;">
+                                <div style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform-origin: 285px 14px; transform: translate3d(0px, 0px, 0px); opacity: 1; line-height: 24px;">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, debitis tempore eligendi minima a impedit voluptate odio quibusdam harum ex laboriosam doloribus animi similique, accusamus, iste quod reiciendis dolores sunt.
+                                </div>
+                            </p>
+                        </div>
+    
+
+                    </div>
+                    <div class="col-xl-6 col-lg-6 order-0 order-md-2 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.7s; animation-name: tpfadeRight;">
+                        <div class="tp-sales-img-wrapper p-relative text-end">
+                            <div class="tp-plan-2-img-box p-relative">
+                                <img src="/business/assets/img/cta/mobile_download.webp">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- tp-cta-area-end -->
+        <div class="tp-sales-area tp-sales-space" style="padding-top: 90px;">
+            <div class="container">
+                <div class="row align-items-center">
+
+                <div class="col-xl-6 col-lg-6 order-0 order-md-1 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.7s; animation-name: tpfadeRight;">
+                        <div class="tp-sales-img-wrapper p-relative">
+                            <div class="tp-plan-2-img-box p-relative" style="margin-left: 0;">
+                                <img src="/business/assets/img/cta/mobile_download.webp">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 order-1 order-md-1 wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.5s; animation-name: tpfadeLeft;">
+                        <div class="tp-sales-section-box pb-20">
+                            <h3 class="tp-section-title-3 pb-15" style="font-size: 40px;">Salon Yönetiminizi Kolaylaştırın</h3>
+                            <p class="tp-title-anim" style="perspective: 300px;">
+                                <div style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform-origin: 285px 14px; transform: translate3d(0px, 0px, 0px); opacity: 1; line-height: 24px;">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, debitis tempore eligendi minima a impedit voluptate odio quibusdam harum ex laboriosam doloribus animi similique, accusamus, iste quod reiciendis dolores sunt.
+                                </div>
+                            </p>
+                        </div>
+    
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
         
 
         <!-- tp-cta-area-end -->
