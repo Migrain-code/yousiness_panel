@@ -13,7 +13,13 @@ class GoogleCalender
     {
         // Google Client oluşturma ve kimlik doğrulama ayarları
         $this->client = new Client();
-        $this->client->setAuthConfig(env('GOOGLE_CREDENTIALS_JSON'));
+        $this->client->setAuthConfig([
+            'web' => [
+                'client_id' => env('GOOGLE_CLIENT_ID'),
+                'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+                'redirect_uri' => env('GOOGLE_REDIRECT_URI'),
+            ],
+        ]);
         $this->client->setScopes([Calendar::CALENDAR_EVENTS]);
 
         // Google Service oluşturma
