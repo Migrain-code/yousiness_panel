@@ -185,43 +185,6 @@
         <!-- tp-cta-area-start -->
 
 
-        <!-- tp-cta-area-end -->
-        <div class="tp-sales-area tp-sales-space" style="padding-top: 90px;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6 order-1 order-md-1 wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.5s; animation-name: tpfadeLeft;">
-                        <div class="tp-sales-section-box pb-20">
-                            <h3 class="tp-section-title-3 pb-15 ">Mobil Uygulama</h3>
-                            <p class="tp-title-anim" style="perspective: 300px;">
-                                <div style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform-origin: 285px 14px; transform: translate3d(0px, 0px, 0px); opacity: 1;">
-                                    Tüm işlemlerin telefonunda. İsterseniz mobil uygulamadan isteseniz de web sitemizden işletmenizi yönetebilirsiniz
-                                </div>
-                            </p>
-                        </div>
-                        <div class="tp-sales-feature">
-                            <div class="d-flex justify-content-start">
-                                <div class="col-lg-4 col-md-6 col-sm-12 me-4">
-                                    <img src="/business/assets/img/cta/apple_store_logo.svg" width="200" height="80" class="">
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <img src="/business/assets/img/cta/google_play_logo.svg" width="200" height="80">
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-xl-6 col-lg-6 order-0 order-md-2 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.7s; animation-name: tpfadeRight;">
-                        <div class="tp-sales-img-wrapper p-relative text-end">
-                            <div class="tp-plan-2-img-box p-relative">
-                                <img src="/business/assets/img/cta/mobile_download.webp">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="tp-price__area tp-price__pl-pr p-relative pt-110 pb-80">
             <div class="container">
                 <div class="row justify-content-center">
@@ -351,6 +314,155 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="tp-cta-area p-4 mb-120 tp-cta-five-bg p-relative app-information-area" data-background="" style="background-color: rgb(213, 156, 75); background-image: url(&quot;&quot;);">
+
+    <div class="container-fluid g-0">
+        <div class="row g-0">
+            <div class="col-6">
+                <div class="tp-cta-five-section-box">
+                    <h3 class="tp-section-title-5"><span>Randevu</span> Takibi</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt accusamus nemo laudantium. Iusto delectus ad soluta alias tempora, exercitationem distinctio voluptatibus ipsum, autem ab atque perspiciatis! Doloribus, veniam itaque!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt accusamus nemo laudantium. Iusto delectus ad soluta alias tempora, exercitationem distinctio voluptatibus ipsum, autem ab atque perspiciatis! Doloribus, veniam itaque!</p>
+                    <ul>
+                        <li>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+   <path d="M9 12l2 2l4 -4"></path>
+</svg></div>    
+                        Lorem ipsum dolor sit.</li>
+                        <li>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+   <path d="M9 12l2 2l4 -4"></path>
+</svg></div>    
+                        Lorem ipsum dolor sit.</li>
+                        <li>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+   <path d="M9 12l2 2l4 -4"></path>
+</svg></div>    
+                        Lorem ipsum dolor sit.</li>
+                        <li>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+   <path d="M9 12l2 2l4 -4"></path>
+</svg></div>    
+                        Lorem ipsum dolor sit.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="tp-cta-five-section-box text-center">
+                    <img src="http://127.0.0.1:8001/business/assets/img/cta/mobile_download.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="tp-cta-area p-4 mb-120 tp-cta-five-bg p-relative app-information-area" data-background="" style="background-color: rgb(213, 156, 75); background-image: url(&quot;&quot;);">
+
+<div class="container-fluid g-0">
+    <div class="row g-0">
+        <div class="col-6">
+            <div class="tp-cta-five-section-box">
+                <h3 class="tp-section-title-5">Hatırlatıcı <span>SMS</span> Bilgilendirmesi</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt accusamus nemo laudantium. Iusto delectus ad soluta alias tempora, exercitationem distinctio voluptatibus ipsum, autem ab atque perspiciatis! Doloribus, veniam itaque!</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt accusamus nemo laudantium. Iusto delectus ad soluta alias tempora, exercitationem distinctio voluptatibus ipsum, autem ab atque perspiciatis! Doloribus, veniam itaque!</p>
+                <ul>
+                    <li>
+                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+<path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+<path d="M9 12l2 2l4 -4"></path>
+</svg></div>    
+                    Lorem ipsum dolor sit.</li>
+                    <li>
+                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+<path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+<path d="M9 12l2 2l4 -4"></path>
+</svg></div>    
+                    Lorem ipsum dolor sit.</li>
+                    <li>
+                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+<path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+<path d="M9 12l2 2l4 -4"></path>
+</svg></div>    
+                    Lorem ipsum dolor sit.</li>
+                    <li>
+                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+<path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+<path d="M9 12l2 2l4 -4"></path>
+</svg></div>    
+                    Lorem ipsum dolor sit.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="tp-cta-five-section-box text-center">
+                <img src="http://127.0.0.1:8001/business/assets/img/cta/mobile_download.webp" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+        
+
+        <!-- tp-cta-area-end -->
+        <div class="tp-sales-area tp-sales-space" style="padding-top: 90px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 order-1 order-md-1 wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.5s; animation-name: tpfadeLeft;">
+                        <div class="tp-sales-section-box pb-20">
+                            <h3 class="tp-section-title-3 pb-15 ">Mobil Uygulama</h3>
+                            <p class="tp-title-anim" style="perspective: 300px;">
+                                <div style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform-origin: 285px 14px; transform: translate3d(0px, 0px, 0px); opacity: 1;">
+                                    Tüm işlemlerin telefonunda. İsterseniz mobil uygulamadan isteseniz de web sitemizden işletmenizi yönetebilirsiniz
+                                </div>
+                            </p>
+                        </div>
+                        <div class="tp-sales-feature">
+                            <div class="d-flex justify-content-start">
+                                <div class="col-lg-4 col-md-6 col-sm-12 me-4">
+                                    <img src="/business/assets/img/cta/apple_store_logo.svg" width="200" height="80" class="">
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <img src="/business/assets/img/cta/google_play_logo.svg" width="200" height="80">
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xl-6 col-lg-6 order-0 order-md-2 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.7s; animation-name: tpfadeRight;">
+                        <div class="tp-sales-img-wrapper p-relative text-end">
+                            <div class="tp-plan-2-img-box p-relative">
+                                <img src="/business/assets/img/cta/mobile_download.webp">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class="journey-area p-relative fix" style="padding-top: 90px;padding-bottom: 90px">
             <div class="journey-grey-bg grey-bg"></div>
