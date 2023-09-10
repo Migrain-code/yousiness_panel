@@ -15,9 +15,9 @@ class GoogleCalender
     {
         // Google Client oluşturma ve kimlik doğrulama ayarları
         $this->client = new Client([
-            'client_id' => env("GOOGLE_CLIENT_ID"),
-            'client_secret' => env("GOOGLE_CLIENT_SECRET"),
-            'redirect_uri' => env("GOOGLE_REDIRECT_URI"),
+            'client_id' => "449337264437-njtrb3c4t391i80dp0c72pm0sh88970l.apps.googleusercontent.com",
+            'client_secret' => "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",
+            'redirect_uri' =>  "https://panel.yousiness.com",
         ]);
         $this->client->setAuthConfig([
             "web" => [
