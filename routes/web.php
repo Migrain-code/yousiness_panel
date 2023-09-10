@@ -66,7 +66,7 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
         Route::post('category', [\App\Http\Controllers\Business\BusinessServiceController::class, 'category'])->name('service.category');
         Route::resource('businessService', \App\Http\Controllers\Business\BusinessServiceController::class);
         Route::post('subCategory', [\App\Http\Controllers\Business\HomeController::class, 'subCategory'])->name('subCategory');
-
+        Route::get('google/export/calendr', [\App\Http\Controllers\Api\CalenderController::class, 'exportGoogle'])->name('exportGoogleCalender');
         Route::controller(\App\Http\Controllers\Business\BusinessController::class)->prefix('profile')->as('profile.')->group(function () {
             Route::get('/profilim', 'show')->name('show');
             Route::post('/update-general-setting', 'update')->name('updateGeneralSetting');

@@ -13,38 +13,47 @@ class Appointment extends Model
         0 => [
             'html' => '<span class="badge light badge-warning fw-bolder px-2 py-2">Onay Bekliyor</span>',
             'text' => 'Onay Bekliyor',
+            'code' => 'warning'
         ],
         1 => [
             'html' => '<span class="badge light badge-success fw-bolder px-2 py-2">Onaylandı</span>',
-            'text' => 'Onaylandı'
+            'text' => 'Onaylandı',
+            'code' => 'success'
         ],
         2 => [
             'html' => '<span class="badge light badge-info fw-bolder px-2 py-2">Randevu Zamanı</span>',
-            'text' => 'Randevu Zamanı'
+            'text' => 'Randevu Zamanı',
+            'code' => 'info'
         ],
         3 => [
             'html' => '<span class="badge light badge-default fw-bolder px-2 py-2">Başladı</span>',
-            'text' => 'Başladı'
+            'text' => 'Başladı',
+            'code' => 'primary'
         ],
         4 => [
             'html' => '<span class="badge badge-outline-success fw-bolder px-2 py-2">Tamamlandı</span>',
-            'text' => 'Tamamlandı'
+            'text' => 'Tamamlandı',
+            'code' => 'success'
         ],
         5 => [
             'html' => '<span class="badge badge-outline-info fw-bolder px-2 py-2">Ödeme Bekleniyor</span>',
-            'text' => 'Ödeme Bekleniyor'
+            'text' => 'Ödeme Bekleniyor',
+            'code' => 'info'
         ],
         6 => [
             'html' => '<span class="badge badge-outline-info fw-bolder px-2 py-2">Ödeme Alındı</span>',
-            'text' => 'Ödeme Alındı'
+            'text' => 'Ödeme Alındı',
+            'code' => 'info'
         ],
         7 => [
             'html' => '<span class="badge badge-outline-success fw-bolder px-2 py-2">Ödeme Onaylandı</span>',
-            'text' => 'Ödeme Onaylandı'
+            'text' => 'Ödeme Onaylandı',
+            'code' => 'success'
         ],
         8 => [
             'html' => '<span class="badge light badge-danger fw-bolder px-2 py-2">İptal Edildi</span>',
-            'text' => 'İptal Edildi'
+            'text' => 'İptal Edildi',
+            'code' => 'danger'
         ],
 
     ];

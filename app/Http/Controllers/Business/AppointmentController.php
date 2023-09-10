@@ -27,8 +27,9 @@ class AppointmentController extends Controller
             ->whereRaw("STR_TO_DATE(start_time, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
             ->orderByRaw("STR_TO_DATE(start_time, '%d.%m.%Y %H:%i')")
             ->get();
+        $appointments = Appointment::where('business_id',auth('business')->id())->get();
 
-        return view('business.appointment.index', compact('todayAppointments'));
+        return view('business.appointment.index', compact('todayAppointments', 'appointments'));
     }
 
     public function reject($id)

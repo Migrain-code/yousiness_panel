@@ -35,7 +35,15 @@
                 box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
             }
         }
+        .iti {
+            width: 100%;
+            position: relative;
+            display: inline-block;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
     <!-- Place favicon.ico in the root directory -->
     @include('layouts.component.styles')
 </head>
@@ -238,7 +246,7 @@
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
                                             <input type="text" class="inputText" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" name="email" id="phone" required>
-                                            <span class="floating-label">Telefon Numarası</span>
+
                                         </div>
                                     </div>
                                 </div>
@@ -289,7 +297,20 @@
 
 <!-- JS here -->
 @include('layouts.component.scripts')
+<script>
+    //$(".phone").inputmask({"mask": "+99 (999)-999-9999"});
+    //$(".phone").inputmask({"mask": "(999)-999-9999"});
+    const input = document.querySelector("#phone");
+    const iti = window.intlTelInput(input, {
+        // tercihlerinize göre opsiyonları ayarlayabilirsiniz
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js", // numara formatlama ve doğrulama için gereklidir
+    });
 
+    // Örnek olarak: Numarayı uluslararası formatta alma
+    function getNumber() {
+        return iti.getNumber();
+    }
+</script>
 
 
 </body>

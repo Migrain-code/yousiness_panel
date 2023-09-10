@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keys')">
-    <title>@yield('title', config('settings.bussiness_site_title') .'|'. ' İşletme Giriş')</title>
+    <title>@yield('title', config('settings.bussiness_site_title') .'|'. ' Şifremi Unuttum')</title>
     <style>
         .btn-mobile-menu-free{
             background: #4CAF50 !important;
@@ -35,7 +35,15 @@
                 box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
             }
         }
+        .iti {
+            width: 100%;
+            position: relative;
+            display: inline-block;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
     <!-- Place favicon.ico in the root directory -->
     @include('layouts.component.styles')
 </head>
@@ -111,7 +119,7 @@
                 <div class="col-6">
                     <div class="header-signin-logo">
                         <a href="{{route('welcome')}}">
-                            <img src="{{asset(config('settings.bussiness_main_white_logo'))}}" alt="">
+                            <img src="{{asset(config('settings.bussiness_main_white_logo'))}}" alt="" style="max-width: 250px">
                         </a>
                     </div>
                 </div>
@@ -190,7 +198,7 @@
             <div class="signin-banner-area signin-banner-main-wrap d-flex align-items-center">
                 <div class="signin-banner-left-box signin-banner-bg p-relative" data-background="/business/assets/img/login/login-bg-shape.png">
                     <div class="signin-banner-bottom-shape">
-                        <img src="/business/assets/img/login/login-shape-1.png" alt="">
+                        <img src="/business/assets/img/login/login-shape-1.png" alt="" style="max-width: 250px">
                     </div>
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
@@ -232,7 +240,7 @@
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
                                             <input type="text" name="email" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" id="phone" value="{{old('email')}}"  class="inputText" required>
-                                            <span class="floating-label">Telefon Numarası</span>
+
                                         </div>
                                     </div>
 
@@ -260,7 +268,20 @@
 <!-- JS here -->
 @include('layouts.component.scripts')
 
+<script>
+    //$(".phone").inputmask({"mask": "+99 (999)-999-9999"});
+    //$(".phone").inputmask({"mask": "(999)-999-9999"});
+    const input = document.querySelector("#phone");
+    const iti = window.intlTelInput(input, {
+        // tercihlerinize göre opsiyonları ayarlayabilirsiniz
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js", // numara formatlama ve doğrulama için gereklidir
+    });
 
+    // Örnek olarak: Numarayı uluslararası formatta alma
+    function getNumber() {
+        return iti.getNumber();
+    }
+</script>
 
 </body>
 
