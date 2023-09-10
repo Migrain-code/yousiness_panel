@@ -1,6 +1,6 @@
 <header>
     <!-- tp-header-area-start -->
-    <div id="header-sticky" class="header-bottom__area header-sticky-bg-2 header-bottom__transparent header-bottom__bdr z-index-5" style="background-color: #600ee4;">
+    <div id="header-sticky" class="header-bottom__area header-sticky-bg-2 header-bottom__transparent header-bottom__bdr z-index-5" style="background-color: #d59c4b;">
         <div class="container">
             <div class="row g-0 align-items-center">
                 <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-6">
