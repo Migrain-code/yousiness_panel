@@ -444,14 +444,14 @@
                 }
                 document.getElementById('signout_button').style.visibility = 'visible';
                 document.getElementById('authorize_button').innerText = 'Refresh';
-
+                addEventToCalendar("Muhammet Türkmen", "2023-09-15T14:30:00Z");
             };
 
             if (gapi.client.getToken() === null) {
                 // Prompt the user to select a Google Account and ask for consent to share their data
                 // when establishing a new session.
                 tokenClient.requestAccessToken({prompt: 'consent'});
-                addEventToCalendar("Muhammet Türkmen", "2023-09-15T14:30:00Z");
+
             } else {
                 // Skip display of account chooser and consent dialog for an existing session.
                 tokenClient.requestAccessToken({prompt: ''});
@@ -474,30 +474,42 @@
         }
 
         async function addEventToCalendar(customerName, appointmentTime) {
-            try {
-                const event = {
-                    'summary': customerName,
-                    'start': {
-                        'dateTime': appointmentTime,
-                        'timeZone': 'Europe/Istanbul', // Randevu saatini sisteminizin zaman dilimine göre ayarlayın
-                    },
-                    'end': {
-                        'dateTime': appointmentTime,
-                        'timeZone': 'Europe/Istanbul', // Randevu saatini sisteminizin zaman dilimine göre ayarlayın
-                    },
-                };
+            const event = {
+                'summary': 'Google I/O 2015',
+                'location': '800 Howard St., San Francisco, CA 94103',
+                'description': 'A chance to hear more about Google\'s developer products.',
+                'start': {
+                    'dateTime': '2023-09-10T20:00:00-20:30',
+                    'timeZone': 'America/Los_Angeles'
+                },
+                'end': {
+                    'dateTime': '2015-05-28T17:00:00-07:00',
+                    'timeZone': 'America/Los_Angeles'
+                },
+                'recurrence': [
+                    'RRULE:FREQ=DAILY;COUNT=2'
+                ],
+                'attendees': [
+                    {'email': 'lpage@example.com'},
+                    {'email': 'sbrin@example.com'}
+                ],
+                'reminders': {
+                    'useDefault': false,
+                    'overrides': [
+                        {'method': 'email', 'minutes': 24 * 60},
+                        {'method': 'popup', 'minutes': 10}
+                    ]
+                }
+            };
 
-                const request = {
-                    'calendarId': 'primary',
-                    'resource': event,
-                };
+            const request = gapi.client.calendar.events.insert({
+                'calendarId': 'primary',
+                'resource': event
+            });
 
-                const response = await gapi.client.calendar.events.insert(request);
-                console.log(response);
-                alert('Event created: ' + response.result.htmlLink);
-            } catch (err) {
-                alert('Error creating event: ' + err.message);
-            }
+            request.execute(function(event) {
+                appendPre('Event created: ' + event.htmlLink);
+            });
         }
 
     </script>
