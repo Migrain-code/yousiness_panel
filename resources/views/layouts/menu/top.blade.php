@@ -18,15 +18,12 @@
                                 <li>
                                     <a href="/">Anasayfa</a>
                                 </li>
-                                <li><a href="#">Paketlerimiz</a></li>
+                                <li><a href="#packets">Paketlerimiz</a></li>
 
                                 <li>
-                                    <a href="#">Özellikler</a></li>
-                                <li>
-                                    <a href="#">Blog</a>
-                                </li>
+                                    <a href="#proparties">Özellikler</a></li>
+
                                 <li><a href="#">İletişim</a></li>
-                                <li><a href="#" class="pr-10">Destek <i class="fa fa-headphones "></i></a></li>
 
                             </ul>
 
