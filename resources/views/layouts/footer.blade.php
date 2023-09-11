@@ -91,11 +91,14 @@
         </div>
         <div class="tp-copyright__area pt-20 pb-20">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-4 col-lg-6 col-md-6">
+                <div class="row justify-between">
+                    <div class="col-lg-12 d-flex justify-content-between">
                         <div class="tp-copyright__text tp-copyright__text-3 text-center">
                             <span>{{config('settings.bussiness_site_title')}} 2015-{{now()->year}}. Tüm hakları saklıdır.</span>
-
+                        </div>
+                        <div class="footer-copyright-links">
+                            <a href="#">Şartlar ve Koşullar</a>
+                            <a href="#">Gizlilik Koşulları</a>
                         </div>
                     </div>
                 </div>
