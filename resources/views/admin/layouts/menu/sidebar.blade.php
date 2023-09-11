@@ -26,6 +26,18 @@
             </li>
             <li>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                    <i class="material-icons-outlined">business</i>
+                    <span class="nav-text">İşletme Kategoileri</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li>
+                        <a href="{{route('admin.businessCategory.index')}}">Kategori Listesi</a>
+                    </li>
+                </ul>
+
+            </li>
+            <li>
+                <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">inbox</i>
                     <span class="nav-text">Paket İşlemleri
                     </span>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BusinessCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class BusinessCategoryController extends Controller
 {
@@ -15,7 +16,8 @@ class BusinessCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $businessCategories = BusinessCategory::all();
+        return view('admin.business_category.index', compact('businessCategories'));
     }
 
     /**
@@ -36,7 +38,16 @@ class BusinessCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $businessCategory = new BusinessCategory();
+        $businessCategory->name = $request->input('name');
+        $businessCategory->icon = 'storage/' .  $request->file('image')->store('businessCategory');
+        $businessCategory->slug = Str::slug($request->input('name'));
+        if ($businessCategory->save()){
+            return to_route('admin.businessCategory.index')->with('response', [
+                'status' => "success",
+                'message' => "Kategori Eklendi",
+            ]);
+        }
     }
 
     /**
@@ -58,7 +69,7 @@ class BusinessCategoryController extends Controller
      */
     public function edit(BusinessCategory $businessCategory)
     {
-        //
+        return view('admin.business_category.edit', compact('businessCategory'));
     }
 
     /**
@@ -70,7 +81,17 @@ class BusinessCategoryController extends Controller
      */
     public function update(Request $request, BusinessCategory $businessCategory)
     {
-        //
+        $businessCategory->name = $request->input('name');
+        if ($request->hasFile('image')){
+            $businessCategory->icon = 'storage/' .  $request->file('image')->store('businessCategory');
+        }
+        $businessCategory->slug = Str::slug($request->input('name'));
+        if ($businessCategory->save()){
+            return to_route('admin.businessCategory.index')->with('response', [
+                'status' => "success",
+                'message' => "Kategori Eklendi",
+            ]);
+        }
     }
 
     /**

@@ -96,6 +96,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('faq', \App\Http\Controllers\Admin\FaqController::class);
         Route::resource('businessFaq', \App\Http\Controllers\Admin\BusinessFaqController::class);
         Route::resource('businessBlog', \App\Http\Controllers\Admin\BusinessBlogController::class);
+        Route::resource('businessCategory', \App\Http\Controllers\BusinessCategoryController::class);
         Route::resource('socialMedia', \App\Http\Controllers\Admin\SocialMediaController::class);
         Route::resource('ads', \App\Http\Controllers\Admin\AdsController::class);
         Route::resource('page', \App\Http\Controllers\Admin\PageController::class);
