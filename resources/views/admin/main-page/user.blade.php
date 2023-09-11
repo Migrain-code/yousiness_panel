@@ -242,6 +242,38 @@
                                             </div>
                                         </div>
                                         <!--end::Input group-->
+                                        <div class="row fv-row mb-2">
+                                            <div class="col-md-3 text-md-end">
+                                                <!--begin::Label-->
+                                                <label class="fs-6 fw-semibold form-label mt-3">
+                                                    <span class="required">Kutu 1 Buton Metni</span>
+                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                            </div>
+                                            <div class="col-md-9">
+                                                <!--begin::Input-->
+                                                <input type="text" class="form-control form-control-solid" name="speed_section_1_box_1_button_text" value="{{$sections["speed_section_1_box_1_button_text"] ?? ""}}"/>
+                                                <!--end::Input-->
+
+                                            </div>
+                                        </div>
+                                        <div class="row fv-row mb-2">
+                                            <div class="col-md-3 text-md-end">
+                                                <!--begin::Label-->
+                                                <label class="fs-6 fw-semibold form-label mt-3">
+                                                    <span class="required">Kutu 1 Buton Linki</span>
+                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                            </div>
+                                            <div class="col-md-9">
+                                                <!--begin::Input-->
+                                                <input type="text" class="form-control form-control-solid" name="speed_section_1_box_1_button_link" value="{{$sections["speed_section_1_box_1_button_link"] ?? ""}}"/>
+                                                <!--end::Input-->
+
+                                            </div>
+                                        </div>
                                     </div>
                                     <!--begin::Box 2-->
                                     <div class="row p-2 mt-3" style="border: 1px solid orange;max-width: 99%;border-radius: 15px">
@@ -297,6 +329,37 @@
                                                 <input type="file" class="form-control form-control-solid" name="speed_section_1_box_2_image" />
                                                 <!--end::Input-->
                                                 <img src="{{asset($sections["speed_section_1_box_2_image"] ?? "")}}" width="100px" class="mt-3">
+                                            </div>
+                                        </div>
+                                        <div class="row fv-row mb-2">
+                                            <div class="col-md-3 text-md-end">
+                                                <!--begin::Label-->
+                                                <label class="fs-6 fw-semibold form-label mt-3">
+                                                    <span class="required">Kutu 2 Buton Metni</span>
+                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                            </div>
+                                            <div class="col-md-9">
+                                                <!--begin::Input-->
+                                                <input type="text" class="form-control form-control-solid" name="speed_section_1_box_2_button_text" value="{{$sections["speed_section_1_box_2_button_text"] ?? ""}}"/>
+                                                <!--end::Input-->
+
+                                            </div>
+                                        </div>
+                                        <div class="row fv-row mb-2">
+                                            <div class="col-md-3 text-md-end">
+                                                <!--begin::Label-->
+                                                <label class="fs-6 fw-semibold form-label mt-3">
+                                                    <span class="required">Kutu 2 Buton Linki</span>
+                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                            </div>
+                                            <div class="col-md-9">
+                                                <!--begin::Input-->
+                                                <input type="text" class="form-control form-control-solid" name="speed_section_1_box_2_button_link" value="{{$sections["speed_section_1_box_2_button_link"] ?? ""}}"/>
+                                                <!--end::Input-->
                                             </div>
                                         </div>
                                         <!--end::Input group-->
@@ -355,6 +418,38 @@
                                                 <input type="file" class="form-control form-control-solid" name="speed_section_1_box_3_image" />
                                                 <!--end::Input-->
                                                 <img src="{{asset($sections["speed_section_1_box_3_image"] ?? "")}}" width="100px" class="mt-3">
+                                            </div>
+                                        </div>
+                                        <div class="row fv-row mb-2">
+                                            <div class="col-md-3 text-md-end">
+                                                <!--begin::Label-->
+                                                <label class="fs-6 fw-semibold form-label mt-3">
+                                                    <span class="required">Kutu 3 Buton Metni</span>
+                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                            </div>
+                                            <div class="col-md-9">
+                                                <!--begin::Input-->
+                                                <input type="text" class="form-control form-control-solid" name="speed_section_1_box_3_button_text" value="{{$sections["speed_section_1_box_3_button_text"] ?? ""}}"/>
+                                                <!--end::Input-->
+
+                                            </div>
+                                        </div>
+                                        <div class="row fv-row mb-2">
+                                            <div class="col-md-3 text-md-end">
+                                                <!--begin::Label-->
+                                                <label class="fs-6 fw-semibold form-label mt-3">
+                                                    <span class="required">Kutu 3 Buton Linki</span>
+                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                            </div>
+                                            <div class="col-md-9">
+                                                <!--begin::Input-->
+                                                <input type="text" class="form-control form-control-solid" name="speed_section_1_box_3_button_link" value="{{$sections["speed_section_1_box_3_button_link"] ?? ""}}"/>
+                                                <!--end::Input-->
+
                                             </div>
                                         </div>
                                         <!--end::Input group-->
