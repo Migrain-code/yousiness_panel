@@ -45,6 +45,10 @@
                                         <label>Kategori Görseli</label>
                                         <input type="file" class="form-control input-default " name="image" placeholder="">
                                     </div>
+                                    <div class="mb-3">
+                                        <label>Kategori Mobil Görseli</label>
+                                        <input type="file" class="form-control input-default " name="mobile_image" placeholder="">
+                                    </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
@@ -71,7 +75,7 @@
                                     <td>{{$categorie->name}}</td>
                                     <td>
                                         <a class="btn btn-primary" href="{{route('admin.businessCategory.edit', $categorie->id)}}"><i class="fa fa-edit"></i></a>
-                                        {{--                                         <button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.businessCategory.destroy', $categorie->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>---}}
+                                        {{--<button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.businessCategory.destroy', $categorie->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>---}}
                                     </td>
                                 </tr>
                             @empty

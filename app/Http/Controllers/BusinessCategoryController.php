@@ -41,6 +41,7 @@ class BusinessCategoryController extends Controller
         $businessCategory = new BusinessCategory();
         $businessCategory->name = $request->input('name');
         $businessCategory->icon = 'storage/' .  $request->file('image')->store('businessCategory');
+        $businessCategory->mobile_image = 'storage/' .  $request->file('mobile_image')->store('businessCategoryMobile');
         $businessCategory->slug = Str::slug($request->input('name'));
         if ($businessCategory->save()){
             return to_route('admin.businessCategory.index')->with('response', [
@@ -84,6 +85,9 @@ class BusinessCategoryController extends Controller
         $businessCategory->name = $request->input('name');
         if ($request->hasFile('image')){
             $businessCategory->icon = 'storage/' .  $request->file('image')->store('businessCategory');
+        }
+        if ($request->hasFile('mobile_image')){
+            $businessCategory->mobile_image = 'storage/' .  $request->file('mobile_image')->store('businessCategoryMobile');
         }
         $businessCategory->slug = Str::slug($request->input('name'));
         if ($businessCategory->save()){
