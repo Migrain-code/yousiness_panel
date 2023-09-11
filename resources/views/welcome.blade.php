@@ -639,7 +639,7 @@
                     <div class="col-12">
                         <div class="journey-section-box">
                             <h5 class="inner-section-subtitle pb-10"></h5>
-                            <h3 class="ab-brand-title pb-0 mb-0">Kimler {{setting('appy_site_title')}} Kullanıyor?</h3>
+                            <h3 class="ab-brand-title pb-0 mb-0">{{setting('appy_site_title')}} 'da neler var?</h3>
                         </div>
                     </div>
                 </div>
@@ -664,9 +664,9 @@
 
                                                     </div>
                                                     <div class="tp-feature-five-btn">
-                                                        <a class="tp-btn-purple"
+                                                       <!--  <a class="tp-btn-purple"
                                                            href="{{route('categoryDetail', $category->slug)}}">Detayları
-                                                            Öğren</a>
+                                                            Öğren</a> -->
                                                     </div>
                                                 </div>
                                             </div>

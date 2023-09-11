@@ -1,4 +1,4 @@
-<footer>
+<footer id="contact">
 
     <!-- tp-footer-area-start -->
     <div class="tp-footer__pl-pr">
@@ -44,61 +44,22 @@
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-6 pb-30  wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
                         <div class="tp-footer__widget footer-widget-3 footer-col-3-2">
-                            <h4 class="tp-footer__widget-title">Hızlı Linkler</h4>
+                            <h4 class="tp-footer__widget-title">Für Unternehmen</h4>
                             <div class="tp-footer__content">
                                 <ul>
-                                    <li><a href="{{route('welcome')}}">Anasayfa</a></li>
-                                    <li><a href="{{route('propartie.index')}}">Özellikler</a></li>
-                                    <li><a href="{{route('blog.index')}}">Blog</a></li>
-                                    <li><a href="{{route('packages')}}">Paketlerimiz</a></li>
-                                    <li><a href="{{route('faq')}}">Destek</a></li>
-                                    <li><a href="{{route('contact')}}">İletişim</a></li>
+                                    <li><a href="{{route('business.login')}}">Anmeldung</a>
+                                    </li>
+                                    <li><a href="{{route('business.register')}}">Registrieren</a>
+                                    </li>
+                                    <li><a href="{{route('faq')}}">Häufig gestellte Fragen</a>
+                                    </li>
+
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-6 pb-30  wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
                         <div class="tp-footer__widget footer-widget-3 footer-col-3-3">
-                            <h4 class="tp-footer__widget-title">Diğer Sayfalar</h4>
-                            <div class="tp-footer__content">
-                                <ul>
-                                    <li><a href="#">Kullanım Koşulları</a></li>
-                                    <li><a href="#">Gizlilik ve Kvkk Politikası</a></li>
-                                    <li><a href="#">Aydınlatma Metni</a></li>
-                                    <li><a href="{{route('business.login')}}">Giriş Yap</a></li>
-                                    <li><a href="{{route('business.register')}}">Kayıt Ol</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 pb-30  wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
-                        <div class="tp-footer__widget footer-widget-3 footer-widget-5 footer-col-3-4">
-                            <h4 class="tp-footer__widget-title">Yeniliklerden Haberdar Ol</h4>
-                            <div class="tp-footer__input mb-35 p-relative">
-                                <form action="#">
-                                    <input type="text" placeholder="E-posta Adresi">
-                                    <span>
-                                       <svg width="18" height="16" viewBox="0 0 18 16" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                          <path
-                                                  d="M13 14.6H5C2.6 14.6 1 13.4 1 10.6V5C1 2.2 2.6 1 5 1H13C15.4 1 17 2.2 17 5V10.6C17 13.4 15.4 14.6 13 14.6Z"
-                                                  stroke="#5F6168" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                  stroke-linejoin="round" />
-                                          <path opacity="0.4"
-                                                d="M13 5.39993L10.496 7.39993C9.672 8.05593 8.32 8.05593 7.496 7.39993L5 5.39993"
-                                                stroke="#5F6168" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                       </svg>
-                                    </span>
-                                    <button>
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1.00098 7H13.001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M7.00098 1L13.001 7L7.00098 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </button>
-                                </form>
-                            </div>
                             <div class="tp-footer__social-3">
                                 <h4>Sosya medya</h4>
                                 <a href="{{config('settings.facebook')}}"><i class="fab fa-facebook-f"></i></a>
@@ -106,6 +67,23 @@
                                 <a href="{{config('settings.instagram')}}"><i class="fab fa-instagram"></i></a>
 
                             </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 pb-30  wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
+                        <div class="tp-footer__widget footer-widget-3 footer-widget-5 footer-col-3-4">
+                            <h4 class="tp-footer__widget-title">Kommunikation</h4>
+                            <div class="tp-footer__input mb-35 p-relative">
+                                <div class="tp-footer__content">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-map-pin pe-2"></i>{{setting('speed_contact_address')}}</a></li>
+                                        <li><a href="#"><i class="fa fa-phone pe-2"></i>{{setting('speed_contact_phone')}}</a></li>
+                                        <li><a href="#"><i class="fa fa-envelope pe-2"></i>{{setting('speed_contact_email')}}</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
                 </div>

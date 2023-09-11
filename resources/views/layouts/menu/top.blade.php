@@ -23,7 +23,7 @@
                                 <li>
                                     <a href="#proparties">Özellikler</a></li>
 
-                                <li><a href="#">İletişim</a></li>
+                                <li><a href="#contact">İletişim</a></li>
 
                             </ul>
 
