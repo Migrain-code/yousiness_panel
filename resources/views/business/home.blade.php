@@ -1,5 +1,5 @@
 @extends('business.layouts.master')
-@section('title', 'İşletme | Anasayfa')
+@section('title', 'Anasayfa')
 @section('links')
     <style>
         .box-2 {

@@ -64,7 +64,7 @@ class AppServiceProvider extends ServiceProvider
         ];
 
         \View::share('globalData', $globalData);
-        $cities=City::orderBy('name')->get();
+        $cities=City::orderBy('name')->take(10)->get();
         View::share('cities', $cities);
         $businesses=Business::all();
         View::share('businesses', $businesses);

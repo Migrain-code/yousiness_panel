@@ -56,7 +56,6 @@ class SetupController extends Controller
             'business_type'=>'required',
             'phone'=>'required',
             'city'=>'required',
-            'district'=>'required',
             'offDay'=>'required',
             'start_time'=>'required',
             'end_time'=>'required',
@@ -65,7 +64,6 @@ class SetupController extends Controller
             'business_type'=>'İşletme Tipi',
             'phone'=>'İşletme Telefonu',
             'city'=>'Şehir',
-            'district'=>'İlçe',
             'offDay'=>'Kapalı olduğu gün',
             'start_time'=>'Açılış Saati',
             'end_time'=>'Kapanış Saati',
@@ -98,13 +96,11 @@ class SetupController extends Controller
             'owner'=>'required',
             'email'=>'required',
             'owner_email'=>'required',
-            'password'=>'required|confirmed',
 
         ],[],[
             'owner'=>'İşletme Sahibi',
             'email'=>'Telefon Numarası',
             'owner_email'=>'İşletme Sahibi Mail Adresi',
-            'password'=>'Şifre',
         ]);
         $business=auth('business')->user();
         $business->owner=$request->input('owner');

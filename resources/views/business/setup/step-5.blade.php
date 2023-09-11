@@ -77,7 +77,7 @@
                 </div>
                 <div class="onboarding-content">
                     <div class="row text-center">
-                        HızlıAppy kurulum işlemleriniz başarıyla tamamlandı.
+                        Yousiness kurulum işlemleriniz başarıyla tamamlandı.
                         Paneli Göster butona basarak artık panelinizi yönetebilirsiniz.
                         Sistemsel soru ve problemlerinizi panelinizde yer alan, destek kısmından iletebilirsiniz.
                         E-Posta adresinize eğitim videoları gönderilmiştir.

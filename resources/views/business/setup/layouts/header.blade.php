@@ -4,10 +4,11 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Hızlı randevu</title>
+    <title> {{setting('appy_site_title') . ' | ' }} @yield('title')  </title>
 
     <!-- Favicons -->
-    <link type="image/x-icon" href="/business/setup//assets/img/favicon.png" rel="icon">
+
+    <link rel="icon" type="image/x-icon" href="{{asset(setting('bussiness_main_favicon'))}}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/business/setup//assets/css/bootstrap.min.css">

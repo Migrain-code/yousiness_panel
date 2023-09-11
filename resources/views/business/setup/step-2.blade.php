@@ -1,4 +1,25 @@
 @extends('business.setup.layouts.master')
+@section('links')
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+    <style>
+        .ts-control {
+            border: 1px solid #d0d0d0;
+            padding: 8px 8px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            box-shadow: none;
+            border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            height: 40px;
+
+        }
+
+    </style>
+@endsection
 @section('content')
     @include('layouts.component.error')
     <div class="col-lg-4 col-md-12">
@@ -60,31 +81,17 @@
                             <label>Salon Telefonu</label>
                             <input type="text" class="form-control" name="phone" value="{{$business->phone}}" style="border-radius: 18px;height: 10px">
                         </div>
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-12">
                             <label>İl</label>
-                            <select class="form-select" id="city" name="city" style="border-radius: 18px">
+                            <select class="" id="city_service" name="city" style="border-radius: 18px;">
                                 <option value="" selected>İl Seçiniz</option>
                                 @forelse($cities as $city)
-                                    <option value="{{$city->id}}" @selected($business->city == $city->id)>{{$city->name}}</option>
+                                    <option value="{{$city->id}}" @selected($business->city == $city->id)>{{$city->name ." ," . $city->post_code}}</option>
                                 @empty
 
                                 @endforelse
                             </select>
                         </div>
-
-                            <div class="form-group col-lg-6" id="district">
-                                <label>İlçe</label>
-                                <select class="form-select district" @if($business->city != null) style="display: block;border-radius: 18px" @else style="display: block;border-radius: 18px"  @endif name="district">
-                                    @if($business->city != null)
-                                        @forelse($business->cities->district as $district)
-                                            <option value="{{$district->id}}" @selected($business->district == $district->id)>{{$district->name}}</option>
-                                        @empty
-
-                                        @endforelse
-                                    @endif
-                                </select>
-                            </div>
-
 
                         <div class="form-group col-lg-6">
                             <label>Kapalı Olduğu Gün</label>
@@ -123,28 +130,38 @@
 
 @endsection
 @section('scripts')
-    <script>
-        $(function (){
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
 
-        });
-        $('#city').on('change', function (){
-            $('.district').empty();
-           $.ajax({
-              url: '{{route('business.city')}}',
-              type:"POST",
-              data:{
-                id: $(this).val(),
-                '_token':'{{csrf_token()}}',
-              },
-              dataType:"JSON",
-              success:function (data){
-                  $('#district').css('display', 'block');
-                  $(".district").append('<option value="">İlçe Seçiniz</option>');
-                  $.each(data, function (){
-                      $(".district").append('<option value=' + this.id+'>' + this.name +'</option>');
-                  });
-              }
-           });
+    <script>
+
+        var mySelect = new TomSelect("#city_service", {
+            remoteUrl: '/api/city/search',
+            remoteSearch: true,
+            create: false,
+            highlight: false,
+            load: function(query, callback) {
+                $.ajax({
+                    url: '/api/city/search', // Sunucu tarafındaki arama API'sinin URL'si
+                    method: 'POST',
+                    data: { q: query }, // Arama sorgusu
+                    dataType: 'json', // Beklenen veri tipi
+                    success: function(data) {
+
+                        var results = data.cities.map(function(item) {
+                            console.log('item', item.name);
+                            return {
+                                value: item.id,
+                                text: item.name + " , " + item.post_code,
+                            };
+                        });
+
+                        callback(results);
+                    },
+                    error: function() {
+                        console.error("Arama sırasında bir hata oluştu.");
+                    }
+                });
+            }
         });
     </script>
 @endsection

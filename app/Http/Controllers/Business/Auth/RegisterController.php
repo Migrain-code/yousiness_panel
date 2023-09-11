@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Business\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\BasicMail;
 use App\Models\Business;
+use App\Models\SmsConfirmation;
 use App\Providers\RouteServiceProvider;
 use App\Services\Sms;
 use Illuminate\Database\Eloquent\Model;
@@ -82,7 +83,14 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $generateCode=rand(100000, 999999);
+
         $phone=str_replace(array('(', ')', '-', ' '), '', $data["email"]);
+        $smsConfirmation = new SmsConfirmation();
+        $smsConfirmation->phone = $phone;
+        $smsConfirmation->action = "BUSINESS-REGISTER";
+        $smsConfirmation->code = $generateCode;
+        $smsConfirmation->expire_at = now()->addMinute(3);
+        $smsConfirmation->save();
         Sms::send($phone,config('settings.bussiness_site_title'). "Sistemine giriş için, telefon numarası doğrulama kodunuz ". $generateCode);
 
         return Business::create([

@@ -111,7 +111,7 @@
                 <div class="col-6">
                     <div class="header-signin-logo">
                         <a href="{{route('welcome')}}">
-                            <img src="{{asset(config('settings.bussiness_main_white_logo'))}}" alt="">
+                            <img src="{{asset(config('settings.bussiness_main_white_logo'))}}" style="max-width: 250px" alt="">
                         </a>
                     </div>
                 </div>

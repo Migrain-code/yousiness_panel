@@ -66,16 +66,7 @@
                             <label>E-posta Adresiniz</label>
                             <input type="email" class="form-control" name="owner_email" value="{{$business->owner_email}}" style="border-radius: 18px;height: 10px">
                         </div>
-                        <div class="row">
-                            <div class="form-group col-lg-6">
-                                <label>Şifreniz</label>
-                                <input type="password" class="form-control" name="password" style="border-radius: 18px;height: 10px">
-                            </div>
-                            <div class="form-group col-lg-6">
-                                <label>Şifreniz (Tekrar)</label>
-                                <input type="password" class="form-control" name="password_confirmation" style="border-radius: 18px;height: 10px">
-                            </div>
-                        </div>
+
                         <div class="form-group col-lg-12">
                             <label>Firma Yasal Adresi</label>
                             <textarea class="form-control" name="address" rows="6">{{$business->address}}</textarea>

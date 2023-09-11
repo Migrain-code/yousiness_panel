@@ -5,9 +5,9 @@ namespace App\Services;
 class Sms
 {
     private static string $apiUrl = "https://api.netgsm.com.tr/sms/send/get";
-    const username = '5422735353';
-    const password = '2%1F813';
-    const title = 'N.YILDIZ';
+    const username = '8503462314';
+    const password = 'r7-L33D5';
+    const title = '8503462314';
 
     private static string $number, $message;
 

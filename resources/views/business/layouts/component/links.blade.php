@@ -1,5 +1,6 @@
 <!-- Favicon icon -->
-<link rel="icon" type="image/png" sizes="16x16" href="/panel/assets/images/favicon.png">
+<link rel="shortcut icon" type="image/x-icon" href="{{asset(setting('bussiness_main_favicon'))}}">
+
 <link href="/panel/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 
 <link href="/panel/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>

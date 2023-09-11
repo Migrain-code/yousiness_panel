@@ -17,7 +17,8 @@
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <meta name="format-detection" content="telephone=no">
-    <title>@yield('title') </title>
+
+    <title> {{setting('appy_site_title') . ' | ' }} @yield('title')  </title>
 
     @include('business.layouts.component.links')
 </head>
@@ -42,11 +43,7 @@
     <!--********************************** Nav header start ***********************************-->
     <div class="nav-header">
         <a href="{{route('business.home')}}" class="brand-logo">
-            <img src="{{asset(config('settings.bussiness_logo'))}}" style="width: 75px">
-            <div class="brand-title">
-                Yousiness
-            </div>
-
+            <img src="{{asset(setting('bussiness_main_white_logo'))}}" style="width: 100%;border-radius: 15px">
         </a>
         <div class="nav-control">
             <div class="hamburger">

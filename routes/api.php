@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\CityController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/get/calender/{businessKey}', [\App\Http\Controllers\Api\CalenderController::class, 'getEvents']);
+Route::prefix('city')->group(function (){
+    Route::post('search', [CityController::class, 'search']);
+});
