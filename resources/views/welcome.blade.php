@@ -609,7 +609,7 @@
                                     <img src="/business/assets/img/cta/apple_store_logo.svg" width="200" height="80"
                                          class="">
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="col-lg-4 Müşterilerimizincol-md-6 col-sm-12">
                                     <img src="/business/assets/img/cta/google_play_logo.svg" width="200" height="80">
                                 </div>
 
@@ -757,7 +757,7 @@
                     <div class="col-md-8">
                         <div class="tp-testimonial-five-section-box">
                             <span class="tp-section-subtitle-5">Yorumları</span>
-                            <h3 class="tp-section-title-5"><span>Müşterilerimizin</span> yorumları</h3>
+                            <h3 class="tp-section-title-5"><span>İşletmelerin</span> yorumları</h3>
                         </div>
                     </div>
                     <div class="col-md-4">
