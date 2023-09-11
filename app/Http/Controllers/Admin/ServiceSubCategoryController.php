@@ -90,9 +90,11 @@ class ServiceSubCategoryController extends Controller
      */
     public function update(Request $request, ServiceSubCategory $serviceSubCategory)
     {
+
         $serviceSubCategory->category_id=$request->category_id;
         $serviceSubCategory->name=$request->name;
         $serviceSubCategory->featured=$request->number;
+        $serviceSubCategory->is_abroad=boolval($request->is_abroad);
         if ($request->hasFile('icon')){
             $serviceSubCategory->icon='storage/'. $request->file('icon')->store('sub_category_icons');
         }

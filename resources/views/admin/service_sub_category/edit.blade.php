@@ -48,6 +48,11 @@
                         <input type="file" class="form-control input-default " name="icon" placeholder="Örneğin(1,2,3)">
                         <img src="{{asset($serviceSubCategory->icon)}}">
                     </div>
+                    <div class="mb-3">
+                        <label>Yurt Dışı Hizmeti mi?</label>
+                        <input type="checkbox" class="" @checked($serviceSubCategory->is_abroad == 1) name="is_abroad" placeholder="Örneğin(1,2,3)">
+
+                    </div>
                     <div class="mb-3 text-center">
                         <button type="submit" class="btn btn-primary">Kaydet</button>
                     </div>
