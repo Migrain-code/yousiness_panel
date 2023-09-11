@@ -18,15 +18,15 @@
                                 <li>
                                     <a href="/">Anasayfa</a>
                                 </li>
-                                <li><a href="{{route('packages')}}">Paketlerimiz</a></li>
+                                <li><a href="#">Paketlerimiz</a></li>
 
                                 <li>
-                                    <a href="{{route('propartie.index')}}">Özellikler</a></li>
+                                    <a href="#">Özellikler</a></li>
                                 <li>
-                                    <a href="{{route('blog.index')}}">Blog</a>
+                                    <a href="#">Blog</a>
                                 </li>
-                                <li><a href="{{route('contact')}}">İletişim</a></li>
-                                <li><a href="{{route('faq')}}" class="pr-10">Destek <i class="fa fa-headphones "></i></a></li>
+                                <li><a href="#">İletişim</a></li>
+                                <li><a href="#" class="pr-10">Destek <i class="fa fa-headphones "></i></a></li>
 
                             </ul>
 
