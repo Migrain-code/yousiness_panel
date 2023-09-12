@@ -86,6 +86,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('featuredCategorie', \App\Http\Controllers\Admin\FeaturedCategorieController::class);
         Route::resource('recommendedLink', \App\Http\Controllers\RecommendedLinkController::class);
         Route::resource('page', \App\Http\Controllers\Admin\PageController::class);
+        Route::resource('mainPageSection', \App\Http\Controllers\MainPageSectionController::class);
         Route::resource('user', \App\Http\Controllers\Admin\UserController::class);
         Route::resource('faq', \App\Http\Controllers\Admin\FaqController::class);
         Route::resource('sponsor', \App\Http\Controllers\Admin\SponsorController::class);

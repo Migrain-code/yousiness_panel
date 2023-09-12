@@ -14,6 +14,7 @@ use App\Models\BussinessPackage;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Faq;
+use App\Models\MainPageSection;
 use App\Models\Page;
 use App\Models\Propartie;
 use App\Models\ServiceCategory;
@@ -34,16 +35,13 @@ class HomeController extends Controller
 
         $business_categories=BusinessCategory::latest()->get();
         $proparties=Propartie::latest()->take(6)->get();
-        $comments=Comment::latest()->get();
+        $comments=Comment::where('user_statu', 0)->where('status', 1)->latest()->get();
         $monthlyPackages=BussinessPackage::where('type', 0)->get();
         $yearlyPackages=BussinessPackage::where('type', 1)->get();
-
-        return view('welcome', compact('business_categories', 'comments', 'proparties', 'monthlyPackages', 'yearlyPackages'));
+        $mainPageSections = MainPageSection::all();
+        return view('welcome', compact('mainPageSections','business_categories', 'comments', 'proparties', 'monthlyPackages', 'yearlyPackages'));
     }
-    /*public function sendSms()
-    {
-        Sms::send("5537021355","Bu bir test mesajıdır");
-    }*/
+
     public function proparties()
     {
         $proparties=Propartie::latest()->get();

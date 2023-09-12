@@ -51,6 +51,21 @@
                             <input type="file" class="form-control input-default"  name="image" >
                             <img src="{{asset($comment->image)}}" width="100px" class="mt-3">
                         </div>
+                        <div class="mb-3">
+                            <label>Kullanıcı Türü</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="user_statu" @checked($comment->user_statu == 1) value="1" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Müşteri
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="user_statu" @checked($comment->user_statu == 0) value="0" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    İşletme
+                                </label>
+                            </div>
+                        </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
                         <button type="submit" class="btn btn-primary">Kaydet</button>

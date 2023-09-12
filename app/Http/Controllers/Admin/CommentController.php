@@ -64,6 +64,7 @@ class CommentController extends Controller
         $comment->business=$request->input('business_name');
         $comment->description=$request->input('description');
         $comment->image="storage/".$request->file('image')->store('comments_logo');
+        $comment->user_statu = $request->input('user_statu');
         if ($comment->save()){
             return to_route('admin.comment.index')->with('response', [
                 'status'=>"success",
@@ -108,6 +109,8 @@ class CommentController extends Controller
         $comment->name=$request->input('name');
         $comment->business=$request->input('business_name');
         $comment->description=$request->input('description');
+        $comment->user_statu = $request->input('user_statu');
+
         if ($request->hasFile('image')){
             $comment->image="storage/".$request->file('image')->store('comments_logo');
         }

@@ -99,8 +99,9 @@
                     <li>
                         <a href="{{route('admin.propartie.index')}}">Özellikler İşlemleri</a>
                     </li>
+
                     <li>
-                        <a href="{{route('admin.page.index')}}">Sayfa İşlemleri</a>
+                        <a href="{{route('admin.mainPageSection.index')}}">Anasayfa İşlemleri</a>
                     </li>
                     <li>
                         <a href="{{route('admin.business.settings')}}">Ayarlar</a>
@@ -116,6 +117,9 @@
                 <ul  @if(request()->routeIs('admin.blog.*')) class="mm-collapse mm-show" aria-expanded="true" @else aria-expanded="false" @endif>
                     <li>
                         <a href="{{route('admin.blog.index')}}">Blog İşlemleri</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.page.index')}}">Sayfa İşlemleri</a>
                     </li>
                     <li>
                         <a href="{{route('admin.faq.index')}}">S.S.S İşlemleri</a>

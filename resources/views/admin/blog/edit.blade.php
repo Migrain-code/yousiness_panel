@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('links')
-    <script src="https://cdn.tiny.cloud/1/siujjt1n16xiz0ek0nnb9yq3uepb8nlpa6v4ptkxfeuuxo4l/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/v5jkulldsnabtvlw5euyjd25ns1cd3ve4srk66d3zw4cyjla/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
 @endsection
 @section('content')

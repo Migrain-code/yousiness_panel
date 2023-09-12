@@ -351,7 +351,7 @@
             </div>
         </div>
 
-
+        @forelse($mainPageSections as $section)
         <div class="tp-cta-area p-4 mb-120 tp-cta-five-bg p-relative app-information-area" data-background=""
              style="background-color: rgb(213, 156, 75); background-image: url(&quot;&quot;);">
 
@@ -359,160 +359,21 @@
                 <div class="row g-0">
                     <div class="col-6">
                         <div class="tp-cta-five-section-box">
-                            <h3 class="tp-section-title-5"><span>Randevu</span> Takibi</h3>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt accusamus
-                                nemo laudantium. Iusto delectus ad soluta alias tempora, exercitationem distinctio
-                                voluptatibus ipsum, autem ab atque perspiciatis! Doloribus, veniam itaque!</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt accusamus
-                                nemo laudantium. Iusto delectus ad soluta alias tempora, exercitationem distinctio
-                                voluptatibus ipsum, autem ab atque perspiciatis! Doloribus, veniam itaque!</p>
-                            <ul>
-                                <li>
-                                    <div class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon icon-tabler icon-tabler-circle-check" width="24" height="24"
-                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                                            <path d="M9 12l2 2l4 -4"></path>
-                                        </svg>
-                                    </div>
-                                    Lorem ipsum dolor sit.
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon icon-tabler icon-tabler-circle-check" width="24" height="24"
-                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                                            <path d="M9 12l2 2l4 -4"></path>
-                                        </svg>
-                                    </div>
-                                    Lorem ipsum dolor sit.
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon icon-tabler icon-tabler-circle-check" width="24" height="24"
-                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                                            <path d="M9 12l2 2l4 -4"></path>
-                                        </svg>
-                                    </div>
-                                    Lorem ipsum dolor sit.
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon icon-tabler icon-tabler-circle-check" width="24" height="24"
-                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                                            <path d="M9 12l2 2l4 -4"></path>
-                                        </svg>
-                                    </div>
-                                    Lorem ipsum dolor sit.
-                                </li>
-                            </ul>
+                            <h3 class="tp-section-title-5"><span>{{$section->title}}</span></h3>
+                            {!! $section->description !!}
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="tp-cta-five-section-box text-center">
-                            <img src="http://127.0.0.1:8001/business/assets/img/cta/mobile_download.webp" alt="">
+                            <img src="{{asset($section->image)}}" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <div class="tp-cta-area p-4 mb-120 tp-cta-five-bg p-relative app-information-area" data-background=""
-             style="background-color: rgb(213, 156, 75); background-image: url(&quot;&quot;);">
-
-            <div class="container-fluid g-0">
-                <div class="row g-0">
-                    <div class="col-6">
-                        <div class="tp-cta-five-section-box">
-                            <h3 class="tp-section-title-5">Hatırlatıcı <span>SMS</span> Bilgilendirmesi</h3>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt accusamus
-                                nemo laudantium. Iusto delectus ad soluta alias tempora, exercitationem distinctio
-                                voluptatibus ipsum, autem ab atque perspiciatis! Doloribus, veniam itaque!</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt accusamus
-                                nemo laudantium. Iusto delectus ad soluta alias tempora, exercitationem distinctio
-                                voluptatibus ipsum, autem ab atque perspiciatis! Doloribus, veniam itaque!</p>
-                            <ul>
-                                <li>
-                                    <div class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon icon-tabler icon-tabler-circle-check" width="24" height="24"
-                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                                            <path d="M9 12l2 2l4 -4"></path>
-                                        </svg>
-                                    </div>
-                                    Lorem ipsum dolor sit.
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon icon-tabler icon-tabler-circle-check" width="24" height="24"
-                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                                            <path d="M9 12l2 2l4 -4"></path>
-                                        </svg>
-                                    </div>
-                                    Lorem ipsum dolor sit.
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon icon-tabler icon-tabler-circle-check" width="24" height="24"
-                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                                            <path d="M9 12l2 2l4 -4"></path>
-                                        </svg>
-                                    </div>
-                                    Lorem ipsum dolor sit.
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon icon-tabler icon-tabler-circle-check" width="24" height="24"
-                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                                            <path d="M9 12l2 2l4 -4"></path>
-                                        </svg>
-                                    </div>
-                                    Lorem ipsum dolor sit.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="tp-cta-five-section-box text-center">
-                            <img src="http://127.0.0.1:8001/business/assets/img/cta/mobile_download.webp" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        @empty
+        @endforelse
 
         <!-- tp-cta-area-end -->
         <div class="tp-sales-area tp-sales-space" style="padding-top: 90px;">
