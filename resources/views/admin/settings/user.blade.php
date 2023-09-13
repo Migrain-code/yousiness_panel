@@ -157,6 +157,20 @@
                                             <input type="number" class="form-control form-control-solid" name="speed_pagination_number" value="{{setting('speed_pagination_number')}}" />
                                         </div>
                                     </div>
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span>Footer Hakkımızda Yazısı</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <textarea rows="5" class="form-control form-control-solid" name="speed_footer_about">{{setting('speed_footer_about')}}</textarea>
+                                        </div>
+                                    </div>
                                     <!--end::Input group-->
                                     <!--begin::Action buttons-->
                                     <div class="row py-5">
