@@ -37,7 +37,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-check-inline visits me-0 w-100">
                                         <label class="visit-btns" style="width: 100%">
-                                            <input type="radio" name="category" class="form-check-input" @checked(auth('business')->user()->category_id == $category->id)  value="{{$category->id}}">
+                                            <input type="checkbox" name="category[]" class="form-check-input" @checked(in_array($category->id, $selectedCategories))  value="{{$category->id}}">
                                              <span class="visit-rsn" style="text-align: left">
                                                 <img src="{{asset($category->icon)}}" class="me-2" width="30px" height="30px">
                                                 {{$category->name}}

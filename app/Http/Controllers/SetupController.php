@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BusinessCategory;
+use App\Models\BusinessTypeCategory;
 use App\Models\BusinnessType;
 use App\Models\BussinessPackage;
 use App\Models\DayList;
@@ -16,30 +17,34 @@ class SetupController extends Controller
     public function step1()
     {
         $business_categories= BusinessCategory::all();
-        return view('business.setup.step-1', compact('business_categories'));
+
+        $selectedCategories = [];
+        foreach (auth('business')->user()->categories as $category){
+            $selectedCategories[] = $category->category_id;
+        }
+
+        return view('business.setup.step-1', compact('business_categories', 'selectedCategories'));
     }
 
     public function step1Form(Request $request)
     {
-        /*$validator = Validator::make($request->all(),[
-            'category'=>'reqired',
-        ]);
-        if($validator->fails()){
-            return to_route('business.setup.step1')->with('response', [
-                'message'=>"İşletme Kategorisi Seçmeniz Gerekmektedir"
-            ]);
-        }*/
         $request->validate([
             'category'=>"required",
         ], [], [
-            'category'=>"İşletme Kategorisi"
+            'category'=>"İşletme Kategorisi/Kategorileri"
         ]);
-        $business=auth('business')->user();
-        $business->category_id=$request->input('category');
-        if ( $business->save()){
-            return to_route('business.setup.step2');
-
+        if (auth('business')->user()->categories->count() > 0){
+            foreach ( auth('business')->user()->categories as $category) {
+                $category->delete();
+            }
         }
+        foreach ($request->input('category') as $category){
+            $businessCategory = new BusinessTypeCategory();
+            $businessCategory->category_id = $category;
+            $businessCategory->business_id = auth('business')->id();
+            $businessCategory->save();
+        }
+        return to_route('business.setup.step2');
     }
     public function step2()
     {

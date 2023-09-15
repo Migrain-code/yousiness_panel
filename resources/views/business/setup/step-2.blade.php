@@ -82,11 +82,12 @@
                             <input type="text" class="form-control" name="phone" value="{{$business->phone}}" style="border-radius: 18px;height: 10px">
                         </div>
                         <div class="form-group col-lg-12">
-                            <label>İl</label>
+                            <label>Plz/ Stadtname</label>
                             <select class="" id="city_service" name="city" style="border-radius: 18px;">
-                                <option value="" selected>İl Seçiniz</option>
+                                <option value="" selected>Stadt wählen</option>
+                                <option value="{{$business->cities->id}}" selected>{{$business->cities->post_code. ",".$business->cities->name}}</option>
                                 @forelse($cities as $city)
-                                    <option value="{{$city->id}}" @selected($business->city == $city->id)>{{$city->name ." ," . $city->post_code}}</option>
+                                    <option value="{{$city->id}}">{{$city->post_code ." ," . $city->name}}</option>
                                 @empty
 
                                 @endforelse
@@ -151,7 +152,7 @@
                             console.log('item', item.name);
                             return {
                                 value: item.id,
-                                text: item.name + " , " + item.post_code,
+                                text: item.post_code + " , " + item.name,
                             };
                         });
 
