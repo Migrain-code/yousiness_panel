@@ -88,6 +88,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('page', \App\Http\Controllers\Admin\PageController::class);
         Route::resource('mainPageSection', \App\Http\Controllers\MainPageSectionController::class);
         Route::resource('user', \App\Http\Controllers\Admin\UserController::class);
+        Route::resource('customer', \App\Http\Controllers\Admin\CustomerController::class);
         Route::resource('faq', \App\Http\Controllers\Admin\FaqController::class);
         Route::resource('sponsor', \App\Http\Controllers\Admin\SponsorController::class);
         Route::resource('blog', \App\Http\Controllers\Admin\BlogController::class);

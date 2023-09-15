@@ -15,6 +15,7 @@
     </div>
     <div class="col-12">
         @include('admin.layouts.component.alert')
+        @include('admin.layouts.component.error')
     </div>
     <div class="col-xl-12">
         <div class="card">

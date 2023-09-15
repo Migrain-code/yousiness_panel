@@ -9,6 +9,7 @@ use App\Models\DayList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class SetupController extends Controller
 {
@@ -71,6 +72,7 @@ class SetupController extends Controller
         $business=auth('business')->user();
 
         $business->name=$request->input('name');
+        $business->slug = Str::slug($request->input('name'));
         $business->type_id=$request->input('business_type');
         $business->phone=$request->input('phone');
         $business->city=$request->input('city');

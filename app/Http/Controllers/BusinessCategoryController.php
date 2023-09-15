@@ -38,6 +38,15 @@ class BusinessCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => "required",
+            'image' => "required",
+            'mobile_image' => "required",
+        ], [], [
+            'name' => "Kategori Adı",
+            'image' => "Kategori Görseli",
+            'mobile_image' => "Kategori mobil görseli"
+        ]);
         $businessCategory = new BusinessCategory();
         $businessCategory->name = $request->input('name');
         $businessCategory->icon = 'storage/' .  $request->file('image')->store('businessCategory');

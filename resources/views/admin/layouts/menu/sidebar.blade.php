@@ -8,7 +8,12 @@
                     <span class="nav-text">Anasayfa</span>
                 </a>
             </li>
-
+            <li>
+                <a class="has-arrow " href="{{route('admin.customer.index')}}">
+                    <i class="material-icons-outlined">home</i>
+                    <span class="nav-text">Müşteriler</span>
+                </a>
+            </li>
             <li>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">business</i>
@@ -154,6 +159,7 @@
                     <span class="badge badge-danger" style="border-radius: 50%">{{$globalData["infos"]->count()}}</span>
                 </a>
             </li>
+
         </ul>
 
     </div>
