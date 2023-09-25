@@ -28,6 +28,7 @@
     </div>
     <div class="row mx-4">
         @include('business.layouts.component.alert')
+        @include('business.layouts.component.error')
     </div>
     <div class="row">
         <div class="col-12">

@@ -97,7 +97,23 @@ class PersonelController extends Controller
      */
     public function store(Request $request)
     {
-        //$request->dd();
+        $request->validate([
+            'email' => "required",
+            'phone' => "required|unique:personels",
+            'name' => "required",
+            'password' => "required",
+            'off_day' => "required",
+            'gender' => "required",
+            'rate' => "required",
+        ], [], [
+            'email' => "E-posta",
+            'phone' => "Telefon",
+            'name' => "İsim",
+            'password' => "Şifre",
+            'off_day' => "Tatil Günü",
+            'gender' => "Cinsiyet",
+            'rate' => "Çalışma Payı",
+        ]);
         $personel= new Personel();
         $personel->business_id=auth('business')->id();
         $personel->name= $request->input('name');
