@@ -242,7 +242,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Müşteri Seçiniz</label>
                                 <select name="customer_id" class="form-control">
-                                    <option>Müşteri</option>
+                                    <option value="">Müşteri Seçiniz</option>
                                     @forelse($customers as $customer)
                                         <option value="{{$customer->id}}">{{$customer->name}}</option>
                                     @empty
@@ -264,7 +264,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Paket Tipi</label>
                                 <select name="package_type" class="form-control">
-                                    <option>Paket Tipi Seçiniz</option>
+                                    <option value="">Paket Tipi Seçiniz</option>
                                     @forelse($package_types as $package)
                                         <option value="{{$loop->index}}">{{$package}}</option>
                                     @empty
@@ -274,7 +274,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Satıcı</label>
                                 <select name="personel_id" class="form-control">
-                                    <option>Satıcı Seçiniz</option>
+                                    <option value="">Satıcı Seçiniz</option>
                                     @forelse(auth('business')->user()->personel as $personel)
                                         <option value="{{$personel->id}}">{{$personel->name}}</option>
                                     @empty
