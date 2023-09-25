@@ -87,6 +87,21 @@ class PackageSaleController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'customer_id'=> "required",
+            'service_id' => "required",
+            'amount' => "required",
+            'total' => "required",
+            'personel_id' => "required",
+            'package_type' => "required",
+        ], [], [
+            'customer_id'=> "Müşteri",
+            'service_id' => "Hizmet",
+            'amount' => "Fiyat",
+            'total' => "Toplam Tutar",
+            'personel_id' => "Personel",
+            'package_type' => "Paket Türü",
+        ]);
         $translate_date=Carbon::parse($request->seller_date)->format('Y-m-d');
 
         $packageSale=new PackageSale();
