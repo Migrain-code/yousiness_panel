@@ -10,7 +10,7 @@
             }
         }
     </style>
-    <script src="https://cdn.tiny.cloud/1/v5jkulldsnabtvlw5euyjd25ns1cd3ve4srk66d3zw4cyjla/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/{{env('TINY_API_KEY')}}/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
 @endsection
 @section('content')
