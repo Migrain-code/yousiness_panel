@@ -94,10 +94,12 @@
                     <span class="nav-text">Site İşlemleri (Patron)
                     </span>
                 </a>
-                <ul  @if(request()->routeIs('admin.businessBlog.*')) class="mm-collapse mm-show" aria-expanded="true" @else aria-expanded="false" @endif>
+                <ul>
+
                     <li>
-                        <a href="{{route('admin.businessBlog.index')}}">Blog İşlemleri</a>
+                        <a href="{{route('admin.sponsor.index')}}">Sponsor İşlemleri</a>
                     </li>
+
                     <li>
                         <a href="{{route('admin.businessFaq.index')}}">S.S.S İşlemleri</a>
                     </li>
@@ -106,7 +108,10 @@
                     </li>
 
                     <li>
-                        <a href="{{route('admin.mainPageSection.index')}}">Anasayfa İşlemleri</a>
+                        <a href="{{route('admin.mainPageSection.index')}}">Anasayfa İşlemleri 1</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.business.mainPage')}}">Anasayfa İşlemleri 2</a>
                     </li>
                     <li>
                         <a href="{{route('admin.business.settings')}}">Ayarlar</a>

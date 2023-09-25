@@ -7,6 +7,9 @@ function storage($path): string
 function image($path){
     return env('REMOTE_URL').'/storage/'.$path;
 }
+function main($key){
+    return config('main_pages.'. $key);
+}
 function setting($key){
     return config('settings.'.$key);
 }

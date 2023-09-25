@@ -86,64 +86,33 @@
         </div>
         <!-- tp-hero-area-end -->
 
-        <!-- tp-video-area-start -->
-        {{--
-            <div class="tp-vedio-area p-relative pt-120">
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="tp-vedio-sction-box pb-70">
-                            <h4 class="tp-vedio-title">
-                                Hemen hemen her şey için en iyi müşteri ilişkileri
-                                yönetimi platformu
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="tp-vedio-wrap">
-                            <a class="popup-video tp-cursor-point-area" href="https://www.youtube.com/watch?v=_RpLvsA1SNM">
-                                <video class="play-video" id="myVideo" autoplay loop>
-                                    <source src="http://weblearnbd.net/tphtml/videos/softec/softec-video.mp4" type="video/mp4">
-                                </video>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        --}}
-        <!-- tp-video-area-end -->
-
-
         <!-- tp-fun-fact-area-start -->
         <div class="tp-fun-fact-area tp-fun-fact-2 pt-100 pb-60">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="tp-fun-fact-section-title text-center pb-60">
-                            <h4 class="tp-fun-fact-title">Siz de en iyi sonuçları elde edin</h4>
+                            <h4 class="tp-fun-fact-title">{{main('business_section_1_box_1_main_title')}}</h4>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mb-60 tp-counter-br">
                         <div class="tp-fun-fact-item bg-color-1 tp-fun-fact-space-1 d-flex align-items-center">
-                            <h4>23<span>+</span></h4>
-                            <p>Bizimle <br> Çalışan İşletme</p>
+                            <h4>{{main('business_section_3_box_1_title')}}<span>+</span></h4>
+                            <p>{{main('business_section_3_box_1_description')}}</p>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mb-60 tp-counter-br">
                         <div class="tp-fun-fact-item bg-color-2 tp-fun-fact-space-2 d-flex align-items-center">
-                            <h4>300<span>%</span></h4>
-                            <p>Doğru <br> çalışma programı</p>
+                            <h4>{{main('business_section_3_box_2_title')}}<span>+</span></h4>
+                            <p>{{main('business_section_3_box_2_description')}}</p>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mb-60 tp-counter-br">
                         <div class="tp-fun-fact-item bg-color-3 tp-fun-fact-space-3 d-flex align-items-center">
-                            <h4>12<span>+</span></h4>
-                            <p>Ülkede <br> Çalışma</p>
+                            <h4>{{main('business_section_3_box_3_title')}}<span>+</span></h4>
+                            <p>{{main('business_section_3_box_3_description')}}</p>
                         </div>
                     </div>
                 </div>
@@ -383,12 +352,10 @@
                          data-wow-delay=".5s"
                          style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.5s; animation-name: tpfadeLeft;">
                         <div class="tp-sales-section-box pb-20">
-                            <h3 class="tp-section-title-3 pb-15" style="font-size: 40px;">Salonunuzu Güçlendirin</h3>
+                            <h3 class="tp-section-title-3 pb-15" style="font-size: 40px;">{{main('business_section_1_box_1_title')}}</h3>
                             <p class="tp-title-anim" style="perspective: 300px;">
                             <div style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform-origin: 285px 14px; transform: translate3d(0px, 0px, 0px); opacity: 1; line-height: 24px;">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, debitis tempore eligendi
-                                minima a impedit voluptate odio quibusdam harum ex laboriosam doloribus animi similique,
-                                accusamus, iste quod reiciendis dolores sunt.
+                                {{main('business_section_1_box_1_description')}}
                             </div>
                             </p>
                         </div>
@@ -400,7 +367,7 @@
                          style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.7s; animation-name: tpfadeRight;">
                         <div class="tp-sales-img-wrapper p-relative text-end">
                             <div class="tp-plan-2-img-box p-relative">
-                                <img src="/business/assets/img/cta/mobile_download.webp">
+                                <img src="{{asset(main("business_section_1_box_1_image") ?? "")}}">
 
                             </div>
                         </div>
@@ -420,7 +387,7 @@
                          style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.7s; animation-name: tpfadeRight;">
                         <div class="tp-sales-img-wrapper p-relative">
                             <div class="tp-plan-2-img-box p-relative" style="margin-left: 0;">
-                                <img src="/business/assets/img/cta/mobile_download.webp">
+                                <img src="{{main("business_section_1_box_2_image")}}">
 
                             </div>
                         </div>
@@ -429,13 +396,10 @@
                          data-wow-delay=".5s"
                          style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.5s; animation-name: tpfadeLeft;">
                         <div class="tp-sales-section-box pb-20">
-                            <h3 class="tp-section-title-3 pb-15" style="font-size: 40px;">Salon Yönetiminizi
-                                Kolaylaştırın</h3>
+                            <h3 class="tp-section-title-3 pb-15" style="font-size: 40px;">{{main("business_section_1_box_2_title")}}</h3>
                             <p class="tp-title-anim" style="perspective: 300px;">
                             <div style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform-origin: 285px 14px; transform: translate3d(0px, 0px, 0px); opacity: 1; line-height: 24px;">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, debitis tempore eligendi
-                                minima a impedit voluptate odio quibusdam harum ex laboriosam doloribus animi similique,
-                                accusamus, iste quod reiciendis dolores sunt.
+                                {{main("business_section_1_box_2_description")}}
                             </div>
                             </p>
                         </div>
@@ -456,11 +420,10 @@
                          data-wow-delay=".5s"
                          style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.5s; animation-name: tpfadeLeft;">
                         <div class="tp-sales-section-box pb-20">
-                            <h3 class="tp-section-title-3 pb-15 ">Mobil Uygulama</h3>
+                            <h3 class="tp-section-title-3 pb-15 ">{{main("business_section_1_box_3_title")}}</h3>
                             <p class="tp-title-anim" style="perspective: 300px;">
                             <div style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform-origin: 285px 14px; transform: translate3d(0px, 0px, 0px); opacity: 1;">
-                                Tüm işlemlerin telefonunda. İsterseniz mobil uygulamadan isteseniz de web sitemizden
-                                işletmenizi yönetebilirsiniz
+                                {{main("business_section_1_box_3_description")}}
                             </div>
                             </p>
                         </div>
@@ -483,7 +446,7 @@
                          style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.7s; animation-name: tpfadeRight;">
                         <div class="tp-sales-img-wrapper p-relative text-end">
                             <div class="tp-plan-2-img-box p-relative">
-                                <img src="/business/assets/img/cta/mobile_download.webp">
+                                <img src="{{asset(main("business_section_1_box_3_image"))}}">
 
                             </div>
                         </div>
@@ -560,51 +523,17 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-10">
                             <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 justify-content-center">
-                                <div class="col">
-                                    <div class="ab-brand-item mb-25">
-                                        <img src="/business/assets/img/brand/brand-inner-1.png" alt="">
+                                @forelse($sponsors as $sponsor)
+                                    <div class="col">
+                                        <div class="ab-brand-item mb-25">
+                                            <a href="{{$sponsor->link}}" target="_blank">
+                                                <img src="{{asset($sponsor->image)}}" alt="">
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="ab-brand-item mb-25">
-                                        <img src="/business/assets/img/brand/brand-inner-2.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="ab-brand-item mb-25">
-                                        <img src="/business/assets/img/brand/brand-inner-3.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="ab-brand-item mb-25">
-                                        <img src="/business/assets/img/brand/brand-inner-4.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="ab-brand-item mb-25">
-                                        <img src="/business/assets/img/brand/brand-inner-5.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="ab-brand-item mb-25">
-                                        <img src="/business/assets/img/brand/brand-inner-6.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="ab-brand-item mb-25">
-                                        <img src="/business/assets/img/brand/brand-inner-7.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="ab-brand-item mb-25">
-                                        <img src="/business/assets/img/brand/brand-inner-8.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="ab-brand-item mb-25">
-                                        <img src="/business/assets/img/brand/brand-inner-9.png" alt="">
-                                    </div>
-                                </div>
+                                @empty
+                                @endforelse
+
                             </div>
                         </div>
                     </div>

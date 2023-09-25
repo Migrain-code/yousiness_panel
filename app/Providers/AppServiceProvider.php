@@ -8,6 +8,7 @@ use App\Models\BusinessInfo;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\ForBusiness;
+use App\Models\MaingPage;
 use App\Models\Page;
 use App\Models\ServiceCategory;
 use App\Models\Setting;
@@ -72,7 +73,11 @@ class AppServiceProvider extends ServiceProvider
         View::share('services_top', $services);
         $categorys=Category::all();
         View::share('categories', $categorys);
-
+        $main_pages=[];
+        foreach (MaingPage::all() as $item) {
+            $main_pages[$item->name] = $item->value;
+        }
+        \Config::set('main_pages', $main_pages);
         Paginator::useBootstrapFour();
     }
 }

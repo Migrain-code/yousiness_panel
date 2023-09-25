@@ -56,54 +56,6 @@
             </div>
         </div>
         <!-- postbox area end -->
-        <div class="tp-about__area tp-about__pt-pb pt-100 pb-160">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6 wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".2s">
-                        <div class="tp-about__img-wrapper text-center text-lg-end p-relative">
-                            <div class="tp-about__bg-shape">
-                                <img src="/business/assets/img/about/about-bg-shape.png" alt="">
-                            </div>
-                            <div class="tp-about__main-img z-index">
-                                <img src="/business/assets/img/about/about-2.jpg" alt="">
-                            </div>
-                            <div class="tp-about__sub-img-1 d-none d-sm-block z-index-3">
-                                <img src="/business/assets/img/about/about-1.jpg" alt="">
-                            </div>
-                            <div class="tp-about__sub-img-2 d-none d-sm-block">
-                                <img src="/business/assets/img/about/about-3.jpg" alt="">
-                            </div>
-                            <div class="tp-about__sub-img-3 d-none d-sm-block z-index-3">
-                                <img src="/business/assets/img/about/about-5.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".6s">
-                        <div class="tp-about__right">
-                            <div class="tp-about__section-box">
-                                <h4 class="tp-section-subtitle">OVER 150K+ CLIENT</h4>
-                                <h3 class="tp-section-title mb-15">Gerçek Zamanlı Hızlı Çözümler Sunuyoruz
-                                </h3>
-                                <p>Sistemi kullanarak işletmenizin sorunlarını hızlıca çözün! <br> Bize Katılmak için nedenleriniz.</p>
-                            </div>
-                            <div class="tp-about__list">
-                                <ul>
-                                    <li><i class="fal fa-check"></i>Raporlama Sistemi.</li>
-                                    <li><i class="fal fa-check"></i>Randevu Takip Sistemi.</li>
-                                    <li><i class="fal fa-check"></i>Personel Yönetim Sistemi.</li>
-                                </ul>
-                            </div>
-                            <div class="tp-about__btn">
-                                <a class="tp-btn tp-btn-hover alt-color-black" href="{{route('business.register')}}">
-                                    <span>Şimdi Katıl</span>
-                                    <b></b>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </main>
 

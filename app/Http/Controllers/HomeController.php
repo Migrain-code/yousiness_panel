@@ -21,6 +21,7 @@ use App\Models\ServiceCategory;
 use App\Models\ServiceSubCategory;
 use App\Models\Slider;
 use App\Models\SocialMedia;
+use App\Models\Sponsor;
 use App\Models\Swiper;
 use App\Services\NetgsmSMS;
 use App\Services\Sms;
@@ -39,7 +40,8 @@ class HomeController extends Controller
         $monthlyPackages=BussinessPackage::where('type', 0)->get();
         $yearlyPackages=BussinessPackage::where('type', 1)->get();
         $mainPageSections = MainPageSection::all();
-        return view('welcome', compact('mainPageSections','business_categories', 'comments', 'proparties', 'monthlyPackages', 'yearlyPackages'));
+        $sponsors = Sponsor::take(10)->get();
+        return view('welcome', compact('sponsors','mainPageSections','business_categories', 'comments', 'proparties', 'monthlyPackages', 'yearlyPackages'));
     }
 
     public function proparties()

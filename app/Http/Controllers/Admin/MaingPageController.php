@@ -18,6 +18,14 @@ class MaingPageController extends Controller
         return view('admin.main-page.user', compact('sections'));
     }
 
+    public function businessEdit()
+    {
+        $sections = [];
+        foreach (MaingPage::all() as $item) {
+            $sections[$item->name] = $item->value;
+        }
+        return view('admin.main-page.business', compact('sections'));
+    }
     public function section_update(Request $request)
     {
         foreach ($request->except('_token') as $key => $item) {

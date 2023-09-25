@@ -137,7 +137,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('/update-category', [\App\Http\Controllers\Admin\SettingController::class, 'uCategory']);
         Route::get('/business-settings', [\App\Http\Controllers\Admin\SettingController::class, 'businessEdit'])->name('business.settings');
         Route::get('/user-settings', [\App\Http\Controllers\Admin\SettingController::class, 'userEdit'])->name('user.settings');
-        /*Route::get('/business-main-page', [\App\Http\Controllers\Admin\SettingController::class, 'businessEdit'])->name('business.settings');*/
+
+        Route::get('/business-main-page', [\App\Http\Controllers\Admin\MaingPageController::class, 'businessEdit'])->name('business.mainPage');
+
         Route::get('/anasayfa/guncelle', [\App\Http\Controllers\Admin\MaingPageController::class, 'userEdit'])->name('user.mainPage');
 
         Route::post('/main-page-update', [\App\Http\Controllers\Admin\MaingPageController::class, 'section_update'])->name('user.mainPage.update');
