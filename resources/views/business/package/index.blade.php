@@ -251,7 +251,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Hizmet</label>
                                 <select name="service_id" class="form-control">
-                                    <option>Hizmet Seçiniz</option>
+                                    <option value="">Hizmet Seçiniz</option>
                                     @forelse(auth('business')->user()->services as $service)
                                         <option value="{{$service->id}}">{{$service->subCategory->name . "(".$service->gender->name.")"}}</option>
                                     @empty
