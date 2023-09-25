@@ -103,29 +103,29 @@
                         <div class="row">
                             <div class="mb-3 col-md-12">
                                 <label class="form-label">İsim Soyisim</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control" name="name" value="{{old("name")}}">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">E-posta</label>
-                                <input type="email" class="form-control" name="email">
+                                <input type="email" class="form-control" name="email" value="{{old("email")}}">
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Şifre</label>
-                                <input type="text" class="form-control" name="password">
+                                <input type="text" class="form-control" name="password" value="{{old("password")}}">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Telefon</label>
-                                <input type="text" class="form-control" placeholder="0555 555 55 55" name="phone">
+                                <input type="text" class="form-control" placeholder="0555 555 55 55" name="phone" value="{{old("phone")}}">
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Onay İzni</label>
                                 <select name="accept" class="form-control">
-                                    <option value="1">İzin Ver</option>
-                                    <option value="0">İzin Verme</option>
+                                    <option value="1" @selected(old('accept') == 1)>İzin Ver</option>
+                                    <option value="0" @selected(old('accept') == 0)>İzin Verme</option>
                                 </select>
                             </div>
                         </div>
@@ -137,7 +137,7 @@
                                     </button></label>
                                 <select name="off_day" class="form-control">
                                     @forelse($dayList as $list)
-                                        <option value="{{$list->id}}">{{$list->name}}</option>
+                                        <option value="{{$list->id}}" @selected(old("off_day") == $list->id)>{{$list->name}}</option>
                                     @empty
 
                                     @endforelse
@@ -152,7 +152,7 @@
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
-                                <input type="time" class="form-control" name="start_time" min="{{auth('business')->user()->start_time}}" max="{{auth('business')->user()->end_time}}">
+                                <input type="time" class="form-control" name="start_time" value="{{old("start_time")}}" min="{{auth('business')->user()->start_time}}" max="{{auth('business')->user()->end_time}}">
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label class="form-label"> Mesai Bitiş
@@ -160,7 +160,7 @@
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
-                                <input type="time" class="form-control" name="end_time" min="{{auth('business')->user()->start_time}}" max="{{auth('business')->user()->end_time}}">
+                                <input type="time" class="form-control" name="end_time" value="{{old("end_time")}}" min="{{auth('business')->user()->start_time}}" max="{{auth('business')->user()->end_time}}">
 
                             </div>
 
@@ -172,7 +172,7 @@
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
-                                <input type="time" class="form-control" name="food_start_time" min="{{auth('business')->user()->start_time}}" max="{{auth('business')->user()->end_time}}">
+                                <input type="time" class="form-control" name="food_start_time" value="{{old("food_start_time")}}" min="{{auth('business')->user()->start_time}}" max="{{auth('business')->user()->end_time}}">
 
                             </div>
                             <div class="mb-3 col-md-6">
@@ -181,7 +181,7 @@
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
-                                <input type="time" class="form-control" name="food_end_time" min="{{auth('business')->user()->start_time}}" max="{{auth('business')->user()->end_time}}">
+                                <input type="time" class="form-control" name="food_end_time" value="{{old("food_end_time")}}" min="{{auth('business')->user()->start_time}}" max="{{auth('business')->user()->end_time}}">
 
                             </div>
 
@@ -196,9 +196,9 @@
                                     </label>
                                     <select name="gender" id="gender" class="form-control">
                                             <option value="">Cinsiyet Seçiniz</option>
-                                            <option value="1">Kadın</option>
-                                            <option value="2">Erkek</option>
-                                            <option value="3">Her İkiside</option>
+                                            <option value="1" @selected(old("gender") == "1")>Kadın</option>
+                                            <option value="2" @selected(old("gender") == "2")>Erkek</option>
+                                            <option value="3" @selected(old("gender") == "3")>Her İkiside</option>
                                     </select>
                                 </div>
                             @endif
@@ -211,7 +211,7 @@
                                 <select name="rate" class="form-control">
                                     <option value="">Hizmet Payı Seçiniz</option>
                                     @forelse($rates as $row)
-                                        <option value="{{$row->id}}">{{$row->rate == 0 ? "Maaşlı Çalışan". " %". $row->rate : "% ".$row->rate}}</option>
+                                        <option value="{{$row->id}}" @selected(old("rate") == $row->id)>{{$row->rate == 0 ? "Maaşlı Çalışan". " %". $row->rate : "% ".$row->rate}}</option>
                                     @empty
                                     @endforelse
                                 </select>
@@ -244,12 +244,12 @@
                                 </label>
                                 <select name="range" class="form-control">
                                     <option value="">Randevu Aralığı Seçiniz</option>
-                                    <option value="5">5 Dakika</option>
-                                    <option value="10">10 Dakika</option>
-                                    <option value="20">20 Dakika</option>
-                                    <option value="30">30 Dakika</option>
-                                    <option value="40">40 Dakika</option>
-                                    <option value="45">45 Dakika</option>
+                                    <option value="5" @selected(old("range") == "5")>5 Dakika</option>
+                                    <option value="10" @selected(old("range") == "10")>10 Dakika</option>
+                                    <option value="20" @selected(old("range") == "20")>20 Dakika</option>
+                                    <option value="30" @selected(old("range") == "30")>30 Dakika</option>
+                                    <option value="40" @selected(old("range") == "40")>40 Dakika</option>
+                                    <option value="45" @selected(old("range") == "45")>45 Dakika</option>
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
@@ -258,7 +258,7 @@
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
-                                <textarea name="description" rows="5" class="form-control"></textarea>
+                                <textarea name="description" rows="5" class="form-control">{{old("description")}}</textarea>
                             </div>
                         </div>
                         {{--End Modal Body--}}
