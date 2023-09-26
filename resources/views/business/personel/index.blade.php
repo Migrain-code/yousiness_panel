@@ -201,6 +201,8 @@
                                             <option value="3" @selected(old("gender") == "3")>Her İkiside</option>
                                     </select>
                                 </div>
+                            @else
+                                    <input type="hidden" name="gender" value="{{auth('business')->user()->type_id}}">
                             @endif
                             <div class="mb-3 col-md-6">
                                 <label class="form-label"> Hizmet Payı
