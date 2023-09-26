@@ -85,7 +85,9 @@
                             <label>Plz/ Stadtname</label>
                             <select class="" id="city_service" name="city" style="border-radius: 18px;">
                                 <option value="" selected>Stadt wählen</option>
-                                <option value="{{$business->cities->id}}" selected>{{$business->cities->post_code. ",".$business->cities->name}}</option>
+                                @if(isset($business->cities))
+                                    <option value="{{$business->cities->id}}" selected>{{$business->cities->post_code. ",".$business->cities->name}}</option>
+                                @endif
                                 @forelse($cities as $city)
                                     <option value="{{$city->id}}">{{$city->post_code ." ," . $city->name}}</option>
                                 @empty
