@@ -62,7 +62,6 @@ class ProductController extends Controller
     {
         return view('business.product.edit', compact('product'));
     }
-
     /**
      * Update the specified resource in storage.
      *

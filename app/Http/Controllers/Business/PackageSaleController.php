@@ -112,7 +112,7 @@ class PackageSaleController extends Controller
         $packageSale->type=$request->input('package_type');
         $packageSale->personel_id=$request->input('personel_id');
         $packageSale->amount=$request->input('amount');
-        $packageSale->total=(double) $request->total;
+        $packageSale->total=$this->sayiDuzenle($request->total);
         if ($packageSale->save()) {
             return to_route('business.packageSale.index')->with('response', [
                 'status' => "success",
@@ -120,7 +120,7 @@ class PackageSaleController extends Controller
             ]);
         }
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -153,5 +153,12 @@ class PackageSaleController extends Controller
     public function destroy(PackageSale $packageSale)
     {
         //
+    }
+
+    function sayiDuzenle($sayi){
+        $sayi = str_replace('.','',$sayi);
+        $sayi = str_replace(',','.',$sayi);
+        $sonuc = floatval($sayi);
+        return $sonuc;
     }
 }
