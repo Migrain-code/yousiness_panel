@@ -49,7 +49,7 @@
                                @forelse(auth('business')->user()->products as $product)
                                     <tr>
                                         <td>{{$product->name}}</td>
-                                        <td>{{$product->price}} &#8378;</td>
+                                        <td>{{$product->price}} &#x20AC;</td>
                                         <td>{{$product->piece}}</td>
                                         <td>{{$product->barcode}}</td>
                                         <td>{{$product->created_at->format('d.m.Y')}}</td>

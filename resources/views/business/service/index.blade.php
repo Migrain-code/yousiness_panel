@@ -59,7 +59,8 @@
                                         <td>{{$service->categorys->name}}</td>
                                         <td>{{$service->subCategory->name}}</td>
                                         <td>{{$service->time}} DK</td>
-                                        <td>{{$service->price}} ₺</td>
+                                        <td>{{$service->price}} &#x20AC;
+                                        </td>
                                         <td>
                                             @if($service->status==1)
                                                 <span class="badge light badge-success">Aktif</span>
@@ -160,7 +161,7 @@
                                     </button>
                                 </label>
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text">₺</span>
+                                    <span class="input-group-text">&#x20AC;</span>
                                     <input type="text" class="form-control" name="price" id="price" placeholder="">
                                 </div>
                             </div>

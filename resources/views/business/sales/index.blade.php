@@ -59,7 +59,7 @@
                                         <td>{{$sale->product->name}}</td>
                                         <td>{{$payment_types[$sale->payment_type]}}</td>
                                         <td>{{$sale->piece}}</td>
-                                        <td>{{$sale->total}} &#8378;</td>
+                                        <td>{{$sale->total}} &#x20AC;</td>
                                         <td>{{$sale->created_at->format('d.m.Y H:i:s')}}</td>
                                         <td>
                                             <div class="d-flex">
