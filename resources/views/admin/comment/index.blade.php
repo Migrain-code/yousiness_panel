@@ -102,7 +102,6 @@
                         <tr>
                             <th>İsim</th>
                             <th>İşletme</th>
-                            <th>Açıklama</th>
                             <th>Durum</th>
                             <th>İşlemler</th>
                         </tr>
@@ -112,9 +111,6 @@
                             <tr class="rowDelete">
                                 <td>{{$comment->name}}</td>
                                 <td>{{$comment->business}}</td>
-                                <td>
-                                    {{substr(strip_tags($comment->description), 0, 100)}}
-                                </td>
                                 <td>
                                     @if($comment->status == 0)
                                         <span class="badge badge-warning">Yayında Değil</span>
