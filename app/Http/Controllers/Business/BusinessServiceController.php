@@ -33,7 +33,12 @@ class BusinessServiceController extends Controller
     }
     public function gender(Request  $request)
     {
-        $category = ServiceCategory::where('type_id',$request->gender)->get();
+        if ($request->gender == "all"){
+            $category = ServiceCategory::latest("type_id")->get();
+        }
+        else{
+            $category = ServiceCategory::where('type_id',$request->gender)->get();
+        }
         //dd($category);
         return $category;
     }
