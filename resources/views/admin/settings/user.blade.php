@@ -44,11 +44,22 @@
 													</span>
                                     <!--end::Svg Icon-->İletişim Ayarları</a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary" data-bs-toggle="tab" href="#kt_ecommerce_settings_social">
+                                    <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm005.svg-->
+                                    <span class="svg-icon svg-icon-2 me-2">
+														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19Z" fill="currentColor"></path>
+														<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="currentColor"></path>
+													</svg>
+													</span>
+                                    <!--end::Svg Icon-->Sosyal Medya</a>
+                            </li>
                         </ul>
                         <!--end:::Tabs-->
                         <!--begin:::Tab content-->
                         <div class="tab-content" id="myTabContent">
+                            <!--start:::Tab pane-->
                             <div class="tab-pane fade show active" id="kt_ecommerce_settings_general" role="tabpanel">
                                 <!--begin::Form-->
                                 <form enctype="multipart/form-data" class="form" action="{{route('admin.settings.update')}}" method="post">
@@ -108,6 +119,22 @@
                                             <!--begin::Input-->
                                             <input type="file" class="form-control form-control-solid" name="speed_logo_white" value="{{setting('speed_logo_white')}}" />
                                             <img src="{{asset(setting('speed_logo_white'))}}" style="width: 50px" class="mt-2">
+                                        </div>
+                                    </div>
+
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span>Logo (Footer)</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <input type="file" class="form-control form-control-solid" name="speed_logo_footer" value="{{setting('speed_logo_footer')}}" />
+                                            <img src="{{asset(setting('speed_logo_footer'))}}" style="width: 50px" class="mt-2">
                                         </div>
                                     </div>
 
@@ -191,9 +218,8 @@
                                 </form>
                                 <!--end::Form-->
                             </div>
-
                             <!--end:::Tab pane-->
-
+                            <!--start:::Tab pane-->
                             <div class="tab-pane fade" id="kt_ecommerce_settings_products" role="tabpanel">
                                 <!--begin::Form-->
                                 <form enctype="multipart/form-data"  class="form" action="{{route('admin.settings.update')}}" method="post">
@@ -403,7 +429,7 @@
                                 </form>
                                 <!--end::Form-->
                             </div>
-
+                            <!--start:::Tab pane-->
                             <div class="tab-pane fade" id="kt_ecommerce_settings_contact" role="tabpanel">
                                 <!--begin::Form-->
                                 <form method="post" class="form" action="{{route('admin.settings.update')}}" enctype="multipart/form-data">
@@ -505,6 +531,107 @@
                                 <!--end::Form-->
                             </div>
 
+                            <!--start:::Tab pane-->
+                            <!--start:::Tab pane-->
+                            <div class="tab-pane fade" id="kt_ecommerce_settings_social" role="tabpanel">
+                                <!--begin::Form-->
+                                <form enctype="multipart/form-data" class="form" action="{{route('admin.settings.update')}}" method="post">
+                                    @csrf
+                                    <!--begin::Heading-->
+                                    <div class="row mb-3">
+                                        <div class="col-md-9 offset-md-3">
+                                            <h2>Genel Ayarlar</h2>
+                                        </div>
+                                    </div>
+                                    <!--end::Heading-->
+                                    <!--begin::Input group-->
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span class="required">Facebook</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the title of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <input type="text" class="form-control form-control-solid" name="speed_facebook_url" value="{{setting('speed_facebook_url')}}" />
+                                            <!--end::Input-->
+                                        </div>
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span class="required">Twitter</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the title of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <input type="text" class="form-control form-control-solid" name="speed_twitter_url" value="{{setting('speed_twitter_url')}}" />
+                                            <!--end::Input-->
+                                        </div>
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span class="required">Instagram</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the title of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <input type="text" class="form-control form-control-solid" name="speed_intagram_url" value="{{setting('speed_intagram_url')}}" />
+                                            <!--end::Input-->
+                                        </div>
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span class="required">Youtube</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the title of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <input type="text" class="form-control form-control-solid" name="speed_youtube_url" value="{{setting('speed_youtube_url')}}" />
+                                            <!--end::Input-->
+                                        </div>
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Action buttons-->
+                                    <div class="row py-5">
+                                        <div class="col-md-9 offset-md-3">
+                                            <div class="d-flex">
+                                                <!--begin::Button-->
+                                                <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Cancel</button>
+                                                <!--end::Button-->
+                                                <!--begin::Button-->
+                                                <button type="submit" class="btn btn-primary">
+                                                    <span class="indicator-label">Kaydet</span>
+                                                </button>
+                                                <!--end::Button-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Action buttons-->
+                                </form>
+                                <!--end::Form-->
+                            </div>
+                            <!--end:::Tab pane-->
                         </div>
                         <!--end:::Tab content-->
                     </div>

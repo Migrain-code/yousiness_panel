@@ -95,6 +95,7 @@ class RegisterController extends Controller
 
         return Business::create([
             'name' => $data['name'],
+            'slug' => Str::slug($data['name']),
             'owner' => $data['owner'],
             'email' => $data['email'],
             'status'=>1,
