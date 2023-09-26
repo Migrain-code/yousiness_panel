@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Propartie;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class PropartieController extends Controller
 {
@@ -16,9 +17,10 @@ class PropartieController extends Controller
      */
     public function index()
     {
-        $proparties=Propartie::orderBy('name')->get();
+        $proparties = Propartie::orderBy('name')->get();
         return view('admin.propartie.index', compact('proparties'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,20 +40,28 @@ class PropartieController extends Controller
      */
     public function store(Request $request)
     {
-        $propartie=new Propartie();
-        $propartie->name=$request->input('name');
-        $propartie->description=$request->input('description');
-        if ($propartie->save()){
+
+        $propartie = new Propartie();
+        $propartie->name = $request->input('name');
+        $propartie->slug = Str::slug($request->input('name'));
+        $propartie->image = "storage/" . $request->file('image')->store('propImages');
+        $propartie->icon = "storage/" . $request->file('icon')->store('propIcons');
+        $propartie->description = $request->input('description');
+        $propartie->detail = $request->input('detail');
+        $propartie->status = 1;
+        $propartie->updated_at = now();
+        $propartie->created_at = now();
+        if ($propartie->save()) {
             return to_route('admin.propartie.index')->with('response', [
-                'status'=>"success",
-                'title'=>"Başarılı",
-                'message'=>"Özellik Eklendi"
+                'status' => "success",
+                'title' => "Başarılı",
+                'message' => "Özellik Eklendi"
             ]);
         }
         return to_route('admin.propartie.index')->with('response', [
-            'status'=>"danger",
-            'title'=>"Hata",
-            'message'=>"Bir hata sebebi ile Özellik Eklenemedi"
+            'status' => "danger",
+            'title' => "Hata",
+            'message' => "Bir hata sebebi ile Özellik Eklenemedi"
         ]);
     }
 
@@ -74,7 +84,7 @@ class PropartieController extends Controller
      */
     public function edit(Propartie $propartie)
     {
-        //
+        return view('admin.propartie.edit', compact('propartie'));
     }
 
     /**
@@ -86,7 +96,30 @@ class PropartieController extends Controller
      */
     public function update(Request $request, Propartie $propartie)
     {
-        //
+        $propartie->name = $request->input('name');
+        $propartie->slug = Str::slug($request->input('name'));
+        if ($request->hasFile('image')) {
+            $propartie->image = "storage/" . $request->file('image')->store('propImages');
+        }
+        if ($request->hasFile('icon')) {
+            $propartie->icon = "storage/" . $request->file('icon')->store('propIcons');
+        }
+        $propartie->description = $request->input('description');
+        $propartie->detail = $request->input('detail');
+        $propartie->status = 1;
+        $propartie->updated_at = now();
+        if ($propartie->save()) {
+            return to_route('admin.propartie.index')->with('response', [
+                'status' => "success",
+                'title' => "Başarılı",
+                'message' => "Özellik Güncellendi"
+            ]);
+        }
+        return to_route('admin.propartie.index')->with('response', [
+            'status' => "danger",
+            'title' => "Hata",
+            'message' => "Bir hata sebebi ile Özellik Güncellendi"
+        ]);
     }
 
     /**
@@ -97,9 +130,9 @@ class PropartieController extends Controller
      */
     public function destroy(Propartie $propartie)
     {
-        if ($propartie->delete()){
+        if ($propartie->delete()) {
             return response()->json([
-                'status'=>"success",
+                'status' => "success",
             ]);
         }
     }

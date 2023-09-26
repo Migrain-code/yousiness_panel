@@ -1,6 +1,7 @@
 @extends('admin.layouts.master')
 @section('links')
     <link href="/admin/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.tiny.cloud/1/{{env('TINY_API_KEY')}}/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
 @endsection
 @section('content')
@@ -33,7 +34,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
-                            <form method="post" action="{{route('admin.propartie.store')}}">
+                            <form method="post" action="{{route('admin.propartie.store')}}" enctype="multipart/form-data">
                             <div class="modal-body">
 
                                     @csrf
@@ -43,7 +44,21 @@
                                     </div>
                                     <div class="mb-3">
                                         <label>Özellik Açıklaması</label>
-                                        <textarea type="text" rows="5" class="form-control input-default " name="description" placeholder="Örneğin(Bu alana gireceğiniz veri işletmelerin özelliğin ne işe yaradığını bilmelerini sağlaycaktır)"></textarea>
+                                        <textarea type="text" rows="5" class="form-control input-default description_area" name="description" placeholder="Örneğin(Bu alana gireceğiniz veri işletmelerin özelliğin ne işe yaradığını bilmelerini sağlaycaktır)"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Özellik Detayı</label>
+                                        <textarea type="text" rows="5" class="form-control input-default " name="detail" placeholder="Örneğin(Bu alana gireceğiniz veri işletmelerin özelliğin ne işe yaradığını bilmelerini sağlaycaktır)"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>İcon</label>
+                                        <input type="file" class="form-control input-default " name="icon" placeholder="Örneğin(Randevu Hatırlatma)">
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Görsel</label>
+                                        <input type="file" class="form-control input-default " name="image" placeholder="Örneğin(Randevu Hatırlatma)">
+
                                     </div>
 
                             </div>
@@ -62,18 +77,18 @@
                     <table id="example" class="display" style="min-width: 845px">
                         <thead>
                         <tr>
+                            <th>Özellik İconu</th>
                             <th>Özellik Adı</th>
-                            <th>Özellik Açıklaması</th>
                             <th>İşlemler</th>
                         </tr>
                         </thead>
                         <tbody>
                             @forelse($proparties as $propartie)
                                 <tr class="rowDelete">
+                                    <td><img src="{{asset($propartie->icon)}}" style="width: 45px;"> </td>
                                     <td>{{$propartie->name}}</td>
-                                    <td>{{$propartie->description}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                                        <a type="button" class="btn btn-primary" href="{{route('admin.propartie.edit', $propartie->id)}}"><i class="fa fa-edit"></i></a>
                                         <button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.propartie.destroy', $propartie->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
@@ -161,5 +176,18 @@
             });
 
         }
+    </script>
+    <script>
+        tinymce.init({
+            selector: '.description_area',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ]
+        });
     </script>
 @endsection

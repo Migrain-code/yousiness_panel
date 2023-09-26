@@ -321,7 +321,7 @@
         </div>
 
         @forelse($mainPageSections as $section)
-        <div class="tp-cta-area p-4 mb-120 tp-cta-five-bg p-relative app-information-area" data-background=""
+        <div class="tp-cta-area p-4 mb-120 tp-cta-five-bg p-relative app-information-area" id="about_us" data-background=""
              style="background-color: rgb(213, 156, 75); background-image: url(&quot;&quot;);">
 
             <div class="container-fluid g-0">

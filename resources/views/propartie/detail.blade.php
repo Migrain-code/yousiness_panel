@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="blog-details-big-img z-index-2">
-                            <img src="/business/assets/img/service/service_detail.png" alt="">
+                            <img src="{{asset($propartie->image)}}" alt="" style="width: 100%">
                         </div>
                     </div>
                 </div>

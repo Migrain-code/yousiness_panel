@@ -26,6 +26,8 @@
                                     </li>
                                     <li><a href="{{route('faq')}}">Häufig gestellte Fragen</a>
                                     </li>
+                                    <li><a href="#about_us">über uns</a>
+                                    </li>
 
                                 </ul>
                             </div>
