@@ -115,6 +115,26 @@
         .single-pricing-white h5 {
             color: #fff;
         }
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+    <style>
+        .ts-control {
+            border: 1px solid #d0d0d0;
+            padding: 8px 8px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            box-shadow: none;
+            border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            height: 40px;
+
+        }
+
     </style>
 @endsection
 @section('content')
@@ -414,6 +434,40 @@
     <script src="/admin/assets/js/plugins-init/clock-picker-init.js"></script>
     <script src="/admin/assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="/admin/assets/js/plugins-init/datatables.init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+
+    <script>
+        var mySelect = new TomSelect("#city_select", {
+            remoteUrl: '/api/city/search',
+            remoteSearch: true,
+            create: false,
+            highlight: false,
+            load: function(query, callback) {
+                $.ajax({
+                    url: '/api/city/search', // Sunucu tarafındaki arama API'sinin URL'si
+                    method: 'POST',
+                    data: { q: query }, // Arama sorgusu
+                    dataType: 'json', // Beklenen veri tipi
+                    success: function(data) {
+
+                        var results = data.cities.map(function(item) {
+                            console.log('item', item.name);
+                            return {
+                                value: item.id,
+                                text: item.post_code + "," + item.name,
+                            };
+                        });
+
+                        callback(results);
+                    },
+                    error: function() {
+                        console.error("Arama sırasında bir hata oluştu.");
+                    }
+                });
+            }
+        });
+
+    </script>
     <script>
         $(document).ready(function () {
             $('#smartwizard').smartWizard();
@@ -452,38 +506,5 @@
             //alert(id);
         })
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
 
-    <script>
-        var mySelect = new TomSelect("#city_select", {
-            remoteUrl: '/api/city/search',
-            remoteSearch: true,
-            create: false,
-            highlight: false,
-            load: function(query, callback) {
-                $.ajax({
-                    url: '/api/city/search', // Sunucu tarafındaki arama API'sinin URL'si
-                    method: 'POST',
-                    data: { q: query }, // Arama sorgusu
-                    dataType: 'json', // Beklenen veri tipi
-                    success: function(data) {
-
-                        var results = data.cities.map(function(item) {
-                            console.log('item', item.name);
-                            return {
-                                value: item.id,
-                                text: item.post_code + "," + item.name,
-                            };
-                        });
-
-                        callback(results);
-                    },
-                    error: function() {
-                        console.error("Arama sırasında bir hata oluştu.");
-                    }
-                });
-            }
-        });
-
-    </script>
 @endsection
