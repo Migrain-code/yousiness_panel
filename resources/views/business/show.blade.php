@@ -355,12 +355,14 @@
                                                                class="form-control">
                                                     </div>
                                                     <div class="mb-3 col-md-4">
-                                                        <label class="form-label">Şehir</label>
-                                                        <select class="form-control default-select wide" id="inputState"
-                                                                name="city">
-                                                            <option value="">Şehir Seçiniz</option>
+                                                        <label>Plz/ Stadtname</label>
+                                                        <select class="" id="city_select" name="city" style="border-radius: 18px;">
+                                                            <option value="" selected>Stadt wählen</option>
+                                                            @if(isset($business->cities))
+                                                                <option value="{{$business->cities->id}}" selected>{{$business->cities->post_code. ",".$business->cities->name}}</option>
+                                                            @endif
                                                             @forelse($cities as $city)
-                                                                <option value="{{$city->id}}" @selected($city->id == $business->city)>{{$city->name}}</option>
+                                                                <option value="{{$city->id}}">{{$city->post_code ." ," . $city->name}}</option>
                                                             @empty
 
                                                             @endforelse
@@ -449,5 +451,39 @@
             let id = $(this).attr('work_id');
             //alert(id);
         })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+
+    <script>
+        var mySelect = new TomSelect("#city_select", {
+            remoteUrl: '/api/city/search',
+            remoteSearch: true,
+            create: false,
+            highlight: false,
+            load: function(query, callback) {
+                $.ajax({
+                    url: '/api/city/search', // Sunucu tarafındaki arama API'sinin URL'si
+                    method: 'POST',
+                    data: { q: query }, // Arama sorgusu
+                    dataType: 'json', // Beklenen veri tipi
+                    success: function(data) {
+
+                        var results = data.cities.map(function(item) {
+                            console.log('item', item.name);
+                            return {
+                                value: item.id,
+                                text: item.post_code + "," + item.name,
+                            };
+                        });
+
+                        callback(results);
+                    },
+                    error: function() {
+                        console.error("Arama sırasında bir hata oluştu.");
+                    }
+                });
+            }
+        });
+
     </script>
 @endsection
