@@ -40,6 +40,7 @@ class ActivityController extends Controller
             'image' => "required",
             'start_date' => "required",
             'stop_date' => "required",
+            'city' => "required"
         ], [], [
             'title' => "Başlık",
             'description' => "Açıklama Metni",
@@ -48,6 +49,7 @@ class ActivityController extends Controller
             'image' => "Görsel",
             'start_date' => "Başlangıç Zamanı",
             'stop_date' => "Bitiş Zamanı",
+            'city' => "Plz/ Stadtname"
         ]);
         $activity = new Activity();
         $activity->title = $request->input('title');
@@ -58,6 +60,7 @@ class ActivityController extends Controller
         $activity->image = "storage/" . $request->file('image')->store('activity_images');
         $activity->start_date = $request->input('start_date');
         $activity->stop_date = $request->input('stop_date');
+        $activity->city = $request->input('city');
         if ($activity->save()) {
             return to_route('admin.activity.index')->with('response', [
                 'status' => "success",

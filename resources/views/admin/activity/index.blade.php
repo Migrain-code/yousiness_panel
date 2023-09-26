@@ -10,6 +10,25 @@
             }
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+    <style>
+        .ts-control {
+            border: 1px solid #d0d0d0;
+            padding: 8px 8px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            box-shadow: none;
+            border-radius: 0.625rem;
+            display: flex;
+            flex-wrap: wrap;
+            height: 40px;
+
+        }
+
+    </style>
 @endsection
 @section('content')
     @if($errors->any())
@@ -77,14 +96,24 @@
                                         <textarea class="sm-note" name="description" >{{old('description')}}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label>Meta Key</label>
+                                        <label>Meta Title</label>
                                         <input type="text" class="form-control input-default " value="{{old('meta_keys')}}" name="meta_keys" >
                                     </div>
                                     <div class="mb-3">
                                         <label>Meta Description</label>
                                         <input type="text" class="form-control input-default " value="{{old('meta_description')}}" name="meta_description" >
                                     </div>
+                                    <div class="mb-3">
+                                        <label>Plz/ Stadtname</label>
+                                        <select class="" id="city_select" name="city" style="border-radius: 18px;">
+                                            <option value="" selected>Stadt wählen</option>
+                                            @forelse($cities as $city)
+                                                <option value="{{$city->name}}">{{$city->post_code ." ," . $city->name}}</option>
+                                            @empty
 
+                                            @endforelse
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
@@ -243,5 +272,39 @@
             });
 
         }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+
+    <script>
+        var mySelect = new TomSelect("#city_select", {
+            remoteUrl: '/api/city/search',
+            remoteSearch: true,
+            create: false,
+            highlight: false,
+            load: function(query, callback) {
+                $.ajax({
+                    url: '/api/city/search', // Sunucu tarafındaki arama API'sinin URL'si
+                    method: 'POST',
+                    data: { q: query }, // Arama sorgusu
+                    dataType: 'json', // Beklenen veri tipi
+                    success: function(data) {
+
+                        var results = data.cities.map(function(item) {
+                            console.log('item', item.name);
+                            return {
+                                value: item.id,
+                                text: item.post_code + "," + item.name,
+                            };
+                        });
+
+                        callback(results);
+                    },
+                    error: function() {
+                        console.error("Arama sırasında bir hata oluştu.");
+                    }
+                });
+            }
+        });
+
     </script>
 @endsection
