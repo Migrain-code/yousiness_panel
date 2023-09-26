@@ -112,7 +112,7 @@ class PackageSaleController extends Controller
         $packageSale->type=$request->input('package_type');
         $packageSale->personel_id=$request->input('personel_id');
         $packageSale->amount=$request->input('amount');
-        $packageSale->total=$request->total;
+        $packageSale->total=(double) $request->total;
         if ($packageSale->save()) {
             return to_route('business.packageSale.index')->with('response', [
                 'status' => "success",
