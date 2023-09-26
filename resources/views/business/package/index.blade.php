@@ -67,7 +67,7 @@
                                         <td>{{$package->amount - $package->usages()->sum('amount')}}</td>
                                         <td>{{$package->total}} &#8378;</td>
                                         <td>{{$package->payeds()->sum('price')}}</td>
-                                        <td>{{$package->total - $package->payeds()->sum('price')}}</td>
+                                        <td>{{doubleValue($package->total) - $package->payeds()->sum('price')}}</td>
                                         <td>
                                             <div class="basic-dropdown">
                                                 <div class="btn-group dropstart mb-1">
