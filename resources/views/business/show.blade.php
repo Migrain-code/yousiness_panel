@@ -229,7 +229,7 @@
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label">Telefon <span class="text-warning">(Girişte Kullanılan Telefon)</span>
                                                     </label>
-                                                    <input type="text" id="phone" value="{{$business->email}}"
+                                                    <input type="text" id="phone_1" value="{{$business->email}}"
                                                            placeholder="Telefon" name="email" class="form-control">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
