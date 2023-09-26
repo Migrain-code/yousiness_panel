@@ -23,6 +23,8 @@
         </div>
     </div>
     @include('business.layouts.component.alert')
+    @include('business.layouts.component.error')
+
     <div class="row">
         <div class="col-12">
             <div class="card">
