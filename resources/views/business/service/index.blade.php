@@ -222,7 +222,7 @@
                     },
                     success:function (data){
                         if(data.length > 0) {
-                            $("#category").append('<option>Hizmet Tipi Seçiniz</option>')
+                            $("#category").append('<option value="">Hizmet Tipi Seçiniz</option>')
                             $.each(data, function (index) {
                                 $("#category").append('<option value="' + data[index].id + '">' + data[index].name + '</option>')
                             });
@@ -249,7 +249,7 @@
                 },
                 success:function (data){
                     if(data.length > 0) {
-                        $("#sub_category").append('<option>Hizmet Adı Seçiniz</option>')
+                        $("#sub_category").append('<option value="">Hizmet Adı Seçiniz</option>')
                         $.each(data, function (index) {
                             $("#sub_category").append('<option value="' + data[index].id + '">' + data[index].name + '</option>')
                         });

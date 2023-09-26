@@ -60,7 +60,17 @@ class BusinessServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //$request->dd();
+        $request->validate([
+            'category' => "required",
+            'sub_category' => "required",
+            'time' => "required",
+            'price' => "required",
+        ], [], [
+            'category' => "Hizmet Kategorisi",
+            'sub_category' => "Hizmet Türü",
+            'time' => "Hizmet Süresi",
+            'price' => "Hizmet Fiyatı",
+        ]);
         $businessService= new BusinessService();
         $businessService->business_id=auth('business')->id();
         $businessService->type=$request->input('gender');
