@@ -105,6 +105,7 @@ class PersonelController extends Controller
             'off_day' => "required",
             'gender' => "required",
             'rate' => "required",
+            'services'=> "required"
         ], [], [
             'email' => "E-posta",
             'phone' => "Telefon",
@@ -113,6 +114,7 @@ class PersonelController extends Controller
             'off_day' => "Tatil Günü",
             'gender' => "Cinsiyet",
             'rate' => "Çalışma Payı",
+            'services' => "Hizmet"
         ]);
         $personel= new Personel();
         $personel->business_id=auth('business')->id();
