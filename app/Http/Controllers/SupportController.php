@@ -60,7 +60,10 @@ class SupportController extends Controller
      */
     public function show(Support $support)
     {
-        //
+        if ($support->business_id != auth('business')->id()){
+            return to_route('business.support.index');
+        }
+        return view('business.support.edit', compact('support'));
     }
 
     /**
@@ -71,10 +74,7 @@ class SupportController extends Controller
      */
     public function edit(Support $support)
     {
-        if ($support->business_id != auth('business')->id()){
-            return to_route('business.support.index');
-        }
-        return view('business.support.edit', compact('support'));
+
     }
 
     /**

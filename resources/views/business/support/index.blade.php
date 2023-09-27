@@ -57,7 +57,7 @@
                                         <td>{{$support->created_at->format('d.m.Y')}}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a href="{{route('business.support.edit', $support->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="{{route('business.support.show', $support->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
                                                 <a href="javascript:void(0)" onclick="onDelete('{{route('business.support.destroy', $support->id)}}', '{{$loop->index}}')" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
