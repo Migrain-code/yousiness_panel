@@ -101,7 +101,7 @@ class SetupController extends Controller
         //$request->dd();
         $request->validate([
             'owner'=>'required',
-            'email'=>'required',
+            'email'=>'required|unique:businesses',
             'owner_email'=>'required',
 
         ],[],[
