@@ -51,7 +51,7 @@ class ProductSalesController extends Controller
         $productSale->personel_id = $request->input('personel_id');
         $productSale->payment_type = $request->input('payment_type');
         $productSale->piece=$request->input('piece');
-        $productSale->total=$request->input('price')* $request->input('piece');
+        $productSale->total=$this->sayiDuzenle($request->input('price')) * $request->input('piece');
         if ($productSale->save()) {
             $productFind=Product::find($request->input('product_id'));
             $productFind->piece=$productFind->piece - $productSale->piece;
@@ -62,7 +62,12 @@ class ProductSalesController extends Controller
             ]);
         }
     }
-
+    function sayiDuzenle($sayi){
+        $sayi = str_replace('.','',$sayi);
+        $sayi = str_replace(',','.',$sayi);
+        $sonuc = floatval($sayi);
+        return $sonuc;
+    }
     /**
      * Display the specified resource.
      *
