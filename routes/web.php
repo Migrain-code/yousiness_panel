@@ -43,6 +43,7 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
         Route::resource('productSale', \App\Http\Controllers\Business\ProductSalesController::class);
         Route::post('product-price', [\App\Http\Controllers\Business\ProductSalesController::class, 'productPrice'])->name('product.price');
         Route::resource('packageSale', \App\Http\Controllers\Business\PackageSaleController::class);
+        Route::resource('support', \App\Http\Controllers\SupportController::class);
         Route::resource('customer', \App\Http\Controllers\Business\CustomerController::class);
         Route::resource('appointment', \App\Http\Controllers\Business\AppointmentController::class);
         Route::get('appointment/reject/{id}', [\App\Http\Controllers\Business\AppointmentController::class, 'reject'])->name('appointment.reject');

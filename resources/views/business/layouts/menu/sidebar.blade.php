@@ -107,7 +107,12 @@
                     <span class="nav-text">Yorumlar</span>
                 </a>
             </li>
-
+            <li>
+                <a class="has-arrow " disabled="disabled" href="{{route('business.support.index')}}">
+                    <i class="material-icons-outlined">help</i>
+                    <span class="nav-text">Destek Talepleri</span>
+                </a>
+            </li>
 
         </ul>
 

@@ -98,4 +98,9 @@ class Business extends Authenticatable
     {
         return $this->hasMany(BusinessTypeCategory::class, 'business_id', 'id');
     }
+
+    public function supports()
+    {
+        return $this->hasMany(Support::class, 'business_id', 'id');
+    }
 }

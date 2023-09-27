@@ -98,7 +98,6 @@ class SetupController extends Controller
     }
     public function step3Form(Request $request)
     {
-        //$request->dd();
         $request->validate([
             'owner'=>'required',
             'email'=>'required|unique:businesses',

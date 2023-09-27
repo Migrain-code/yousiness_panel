@@ -6,9 +6,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                 </button>
             </div>
-            <form method="post" action="#">
+            <form method="post" action="{{route('business.support.store')}}">
                 @csrf
                 <div class="modal-body">
+
                     <div class="row">
                         <div class="mb-3 col-md-12">
                             <label class="form-label">Konu</label>

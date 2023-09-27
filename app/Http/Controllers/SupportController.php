@@ -15,7 +15,7 @@ class SupportController extends Controller
      */
     public function index()
     {
-        //
+        return view('business.support.index');
     }
 
     /**
@@ -36,7 +36,20 @@ class SupportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $support = new Support();
+        $support->business_id = auth('business')->id();
+        $support->subject = $request->subject;
+        $support->content = $request->input('content');
+        if ($support->save()){
+            return back()->with('response', [
+               'status' => "success",
+               'message' => "Ihre Support Anfrage wurde gesendet"
+            ]);
+        }
+        return back()->with('response', [
+            'status' => "error",
+            'message' => "Ihre Anfrage konnte aufgrund eines Systemfehlers nicht gesendet werden."
+        ]);
     }
 
     /**
@@ -58,7 +71,10 @@ class SupportController extends Controller
      */
     public function edit(Support $support)
     {
-        //
+        if ($support->business_id != auth('business')->id()){
+            return to_route('business.support.index');
+        }
+        return view('business.support.edit', compact('support'));
     }
 
     /**
@@ -81,6 +97,11 @@ class SupportController extends Controller
      */
     public function destroy(Support $support)
     {
-        //
+        if ($support->delete()){
+            return response()->json([
+               'status' => "success",
+               'message' => "Destek Talebiniz Silindi",
+            ]);
+        }
     }
 }
