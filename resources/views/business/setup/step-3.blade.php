@@ -1,6 +1,19 @@
 @extends('business.setup.layouts.master')
 @section('content')
     @include('layouts.component.error')
+    <style>
+        #searchInput{
+            position: absolute;
+            left: 177px;
+            top: 9px;
+            width: 67%;
+            height: 40px;
+            border-radius: 15px;
+            padding: 5px;
+            border: 1px solid #600ee4;
+            outline: 0px;
+        }
+    </style>
     <div class="col-lg-4 col-md-12">
         <div class="on-board-wizard">
             <ul>
@@ -58,6 +71,7 @@
                             <label>İşletme Konumunu Seçiniz</label>
                             <input type="hidden" name="latitude" id="latitude" value="{{$business->lat}}">
                             <input type="hidden" name="longitude" id="longitude" value="{{$business->longitude}}">
+                            <input type="search" name="longitude" id="searchInput">
 
                             <!-- Harita Seçimi Alanı -->
                             <div id="map" style="height: 400px;"></div>
@@ -82,21 +96,91 @@
 
 @endsection
 @section('scripts')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI&callback=initMap" async defer></script>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI&libraries=places&callback=initAutocomplete" async defer></script>
     <script>
+        $(function (){
+            function preventEnterKey(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    return false;
+                }
+            }
 
+            // Enter tuşunu engelleme işlemini input alanına uygula
+            document.getElementById("searchInput").addEventListener("keydown", preventEnterKey);
+
+        })
+    </script>
+    <script>
+        let map;
+        let markers = [];
+
+        function initAutocomplete() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: -33.8688, lng: 151.2195 },
+                zoom: 13,
+                mapTypeId: "roadmap",
+            });
+
+            const input = document.getElementById("searchInput");
+            const searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            map.addListener("bounds_changed", () => {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            searchBox.addListener("places_changed", () => {
+                const places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach((marker) => {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                const bounds = new google.maps.LatLngBounds();
+
+                places.forEach((place) => {
+                    if (!place.geometry || !place.geometry.location) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+
+                    markers.push(
+                        new google.maps.Marker({
+                            map,
+                            title: place.name,
+                            position: place.geometry.location,
+                        })
+                    );
+
+                    if (place.geometry.viewport) {
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+
+                map.fitBounds(bounds);
+            });
+        }
+
+        // Diğer kodunuzun buraya eklenmesi
         var marker = null;
         function initMap() {
             var businessLat = '{{$business->lat ?? "49.610307094885016"}}';
             var businessLong = '{{$business->longitude ?? "6.132590619068177"}}';
             var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: parseFloat(businessLat), lng: parseFloat(businessLong)},
+                center: { lat: parseFloat(businessLat), lng: parseFloat(businessLong) },
                 zoom: 12 ,
             });
 
             google.maps.event.addListener(map, 'click', function(event) {
-
                 if (marker !== null) {
                     marker.setMap(null);
                 }
@@ -104,42 +188,36 @@
                 var latitude = event.latLng.lat();
                 var longitude = event.latLng.lng();
                 console.log('Latitude: ' + latitude + ', Longitude: ' + longitude);
-                var embedUrl = `https://www.google.com/maps/embed/v1/place?q=${latitude},${longitude}&key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI`;
-                var embed = `<iframe width="600" height="450" frameborder="0" style="border:0"
-                    src="${embedUrl}" allowfullscreen></iframe>`
-
                 reverseGeocode(latitude, longitude);
 
                 marker = new google.maps.Marker({
-                    position: {lat: latitude, lng: longitude}, // Marker'ın konumu
-                    map: map, // Hangi haritada gösterileceği
-                    title: 'Seçilen Konum' // Marker üzerine gelindiğinde gösterilecek başlık
+                    position: { lat: latitude, lng: longitude },
+                    map: map,
+                    title: 'Seçilen Konum'
                 });
-                $('#embed').text(embed);
 
-                // Form alanlarına değerleri doldur
                 document.getElementById('latitude').value = latitude;
                 document.getElementById('longitude').value = longitude;
             });
+
             $(function (){
                 marker = new google.maps.Marker({
-                    position: {lat: parseFloat(businessLat), lng: parseFloat(businessLong)}, // Marker'ın konumu
-                    map: map, // Hangi haritada gösterileceği
-                    title: 'Seçilen Konum' // Marker üzerine gelindiğinde gösterilecek başlık
+                    position: { lat: parseFloat(businessLat), lng: parseFloat(businessLong) },
+                    map: map,
+                    title: 'Seçilen Konum'
                 });
-            })
+            });
         }
-        function reverseGeocode(latitude, longitude) {
-            var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${'AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI'}`;
 
-            // Geocoding API'ye istek gönder
+        function reverseGeocode(latitude, longitude) {
+            var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=YOUR_API_KEY`;
+
             fetch(geocodingUrl)
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === "OK") {
                         var selectedAddress = data.results[0].formatted_address;
                         $('#address').text(selectedAddress);
-                       
                     } else {
                         alert("Adres alınamadı.");
                     }
