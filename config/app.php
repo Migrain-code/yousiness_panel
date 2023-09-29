@@ -197,8 +197,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\NetgsmServiceProvider::class,
-        Spatie\Permission\PermissionServiceProvider::class,
-
     ],
 
     /*

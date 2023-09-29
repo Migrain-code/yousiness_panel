@@ -124,17 +124,27 @@ class SetupController extends Controller
     }
     public function step4Form(Request $request)
     {
-        //$request->dd();
+
         $request->validate([
             'package_id'=>'required',
         ],[],[
             'package_id'=>'Paket Seçim İşlemi',
         ]);
-        $business=auth('business')->user();
-        $business->package_id=$request->input('package_id');
-        $business->is_setup = 1;
-        $business->save();
-        return to_route('business.setup.step5');
+        $package =BussinessPackage::find($request->input('package_id'));
+        session()->put('packet_id', $package->id);
+        if ($package){
+            if($package->price < 1){
+                $business=auth('business')->user();
+                $business->package_id=$request->input('package_id');
+                $business->is_setup = 1;
+                $business->save();
+                return to_route('business.setup.step5');
+            }
+            else {
+                return to_route('business.payment.form', $package->slug);
+            }
+        }
+
     }
     public function step5()
     {
