@@ -23,8 +23,22 @@ class Personel extends Model
     {
         return $this->hasMany(PersonelNotification::class, 'personel_id', 'id')->orderBy('created_at')->take(5);
     }
+
+    public function appointments()
+    {
+        return $this->hasMany(AppointmentServices::class, 'personel_id', 'id');
+    }
     public function restDay()
     {
         return $this->hasOne(DayList::class, 'id', 'rest_day');
+    }
+
+    public function packageSales()
+    {
+        return $this->hasMany(PackageSale::class, 'personel_id', 'id');
+    }
+    public function productSales()
+    {
+        return $this->hasMany(ProductSales::class, 'personel_id', 'id');
     }
 }

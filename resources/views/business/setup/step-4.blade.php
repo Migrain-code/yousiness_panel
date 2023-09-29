@@ -89,8 +89,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>Yetkili  Bilgileri</h6>
-                            <p>İşletme Yetkilisi Bilgileri</p>
+                            <h6>Adres Bilgileri</h6>
+                            <p>İşletme Adres/Konum Bilgileri</p>
                         </div>
                     </a>
                 </li>

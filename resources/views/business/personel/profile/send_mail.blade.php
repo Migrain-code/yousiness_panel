@@ -6,19 +6,21 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                 </button>
             </div>
-            <form method="post" action="#">
+            <form method="post" action="{{route('business.personel.sendMail')}}">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
+                        <input type="hidden" name="customer_id" class="customer_id" value="">
+
                         <div class="mb-3 col-md-12">
                             <label class="form-label">Konu</label>
-                            <input type="text" class="form-control" name="subject">
+                            <input type="text" class="form-control" name="subject" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-12">
                             <label class="form-label">İçerik</label>
-                            <textarea type="number" class="form-control" rows="7" name="content"></textarea>
+                            <textarea type="number" class="form-control" rows="7" name="content" required></textarea>
                         </div>
                     </div>
 

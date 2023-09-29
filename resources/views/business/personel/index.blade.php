@@ -97,7 +97,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
-                <form method="post" action="{{route('business.personel.store')}}">
+                <form method="post" action="{{route('business.personel.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
@@ -217,6 +217,10 @@
                                     @empty
                                     @endforelse
                                 </select>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label">Görsel</label>
+                                <input type="file" class="form-control" name="image" value="">
                             </div>
                         </div>
                         <div class="row">

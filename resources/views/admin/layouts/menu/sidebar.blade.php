@@ -165,6 +165,13 @@
                 </a>
             </li>
 
+            <li>
+                <a class="has-arrow " href="{{route('admin.support.index')}}">
+                    <i class="material-icons-outlined">help</i>
+                    <span class="nav-text">Destek Talepleri</span>
+                </a>
+            </li>
+
         </ul>
 
     </div>

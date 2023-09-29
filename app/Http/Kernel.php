@@ -8,6 +8,7 @@ use App\Http\Middleware\Cookie;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\SetupMiddleware;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
@@ -89,5 +90,6 @@ class Kernel extends HttpKernel
         'verified' => EnsureEmailIsVerified::class,
         'cookieAccess'=>Cookie::class,
         'active' => ActiveUser::class,
+        'setup' => SetupMiddleware::class,
     ];
 }

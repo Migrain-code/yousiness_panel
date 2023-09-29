@@ -185,31 +185,10 @@ class BusinessController extends Controller
     {
 
         $business= auth('business')->user();
-        BusinessWorkTime::where('business_id', $business->id)->delete();
-
-        $counter=0;
-        $status_c=0;
-        foreach ($request->start_time as $item){
-
-            $work_time=new BusinessWorkTime();
-            $work_time->business_id=auth('business')->id();
-            $work_time->start_time=$item;
-            $work_time->end_time=$request->end_time[$counter];
-
-            if ($counter == $request->status[$status_c]){
-                $work_time->status=1;
-
-               if (count($request->status)-1 >  $status_c){
-                   $status_c++;
-               }
-            }
-            else{
-                $work_time->status=0;
-            }
-            $work_time->que=$counter;
-            $work_time->save();
-            $counter++;
-        }
+        $business->off_day = $request->input('day');
+        $business->start_time = $request->input('start_time');
+        $business->end_time = $request->input('end_time');
+        $business->save();
         return to_route('business.profile.show')->with('response', [
             'status'=>"success",
             'title'=>"Başarılı",

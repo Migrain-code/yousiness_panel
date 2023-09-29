@@ -67,10 +67,14 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'owner'=> ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'max:20', 'unique:businesses'],
+            'conditions' => ['accepted'],
+            'contact_info' => ['accepted'],
         ], [], [
             'name' => 'İşletme Adı',
             'email' => 'Telefon Numarası',
-            'owner'=>'Salon Sahibi'
+            'owner'=>'Salon Sahibi',
+            'conditions' => "Şartlar ve koşullar",
+            'contact_info' => "İletişim izinleri",
         ]);
     }
 

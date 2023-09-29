@@ -255,9 +255,9 @@
                                         <div class="col-12">
                                             <div class="postbox__comment-agree">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="padding: 9px;margin-top: 0px !important;">
+                                                    <input class="form-check-input" type="checkbox" value="" name="conditions" id="flexCheckDefault" style="padding: 9px;margin-top: 0px !important;">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        <a href="sign-in.html" class="text-primary">Üyelik koşulları</a> ve <a href="sign-in.html" class="text-primary">Aydınlatma metnini</a> okudum, kabul ediyorum.
+                                                        <a href="#" class="text-primary">Üyelik koşulları</a> ve <a href="#" class="text-primary">Aydınlatma metnini</a> okudum, kabul ediyorum.
                                                     </label>
                                                 </div>
                                             </div>
@@ -265,7 +265,7 @@
                                         <div class="col-12">
                                             <div class="postbox__comment-agree">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="padding: 9px;margin-top: 0px !important;">
+                                                    <input class="form-check-input" type="checkbox" name="contact_info" value="" id="flexCheckDefault" style="padding: 9px;margin-top: 0px !important;">
                                                     <label class="form-check-label" for="flexCheckDefault" style="line-height: 1.3em">
                                                         Yousiness tarafından ürün ve hizmetlerinin tanıtımı için tarafımla iletişime geçilmesini kabul ediyorum.
                                                     </label>

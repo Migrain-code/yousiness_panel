@@ -22,26 +22,28 @@ class BusinessServiceController extends Controller
 
     public function index()
     {
-        $dayList=DayList::all();
+        $dayList = DayList::all();
 
         return view('business.service.index', compact('dayList'));
     }
-    public function category(Request  $request)
+
+    public function category(Request $request)
     {
-        $sub_category = ServiceSubCategory::where('category_id',$request->category)->get();
+        $sub_category = ServiceSubCategory::where('category_id', $request->category)->get();
         return $sub_category;
     }
-    public function gender(Request  $request)
+
+    public function gender(Request $request)
     {
-        if ($request->gender == "all"){
+        if ($request->gender == "all") {
             $category = ServiceCategory::latest("type_id")->get();
-        }
-        else{
-            $category = ServiceCategory::where('type_id',$request->gender)->get();
+        } else {
+            $category = ServiceCategory::where('type_id', $request->gender)->get();
         }
         //dd($category);
         return $category;
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -71,18 +73,24 @@ class BusinessServiceController extends Controller
             'time' => "Hizmet Süresi",
             'price' => "Hizmet Fiyatı",
         ]);
-        $businessService= new BusinessService();
-        $businessService->business_id=auth('business')->id();
-        $businessService->type=$request->input('gender');
-        $businessService->category=$request->input('category');
-        $businessService->sub_category=$request->input('sub_category');
-        $businessService->time=$request->input('time');
-        $businessService->price=$request->input('price');
-        if ($businessService->save()){
+
+        $businessService = new BusinessService();
+        $businessService->business_id = auth('business')->id();
+        if ($request->gender == "all") {
+            $serviceCategory = ServiceCategory::find($request->input('category'));
+            $businessService->type = $serviceCategory->type_id;
+        } else {
+            $businessService->type = $request->input('gender');
+        }
+        $businessService->category = $request->input('category');
+        $businessService->sub_category = $request->input('sub_category');
+        $businessService->time = $request->input('time');
+        $businessService->price = $this->sayiDuzenle($request->input('price'));
+        if ($businessService->save()) {
             return to_route('business.businessService.index')->with('response', [
-                'status'=>"success",
-                'title'=>"Başarılı",
-                'message'=>"Hizmet Eklendi. Aşağıdaki Listede Görebilirsiniz"
+                'status' => "success",
+                'title' => "Başarılı",
+                'message' => "Hizmet Eklendi. Aşağıdaki Listede Görebilirsiniz"
             ]);
         }
     }
@@ -116,7 +124,7 @@ class BusinessServiceController extends Controller
      * @param BusinessService $businessService
      * @return Response
      */
-    public function update(Request $request,BusinessService $businessService)
+    public function update(Request $request, BusinessService $businessService)
     {
         //
     }
@@ -130,5 +138,12 @@ class BusinessServiceController extends Controller
     public function destroy(BusinessService $businessService)
     {
         //
+    }
+
+    function sayiDuzenle($sayi){
+        $sayi = str_replace('.','',$sayi);
+        $sayi = str_replace(',','.',$sayi);
+        $sonuc = floatval($sayi);
+        return $sonuc;
     }
 }

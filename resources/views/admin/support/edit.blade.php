@@ -1,4 +1,4 @@
-@extends('business.layouts.master')
+@extends('admin.layouts.master')
 @section('content')
     <div class="row">
         <div class="col-xl-12">
@@ -31,24 +31,29 @@
                 <div class="card-title">Talep Detayı</div>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label">Konu</label>
-                        <input type="text" class="form-control" name="subject" readonly value="{{$support->subject}}">
+                <form method="post" action="{{route('admin.support.update', $support->id)}}">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">Konu</label>
+                            <input type="text" class="form-control" name="subject" readonly value="{{$support->subject}}">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label">İçerik</label>
-                        <textarea type="number" class="form-control" rows="7" readonly name="content">{{$support->content}}</textarea>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">İçerik</label>
+                            <textarea type="number" class="form-control" rows="7" readonly name="content">{{$support->content}}</textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label">Cevap</label>
-                        <textarea type="number" class="form-control" rows="7" readonly name="content">{{$support->answer}}</textarea>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">Cevap</label>
+                            <textarea type="number" class="form-control" rows="7" name="answer">{{$support->answer}}</textarea>
+                        </div>
                     </div>
-                </div>
+                    <button type="submit" class="btn btn-primary">Cevapla</button>
+                </form>
 
             </div>
         </div>

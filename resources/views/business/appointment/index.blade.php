@@ -262,7 +262,7 @@
                     </button>
                 </div>
                 <div class="modal-body" style="align-items: center;text-align: center;display: flex;flex-direction: column;">
-                    <img src="{{asset('business/assets/img/counter/counter-shape-1.png')}}" style="width: 83px; height: 83px;border: 1px solid #7d7a7a59;border-radius: 50%;box-shadow: 1px 3px 15px #0003;
+                    <img src="" id="customerImage" style="width: 83px; height: 83px;border: 1px solid #7d7a7a59;border-radius: 50%;box-shadow: 1px 3px 15px #0003;
 }">
                     <span id="customerName" style="font-size: 18px;font-weight: bold"></span>
                     <div style="display: flex;align-items: center;">
@@ -351,10 +351,11 @@
                 title: '{{$appointment->customer->name}}',
                 start: '{{\Illuminate\Support\Carbon::parse($appointment->start_time)->toIso8601String()}}', // Başlangıç tarihi ve saat
                 end: '{{\Illuminate\Support\Carbon::parse($appointment->end_time)->toIso8601String()}}',    // Bitiş tarihi ve saat
-                customer: 'Muhammet Türkmen',
+                customer: '{{$appointment->customer->name}}',
                 clockRange: '{{\Illuminate\Support\Carbon::parse($appointment->start_time)->format('H:i'). '-'. \Illuminate\Support\Carbon::parse($appointment->end_time)->format('H:i')}}',
                 statusText: '{{$appointment->status('text')}}',
                 statusCode: '{{$appointment->status('code')}}',
+                image: '{{image($appointment->customer->image)}}',
                 services: [
                      @foreach($appointment->services as $service)
                     {
@@ -389,7 +390,7 @@
         let gisInited = false;
 
         document.getElementById('authorize_button').style.visibility = 'hidden';
-        document.getElementById('signout_button').style.visibility = 'hidden';
+        //document.getElementById('signout_button').style.visibility = 'hidden';
 
         /**
          * Callback after api.js is loaded.

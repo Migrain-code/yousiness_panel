@@ -17,4 +17,9 @@ class AppointmentServices extends Model
     {
         return $this->hasOne(Personel::class, 'id', 'personel_id');
     }
+
+    public function appointment()
+    {
+        return $this->hasOne(Appointment::class, 'id', 'appointment_id');
+    }
 }

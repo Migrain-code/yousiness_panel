@@ -99,21 +99,15 @@ class SetupController extends Controller
     public function step3Form(Request $request)
     {
         $request->validate([
-            'owner'=>'required',
-            'email'=>'required|unique:businesses',
-            'owner_email'=>'required',
-
+            'address' => "required",
+            'embed' => "required"
         ],[],[
-            'owner'=>'İşletme Sahibi',
-            'email'=>'Telefon Numarası',
-            'owner_email'=>'İşletme Sahibi Mail Adresi',
+            'address' => "İşletme Adresi",
+            'embed' => "İşletme Harita Kodu"
         ]);
         $business=auth('business')->user();
-        $business->owner=$request->input('owner');
-        $business->email=$request->input('email');
-        $business->owner_email=$request->input('owner_email');
         $business->address=$request->input('address');
-        $business->password=Hash::make($request->input('password'));
+        $business->embed=$request->input('embed');
         $business->save();
         return to_route('business.setup.step4');
     }
@@ -134,6 +128,7 @@ class SetupController extends Controller
         ]);
         $business=auth('business')->user();
         $business->package_id=$request->input('package_id');
+        $business->is_setup = 1;
         $business->save();
         return to_route('business.setup.step5');
     }

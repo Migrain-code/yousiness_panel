@@ -76,10 +76,13 @@ document.addEventListener('DOMContentLoaded', function () {
         eventClick: function (info) {
             var modal = $('#eventDetailsModal');
             var customerName = info.event.extendedProps.customer;
+            var customerImage = info.event.extendedProps.image;
             var servicesList = info.event.extendedProps.services;
             var clock = info.event.extendedProps.clockRange;
 
             modal.find('#customerName').text(customerName);
+
+            modal.find('#customerImage').attr('src', customerImage);
             modal.find('#appointmentClock').text(clock);
             modal.find('#servicesList').empty();
 

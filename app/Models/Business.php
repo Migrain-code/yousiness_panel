@@ -103,4 +103,9 @@ class Business extends Authenticatable
     {
         return $this->hasMany(Support::class, 'business_id', 'id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(BusinessComment::class, 'business_id', 'id')->latest();
+    }
 }

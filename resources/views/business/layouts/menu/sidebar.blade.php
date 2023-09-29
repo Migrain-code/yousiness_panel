@@ -24,14 +24,15 @@
                         <a href="{{route('business.profile.show')}}">Salon Bilgileri</a>
                     </li>
                     <li>
+                        <a href="{{route('business.businessService.index')}}">Hizmetler</a>
+                    </li>
+                    <li>
                         <a href="{{route('business.personel.index')}}">Personeller</a>
                     </li>
                     <li>
                         <a href="{{route('business.gallery.index')}}">Galeri</a>
                     </li>
-                    <li>
-                        <a href="{{route('business.businessService.index')}}">Hizmetler</a>
-                    </li>
+
                 </ul>
 
             </li>
@@ -102,7 +103,7 @@
                 </a>
             </li>
             <li>
-                <a class="has-arrow " disabled="disabled" href="{{route('business.home')}}">
+                <a class="has-arrow " disabled="disabled" href="{{route('business.businessComment.index')}}">
                     <i class="material-icons-outlined">comment</i>
                     <span class="nav-text">Yorumlar</span>
                 </a>

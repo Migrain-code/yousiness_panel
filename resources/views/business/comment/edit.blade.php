@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Talep {{$support->subject}}
+                        Yorum {{$businessComment->customer->name}}
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -28,27 +28,34 @@
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Talep Detayı</div>
+                <div class="card-title">Yorum Detayı</div>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label">Konu</label>
-                        <input type="text" class="form-control" name="subject" readonly value="{{$support->subject}}">
+                <form method="post" action="{{route('business.businessComment.update', $businessComment->id)}}">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">Puanı ({{$businessComment->point}})</label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label">İçerik</label>
-                        <textarea type="number" class="form-control" rows="7" readonly name="content">{{$support->content}}</textarea>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">İçerik</label>
+                            <textarea type="number" class="form-control" rows="7" name="content">{{$businessComment->content}}</textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label">Cevap</label>
-                        <textarea type="number" class="form-control" rows="7" readonly name="content">{{$support->answer}}</textarea>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label">Durumu</label>
+                        <select name="status" class="form-control">
+                            <option value="0" @selected($businessComment->status == 0)>Yayınlama</option>
+                            <option value="1" @selected($businessComment->status == 1)>Yayınla</option>
+                        </select>
                     </div>
-                </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-primary">Güncelle</button>
+                    </div>
+                </form>
 
             </div>
         </div>

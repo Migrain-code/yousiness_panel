@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Talep {{$support->subject}}
+                        Yorumlar
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -26,31 +26,108 @@
         @include('business.layouts.component.alert')
     </div>
     <div class="row">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">Talep Detayı</div>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label">Konu</label>
-                        <input type="text" class="form-control" name="subject" readonly value="{{$support->subject}}">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Yorum Listesi</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display" style="min-width: 845px">
+                            <thead>
+                                <tr>
+                                    <th>Müşteri Adı</th>
+                                    <th>Puanı</th>
+                                    <th>Durumu</th>
+                                    <th>Tarihi</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               @forelse(auth('business')->user()->comments as $comment)
+                                    <tr>
+                                        <td>{{$comment->customer->name}}</td>
+                                        <td>{{$comment->point}}</td>
+                                        <td>
+                                            @if($comment->status == 0)
+                                                <span class="badge light badge-info">Yayında Değil</span>
+                                            @else
+                                                <span class="badge light badge-success">Yayında</span>
+                                            @endif
+                                        </td>
+                                        <td>{{$comment->created_at->format('d.m.Y')}}</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a href="{{route('business.businessComment.edit', $comment->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-edit"></i></a>
+                                                <a href="javascript:void(0)" onclick="onDelete('{{route('business.businessComment.destroy', $comment->id)}}', '{{$loop->index}}')" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                               @empty
+                               @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label">İçerik</label>
-                        <textarea type="number" class="form-control" rows="7" readonly name="content">{{$support->content}}</textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label">Cevap</label>
-                        <textarea type="number" class="form-control" rows="7" readonly name="content">{{$support->answer}}</textarea>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+        function onDelete(product_url, index){
+            var table = $('#example3').DataTable();
+            Swal.fire({
+                title: 'Talebi Silmek istediğinize eminmisiniz?',
+                icon: 'info',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Sil',
+                denyButtonText: `İptal Et`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: product_url,
+                        type: "POST",
+                        data:{
+                            _token:'{{csrf_token()}}',
+                            '_method':'DELETE',
+                        },
+                        dataType:"JSON",
+                        success:function (res){
+                            if(res.status=="success"){
+                                table
+                                    .row( $(this).parents('tr') )
+                                    .remove()
+                                    .draw();
+                                Swal.fire({
+                                    text: "Ürün Silindi!.",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Tamam!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary",
+                                    }
+                                });
+                                table.row(index).remove().draw();
+                            }
+                        }
+                    })
+                } else if (result.isDenied) {
+                    Swal.fire('İşlem İptal Edildi', '', 'info')
+                }
+            })
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(function() {
+            $('#priceInput').mask("#.##0,00", {reverse: true});
+        });
+    </script>
+
 @endsection

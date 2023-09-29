@@ -261,13 +261,14 @@
 
                                     </div>
                                     <div class="row">
-                                        <form action="submit.php" class="my-2 col-lg-6 col-md-8 col-sm-12"
+                                        <form action="{{route('business.profile.updateWorkTime')}}" class="my-2 col-lg-6 col-md-8 col-sm-12"
                                               method="post">
+                                            @csrf
                                             <div class="form-group my-2">
                                                 <label for="day">Kapalı Olduğu Gün:</label>
                                                 <select id="day" name="day" class="form-control">
                                                     @foreach($dayList as $list)
-                                                        <option value="{{$list->id}}" @selected($business->off_day)>{{$list->name}}</option>
+                                                        <option value="{{$list->id}}" @selected($business->off_day == $list->id)>{{$list->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -279,7 +280,7 @@
                                             <div class="form-group my-2">
                                                 <label for="opening-time">Kapanış saati:</label>
                                                 <input type="time" id="opening-time" class="form-control"
-                                                       name="start_time" value="{{$business->end_time}}" required>
+                                                       name="end_time" value="{{$business->end_time}}" required>
                                             </div>
                                             <button type="submit" class="btn btn-primary mt-3">Güncelle</button>
                                         </form>
