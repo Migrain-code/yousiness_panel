@@ -9,6 +9,7 @@ use App\Models\BussinessPackagePropartieList;
 use App\Models\Propartie;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class BussinessPackageController extends Controller
 {
@@ -42,6 +43,7 @@ class BussinessPackageController extends Controller
         ]);
         $bussinessPackage=new BussinessPackage();
         $bussinessPackage->name=$request->input('name');
+        $bussinessPackage->slug=Str::slug($request->input('name'));
         $bussinessPackage->type=$request->input('type');
         $bussinessPackage->price=$request->input('price');
         if ($bussinessPackage->save()){

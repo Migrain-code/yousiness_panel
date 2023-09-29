@@ -3568,6 +3568,7 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
             Route::post('/adim-4', 'step4Form')->name('step4Form');
             Route::get('/adim-5', 'step5')->name('step5');
         });
+
         Route::get('/home', [\App\Http\Controllers\Business\HomeController::class, 'index'])->name('home');
         Route::post('/update-password', [\App\Http\Controllers\Business\HomeController::class,'resetPassword'])->name('resetPassword');
         Route::resource('gallery', \App\Http\Controllers\Business\BusinessGalleryController::class)->names('gallery');

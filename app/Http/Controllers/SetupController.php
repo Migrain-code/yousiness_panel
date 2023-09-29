@@ -99,15 +99,19 @@ class SetupController extends Controller
     public function step3Form(Request $request)
     {
         $request->validate([
+            'latitude' => "required",
             'address' => "required",
             'embed' => "required"
         ],[],[
             'address' => "İşletme Adresi",
-            'embed' => "İşletme Harita Kodu"
+            'embed' => "İşletme Harita Kodu",
+            'latitude' => "Konum seçme"
         ]);
         $business=auth('business')->user();
         $business->address=$request->input('address');
         $business->embed=$request->input('embed');
+        $business->lat=$request->input('latitude');
+        $business->longitude = $request->input('longitude');
         $business->save();
         return to_route('business.setup.step4');
     }
