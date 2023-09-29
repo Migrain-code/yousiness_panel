@@ -98,88 +98,24 @@
 @section('scripts')
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI&libraries=places&callback=initAutocomplete" async defer></script>
     <script>
-        $(function (){
-            function preventEnterKey(event) {
-                if (event.keyCode === 13) {
-                    event.preventDefault();
-                    return false;
-                }
-            }
-
-            // Enter tuşunu engelleme işlemini input alanına uygula
-            document.getElementById("searchInput").addEventListener("keydown", preventEnterKey);
-
-        })
-    </script>
-    <script>
         let map;
-        let markers = [];
+        let marker = null;
 
         function initAutocomplete() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: -33.8688, lng: 151.2195 },
-                zoom: 13,
+            // Harita başlatma kodu burada
+            var businessLat = '{{$business->lat ?? "49.610307094885016"}}';
+            var businessLong = '{{$business->longitude ?? "6.132590619068177"}}';
+            if (isNaN(businessLat) || isNaN(businessLong)) {
+                businessLat = 49.610307094885016; // Varsayılan enlem
+                businessLong = 6.132590619068177; // Varsayılan boylam
+            }
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: parseFloat(businessLat), lng: parseFloat(businessLong) },
+                zoom: 12,
                 mapTypeId: "roadmap",
             });
 
-            const input = document.getElementById("searchInput");
-            const searchBox = new google.maps.places.SearchBox(input);
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-            map.addListener("bounds_changed", () => {
-                searchBox.setBounds(map.getBounds());
-            });
-
-            searchBox.addListener("places_changed", () => {
-                const places = searchBox.getPlaces();
-
-                if (places.length == 0) {
-                    return;
-                }
-
-                // Clear out the old markers.
-                markers.forEach((marker) => {
-                    marker.setMap(null);
-                });
-                markers = [];
-
-                const bounds = new google.maps.LatLngBounds();
-
-                places.forEach((place) => {
-                    if (!place.geometry || !place.geometry.location) {
-                        console.log("Returned place contains no geometry");
-                        return;
-                    }
-
-                    markers.push(
-                        new google.maps.Marker({
-                            map,
-                            title: place.name,
-                            position: place.geometry.location,
-                        })
-                    );
-
-                    if (place.geometry.viewport) {
-                        bounds.union(place.geometry.viewport);
-                    } else {
-                        bounds.extend(place.geometry.location);
-                    }
-                });
-
-                map.fitBounds(bounds);
-            });
-        }
-
-        // Diğer kodunuzun buraya eklenmesi
-        var marker = null;
-        function initMap() {
-            var businessLat = '{{$business->lat ?? "49.610307094885016"}}';
-            var businessLong = '{{$business->longitude ?? "6.132590619068177"}}';
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: parseFloat(businessLat), lng: parseFloat(businessLong) },
-                zoom: 12 ,
-            });
-
+            // Harita üzerine tıklama olayı
             google.maps.event.addListener(map, 'click', function(event) {
                 if (marker !== null) {
                     marker.setMap(null);
@@ -200,17 +136,62 @@
                 document.getElementById('longitude').value = longitude;
             });
 
-            $(function (){
+            // Sayfa yüklendiğinde işletme konumu veya varsayılan konumu göster
+            $(function () {
                 marker = new google.maps.Marker({
                     position: { lat: parseFloat(businessLat), lng: parseFloat(businessLong) },
                     map: map,
                     title: 'Seçilen Konum'
                 });
             });
+
+            // Adres arama işlevselliği
+            const input = document.getElementById("searchInput");
+            const searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            map.addListener("bounds_changed", () => {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            searchBox.addListener("places_changed", () => {
+                const places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                if (marker !== null) {
+                    marker.setMap(null);
+                }
+
+                const bounds = new google.maps.LatLngBounds();
+
+                places.forEach((place) => {
+                    if (!place.geometry || !place.geometry.location) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+
+                    marker = new google.maps.Marker({
+                        map: map,
+                        title: place.name,
+                        position: place.geometry.location,
+                    });
+
+                    if (place.geometry.viewport) {
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+
+                map.fitBounds(bounds);
+            });
         }
 
         function reverseGeocode(latitude, longitude) {
-            var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=YOUR_API_KEY`;
+            var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI`;
 
             fetch(geocodingUrl)
                 .then(response => response.json())
@@ -226,6 +207,15 @@
                     alert("Hata Adres Alınamadı");
                 });
         }
+
+        // Enter tuşunu engelleme işlemi
+        document.getElementById("searchInput").addEventListener("keydown", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                return false;
+            }
+        });
     </script>
+
 
 @endsection
