@@ -5,7 +5,7 @@
         #searchInput{
             position: absolute;
             left: 177px;
-            top: 9px;
+            top: 8px !important;
             width: 67%;
             height: 40px;
             border-radius: 15px;
@@ -71,10 +71,14 @@
                             <label>İşletme Konumunu Seçiniz</label>
                             <input type="hidden" name="latitude" id="latitude" value="{{$business->lat}}">
                             <input type="hidden" name="longitude" id="longitude" value="{{$business->longitude}}">
-                            <input type="search" name="longitude" id="searchInput">
+
 
                             <!-- Harita Seçimi Alanı -->
-                            <div id="map" style="height: 400px;"></div>
+                            <div id="map-container" style="position: relative;">
+                                <input type="search" name="longitude" id="searchInput">
+                                <div id="map" style="height: 400px;"></div>
+                            </div>
+
                         </div>
                         <div class="form-group col-lg-12">
                             <label>İşletme Adresi</label>
