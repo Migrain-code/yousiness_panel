@@ -175,10 +175,10 @@ class PaymentController extends Controller
             'cancelUrl' => route('business.setup.step4'),
             'custom' => $packet->slug,
         ))->send();
-        dd($response->getData()["id"]);
+
         $paypal = new BussinessPackagePaypalSaller();
         $paypal->business_id = auth('business')->id();
-        $paypal->payment_id = $response["data"]["id"];
+        $paypal->payment_id = $response->getData()["id"];
         $paypal->save();
         if ($response->isRedirect()) {
             $response->redirect();
@@ -190,7 +190,10 @@ class PaymentController extends Controller
 
     public function paypalCallBack(Request $request)
     {
-        $paymentResult = $request->all();
+        $paymentResult = BussinessPackagePaypalSaller::where('payment_id', $request->input('paymentId'))
+            ->where('status', 0)
+            ->first();
+
         dd($paymentResult);
     }
 
