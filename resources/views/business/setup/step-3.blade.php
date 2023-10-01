@@ -206,7 +206,7 @@
             $('#embed').text(embed);
 
             var embedView = document.getElementById('embedView');
-            embedView.innerHTML = embedCode;
+            embedView.innerHTML = embed;
         }
         function reverseGeocode(latitude, longitude) {
             var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI`;
