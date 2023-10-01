@@ -95,6 +95,7 @@
                             <div id="onlinePayment">
                                 <form method="post" id="step5Form" action="{{route('business.payment.payPal')}}">
                                     @csrf
+                                    <input type="hidden" name="package_id" value="{{$package->id}}">
                                     <!-- Müşteri Bilgileri -->
                                     <div class="form-group">
                                         <label for="name">Kart Sahibinin Adı</label>
