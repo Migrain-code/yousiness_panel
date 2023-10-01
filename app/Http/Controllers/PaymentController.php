@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Business;
 use App\Models\BussinessPackage;
 use App\Models\BussinessPackagePaypalSaller;
 use Illuminate\Http\Request;
@@ -179,11 +180,11 @@ class PaymentController extends Controller
         $paypal = new BussinessPackagePaypalSaller();
         $paypal->business_id = auth('business')->id();
         $paypal->payment_id = $response->getData()["id"];
+        $paypal->package_id = $packet->id;
         $paypal->save();
         if ($response->isRedirect()) {
             $response->redirect();
         } else {
-            // Hata işleme
             echo $response->getMessage();
         }
     }
@@ -194,16 +195,20 @@ class PaymentController extends Controller
             ->where('status', 0)
             ->first();
 
-        dd($paymentResult);
+        $paymentResult->status = 1;
+        $paymentResult->save();
+
+        $business = auth('business')->user();
+        $business->is_setup = 1;
+        $business->package_id = $paymentResult->package_id;
+        $business->package_start_date = now();
+        $business->package_end_date = now()->addDays(30);
+        $business->save();
+
+        return to_route('business.setup.step5')->with('response', [
+            'status' => "success",
+            'message' => "Ödeme işleminiz başarılı bir şekilde gerçekleşti paketiniz sisteminize tanımlandı."
+        ]);
     }
 
-    public function createPayPalPayment($paypal, $request)
-    {
-        $paypal->business_id = auth('business')->id();
-        $paypal->payment_id = $request->input('paymentId');
-        $paypal->token = $request->input('token');
-        $paypal->payer_id = $request->input('PayerID');
-        $paypal->save();
-        return $paypal;
-    }
 }

@@ -76,6 +76,9 @@
                     </svg>
                 </div>
                 <div class="onboarding-content">
+                @if(session('response'))
+                    <div class="alert alert-{{session('response.status')}}">{{session('response.message')}}</div>
+                @endif
                     <div class="row text-center">
                         Yousiness kurulum işlemleriniz başarıyla tamamlandı.
                         Paneli Göster butona basarak artık panelinizi yönetebilirsiniz.
