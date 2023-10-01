@@ -3569,7 +3569,7 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
             Route::get('/adim-5', 'step5')->name('step5');
         });
         Route::controller(\App\Http\Controllers\PaymentController::class)->prefix('paket-odeme')->as('payment.')->group(function (){
-            Route::get('/{slug}/odeme-formu', 'paymentForm')->name('form');
+            Route::get('{slug}/odeme-formu', 'paymentForm')->name('form');
             Route::post('/odeme-yap', 'pay')->name('pay');
             Route::post('/odeme-yap-paypal', 'paypalPayment')->name('payPal');
             Route::get('/callback', 'paypalCallBack')->name('paypalCallBack');
