@@ -124,7 +124,7 @@ class SetupController extends Controller
     }
     public function step4Form(Request $request)
     {
-
+        $request->dd();
         $request->validate([
             'package_id'=>'required',
         ],[],[
