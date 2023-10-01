@@ -158,6 +158,7 @@ class PaymentController extends Controller
 
     public function paypalPayment(Request $request)
     {
+        $packet = BussinessPackage::find($request->package_id);
         $gateway = Omnipay::create('PayPal_Rest');
         $gateway->initialize(array(
             'clientId' => 'ARbfZPlxdeObg71cesjTUgV7FLh9w1nmTVeb0EPZsCFmjQAz5eui2iygG85s-yr22btFkawu9mJx7jNV',
@@ -168,12 +169,12 @@ class PaymentController extends Controller
         $response = $gateway->purchase(array(
             'amount' => '1.00',
             'currency' => 'EUR',
-            'description' => 'Packet Test',
+            'description' => $packet->name,
             'returnUrl' => route('business.payment.paypalCallBack'),
             'cancelUrl' => route('business.setup.step4'),
+            'custom' => $packet->slug,
         ))->send();
 
-// Kullanıcıyı PayPal ödeme sayfasına yönlendir
         if ($response->isRedirect()) {
             $response->redirect();
         } else {
