@@ -201,7 +201,7 @@
         }
         function addEmbed(latitude,longitude){
             var embedUrl = `https://www.google.com/maps/embed/v1/place?q=${latitude},${longitude}&key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI`;
-            var embed = `<iframe width="600" height="450" frameborder="0" style="border:0"
+            var embed = `<iframe width="350" height="350" frameborder="0" style="border:0;border-radius: 15px"
                     src="${embedUrl}" allowfullscreen></iframe>`
             $('#embed').text(embed);
 
