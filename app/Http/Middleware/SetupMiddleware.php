@@ -16,7 +16,7 @@ class SetupMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->routeIs('business.setup.*') || $request->route('business.payment.*')) {
+        if ($request->routeIs('business.setup.*') || $request->routeIs('business.payment.*')) {
             return $next($request);
         }
 
