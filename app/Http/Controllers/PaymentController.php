@@ -158,6 +158,8 @@ class PaymentController extends Controller
 
     public function paypalPayment(Request $request)
     {
+
+        $request->dd();
         $gateway = Omnipay::create('PayPal_Rest');
         $gateway->initialize(array(
             'clientId' => 'ARbfZPlxdeObg71cesjTUgV7FLh9w1nmTVeb0EPZsCFmjQAz5eui2iygG85s-yr22btFkawu9mJx7jNV',
