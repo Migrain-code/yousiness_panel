@@ -11,7 +11,6 @@ class PaymentController extends Controller
 {
     public function paymentForm($slug)
     {
-        dd($slug);
         $package = BussinessPackage::where('slug', $slug)->first();
         return view('business.setup.payment.form', compact('package'));
     }
