@@ -175,7 +175,7 @@ class PaymentController extends Controller
             'cancelUrl' => route('business.setup.step4'),
             'custom' => $packet->slug,
         ))->send();
-        dd($response->getData()->id);
+        dd($response->getData());
         $paypal = new BussinessPackagePaypalSaller();
         $paypal->business_id = auth('business')->id();
         $paypal->payment_id = $response["data"]["id"];
