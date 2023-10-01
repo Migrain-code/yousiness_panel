@@ -131,10 +131,9 @@
 
                 var latitude = event.latLng.lat();
                 var longitude = event.latLng.lng();
-                var embedCode = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0.01!2d${longitude}!2d${latitude}!3s12!5s${latitude},${longitude}&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`;
-                $('#embed').text(embedCode);
-                var embedView = document.getElementById('embedView');
-                embedView.innerHTML = embedCode;
+
+                addEmbed(latitude, longitude);
+
                 reverseGeocode(latitude, longitude);
 
                 marker = new google.maps.Marker({
@@ -200,7 +199,15 @@
                 map.fitBounds(bounds);
             });
         }
+        function addEmbed(latitude,longitude){
+            var embedUrl = `https://www.google.com/maps/embed/v1/place?q=${latitude},${longitude}&key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI`;
+            var embed = `<iframe width="600" height="450" frameborder="0" style="border:0"
+                    src="${embedUrl}" allowfullscreen></iframe>`
+            $('#embed').text(embed);
 
+            var embedView = document.getElementById('embedView');
+            embedView.innerHTML = embedCode;
+        }
         function reverseGeocode(latitude, longitude) {
             var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI`;
 
