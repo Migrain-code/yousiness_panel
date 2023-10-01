@@ -197,7 +197,12 @@
                         if(data.length > 0) {
                             $("#category").append('<option value="">Hizmet Tipi Seçiniz</option>')
                             $.each(data, function (index) {
-                                $("#category").append('<option value="' + data[index].id + '">' + data[index].name + '</option>')
+                                if(val == "all"){
+                                    $("#category").append('<option value="' + data[index].id + '">' + data[index].name +' ('+ data[index].type.name + ')' + '</option>')
+                                }
+                                else{
+                                    $("#category").append('<option value="' + data[index].id + '">' + data[index].name + '</option>')
+                                }
                             });
                         }
                         else{
