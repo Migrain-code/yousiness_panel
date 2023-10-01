@@ -191,10 +191,11 @@ class PaymentController extends Controller
 
     public function paypalCallBack(Request $request)
     {
+        $request->dd();
         $paymentResult = BussinessPackagePaypalSaller::where('payment_id', $request->input('paymentId'))
             ->where('status', 0)
             ->first();
-
+        $paymentResult->
         $paymentResult->status = 1;
         $paymentResult->save();
 
