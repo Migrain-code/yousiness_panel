@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BussinessPackage;
+use App\Models\BussinessPackagePaypalSaller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Omnipay\Omnipay;
@@ -175,6 +176,10 @@ class PaymentController extends Controller
             'custom' => $packet->slug,
         ))->send();
         dd($response);
+        $paypal = new BussinessPackagePaypalSaller();
+        $paypal->business_id = auth('business')->id();
+        $paypal->payment_id = $response["data"]["id"];
+        $paypal->save();
         if ($response->isRedirect()) {
             $response->redirect();
         } else {
@@ -189,4 +194,13 @@ class PaymentController extends Controller
         dd($paymentResult);
     }
 
+    public function createPayPalPayment($paypal, $request)
+    {
+        $paypal->business_id = auth('business')->id();
+        $paypal->payment_id = $request->input('paymentId');
+        $paypal->token = $request->input('token');
+        $paypal->payer_id = $request->input('PayerID');
+        $paypal->save();
+        return $paypal;
+    }
 }
