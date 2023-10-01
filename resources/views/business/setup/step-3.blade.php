@@ -53,6 +53,10 @@
                     </a>
                 </li>
 
+                <li>
+                    <div id="mapView"></div>
+                </li>
+
             </ul>
         </div>
     </div>
@@ -129,6 +133,7 @@
                 var longitude = event.latLng.lng();
                 var embedCode = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0.01!2d${longitude}!2d${latitude}!3s12!5s${latitude},${longitude}&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`;
                 $('#embed').text(embedCode);
+                $('#mapView').innerHTML(embedCode);
                 reverseGeocode(latitude, longitude);
 
                 marker = new google.maps.Marker({
