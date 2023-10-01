@@ -191,25 +191,35 @@ class PaymentController extends Controller
 
     public function paypalCallBack(Request $request)
     {
-        $request->dd();
+
         $paymentResult = BussinessPackagePaypalSaller::where('payment_id', $request->input('paymentId'))
             ->where('status', 0)
             ->first();
-        $paymentResult->
-        $paymentResult->status = 1;
-        $paymentResult->save();
 
-        $business = auth('business')->user();
-        $business->is_setup = 1;
-        $business->package_id = $paymentResult->package_id;
-        $business->package_start_date = now();
-        $business->package_end_date = now()->addDays(30);
-        $business->save();
+        if ($paymentResult){
+            $paymentResult->token = $request->input('token');
+            $paymentResult->payer_id = $request->input('payer_id');
+            $paymentResult->status = 1;
+            $paymentResult->save();
 
-        return to_route('business.setup.step5')->with('response', [
-            'status' => "success",
-            'message' => "Ödeme işleminiz başarılı bir şekilde gerçekleşti paketiniz sisteminize tanımlandı."
-        ]);
+            $business = auth('business')->user();
+            $business->is_setup = 1;
+            $business->package_id = $paymentResult->package_id;
+            $business->package_start_date = now();
+            $business->package_end_date = now()->addDays(30);
+            $business->save();
+
+            return to_route('business.setup.step5')->with('response', [
+                'status' => "success",
+                'message' => "Ödeme işleminiz başarılı bir şekilde gerçekleşti paketiniz sisteminize tanımlandı."
+            ]);
+        }
+        else{
+            return to_route('business.setup.step4')->with('response', [
+                'status' => "warning",
+                'message' => "Ödeme Bilgisi Bulunamadı Lütfen ödemenizi yaptıysanız bizimle iletişime geçiniz."
+            ]);
+        }
     }
 
 }
