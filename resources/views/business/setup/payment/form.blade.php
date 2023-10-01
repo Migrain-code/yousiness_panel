@@ -93,12 +93,12 @@
                                 </select>
                             </div>
                             <div id="onlinePayment">
-                                <form method="post" id="step5Form" action="{{route('business.payment.pay')}}">
+                                <form method="post" id="step5Form" action="{{route('business.payment.payPal')}}">
                                     @csrf
                                     <!-- Müşteri Bilgileri -->
                                     <div class="form-group">
-                                        <label for="name">Ad Soyad</label>
-                                        <input type="text" id="name" name="name" value="{{old("name")}}" class="form-control" required>
+                                        <label for="name">Kart Sahibinin Adı</label>
+                                        <input type="text" id="name" name="holder_name" value="{{old("name")}}" class="form-control" required>
                                     </div>
 
                                     <div class="form-group">
@@ -108,7 +108,7 @@
                                     <!-- Kart Bilgileri -->
                                     <div class="form-group">
                                         <label for="card-number">Kredi Kartı Numarası</label>
-                                        <input type="text" id="card-number" name="card-number" value="{{old("number")}}" class="form-control" required>
+                                        <input type="text" id="card-number" name="card_number" value="{{old("number")}}" class="form-control" required>
                                     </div>
 
                                     <div class="form-group">

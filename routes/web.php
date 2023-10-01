@@ -3571,7 +3571,9 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
         Route::controller(\App\Http\Controllers\PaymentController::class)->prefix('paket-odeme')->as('payment.')->group(function (){
             Route::get('/{slug}/odeme-formu', 'paymentForm')->name('form');
             Route::post('/odeme-yap', 'pay')->name('pay');
-
+            Route::post('/odeme-yap-paypal', 'paypalPayment')->name('payPal');
+            Route::get('/callback', 'paypalCallBack')->name('paypalCallBack');
+            Route::get('/stripe-3ds-result', 'stripe3dsResult')->name('stripe_3ds_result');
         });
         Route::get('/home', [\App\Http\Controllers\Business\HomeController::class, 'index'])->name('home');
         Route::post('/update-password', [\App\Http\Controllers\Business\HomeController::class,'resetPassword'])->name('resetPassword');
