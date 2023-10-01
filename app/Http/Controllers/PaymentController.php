@@ -174,7 +174,7 @@ class PaymentController extends Controller
             'cancelUrl' => route('business.setup.step4'),
             'custom' => $packet->slug,
         ))->send();
-        dd($response);
+
         if ($response->isRedirect()) {
             $response->redirect();
         } else {
