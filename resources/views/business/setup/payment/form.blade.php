@@ -286,10 +286,27 @@
         var stripe = Stripe('pk_test_51NvSDhIHb2EidFuB3LbbZHqZbywNWZbvQNsyDop4mHT1OzxOpax5uotEqlToQKrawEAJMH5OXa4JR1FrE3OBD7cC00KngyS4JA');
         var elements = stripe.elements();
 
-        var cardElement = elements.create('card');
+
+        var style = {
+            base: {
+                color: '#32325d',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+        var cardElement = elements.create('card', {style: style});
         cardElement.mount('#card-element');
 
         var form = document.getElementById('payment-form');
+
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();

@@ -24,7 +24,7 @@ class PaymentController extends Controller
         $amount = $request->input('amount');
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
-        try {
+
             $charge = Charge::create([
                 'amount' => $amount * 100, // Stripe cent cinsinden bekler, örneğin 10.00 dolar için 1000 gönderirsiniz.
                 'currency' => 'usd',
@@ -33,9 +33,7 @@ class PaymentController extends Controller
             ]);
             dd($charge);
             //return redirect()->route('payment.success');
-        } catch (\Exception $e) {
-            //return redirect()->route('payment.error')->with('error', $e->getMessage());
-        }
+
 
     }
 
