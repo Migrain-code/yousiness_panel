@@ -186,15 +186,16 @@
                                 </form>
                             </div>
                             <div id="noOnlinePayment">
-                                <form id="payment-form">
+                                <form action="{{ route('business.payment.pay') }}" method="POST" id="payment-form">
+                                    @csrf
                                     <div id="card-element">
-                                        <!-- Elements will create input elements here -->
+                                        <!-- Stripe Payment Element burada oluşturulacak -->
                                     </div>
 
-                                    <!-- We'll put the error messages in this element -->
+                                    <!-- Hata mesajlarını gösterecek bir bölüm -->
                                     <div id="card-errors" role="alert"></div>
 
-                                    <button id="submit">Submit Payment</button>
+                                    <button type="submit">Ödemeyi Yap</button>
                                 </form>
                             </div>
                             <div id="paymentSummary" style="font-size: 18px;text-align: right;">
@@ -228,7 +229,7 @@
         });
 
     </script>
-
+    <script>/*ödeme seçenekleri butonları*/</script>
     <script>
         // Get all radio buttons and their labels
         const radioButtons = document.querySelectorAll('.btn-check');
@@ -275,55 +276,40 @@
             });
         });
     </script>
+
+    <script>/*stripe ödeme*/</script>
+
     <script>
-        var stripe = Stripe('pk_test_51NvSDhIHb2EidFuB3LbbZHqZbywNWZbvQNsyDop4mHT1OzxOpax5uotEqlToQKrawEAJMH5OXa4JR1FrE3OBD7cC00KngyS4JA');
+        var stripe = Stripe('{{ env("STRIPE_KEY") }}');
         var elements = stripe.elements();
 
-        var style = {
-            base: {
-                color: "#32325d",
-            }
-        };
+        var cardElement = elements.create('card');
+        cardElement.mount('#card-element');
 
-        var card = elements.create("card", { style: style });
-        card.mount("#card-element");
-
-        card.on('change', ({error}) => {
-            let displayError = document.getElementById('card-errors');
-            if (error) {
-                displayError.textContent = error.message;
-            } else {
-                displayError.textContent = '';
-            }
-        });
         var form = document.getElementById('payment-form');
 
-        form.addEventListener('submit', function(ev) {
-            ev.preventDefault();
-            // If the client secret was rendered server-side as a data-secret attribute
-            // on the <form> element, you can retrieve it here by calling `form.dataset.secret`
-            stripe.confirmCardPayment(clientSecret, {
-                payment_method: {
-                    card: card,
-                    billing_details: {
-                        name: 'Jenny Rosen'
-                    }
-                }
-            }).then(function(result) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            stripe.createToken(cardElement).then(function(result) {
                 if (result.error) {
-                    // Show error to your customer (for example, insufficient funds)
-                    console.log(result.error.message);
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
                 } else {
-                    // The payment has been processed!
-                    if (result.paymentIntent.status === 'succeeded') {
-                        // Show a success message to your customer
-                        // There's a risk of the customer closing the window before callback
-                        // execution. Set up a webhook or plugin to listen for the
-                        // payment_intent.succeeded event that handles any business critical
-                        // post-payment actions.
-                    }
+                    // Kredi kartı token'ı başarıyla oluşturuldu, bu token'ı sunucuya göndermek ve ödeme işlemi yapmak için kullanabilirsiniz
+                    var token = result.token.id;
+                    var hiddenInput = document.createElement('input');
+                    hiddenInput.setAttribute('type', 'hidden');
+                    hiddenInput.setAttribute('name', 'stripeToken');
+                    hiddenInput.setAttribute('value', token);
+                    form.appendChild(hiddenInput);
+
+                    // Formu sunucuya gönderin
+                    form.submit();
                 }
             });
         });
     </script>
+
+
 @endsection
