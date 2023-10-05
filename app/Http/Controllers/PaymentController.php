@@ -20,6 +20,7 @@ class PaymentController extends Controller
 
     public function pay(Request $request)
     {
+        $request->dd();
         $parts = explode('/', $request->expiry);
 
         $holder_name = $request->holder_name;
