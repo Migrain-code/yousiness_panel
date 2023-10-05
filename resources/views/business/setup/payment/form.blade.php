@@ -280,7 +280,7 @@
     <script>/*stripe ödeme*/</script>
 
     <script>
-        var stripe = Stripe('{{ env("STRIPE_KEY") }}');
+        var stripe = Stripe('pk_test_51NvSDhIHb2EidFuB3LbbZHqZbywNWZbvQNsyDop4mHT1OzxOpax5uotEqlToQKrawEAJMH5OXa4JR1FrE3OBD7cC00KngyS4JA');
         var elements = stripe.elements();
 
         var cardElement = elements.create('card');
