@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Omnipay\Omnipay;
 use Stripe\Stripe;
-
+use Stripe\Charge;
 class PaymentController extends Controller
 {
     public function paymentForm($slug)
@@ -20,26 +20,23 @@ class PaymentController extends Controller
 
     public function pay(Request $request)
     {
-        $request->dd();
-        $parts = explode('/', $request->expiry);
+        $token = $request->input('stripeToken');
+        $amount = $request->input('amount');
 
-        $holder_name = $request->holder_name;
-        $cardNumber = $request->card_number;
-        $expMonth = $parts[0];
-        $expYear = $parts[1];
-        $cvc = $request->cvc;
         Stripe::setApiKey(env('STRIPE_SECRET'));
-        $stripe = new \Stripe\StripeClient(env('STRIPE_KEY'));
-        $token = \Stripe\Token::create([
-            'card' => [
-                'number' => $cardNumber,
-                'exp_month' => $expMonth,
-                'exp_year' => $expYear,
-                'cvc' => $cvc,
-            ],
-        ]);
+        try {
+            $charge = Charge::create([
+                'amount' => $amount * 100, // Stripe cent cinsinden bekler, örneğin 10.00 dolar için 1000 gönderirsiniz.
+                'currency' => 'usd',
+                'source' => $token,
+                'description' => 'Ödeme açıklaması'
+            ]);
+            dd($charge);
+            //return redirect()->route('payment.success');
+        } catch (\Exception $e) {
+            //return redirect()->route('payment.error')->with('error', $e->getMessage());
+        }
 
-        dd($token);
     }
 
     public function stripe3dsResult(Request $request)
