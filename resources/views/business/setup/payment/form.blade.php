@@ -175,17 +175,6 @@
 
 
                             <div id="onlinePayment">
-                                <form method="post" id="step5Form" action="{{route('business.payment.pay')}}">
-                                    @csrf
-                                    <input type="hidden" name="package_id" value="{{$package->id}}">
-                                    <!-- Müşteri Bilgileri -->
-
-                                    <div class="onboarding-btn">
-                                        <a onclick="$('#step5Form').submit()" href="#" style="color: white">Ödeme Yap</a>
-                                    </div>
-                                </form>
-                            </div>
-                            <div id="noOnlinePayment">
                                 <form action="{{ route('business.payment.pay') }}" method="POST" id="payment-form">
                                     @csrf
                                     <div id="card-element">
@@ -196,6 +185,20 @@
                                     <div id="card-errors" role="alert"></div>
 
                                     <button type="submit">Ödemeyi Yap</button>
+                                </form>
+                            </div>
+                            <div id="noOnlinePayment">
+                                <form method="post" id="step5Form" action="{{route('business.payment.pay')}}">
+                                    <div class="alert alert-warning">
+                                        <i class="fa fa-info-circle"></i> <b>5646546546546546456564</b> nolu adrese <b>{{$package->price}} €</b> paket ödemesi yapıp dekontu buraya yüklemeniz gerekmektedir. Dekontunuz yükleyip gönderdikten sonra kontrol edilip onaylandıktan sonra erişiminiz açılacaktır
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Dekont</label>
+                                        <input type="file" id="name" name="file" class="form-control" required>
+                                    </div>
+                                    <div class="onboarding-btn">
+                                        <a type="submit" style="color: white">Ödeme Yap</a>
+                                    </div>
                                 </form>
                             </div>
                             <div id="paymentSummary" style="font-size: 18px;text-align: right;">
