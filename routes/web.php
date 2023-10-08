@@ -3632,7 +3632,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('recommendedLink', \App\Http\Controllers\RecommendedLinkController::class);
         Route::resource('page', \App\Http\Controllers\Admin\PageController::class);
         Route::resource('support', \App\Http\Controllers\Admin\SupportController::class);
-
         Route::resource('mainPageSection', \App\Http\Controllers\MainPageSectionController::class);
         Route::resource('user', \App\Http\Controllers\Admin\UserController::class);
         Route::resource('customer', \App\Http\Controllers\Admin\CustomerController::class);
@@ -3692,5 +3691,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::post('/main-page-update', [\App\Http\Controllers\Admin\MaingPageController::class, 'section_update'])->name('user.mainPage.update');
 
         Route::post('/settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
+
+        Route::get('business/export/excel', [\App\Http\Controllers\Admin\BusinessController::class, 'export'])->name('business.export');
+
     });
 });

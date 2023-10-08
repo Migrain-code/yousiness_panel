@@ -108,4 +108,9 @@ class Business extends Authenticatable
     {
         return $this->hasMany(BusinessComment::class, 'business_id', 'id')->latest();
     }
+
+    public function offDays()
+    {
+        return $this->hasOne(DayList::class, 'id', 'off_day')->latest();
+    }
 }

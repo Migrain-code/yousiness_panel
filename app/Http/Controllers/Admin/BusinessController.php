@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\AdminBusinessesExport;
 use App\Http\Controllers\Controller;
 use App\Models\Business;
+use App\Models\BusinessCategory;
 use App\Models\BusinessService;
 use App\Models\BusinessWorkTime;
 use App\Models\BusinnessType;
@@ -13,6 +15,7 @@ use App\Models\ServicePackage;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BusinessController extends Controller
 {
@@ -21,13 +24,48 @@ class BusinessController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $businesses=Business::all();
+        /*$q->whereHas('allLicences', function ($licence) use ($request) {
+                    $licence->where('branch_id', $request->input('amp;branch_id'));
+                });*/
+        $businesses = Business::query()
+            ->orderBy('name','ASC')
+            ->when($request->filled('name'), function ($q) use ($request) {
+                $q->where('name', 'LIKE', "%$request->name%");
+            })
+            ->when($request->filled('phone'), function ($q) use ($request) {
+                $q->where('phone', 'LIKE', "%$request->phone%");
+            })
+            ->when($request->filled('city'), function ($q) use ($request) {
+                $q->where('city', $request->city);
+            })
+            ->when($request->filled('category_id'), function ($q) use ($request) {
+                $q->whereHas('categories', function ($category) use ($request) {
+                    $category->where('category_id', $request->input('category_id'));
+                });
+            })
+            ->get();
 
-        return view('admin.business.index', compact('businesses'));
+            /*->when(($request->filled('age_start') || $request->filled('amp;age_end')), function ($q) use ($request) {
+                if ($request->filled('age_start')) {
+                    $q->where('birthday', '>=', $request->input('age_start'));
+                }
+                if ($request->filled('amp;age_end')) {
+                    $q->where('birthday', '<=', $request->input('amp;age_end'));
+                }
+            });*/
+
+
+        $categories = BusinessCategory::all();
+        return view('admin.business.index', compact('businesses', 'categories'));
     }
 
+    public function export()
+    {
+        $businesses = Business::all();
+        return Excel::download(new AdminBusinessesExport($businesses), 'businesses.xlsx');
+    }
     /**
      * Show the form for creating a new resource.
      *

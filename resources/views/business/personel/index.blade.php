@@ -57,7 +57,7 @@
                                            <img class="rounded-circle" width="35" src="{{asset($personel->image)}}" alt="">
                                        </td>
                                        <td>{{$personel->name}}</td>
-                                       <td><a href="tel:{{$personel->email}}"><strong>{{$personel->email}}</strong></a></td>
+                                       <td><a href="tel:{{$personel->phone}}"><strong>{{$personel->phone}}</strong></a></td>
                                        <td>
                                            @if($personel->accept==1)
                                                <span class="badge light badge-success">İzin Verildi</span>

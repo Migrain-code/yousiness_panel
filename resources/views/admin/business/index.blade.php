@@ -1,7 +1,27 @@
 @extends('admin.layouts.master')
 @section('links')
     <link href="/admin/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+    <style>
+        .ts-control {
+            border: 1px solid #d0d0d0;
+            padding: 8px 8px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            box-shadow: none;
+            border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            height: 40px;
 
+        }
+        .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+            width: 100%;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="col-xl-12">
@@ -15,6 +35,7 @@
     </div>
     <div class="col-12">
         @include('admin.layouts.component.alert')
+        @include('admin.layouts.component.error')
     </div>
     <div class="col-xl-12">
         <div class="card">
@@ -22,7 +43,63 @@
                 <h4 class="heading">
                     İşletme Listesi
                 </h4>
+                <div>
+                    <a class="btn btn-success" href="{{route('admin.business.export')}}"><i class="fa fa-plus-search"></i> Excele Aktar</a>
+
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-search"></i> Filtrele</button>
+
+                </div>
                 <!-- Button trigger modal -->
+                <div class="modal fade" id="exampleModalCenter">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">İşletme Filtrele</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                </button>
+                            </div>
+                            <form method="get" action="{{route('admin.business.index')}}">
+                                <div class="modal-body">
+
+                                    <div class="mb-3">
+                                        <label>İşletme Adı</label>
+                                        <input type="text" class="form-control input-default " name="name" placeholder="Örneğin(Berber)">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Telefon</label>
+                                        <input type="text" class="form-control input-default " name="phone" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Plz/ Stadtname</label>
+                                        <select class="" id="city_select" name="city" style="border-radius: 18px;">
+                                            <option value="" selected>Stadt wählen</option>
+                                            @forelse($cities as $city)
+                                                <option value="{{$city->id}}">{{$city->post_code ." ," . $city->name}}</option>
+                                            @empty
+
+                                            @endforelse
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cateogry_select">Kategori</label> <br>
+                                        <select class="" id="cateogry_select" name="category_id" style="border-radius: 18px;width: 100%;">
+                                            <option value="" selected>Kategori Seçiniz</option>
+                                            @forelse($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @empty
+
+                                            @endforelse
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <a type="button" class="btn btn-danger light" href="{{route('admin.business.index')}}">Filtreleri Temizle</a>
+                                    <button type="submit" class="btn btn-primary">Filtrele</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -66,7 +143,11 @@
                                         @endif
                                     </td>
                                     <td>
-                                        {{$business->package->name}} /<span class="text-primary"> {{$business->package->type == 0 ? "Aylık" : "Yıllık"}}</span>
+                                        @if($business->package)
+                                            {{$business->package->name}} /<span class="text-primary"> {{$business->package->type == 0 ? "Aylık" : "Yıllık"}}</span>
+                                        @else
+                                            Paket Bulunamadı
+                                        @endif
                                     </td>
                                     <td>
                                         <div class="d-flex">
@@ -159,4 +240,39 @@
 
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+
+    <script>
+        var mySelect = new TomSelect("#city_select", {
+            remoteUrl: '/api/city/search',
+            remoteSearch: true,
+            create: false,
+            highlight: false,
+            load: function(query, callback) {
+                $.ajax({
+                    url: '/api/city/search', // Sunucu tarafındaki arama API'sinin URL'si
+                    method: 'POST',
+                    data: { q: query }, // Arama sorgusu
+                    dataType: 'json', // Beklenen veri tipi
+                    success: function(data) {
+
+                        var results = data.cities.map(function(item) {
+                            console.log('item', item.name);
+                            return {
+                                value: item.id,
+                                text: item.post_code + "," + item.name,
+                            };
+                        });
+
+                        callback(results);
+                    },
+                    error: function() {
+                        console.error("Arama sırasında bir hata oluştu.");
+                    }
+                });
+            }
+        });
+
+    </script>
+
 @endsection
