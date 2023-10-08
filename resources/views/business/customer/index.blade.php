@@ -36,10 +36,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Müşteriler Listesi</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Müşteri
-                        Ekle
-                    </button>
+                    <a href="{{route('business.customer.export.excel')}}" class="btn btn-primary"> <i class="fa fa-arrow-alt-circle-down"></i> Excele Aktar</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -51,44 +48,37 @@
                                 <th>E-posta</th>
                                 <th>Telefon</th>
                                 <th>Kayıt Zamanı</th>
-                                <th>Son Randevu</th>
+                                <th>Kayıtlı Mı?</th>
                                 <th>Randevu Sayısı</th>
                                 <th>Yasak</th>
                                 <th>İşlemler</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse(auth('business')->user()->customers as $businessCustomer)
+                            @forelse($bCustomers as $businessCustomer)
                                 <tr>
                                     <td>
                                         <img class="rounded-circle" width="35"
-                                             src="{{asset($businessCustomer->customer->image)}}" alt="">
+                                             src="{{image($businessCustomer->image)}}" alt="">
                                     </td>
-                                    <td>{{$businessCustomer->customer->name}}</td>
+                                    <td>{{$businessCustomer->name}}</td>
                                     <td>
-                                        <a href="mailto:{{$businessCustomer->email}}"><strong>{{$businessCustomer->customer->email}}</strong></a>
+                                        <a href="mailto:{{$businessCustomer->custom_email}}"><strong>{{$businessCustomer->custom_email}}</strong></a>
                                     </td>
                                     <td>
-                                        <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->customer->phone}}</strong></a>
+                                        <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
                                     </td>
                                     <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
-                                    <td>123</td>
-                                    <td>2</td>
+                                    <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                    <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
                                     <td>
-                                        @if($businessCustomer->customer->status==1)
+                                        @if($businessCustomer->status==1)
                                             <span class="badge light badge-success">Aktif</span>
                                         @else
                                             <span class="badge light badge-danger">Engellendi</span>
                                         @endif
                                     </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="#" class="btn btn-danger shadow sharp"
-                                               onclick="onDelete('{{route('business.customer.delete', $businessCustomer->id)}}', '{{$loop->index}}')">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </div>
-                                    </td>
+
                                 </tr>
                             @empty
                             @endforelse

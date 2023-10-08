@@ -17,6 +17,10 @@ class Customer extends Authenticatable
     {
         return $this->hasMany(Appointment::class, 'customer_id', 'id');
     }
+    public function businessAppointments($businessId)
+    {
+        return Appointment::where('customer_id', $this->id)->where('business_id', $businessId)->get();
+    }
 
     public function daysLeft()
     {

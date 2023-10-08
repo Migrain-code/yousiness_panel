@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Business;
 
+use App\Exports\BusinessCustomerExport;
 use App\Http\Controllers\Controller;
 use App\Models\BusinessCustomer;
 use App\Models\Customer;
 use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CustomerController extends Controller
 {
@@ -22,16 +24,23 @@ class CustomerController extends Controller
             'Kadın',
             'Erkek'
         ];
-        $bCustomer=auth('business')->user()->customers;
-        $customerIds=[];
-        foreach ($bCustomer as $c){
-            $customerIds[]=$c->customer_id;
-        }
+        $bCustomerIds = [];
+        $businessUser = auth('business')->user();
 
-        $allCustomer=Customer::all();
-        return view('business.customer.index', compact('genderList', 'allCustomer','customerIds'));
+        $bCustomers = $businessUser->appointments()->with('customer')->get()->pluck('customer');
+
+        return view('business.customer.index', compact('genderList', 'bCustomers', 'bCustomerIds'));
     }
 
+    public function export()
+    {
+        $businessUser = auth('business')->user();
+
+        $bCustomers = $businessUser->appointments()->with('customer')->get()->pluck('customer');
+        dd($bCustomers);
+        return Excel::download(new BusinessCustomerExport($bCustomers), 'customers.xlsx');
+
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -61,6 +70,15 @@ class CustomerController extends Controller
 
     }
 
+    public function show()
+    {
+        $businessUser = auth('business')->user();
+
+        $bCustomers = $businessUser->appointments()->with('customer')->get()->pluck('customer');
+
+        return Excel::download(new BusinessCustomerExport($bCustomers), 'customers.xlsx');
+
+    }
     public function delete($id)
     {
         if (BusinessCustomer::find($id)->delete()){

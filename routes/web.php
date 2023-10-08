@@ -3573,7 +3573,9 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
             Route::post('/odeme-yap', 'pay')->name('pay');
             Route::post('/odeme-yap-paypal', 'paypalPayment')->name('payPal');
             Route::get('/callback', 'paypalCallBack')->name('paypalCallBack');
-            Route::get('/stripe-3ds-result', 'stripe3dsResult')->name('stripe_3ds_result');
+            Route::get('/stripe', 'stripe')->name('stripe');
+            Route::post('/stripe', 'stripeForm')->name('stripePost');
+
         });
         Route::get('/home', [\App\Http\Controllers\Business\HomeController::class, 'index'])->name('home');
         Route::post('/update-password', [\App\Http\Controllers\Business\HomeController::class,'resetPassword'])->name('resetPassword');
@@ -3609,6 +3611,7 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
         Route::post('personel/send/sms', [\App\Http\Controllers\Business\PersonelController::class, 'sendSms'])->name('personel.sendSms');
         Route::post('personel/send/mail', [\App\Http\Controllers\Business\PersonelController::class, 'sendMail'])->name('personel.sendMail');
         Route::resource('businessComment', \App\Http\Controllers\BusinessCommentController::class);
+        Route::get('customer/export/excel', [\App\Http\Controllers\Business\CustomerController::class, 'export'])->name('customer.export.excel');
         Route::controller(\App\Http\Controllers\Business\BusinessController::class)->prefix('profile')->as('profile.')->group(function () {
             Route::get('/', 'show')->name('show');
             Route::post('/update-general-setting', 'update')->name('updateGeneralSetting');

@@ -13,4 +13,9 @@ class City extends Model
     {
         return $this->hasMany(District::class, 'city_id', 'id');
     }
+
+    public function country()
+    {
+        return $this->hasOne(Country::class, 'id', 'country_id');
+    }
 }

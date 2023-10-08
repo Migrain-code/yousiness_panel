@@ -7,8 +7,10 @@ use App\Models\BussinessPackage;
 use App\Models\BussinessPackagePaypalSaller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 use Omnipay\Omnipay;
 use Stripe\Stripe;
+use Stripe\Customer;
 use Stripe\Charge;
 class PaymentController extends Controller
 {
@@ -16,72 +18,52 @@ class PaymentController extends Controller
     {
         $package = BussinessPackage::where('slug', $slug)->first();
         return view('business.setup.payment.form', compact('package'));
+
     }
 
-    public function pay(Request $request)
+    /*stripe methods*/
+    public function stripe()
     {
-        $token = $request->input('stripeToken');
-        $amount = $request->input('amount');
+        return view('business.setup.payment.stripe');
+    }
 
+    public function stripeForm(Request $request)
+    {
+        $amount = 5;//5 eur
+        $user = auth('business')->user();
+        $package = "Test Paketi";
         Stripe::setApiKey(env('STRIPE_SECRET'));
-
-            $charge = Charge::create([
-                'amount' => $amount * 100, // Stripe cent cinsinden bekler, örneğin 10.00 dolar için 1000 gönderirsiniz.
-                'currency' => 'usd',
-                'source' => $token,
-                'description' => 'Ödeme açıklaması'
-            ]);
-            dd($charge);
-            //return redirect()->route('payment.success');
-
-
+        $customer = Customer::create(array(
+            "address" => [
+                "line1" => $user->address,
+                "postal_code" => $user->cities->post_code,
+                "city" => $user->cities->name,
+                "country" => $user->cities->country->name,
+            ],
+            "email" => $user->owner_email,
+            "name" => $user->owner,
+            "source" => $request->stripeToken
+        ));
+        Charge::create ([
+            "amount" => $amount * 100,
+            "currency" => "EUR",
+            "customer" => $customer->id,
+            "description" => $package,
+            "shipping" => [
+                "name" => $user->name,
+                "address" => [
+                    "line1" => $user->address,
+                    "postal_code" => $user->cities->post_code,
+                    "city" => $user->cities->name,
+                    "country" => $user->cities->country->name,
+                ],
+            ]
+        ]);
+        Session::flash('success', 'Payment successful!');
+        return to_route('business.setup.step5');
     }
 
-    public function stripe3dsResult(Request $request)
-    {
-        $stripe = new \Stripe\StripeClient(
-            config('stripe.secret_key')
-        );
-
-        // stripe tarafından gönderilen setupIntent id'yi kullanarak setupIntent'e ulaşıyoruz.
-        $setupIntent = $stripe->setupIntents->retrieve(
-            request()->setup_intent
-        );
-
-        // 'metadata' ile gönderdiğimiz fiyat ve para birimi değerlerine ulaşıyoruz.
-        $price = $setupIntent['metadata']['price'];
-        $currency = $setupIntent['metadata']['currency'];
-
-        // setupIntent'in sonucu başarılı ise para çekme işlemini yapıyoruz.
-        if ($setupIntent['status'] == 'succeeded') {
-            try {
-                $charge = $stripe->charges->create([
-                    'customer' => $setupIntent['customer'],
-                    'amount' => $price,
-                    'currency' => $currency,
-                    'description' => 'test',
-                    'source' => $setupIntent['payment_method']
-                ]);
-            }
-                // hata oluşması durumunda hata mesajını json olarak ekrana yazdırıyoruz.
-            catch (\Stripe\Exception\ApiErrorException $e) {
-                return response()->json($e->getMessage(), 500);
-            }
-
-            // para çekme işleminde bir sorun olursa ekrana hata yazdırıyoruz.
-            if ($charge['status'] != 'succeeded') {
-                return response()->json('3ds payment error!', 500);
-            } else {
-                // para çekme işlemi başarılı sonuçlanırsa stripe'dan dönen veriyi ekrana basıyoruz.
-                return response()->json($charge, 200);
-            }
-        } else {
-            // setupIntent işleminde bir sorun olursa ekrana hata yazdırıyoruz.
-            return response()->json('3ds payment error!', 500);
-        }
-
-    }
-
+    /*paypal Methods*/
     public function paypalPayment(Request $request)
     {
         $packet = BussinessPackage::find($request->package_id);
