@@ -37,7 +37,7 @@ class CustomerController extends Controller
         $businessUser = auth('business')->user();
 
         $bCustomers = $businessUser->appointments()->with('customer')->get()->pluck('customer');
-        dd($bCustomers);
+
         return Excel::download(new BusinessCustomerExport($bCustomers), 'customers.xlsx');
 
     }
