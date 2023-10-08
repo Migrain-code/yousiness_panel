@@ -429,7 +429,7 @@
                     if(data.length > 0){
                         $.each(data,function(i,e) {
                             // here you structured the code depend on the table of yours
-                            output += '<tr style="font-size:18px;font-weight: bold"><td>'+e.price +'₺'+'</td><td>'+e.amount+'</td><td>'+formatDate(e.created_at)+'</td></tr>';
+                            output += '<tr style="font-size:18px;font-weight: bold"><td>'+e.price +'€'+'</td><td>'+e.amount+'</td><td>'+formatDate(e.created_at)+'</td></tr>';
                         });
                     }
                     else{

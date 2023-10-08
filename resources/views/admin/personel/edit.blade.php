@@ -72,19 +72,19 @@
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="mothly-income" style="background-color: #600ee4;padding: 20px 10px;border-radius: 18px;line-height: 2em">
                                     <span class="text-white fw-bold">Bu Ay</span>
-                                    <h4 class="text-white">₺3,741.00</h4>
+                                    <h4 class="text-white">€3,741.00</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="mothly-income" style="background-color: #ff7d10;padding: 20px 10px;border-radius: 18px;line-height: 2em">
                                     <span class="text-white fw-bold">Bu Yıl</span>
-                                    <h4 class="text-white">₺3,741.00</h4>
+                                    <h4 class="text-white">€3,741.00</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="mothly-income" style="background-color: #4cb32b;padding: 20px 10px;border-radius: 18px;line-height: 2em">
                                     <span class="text-white fw-bold">Toplam Kazanç</span>
-                                    <h4 class="text-white">₺3,741.00</h4>
+                                    <h4 class="text-white">€3,741.00</h4>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                                     </div>
                                     <div class="balance_info">
                                         <span class="text-success">Gelecek</span>
-                                        <h4>₺23,741.00</h4>
+                                        <h4>€23,741.00</h4>
                                     </div>
                                 </div>
                                 <div class="balance_data">
@@ -111,7 +111,7 @@
                                     </div>
                                     <div class="balance_info">
                                         <span class="text-danger">Ödenen</span>
-                                        <h4>₺23,741.00</h4>
+                                        <h4>€23,741.00</h4>
                                     </div>
                                 </div>
                             </div>
@@ -444,7 +444,7 @@
                                                     <tbody>
                                                     <tr class="trans-td-list">
                                                         <td>
-                                                            <span class="doller"> ₺ 650,036.34</span>
+                                                            <span class="doller"> € 650,036.34</span>
                                                         </td>
                                                         <td>
                                                             <span class="date">Mart 25, 2023</span>

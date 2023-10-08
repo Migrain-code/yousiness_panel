@@ -224,7 +224,7 @@
                                             </div>
                                             <div class="tp-price__title-box">
                                                 <h4 class="tp-price__title-sm">{{$package->name}}</h4>
-                                                <p>{{$package->price==0 ? "Ücretsiz": $package->price ."₺ + KDV / Aylık"}}</p>
+                                                <p>{{$package->price==0 ? "Ücretsiz": $package->price ."€ + KDV / Aylık"}}</p>
                                             </div>
                                             <div class="tp-price__feature">
                                                 <ul>
@@ -251,7 +251,7 @@
                                                 </ul>
                                             </div>
                                             <div class="tp-price__btn tp-btn-price">
-                                                <span>{{$package->price==0 ? "Ücretsiz": $package->price ."₺ + KDV / Yıllık"}}</span>
+                                                <span>{{$package->price==0 ? "Ücretsiz": $package->price ."€ + KDV / Yıllık"}}</span>
                                                 <a href="{{route('business.login')}}">Şimdi Satın Al <i
                                                             class="fal fa-arrow-right"></i></a>
                                             </div>
@@ -275,7 +275,7 @@
                                             </div>
                                             <div class="tp-price__title-box">
                                                 <h4 class="tp-price__title-sm">{{$package->name}}</h4>
-                                                <p>{{$package->price==0 ? "Ücretsiz": $package->price ."₺ + KDV / Yıllık"}}</p>
+                                                <p>{{$package->price==0 ? "Ücretsiz": $package->price ."€ + KDV / Yıllık"}}</p>
                                             </div>
                                             <div class="tp-price__feature">
                                                 <ul>
@@ -302,7 +302,7 @@
                                                 </ul>
                                             </div>
                                             <div class="tp-price__btn tp-btn-price">
-                                                <span>{{$package->price==0 ? "Ücretsiz": $package->price ."₺ + KDV / Yıllık"}}</span>
+                                                <span>{{$package->price==0 ? "Ücretsiz": $package->price ."€ + KDV / Yıllık"}}</span>
                                                 <a href="{{route('business.login')}}">Şimdi Satın Al <i
                                                             class="fal fa-arrow-right"></i></a>
                                             </div>

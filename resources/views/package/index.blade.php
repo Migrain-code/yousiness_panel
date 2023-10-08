@@ -71,7 +71,7 @@
                                                         <p>Collect more submissions, <br> access most of the features</p>
                                                     </div>
                                                     <div class="tp-price-top-title-wrapper">
-                                                        <h4>₺18 <span>/aylık</span></h4>
+                                                        <h4>€18 <span>/aylık</span></h4>
                                                         <p>Aylık Faturalandırılır</p>
                                                         <a class="tp-btn-service" href="#">Satın Al</a>
                                                     </div>
@@ -82,7 +82,7 @@
                                                         <p>Collect more submissions, <br> access most of the features</p>
                                                     </div>
                                                     <div class="tp-price-top-title-wrapper">
-                                                        <h4>₺19 <span>/aylık</span></h4>
+                                                        <h4>€19 <span>/aylık</span></h4>
                                                         <p>Aylık Faturalandırılır</p>
                                                         <a class="tp-btn-service" href="#">Satın al</a>
                                                     </div>
@@ -93,7 +93,7 @@
                                                         <p>Collect more submissions, <br> access most of the features</p>
                                                     </div>
                                                     <div class="tp-price-top-title-wrapper">
-                                                        <h4>₺14 <span>/aylık</span></h4>
+                                                        <h4>€14 <span>/aylık</span></h4>
                                                         <p>Aylık Faturalandırılır</p>
                                                         <a class="tp-btn-service" href="#">Satın Al</a>
                                                     </div>

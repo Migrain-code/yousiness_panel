@@ -101,7 +101,7 @@
                                             <li class="border-top border-primary"><b>Başlangıç Saati :</b> {{$appointment->start_time->format('d.m.Y H:i')}}</li>
                                             <li class="border-top border-primary"><b>Bitiş Saati :</b> {{$appointment->end_time->format('d.m.Y H:i')}}</li>
 
-                                            <li class="border-top border-primary"><b>Ödenecek Tutar :</b> <span class="text-success">{{$appointment->calculateTotal($appointment->services)}} ₺</span> </li>
+                                            <li class="border-top border-primary"><b>Ödenecek Tutar :</b> <span class="text-success">{{$appointment->calculateTotal($appointment->services)}} €</span> </li>
                                             <li class="border-top border-primary">
                                                 <b>Durumu : {!! $appointment->status('html') !!}</b>
                                             </li>

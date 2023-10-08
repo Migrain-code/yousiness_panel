@@ -149,7 +149,7 @@
                                                     <div class="col-lg-9 mb-5 mb-lg-0">
                                                             <div class="p-5 rounded-lg shadow" style="min-width: max-content;text-align: center;background-color: #F5F8FA">
                                                                 <h1 class="h6 text-uppercase font-weight-bold mb-4">{{$package->name}}</h1>
-                                                                <h2 class="h1 font-weight-bold">{{$package->price == 0 ?"Ücretiz" : "₺". $package->price}}<span class="text-small font-weight-normal ml-2"> / aylık</span></h2>
+                                                                <h2 class="h1 font-weight-bold">{{$package->price == 0 ?"Ücretiz" : "€". $package->price}}<span class="text-small font-weight-normal ml-2"> / aylık</span></h2>
 
                                                                 <div class="custom-separator my-4 mx-auto bg-primary"></div>
 
@@ -186,7 +186,7 @@
                                                         <div class="col-lg-9 mb-5 mb-lg-0">
                                                             <div class="p-5 rounded-lg shadow" style="min-width: max-content;text-align: center;background-color: #F5F8FA">
                                                                 <h1 class="h6 text-uppercase font-weight-bold mb-4">{{$package->name}}</h1>
-                                                                <h2 class="h1 font-weight-bold">{{$package->price == 0 ?"Ücretiz" : "₺". $package->price}}<span class="text-small font-weight-normal ml-2"> / yıllık</span></h2>
+                                                                <h2 class="h1 font-weight-bold">{{$package->price == 0 ?"Ücretiz" : "€". $package->price}}<span class="text-small font-weight-normal ml-2"> / yıllık</span></h2>
 
                                                                 <div class="custom-separator my-4 mx-auto bg-primary"></div>
 
