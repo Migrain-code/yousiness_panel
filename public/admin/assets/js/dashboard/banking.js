@@ -23,8 +23,8 @@
 				  },
 				  series: [
 					 {
-					  name: "New Clients",
-					  data: [50, 100, 80, 50, 100, 130, 150 ]
+					  name: "Randevu Artış Grafiği",
+					  data: monthData
 					}
 				  ],
 				  
@@ -44,7 +44,7 @@
 					},
 					distributed: true
 				  },
-				  colors:['#FF4646','#ffff','#FF4646','#ffff','#FF4646','#ffff'],
+				  colors:['#2991ec','#ffff','#2991ec','#ffff','#2991ec','#ffff'],
 				  grid: {
 					show:false,
 					borderColor:'#f'
@@ -67,7 +67,7 @@
 					}
 				  },
 				  xaxis: {
-				   categories: ['Mon', 'Tue', 'Web', 'Thu', 'Fri', 'Sat', 'Sun'],	
+				   categories: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
 				   labels: {
 						style: {
 						colors: '#666666',
@@ -301,7 +301,7 @@
 			
 			load:function(){
 				barChart();
-				activity();	
+				//activity();
 			},
 			
 			resize:function(){
@@ -314,6 +314,7 @@
 	
 		
 	jQuery(window).on('load',function(){
+
 		setTimeout(function(){
 			dlabChartlist.load();
 		}, 1000); 

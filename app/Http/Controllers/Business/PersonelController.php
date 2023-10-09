@@ -185,12 +185,18 @@ class PersonelController extends Controller
      */
     public function edit(Personel $personel)
     {
-
         $dayList = DayList::all();
         $rates = ServiceShare::where('rate', "<>", null)->orderBy("rate")->get();
 
         $services = [];
         $appointments = $personel->appointments()->paginate(10);
+
+        $unCompletedAppointments = $personel->appointments()->where('status', 0)->get();
+        $unPrice = 0;
+        foreach($unCompletedAppointments as $row){
+            $unPrice+= $row->service->price;
+        }
+
         $businessServices = $personel->appointments->map(function ($appointment) {
             return $appointment->service;
         })->flatten();
@@ -208,6 +214,7 @@ class PersonelController extends Controller
             })->flatten();
 
         $totalPrice = $this->appointmentTotalPrice($businessServices);
+
         $totalTime = $this->appointmentTotalTime($businessServices);
 
         foreach ($personel->services as $service) {
@@ -229,7 +236,17 @@ class PersonelController extends Controller
         $theYearTotal = $theYearPackageSale + $theYearProductSale + $theYearAppointmentTotal;
         $allTotal = $packageSales->sum('total') + $productSales->sum('total') + $totalPrice;
 
-        return view('business.personel.edit', compact('personel', 'dayList', 'rates', 'services', 'appointments', 'totalPrice', 'totalTime', 'packageSales', 'productSales', 'allTotal', 'theYearTotal', 'theMonthTotal'));
+        $monthlyAppointmentCounts = [];
+        for ($month = 1; $month <= 12; $month++) {
+
+            $count = $personel->appointments()->whereMonth('created_at', $month)->count();
+
+            $monthlyAppointmentCounts[] = $count;
+        }
+
+        $monthData = json_encode($monthlyAppointmentCounts);
+
+        return view('business.personel.edit', compact('monthData','personel', 'dayList', 'rates', 'services', 'appointments', 'totalPrice', 'totalTime', 'packageSales', 'productSales', 'allTotal', 'theYearTotal', 'theMonthTotal', 'unPrice'));
     }
 
     function appointmentTotalPrice($businessServices)
@@ -237,6 +254,7 @@ class PersonelController extends Controller
         $totalPrice = $businessServices->reduce(function ($total, $businessService) {
             return $total + $businessService->price;
         }, 0);
+        return $totalPrice;
     }
 
     function appointmentTotalTime($businessServices)
@@ -244,6 +262,7 @@ class PersonelController extends Controller
         $totalTime = $businessServices->reduce(function ($total, $businessService) {
             return $total + $businessService->price;
         }, 0);
+        return $totalTime;
     }
 
     public function sendSms(Request $request)
