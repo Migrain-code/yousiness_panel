@@ -218,11 +218,11 @@
                         var selectedAddress = data.results[0].formatted_address;
                         $('#address').text(selectedAddress);
                     } else {
-                        alert("Adres alınamadı.");
+                        console.log("Adres alınamadı.");
                     }
                 })
                 .catch(error => {
-                    alert("Hata Adres Alınamadı");
+                    console.log("Hata Adres Alınamadı");
                 });
         }
 
