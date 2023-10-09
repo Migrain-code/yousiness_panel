@@ -212,7 +212,7 @@
                                     @elseif(\Illuminate\Support\Carbon::parse($appointment->start_time)->diffInMinutes(\Illuminate\Support\Carbon::now()) < 60)
                                         <div class="side" style="background-color: #FFD125;"></div>
                                     @elseif(\Illuminate\Support\Carbon::parse($appointment->start_time)->diffInMinutes(\Illuminate\Support\Carbon::now()) < 120)
-                                        <div class="side" style="background-color: #01A3FF;"></div>
+                                        <div class="side" style="background-color: #d59c4b;"></div>
                                     @else
                                         <div class="side" style="background-color: #1EBA62;"></div>
                                     @endif

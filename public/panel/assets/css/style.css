@@ -75,7 +75,7 @@
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover: #d59c4b;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -10825,7 +10825,7 @@ svg.pulse-svg {
     [data-sibebarbg="color_2"][data-layout="horizontal"] .dlabnav .metismenu > li.mega-menu:hover > ul::after {
       background-color: #510bc4; }
     [data-sibebarbg="color_3"][data-layout="horizontal"] .dlabnav .metismenu > li.mega-menu:hover > ul::after {
-      background-color: #0083cd; }
+      background-color:#bd8b49; }
     [data-sibebarbg="color_4"][data-layout="horizontal"] .dlabnav .metismenu > li.mega-menu:hover > ul::after {
       background-color: #360474; }
     [data-sibebarbg="color_5"][data-layout="horizontal"] .dlabnav .metismenu > li.mega-menu:hover > ul::after {
@@ -10893,7 +10893,7 @@ svg.pulse-svg {
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover: #bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -11140,7 +11140,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -11404,7 +11404,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -16208,7 +16208,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 [data-primary="color_3"] {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -16418,7 +16418,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -16566,7 +16566,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -19690,7 +19690,7 @@ input#checkAll.form-check-input:checked {
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -20307,7 +20307,7 @@ input#checkAll.form-check-input:checked {
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -20569,7 +20569,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -20604,7 +20604,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -20655,7 +20655,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -20723,7 +20723,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
@@ -29805,7 +29805,7 @@ div#example5_wrapper .form-check-input {
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover:#bd8b49;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);
