@@ -99,7 +99,7 @@
                                     </div>
                                     <div class="balance_info">
                                         <span class="text-success">Gelecek</span>
-                                        <h4>€23,741.00</h4>
+                                        <h4>€0.00</h4>
                                     </div>
                                 </div>
                                 <div class="balance_data">
@@ -111,7 +111,7 @@
                                     </div>
                                     <div class="balance_info">
                                         <span class="text-danger">Ödenen</span>
-                                        <h4>€23,741.00</h4>
+                                        <h4>€0.00</h4>
                                     </div>
                                 </div>
                             </div>
