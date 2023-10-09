@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\BusinessCustomerExport;
 use App\Http\Controllers\Controller;
 use App\Models\BusinessCustomer;
 use App\Models\Customer;
 use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CustomerController extends Controller
 {
@@ -51,7 +53,13 @@ class CustomerController extends Controller
 
 
     }
+    public function export()
+    {
+        $bCustomers = Customer::all();
 
+        return Excel::download(new BusinessCustomerExport($bCustomers), 'customers.xlsx');
+
+    }
     public function delete($id)
     {
         if (BusinessCustomer::find($id)->delete()){

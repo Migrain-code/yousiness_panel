@@ -3694,5 +3694,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         Route::get('business/export/excel', [\App\Http\Controllers\Admin\BusinessController::class, 'export'])->name('business.export');
 
+        Route::get('customer/export/excel', [\App\Http\Controllers\Admin\CustomerController::class, 'export'])->name('customer.export.excel');
+
     });
 });
