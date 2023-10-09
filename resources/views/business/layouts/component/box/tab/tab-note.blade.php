@@ -13,8 +13,8 @@
                 </svg>
             </a>
             <div>
-                <h6 class="mb-1">Notlar</h6>
-                <p class="mb-0">Yeni Not Ekle</p>
+                <h6 class="mb-1">Anmerkungen</h6>
+                <p class="mb-0">Neue Notiz hinzufügen</p>
             </div>
             <a href="javascript:void(0);">
 
@@ -37,7 +37,7 @@
                     </li>
                 @empty
                     <li class="active">
-                        <div class="alert alert-warning text-center">Not Kaydınız Bulunamadı</div>
+                        <div class="alert alert-warning text-center">Ihr Notendatensatz wurde nicht gefunden</div>
                     </li>
                 @endforelse
 

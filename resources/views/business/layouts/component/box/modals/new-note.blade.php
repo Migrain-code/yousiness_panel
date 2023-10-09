@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Yeni Not Ekle</h5>
+                <h5 class="modal-title">Neue Notiz hinzufügen</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                 </button>
             </div>
@@ -11,13 +11,13 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="mb-3 col-md-12">
-                            <label class="form-label">Başlık</label>
+                            <label class="form-label">Titel</label>
                             <input type="text" class="form-control" name="title" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-12">
-                            <label class="form-label">İçerik</label>
+                            <label class="form-label">Inhalt notieren</label>
                             <textarea class="form-control" rows="7" name="content" required></textarea>
                         </div>
                     </div>
@@ -25,8 +25,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
-                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
+                    <button type="submit" class="btn btn-primary">Speichern</button>
                 </div>
             </form>
         </div>

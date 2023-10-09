@@ -5,13 +5,13 @@
             <li>
                 <a class="has-arrow " href="{{route('business.setup.step1')}}">
                     <i class="material-icons-outlined">settings</i>
-                    <span class="nav-text">Kurulum</span>
+                    <span class="nav-text">Aufstellen</span>
                 </a>
             </li>
             <li>
                 <a class="has-arrow " href="{{route('business.home')}}">
                     <i class="material-icons-outlined">home</i>
-                    <span class="nav-text">Anasayfa</span>
+                    <span class="nav-text">Startseite</span>
                 </a>
             </li>
             <li>
