@@ -214,6 +214,7 @@
             fetch(geocodingUrl)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
                     if (data.status === "OK") {
                         var selectedAddress = data.results[0].formatted_address;
                         $('#address').text(selectedAddress);
