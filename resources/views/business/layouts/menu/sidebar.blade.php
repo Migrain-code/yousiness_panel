@@ -5,7 +5,7 @@
             <li>
                 <a class="has-arrow " href="{{route('business.setup.step1')}}">
                     <i class="material-icons-outlined">settings</i>
-                    <span class="nav-text">Aufstellen</span>
+                    <span class="nav-text">Aufstellen </span>
                 </a>
             </li>
             <li>
