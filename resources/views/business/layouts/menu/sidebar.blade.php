@@ -17,20 +17,20 @@
             <li>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">business</i>
-                    <span class="nav-text">Salon Yönetimi</span>
+                    <span class="nav-text">Salon Management</span>
                 </a>
                 <ul aria-expanded="false">
                     <li>
-                        <a href="{{route('business.profile.show')}}">Salon Bilgileri</a>
+                        <a href="{{route('business.profile.show')}}">Salon Infos</a>
                     </li>
                     <li>
-                        <a href="{{route('business.businessService.index')}}">Hizmetler</a>
+                        <a href="{{route('business.businessService.index')}}">Dienstleistungen</a>
                     </li>
                     <li>
-                        <a href="{{route('business.personel.index')}}">Personeller</a>
+                        <a href="{{route('business.personel.index')}}">Mitarbeiterr</a>
                     </li>
                     <li>
-                        <a href="{{route('business.gallery.index')}}">Galeri</a>
+                        <a href="{{route('business.gallery.index')}}">Galerie</a>
                     </li>
 
                 </ul>
@@ -39,11 +39,11 @@
             <li>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">inbox</i>
-                    <span class="nav-text">Ürün İşlemleri</span>
+                    <span class="nav-text">Produkte</span>
                 </a>
                 <ul aria-expanded="false">
                     <li>
-                        <a href="{{route('business.product.index')}}">Ürün Listesi</a>
+                        <a href="{{route('business.product.index')}}">Produktliste</a>
                     </li>
 
                 </ul>
@@ -51,22 +51,22 @@
             <li>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">dashboard</i>
-                    <span class="nav-text">Satış İşlemleri</span>
+                    <span class="nav-text">Verkäufe</span>
                 </a>
                 <ul aria-expanded="false">
 
                     <li>
-                        <a href="{{route('business.productSale.index')}}">Ürün Satışı</a>
+                        <a href="{{route('business.productSale.index')}}">Produktverkauf</a>
                     </li>
                     <li>
-                        <a href="{{route('business.packageSale.index')}}">Paket Satışı</a>
+                        <a href="{{route('business.packageSale.index')}}">Paketverkauf</a>
                     </li>
                 </ul>
             </li>
             <li>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">cloud_download</i>
-                    <span class="nav-text">Raporlar</span>
+                    <span class="nav-text">Berichte</span>
                 </a>
                 <ul aria-expanded="false">
                    {{--
@@ -87,31 +87,31 @@
             <li>
                 <a class="has-arrow " href="{{route('business.businessService.index')}}">
                     <i class="material-icons-outlined">list</i>
-                    <span class="nav-text">Hizmetler</span>
+                    <span class="nav-text">Dienstleistungen</span>
                 </a>
             </li>
             <li>
                 <a class="has-arrow " disabled href="{{route('business.appointment.index')}}">
                     <i class="material-icons-outlined">public</i>
-                    <span class="nav-text">Randevular</span>
+                    <span class="nav-text">Termine</span>
                 </a>
             </li>
             <li>
                 <a class="has-arrow " href="{{route('business.customer.index')}}">
                     <i class="material-icons-outlined">people</i>
-                    <span class="nav-text">Müşteriler</span>
+                    <span class="nav-text">Kunden</span>
                 </a>
             </li>
             <li>
                 <a class="has-arrow " disabled="disabled" href="{{route('business.businessComment.index')}}">
                     <i class="material-icons-outlined">comment</i>
-                    <span class="nav-text">Yorumlar</span>
+                    <span class="nav-text">Kommentare</span>
                 </a>
             </li>
             <li>
                 <a class="has-arrow " disabled="disabled" href="{{route('business.support.index')}}">
                     <i class="material-icons-outlined">help</i>
-                    <span class="nav-text">Destek Talepleri</span>
+                    <span class="nav-text">Support Anfragen</span>
                 </a>
             </li>
 
@@ -146,8 +146,8 @@
             </div>
 
                 <div class="info">
-                <h3 class="fs-20">Desteğe mi ihtiyacınız var</h3>
-                <a href="javascript:void(0);" type="button" class="btn bg-white btn-sm" data-bs-toggle="modal" data-bs-target="#support-modal">Destek Talebi Oluştur</a>
+                <h3 class="fs-20">Benötigen Sie Unterstützung?</h3>
+                <a href="javascript:void(0);" type="button" class="btn bg-white btn-sm" data-bs-toggle="modal" data-bs-target="#support-modal">Support Antragen</a>
             </div>
 
         </div>
