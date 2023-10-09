@@ -113,4 +113,13 @@ class Business extends Authenticatable
     {
         return $this->hasOne(DayList::class, 'id', 'off_day')->latest();
     }
+
+    public function notificationsMenu()
+    {
+        return $this->hasMany(BusinessNotification::class, 'business_id', 'id')->where('is_status', 0)->take(5)->latest();
+    }
+    public function notifications()
+    {
+        return $this->hasMany(BusinessNotification::class, 'business_id', 'id')->latest();
+    }
 }
