@@ -16,9 +16,8 @@ class BusinessNotificationController extends Controller
      */
     public function index()
     {
-        //
+        return view('business.notification.index');
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -38,7 +37,7 @@ class BusinessNotificationController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        /*$request->validate([
             'title'=>"required",
             'message'=>"required",
         ]);
@@ -54,7 +53,7 @@ class BusinessNotificationController extends Controller
                 'title'=>"Başarılı",
                 'message'=>"Bildirim Personele İletildi"
             ]);
-        }
+        }*/
     }
 
     /**
@@ -65,7 +64,9 @@ class BusinessNotificationController extends Controller
      */
     public function show(BusinessNotification $businessNotification)
     {
-        //
+        $businessNotification->is_status = 1;
+        $businessNotification->save();
+        return view('business.notification.show', compact('businessNotification'));
     }
 
     /**
@@ -99,6 +100,11 @@ class BusinessNotificationController extends Controller
      */
     public function destroy(BusinessNotification $businessNotification)
     {
-        //
+        if ($businessNotification->delete()){
+            return response()->json([
+               'status' => "success",
+               'message' => "Bildirim Silindi"
+            ]);
+        }
     }
 }

@@ -36,10 +36,14 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Müşteriler Listesi</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Müşteri
-                        Ekle
-                    </button>
+                    <div>
+                        <a href="{{route('admin.customer.export.excel')}}" class="btn btn-primary"> <i class="fa fa-arrow-alt-circle-down"></i> Excele Aktar</a>
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Müşteri
+                            Ekle
+                        </button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
