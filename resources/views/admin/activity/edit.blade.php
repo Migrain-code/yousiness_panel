@@ -59,9 +59,30 @@
                             <input type="text" class="form-control input-default " value="{{$activity->title}}{{old('title')}}" name="title" >
                         </div>
                         <div class="mb-3">
-                            <label>Görsel</label>
-                            <input type="file" class="form-control input-default" name="image" >
+                            <label>Otel/Yer Adı</label>
+                            <input type="text" class="form-control input-default " value="{{$activity->hotel}} {{old('hotel')}}" name="hotel" >
                         </div>
+                        <div class="mb-3">
+                            <label>İletişim Telefon</label>
+                            <input type="text" class="form-control input-default " value="{{$activity->phone}} {{old('phone')}}" name="phone" >
+                        </div>
+                        <div class="mb-3">
+                            <label>Video Url</label>
+                            <input type="text" class="form-control input-default " value="{{$activity->embed}} {{old('video')}}" name="video" >
+                        </div>
+                        <div class="mb-3">
+                            <label>Görsel (<a href="{{asset($activity->image)}}" target="_blank">Görüntüle</a>)</label>
+                            <input type="file"  class="form-control input-default " value="" name="image" >
+                        </div>
+                        <div class="mb-3">
+                            <label>Slider (<a href="#" data-bs-toggle="modal" data-bs-target="#activitySliderModal">Görüntüle</a>)</label>
+                            <input type="file" multiple class="form-control input-default " value="" name="sliders[]" >
+                        </div>
+                        <div class="mb-3">
+                            <label>Galeri (<a href="#" data-bs-toggle="modal" data-bs-target="#activityGalleryModal">Görüntüle</a>)</label>
+                            <input type="file" multiple class="form-control input-default " value="" name="galleries[]" >
+                        </div>
+
                         <div class="mb-3">
                             <label>Başlangıç Zamanı</label>
                             <input type="datetime-local" class="form-control input-default " value="{{$activity->start_date}}{{old('start_date')}}" name="start_date" >
@@ -260,6 +281,48 @@
                         @endforelse
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Slider List Modal-->
+    <div class="modal fade" id="activitySliderModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="width: 800px">
+                <div class="modal-header">
+                    <h5 class="modal-title">Slider Görselleri</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        @foreach($activity->sliders as $row)
+                            <div class="col-3 my-2">
+                                <img src="{{asset($row->image)}}" style="width: 100%">
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="activityGalleryModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="width: 800px">
+                <div class="modal-header">
+                    <h5 class="modal-title">Galeri Görselleri</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        @foreach($activity->images as $row)
+                            <div class="col-3 my-2">
+                                <img src="{{asset($row->image)}}" style="width: 100%">
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

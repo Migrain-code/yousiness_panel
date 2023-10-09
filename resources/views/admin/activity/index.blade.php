@@ -80,8 +80,28 @@
 
                                     </div>
                                     <div class="mb-3">
+                                        <label>Otel/Yer Adı</label>
+                                        <input type="text" class="form-control input-default " value="{{old('hotel')}}" name="hotel" >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>İletişim Telefon</label>
+                                        <input type="text" class="form-control input-default " value="{{old('phone')}}" name="phone" >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Video Url</label>
+                                        <input type="text" class="form-control input-default " value="{{old('video')}}" name="video" >
+                                    </div>
+                                    <div class="mb-3">
                                         <label>Görsel</label>
-                                        <input type="file" class="form-control input-default " value="{{old('image')}}" name="image" >
+                                        <input type="file"  class="form-control input-default " value="{{old('image')}}" name="image" >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Slider</label>
+                                        <input type="file" multiple class="form-control input-default " value="" name="sliders[]" >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Galeri</label>
+                                        <input type="file" multiple class="form-control input-default " value="" name="galleries[]" >
                                     </div>
                                     <div class="mb-3">
                                         <label>Başlangıç Zamanı</label>
