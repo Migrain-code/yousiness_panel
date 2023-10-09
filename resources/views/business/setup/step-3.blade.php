@@ -104,7 +104,7 @@
 
 @endsection
 @section('scripts')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcMXrk2ldIslFsanG5wUm5EuuTjkLfl8U&libraries=places&callback=initAutocomplete" async defer></script>
     <script>
         let map;
         let marker = null;
@@ -200,7 +200,7 @@
             });
         }
         function addEmbed(latitude,longitude){
-            var embedUrl = `https://www.google.com/maps/embed/v1/place?q=${latitude},${longitude}&key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI`;
+            var embedUrl = `https://www.google.com/maps/embed/v1/place?q=${latitude},${longitude}&key=AIzaSyBcMXrk2ldIslFsanG5wUm5EuuTjkLfl8U`;
             var embed = `<iframe width="350" height="350" frameborder="0" style="border:0;border-radius: 15px"
                     src="${embedUrl}" allowfullscreen></iframe>`
             $('#embed').text(embed);
@@ -209,7 +209,7 @@
             embedView.innerHTML = embed;
         }
         function reverseGeocode(latitude, longitude) {
-            var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBULjUUqZ_u9PvAB34VdcbWBmioSpOuQFI`;
+            var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBcMXrk2ldIslFsanG5wUm5EuuTjkLfl8U`;
 
             fetch(geocodingUrl)
                 .then(response => response.json())
