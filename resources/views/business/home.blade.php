@@ -15,7 +15,7 @@
                     <div class="page-titles style1">
                         <div class="d-flex align-items-center">
                             <h2 class="heading">
-                                Anasayfa
+                                DASHBOARD
                             </h2>
                         </div>
                         <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -25,7 +25,7 @@
 							</svg>
 						</span>
                             <div class="calender-picker">
-                                <h6 class="fs-14 mb-0 ms-2 font-w600">Bugün</h6>
+                                <h6 class="fs-14 mb-0 ms-2 font-w600">Heute</h6>
                                 <input class="form-control" type="text" readonly="">
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                 <div  class="chart-num">
                                     <h2 class="font-w600 mb-0">{{$todayAppointments->count()}}</h2>
                                     <p>
-                                        Bugünkü Randevular
+                                        Termine Heute
                                     </p>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                 <div class="chart-num">
                                     <h2 class="font-w600 mb-0">{{auth('business')->user()->customers->count()}}</h2>
                                     <p>
-                                        Toplam Müşteri
+                                        Gesamt Kunden Anzahl
                                     </p>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                                 <div class="chart-num">
                                     <h2 class="font-w600 mb-0">{{auth('business')->user()->personel->count()}}</h2>
                                     <p>
-                                        Toplam Çalışan
+                                        Gesamt Mitarbetier
                                     </p>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                                 <div class="chart-num">
                                     <h2 class="font-w600 mb-0">{{$earning}} €</h2>
                                     <p>
-                                        Toplam Kazanç
+                                        Gesamt Gewinn
                                     </p>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@
                            <a href="{{route('business.appointment.index')}}">
                                <div class="widget-stat card">
                                    <div class="card-body rounded bg-success p-4">
-                                       <h1 class="text-white"><i class="fa fa-calendar-check"></i> Randevular</h1>
+                                       <h1 class="text-white"><i class="fa fa-calendar-check"></i> TERMINE</h1>
                                    </div>
                                </div>
                            </a>
@@ -118,7 +118,7 @@
                            <a href="{{route('business.customer.index')}}">
                                <div class="widget-stat card">
                                    <div class="card-body rounded bg-secondary p-4">
-                                       <h1 class="text-white"><i class="fa fa-user-circle"></i> Müşteriler</h1>
+                                       <h1 class="text-white"><i class="fa fa-user-circle"></i> KUNDEN</h1>
                                    </div>
                                </div>
                            </a>
@@ -127,7 +127,7 @@
                           <a href="{{route('business.personel.index')}}">
                               <div class="widget-stat card">
                                   <div class="card-body rounded bg-warning p-4">
-                                      <h1 class="text-white"><i class="fa fa-person"></i> Personeller</h1>
+                                      <h1 class="text-white"><i class="fa fa-person"></i> MITARBEITER</h1>
                                   </div>
                               </div>
                           </a>
@@ -136,7 +136,7 @@
                           <a href="{{route('business.businessService.index')}}">
                               <div class="widget-stat card">
                                   <div class="card-body rounded bg-primary p-4">
-                                      <h1 class="text-white"><i class="fa fa-gear"></i> Hizmetler</h1>
+                                      <h1 class="text-white"><i class="fa fa-gear"></i> DIENSTLEISTUNGEN</h1>
                                   </div>
                               </div>
                           </a>
@@ -145,7 +145,7 @@
                           <a href="{{route('business.product.index')}}">
                               <div class="widget-stat card">
                                   <div class="card-body rounded bg-black p-4">
-                                      <h1 class="text-white"><i class="fa fa-table"></i> Ürünler</h1>
+                                      <h1 class="text-white"><i class="fa fa-table"></i> PRODUKTE</h1>
                                   </div>
                               </div>
                           </a>
@@ -154,7 +154,7 @@
                            <a href="{{route('business.gallery.index')}}">
                                <div class="widget-stat card">
                                    <div class="card-body rounded bg-info p-4">
-                                       <h1 class="text-white"><i class="fa fa-table"></i> Galeri</h1>
+                                       <h1 class="text-white"><i class="fa fa-table"></i> GALERIE</h1>
                                    </div>
                                </div>
                            </a>
@@ -169,7 +169,7 @@
         <div class="col-12 wow fadeInUp">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Bugünkü Randevular</h4>
+                    <h4 class="card-title">HEUTIGE TERMINE</h4>
                     {{--   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">
                             <i class="fa-solid fa-plus-circle me-2"></i>
                             Personel Ekle
