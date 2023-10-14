@@ -49,10 +49,25 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+           'name'=>"required|string|min:3",
+           'email'=>"required|string|min:11|unique:customers",
+           'custom_email'=>"required|string|min:8",
+           'password'=>"required|string|min:8",
+           'gender'=>"required|string"
+        ], [], [
+            'name'=> "Müşteri Adı",
+            'email'=> "Telefon Numarası",
+            'custom_email'=> "E-posta Adresi",
+            'password'=> "Şifre",
+            'gender'=> "Cinsiyet",
+
+        ]);
         $customer=new Customer();
         $customer->name=$request->input('name');
-        $customer->phone=$request->input('phone');
         $customer->email=$request->input('email');
+        $customer->phone=$request->input('email');
+        $customer->custom_email=$request->input('custom_email');
         $customer->password= Hash::make($request->input('password'));
         $customer->gender=$request->input('gender');
         $customer->status=1;
@@ -119,6 +134,12 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        BusinessCustomer::where('customer_id', $customer->id)->where('business_id', auth('business')->id())->delete();
+        if ($customer->delete()){
+            return \response()->json([
+               'status' => "success",
+               'messsage' => "Müşteri Silindi"
+            ]);
+        }
     }
 }

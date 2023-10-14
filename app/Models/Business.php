@@ -75,7 +75,7 @@ class Business extends Authenticatable
 
     public function appointments()
     {
-        return $this->hasMany(Appointment::class, 'business_id', 'id')->orderBy('start_time', 'desc');
+        return $this->hasMany(Appointment::class, 'business_id', 'id')->orderBy('date', 'desc');
     }
 
     public function cities()

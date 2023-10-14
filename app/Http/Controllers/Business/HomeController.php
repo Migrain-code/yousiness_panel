@@ -23,8 +23,8 @@ class HomeController extends Controller
 
             $todayAppointments= Appointment::where('business_id',auth('business')->id())
                 ->where('status', 1)
-                ->whereRaw("STR_TO_DATE(start_time, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
-                ->orderByRaw("STR_TO_DATE(start_time, '%d.%m.%Y %H:%i')")
+                ->whereRaw("STR_TO_DATE(date, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
+                ->orderByRaw("STR_TO_DATE(date, '%d.%m.%Y')")
                 ->get();
 
             $appointments = auth('business')->user()->appointments()->where('status', 7)->get();
