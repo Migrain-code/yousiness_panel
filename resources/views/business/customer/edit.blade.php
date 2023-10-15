@@ -56,11 +56,13 @@
                         <input type="text" class="form-control" value="" name="password">
                     </div>
 
-                    <span class="alert alert-{{$customer->permissions->is_email == 1 ? "success" : "danger"}}">E-posta İzni</span>
-                    <span class="alert alert-{{$customer->permissions->is_phone == 1 ? "success" : "danger"}}">Arama İzni</span>
+                    <div class="row">
+                        <span class="alert alert-{{$customer->permissions->is_email == 1 ? "success" : "danger"}}">E-posta İzni</span>
+                        <span class="alert alert-{{$customer->permissions->is_phone == 1 ? "success" : "danger"}}">Arama İzni</span>
 
-                    <span class="alert alert-{{$customer->permissions->is_notification == 1 ? "success" : "danger"}}">Bildirim İzni</span>
-                    <span class="alert alert-{{$customer->permissions->is_sms == 1 ? "success" : "danger"}}">Sms İzni</span>
+                        <span class="alert alert-{{$customer->permissions->is_notification == 1 ? "success" : "danger"}}">Bildirim İzni</span>
+                        <span class="alert alert-{{$customer->permissions->is_sms == 1 ? "success" : "danger"}}">Sms İzni</span>
+                    </div>
 
             </div>
         </div>
