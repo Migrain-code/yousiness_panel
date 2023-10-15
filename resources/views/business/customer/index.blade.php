@@ -55,7 +55,7 @@
                                 <th>Kayıt Zamanı</th>
                                 <th>Kayıtlı Mı?</th>
                                 <th>Randevu Sayısı</th>
-                                <th>Yasak</th>
+                                <th>Durum</th>
                                 <th>İşlemler</th>
                             </tr>
                             </thead>
