@@ -431,8 +431,8 @@
                                                     <tbody>
                                                         @forelse($packageSales as $sale)
                                                             <tr class="trans-td-list">
-                                                                <td>{{$sale->customer->name}}</td>
-                                                                <td>{{$sale->service->subCategory->name}}</td>
+                                                                <td>{{$sale->customer->name ?? "Silinmiş"}}</td>
+                                                                <td>{{$sale->service->subCategory->name ?? "Silinmiş Kategori"}}</td>
                                                                 <td>{{$sale->amount}}</td>
                                                                 <td>
                                                                     <span class="doller"> € {{$sale->total}}</span>
@@ -523,8 +523,8 @@
                                                     <tbody>
                                                     @forelse($productSales as $sale)
                                                         <tr class="trans-td-list">
-                                                            <td>{{$sale->customer->name}}</td>
-                                                            <td>{{$sale->product->name}}</td>
+                                                            <td>{{$sale->customer->name ?? "Silinmiş Müşteri"}}</td>
+                                                            <td>{{$sale->product->name ?? "Silinmiş Ürün"}}</td>
                                                             <td>{{$sale->amount}}</td>
                                                             <td>
                                                                 <span class="doller"> € {{$sale->total}}</span>

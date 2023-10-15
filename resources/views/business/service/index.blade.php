@@ -43,7 +43,9 @@
                                 <th>Hizmet Adı</th>
                                 <th>Süre</th>
                                 <th>Fiyat</th>
-                                <th>Durum</th>
+                                {{--
+                                    <th>Durum</th>
+                                --}}
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -61,17 +63,19 @@
                                         <td>{{$service->time}} DK</td>
                                         <td>{{$service->price}} &#x20AC;
                                         </td>
-                                        <td>
+                                        {{--
+                                            <td>
                                             @if($service->status==1)
                                                 <span class="badge light badge-success">Aktif</span>
                                             @else
                                                 <span class="badge light badge-danger">Pasif</span>
                                             @endif
                                         </td>
+                                        --}}
                                         <td>
                                             <div class="d-flex">
-                                                <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                <a href="{{route('business.businessService.edit', $service->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="javascript:void(0)" onclick="onDelete('{{route('business.businessService.destroy', $service->id)}}', '{{$loop->index}}')" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -197,12 +201,7 @@
                         if(data.length > 0) {
                             $("#category").append('<option value="">Hizmet Tipi Seçiniz</option>')
                             $.each(data, function (index) {
-                                if(val == "all"){
-                                    $("#category").append('<option value="' + data[index].id + '">' + data[index].name +' ('+ data[index].type.name + ')' + '</option>')
-                                }
-                                else{
-                                    $("#category").append('<option value="' + data[index].id + '">' + data[index].name + '</option>')
-                                }
+                                $("#category").append('<option value="' + data[index].id + '">' + data[index].name + '</option>')
                             });
                         }
                         else{
@@ -283,4 +282,51 @@
             $('#price').mask("#.##0,00", {reverse: true});
         });
     </script>
+    <script>
+        function onDelete(sale_url, index){
+            var table = $('#example3').DataTable();
+            Swal.fire({
+                title: 'Hizmeti Silmek istediğinize eminmisiniz?',
+                icon: 'info',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Yes',
+                denyButtonText: `No`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: sale_url,
+                        type: "POST",
+                        data:{
+                            _token:'{{csrf_token()}}',
+                            '_method':'DELETE',
+                        },
+                        dataType:"JSON",
+                        success:function (res){
+                            if(res.status=="success"){
+                                table
+                                    .row( $(this).parents('tr') )
+                                    .remove()
+                                    .draw();
+                                Swal.fire({
+                                    text: "Hizmet Silindi!.",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Tamam!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary",
+                                    }
+                                });
+                                table.row(index).remove().draw();
+                            }
+                        }
+                    })
+                } else if (result.isDenied) {
+                    Swal.fire('İşlem İptal Edildi', '', 'info')
+                }
+            })
+        }
+    </script>
+
 @endsection
