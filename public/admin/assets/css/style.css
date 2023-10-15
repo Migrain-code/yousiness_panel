@@ -22,7 +22,7 @@
 :root {
   --primary: #d59c4b;
   --secondary: #9568FF;
-  --primary-hover: #0083cd;
+  --primary-hover: #d59c4b;
   --primary-dark: #004267;
   --rgba-primary-1: rgba(1, 163, 255, 0.1);
   --rgba-primary-2: rgba(1, 163, 255, 0.2);

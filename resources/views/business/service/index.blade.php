@@ -88,7 +88,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Hizmet Ekle</h5>
+                    <h5 class="modal-title">Dienstleistungen Hinzufügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -98,16 +98,16 @@
                         <div class="row">
                             @if(auth('business')->user()->type_id == 3)
                                 <div class="mb-3 col-md-12">
-                                    <label class="form-label"> Hizmet Sunulan Cinsiyet
+                                    <label class="form-label"> Geschlecht von Kunde
                                         <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
                                             <i class="fa-solid fa-question-circle"></i>
                                         </button>
                                     </label>
                                     <select name="gender" id="gender" class="form-control">
-                                        <option value="">Cinsiyet Seçiniz</option>
-                                        <option value="1">Kadın</option>
-                                        <option value="2">Erkek</option>
-                                        <option value="all">Hepsi</option>
+                                        <option value="">Geschlecht Auswählen</option>
+                                        <option value="1">Frau</option>
+                                        <option value="2">Männlich</option>
+                                        <option value="all">Beiden</option>
                                     </select>
                                 </div>
                             @else
@@ -116,7 +116,7 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-12">
-                                <label class="form-label"> Hizmet Tipi
+                                <label class="form-label"> Kategorie
                                     <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
