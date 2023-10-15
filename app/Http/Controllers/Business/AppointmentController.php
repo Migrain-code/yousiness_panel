@@ -24,14 +24,25 @@ class AppointmentController extends Controller
     {
         $todayAppointments= Appointment::where('business_id',auth('business')->id())
             ->where('status', 1)
-            ->whereRaw("STR_TO_DATE(start_time, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
-            ->orderByRaw("STR_TO_DATE(start_time, '%d.%m.%Y %H:%i')")
+            ->whereRaw("STR_TO_DATE(date, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
+            ->orderByRaw("STR_TO_DATE(date, '%d.%m.%Y %H:%i')")
             ->get();
         $appointments = Appointment::where('business_id',auth('business')->id())->get();
 
         return view('business.appointment.index', compact('todayAppointments', 'appointments'));
     }
 
+    public function listView()
+    {
+        $todayAppointments= Appointment::where('business_id',auth('business')->id())
+            ->where('status', 1)
+            ->whereRaw("STR_TO_DATE(date, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
+            ->orderByRaw("STR_TO_DATE(date, '%d.%m.%Y')")
+            ->get();
+        $appointments = Appointment::where('business_id',auth('business')->id())->get();
+
+        return view('business.appointment.list', compact('todayAppointments', 'appointments'));
+    }
     public function reject($id)
     {
         $findAppointment = Appointment::find($id);

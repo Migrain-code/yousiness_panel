@@ -91,10 +91,20 @@
                 </a>
             </li>
             <li>
-                <a class="has-arrow " disabled href="{{route('business.appointment.index')}}">
-                    <i class="material-icons-outlined">public</i>
+                <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                    <i class="material-icons-outlined">cloud_download</i>
                     <span class="nav-text">Termine</span>
                 </a>
+                <ul aria-expanded="false">
+                     <li>
+                         <a href="{{route('business.appointment.index')}}">Takvim</a>
+                     </li>
+                    <li>
+                        <a href="{{route('business.appointment.list')}}">Liste</a>
+                    </li>
+
+                </ul>
+
             </li>
             <li>
                 <a class="has-arrow " href="{{route('business.customer.index')}}">

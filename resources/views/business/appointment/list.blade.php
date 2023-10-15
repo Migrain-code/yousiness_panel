@@ -8,31 +8,7 @@
                 width: 100% !important;
             }
         }
-        .fc .fc-daygrid-event {
-            margin-top: 1px;
-            background: #878780;
-            z-index: 6;
-            border-radius: 15px;
-            align-items: center;
-            justify-content: center;
-        }
-        .fc-event, .external-event {
-
-            border: none;
-            cursor: move;
-            font-size: 0.8125rem;
-            margin: 0.3125rem 0.4375rem;
-            padding: 0.3125rem;
-            text-align: center;
-            min-height: 86px;
-            background: #878780;
-            border-radius: 15px;
-        }
-        .fc .fc-daygrid-day.fc-day-today {
-            background-color: var(--fc-bg-event-color);
-        }
     </style>
-
 @endsection
 @section('content')
     <div class="row">
@@ -168,17 +144,120 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="card">
-                            <div class="card-header">
-                                <button id="authorize_button" class="btn btn-primary" onclick="handleAuthClick()">Google Takvime Bağlan</button>
+                        <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
+                            <div class="card">
+                                <div class="card-header border-0 flex-wrap">
+                                    <h2 class="heading">Tüm Randevular</h2>
+                                    <div class="d-flex align-items-center">
+                                        <select class="image-select default-select dashboard-select me-4" aria-label="Default">
+                                            <option selected>Bu Ay</option>
+                                            <option value="1">Bu Hafta</option>
+                                            <option value="2">Bu Yıl</option>
+                                        </select>
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0);" class="btn-link btn sharp tp-btn btn-primary pill" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8.33319 9.99985C8.33319 10.9203 9.07938 11.6665 9.99986 11.6665C10.9203 11.6665 11.6665 10.9203 11.6665 9.99986C11.6665 9.07938 10.9203 8.33319 9.99986 8.33319C9.07938 8.33319 8.33319 9.07938 8.33319 9.99985Z" fill="#ffffff"/>
+                                                    <path d="M8.33319 3.33329C8.33319 4.25376 9.07938 4.99995 9.99986 4.99995C10.9203 4.99995 11.6665 4.25376 11.6665 3.33329C11.6665 2.41282 10.9203 1.66663 9.99986 1.66663C9.07938 1.66663 8.33319 2.41282 8.33319 3.33329Z" fill="#ffffff"/>
+                                                    <path d="M8.33319 16.6667C8.33319 17.5871 9.07938 18.3333 9.99986 18.3333C10.9203 18.3333 11.6665 17.5871 11.6665 16.6667C11.6665 15.7462 10.9203 15 9.99986 15C9.07938 15 8.33319 15.7462 8.33319 16.6667Z" fill="#ffffff"/>
+                                                </svg>
 
-                            </div>
-                            <div class="card-body">
-                                <div id="calendar" style="height: 600px;"></div>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="javascript:void(0);">Excel</a>
+                                                <a class="dropdown-item" href="javascript:void(0);">PDF</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body py-3">
+                                    <div class="table-responsive">
+                                        <table class="table-responsive-lg table display mb-4 order-table card-table text-black no-footer student-tbl" id="example3">
+                                            <thead>
+                                            <tr>
+                                                <th>Müşteri Adı</th>
+                                                <th style="max-width: 150px">Randevu Tarihi</th>
+                                                <th class="text-left" style="max-width: 150px;">Durumu</th>
+                                                <th style="text-align: left">İşlem Sayısı</th>
+                                                <th>İşlemler</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @forelse(authUser()->appointments as $appointment)
+                                                @if($appointment->customer)
+                                                    <tr>
+                                                        <td class="whitesp-no p-0">
+                                                            <div class="d-flex py-sm-3 py-1 align-items-center trans-info">
+														<span class="icon me-3">
+															<img src="{{image($appointment->customer->image)}}" width="50px">
+														</span>
+                                                                <div >
+                                                                    <h6 class="font-w500 fs-15 mb-0">{{$appointment->customer->name}}</h6>
+                                                                    <span class="fs-14 font-w400"><a href="tel:{{$appointment->customer->phone}}"> {{$appointment->customer->phone}}</a></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitesp-no" style="max-width: 150px;">
+                                                            <a href="#" class="tb-mail">
+                                                                {{\Illuminate\Support\Carbon::parse($appointment->date)->format('d.m.Y')}}
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-left" style="max-width: 150px">
+                                                            {!! $appointment->status("html") !!}
+                                                        </td>
+                                                        <td>
+                                                            {{$appointment->services->count()}}
+                                                        </td>
+                                                        <td>
+                                                            <div class="basic-dropdown">
+                                                                <div class="btn-group dropstart mb-1">
+                                                                    <button type="button" class="btn btn-primary dropdown-toggle"
+                                                                            data-bs-toggle="dropdown">
+                                                                        İşlemler
+                                                                    </button>
+                                                                    <div class="dropdown-menu">
+                                                                        <a class="dropdown-item"
+                                                                           href="{{route('business.appointment.show', $appointment->id)}}">Detay</a>
+                                                                        <a class="dropdown-item"
+                                                                           href="{{route('business.appointment.reject', $appointment->id)}}">İptal
+                                                                            Et</a>
+                                                                        @if($appointment->status == 0)
+                                                                            <a class="dropdown-item"
+                                                                               href="{{route('business.appointment.accept', $appointment->id)}}">Randevuyu
+                                                                                Onayla</a>
+                                                                        @endif
+                                                                        @if($appointment->status== 3)
+                                                                            <a class="dropdown-item" href="javascript:void(0);">Randevuyu
+                                                                                Tamamla</a>
+                                                                        @endif
+
+
+                                                                        @if($appointment->status == 5)
+                                                                            <div class="dropdown-divider"></div>
+                                                                            <a class="dropdown-item" href="javascript:void(0);">Ödemeyi
+                                                                                Onayla</a>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @empty
+                                                <tr>
+                                                    <td colspan="4">
+                                                        <div class="alert alert-warning"> Randevu Kaydı Bulunamadı </div>
+                                                    </td>
+                                                </tr>
+                                            @endforelse
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
-
+                        <!-- ----/column-- -->
                     </div>
                     <!-- /--row-- -->
                 </div>
@@ -251,30 +330,6 @@
         </div>
     </div>
     --}}
-
-    <div class="modal fade" id="eventDetailsModal" tabindex="-1" role="dialog" aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" >
-                <div class="modal-header" style="border: none;">
-                    <h5 class="modal-title" id="eventDetailsModalLabel">Randevu Detayları</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="background: transparent;border: none;padding-top: -15px !important;top: -6px;">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="align-items: center;text-align: center;display: flex;flex-direction: column;">
-                    <img src="" id="customerImage" style="width: 83px; height: 83px;border: 1px solid #7d7a7a59;border-radius: 50%;box-shadow: 1px 3px 15px #0003;
-}">
-                    <span id="customerName" style="font-size: 18px;font-weight: bold"></span>
-                    <div style="display: flex;align-items: center;">
-                        <i class="fa fa-clock" style="margin-right: 5px;font-size: 15px;"></i><span id="appointmentClock" style="font-size: 18px;font-weight: bold">Saat</span>
-
-                    </div>
-                    <ul id="servicesList" style="list-style: disc; line-height: 1.5rem;"></ul>
-                </div>
-
-            </div>
-        </div>
-    </div>
 @endsection
 @section('scripts')
 
@@ -311,15 +366,15 @@
             },
         });
     </script>
-    <!--<script>
+    <script>
         $(document).ready(function () {
             $('#example3').DataTable();
         });
         $("#checkAll").on("change", function () {
             $("td input, .custom-checkbox input").prop("checked", $(this).prop("checked"))
         })
-    </script>-->
-    <!--<script>
+    </script>
+    <script>
         function clearPastAppointments() {
             var now = new Date();
             var currentHour = now.getHours();
@@ -339,273 +394,6 @@
             clearPastAppointments();
             setInterval(clearPastAppointments, 60000);
         });
-    </script>-->
-
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/locales/tr.js"></script>
-    <script src="/business/assets/js/calender.js" ></script>
-    <script>
-        var allAppointments = [
-            @forelse ($appointments as $appointment)
-                @if($appointment->customer)
-            {
-                title: '{{$appointment->customer->name}}',
-                start: '{{\Illuminate\Support\Carbon::parse($appointment->services->first()->start_time)->toIso8601String()}}', // Başlangıç tarihi ve saat
-                end: '{{\Illuminate\Support\Carbon::parse($appointment->services->last()->end_time)->toIso8601String()}}',    // Bitiş tarihi ve saat
-                customer: '{{$appointment->customer->name}}',
-                clockRange: '{{\Illuminate\Support\Carbon::parse($appointment->services->first()->start_time)->format('H:i'). '-'. \Illuminate\Support\Carbon::parse($appointment->services->last()->end_time)->format('H:i')}}',
-                statusText: '{{$appointment->status('text')}}',
-                statusCode: '{{$appointment->status('code')}}',
-                image: '{{image($appointment->customer->image)}}',
-                services: [
-                        @foreach($appointment->services as $service)
-                    {
-                        image: '{{storage($service->personel->image)}}',
-                        personel: '{{$service->personel->name}}',
-                        hizmet: '{{$service->service->subCategory->name}}'
-                    },
-                    @endforeach
-                ]
-
-            },
-                @endif
-            @empty
-            @endforelse
-
-        ];
     </script>
-
-    <script type="text/javascript">
-
-        const CLIENT_ID = '449337264437-njtrb3c4t391i80dp0c72pm0sh88970l.apps.googleusercontent.com';
-        const API_KEY = 'AIzaSyAESuQeot_Y76HEPqe1sx8vf2pgzfpuDVQ';
-
-        // Discovery doc URL for APIs used by the quickstart
-        const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
-
-        // Authorization scopes required by the API; multiple scopes can be
-        // included, separated by spaces.
-        const SCOPES = 'https://www.googleapis.com/auth/calendar';
-
-        let tokenClient;
-        let gapiInited = false;
-        let gisInited = false;
-
-        document.getElementById('authorize_button').style.visibility = 'hidden';
-        //document.getElementById('signout_button').style.visibility = 'hidden';
-
-        /**
-         * Callback after api.js is loaded.
-         */
-        function gapiLoaded() {
-            gapi.load('client', initializeGapiClient);
-        }
-
-        /**
-         * Callback after the API client is loaded. Loads the
-         * discovery doc to initialize the API.
-         */
-        async function initializeGapiClient() {
-            await gapi.client.init({
-                apiKey: API_KEY,
-                discoveryDocs: [DISCOVERY_DOC],
-            });
-            gapiInited = true;
-            maybeEnableButtons();
-        }
-
-        /**
-         * Callback after Google Identity Services are loaded.
-         */
-        function gisLoaded() {
-            tokenClient = google.accounts.oauth2.initTokenClient({
-                client_id: CLIENT_ID,
-                scope: SCOPES,
-                callback: '', // defined later
-            });
-            gisInited = true;
-            maybeEnableButtons();
-        }
-
-        /**
-         * Enables user interaction after all libraries are loaded.
-         */
-        function maybeEnableButtons() {
-            if (gapiInited && gisInited) {
-                document.getElementById('authorize_button').style.visibility = 'visible';
-            }
-        }
-
-        /**
-         *  Sign in the user upon button click.
-         */
-        function handleAuthClick() {
-            tokenClient.callback = async (resp) => {
-                if (resp.error !== undefined) {
-                    throw (resp);
-                }
-
-                document.getElementById('authorize_button').innerText = 'Takvime Ekle';
-                if(document.getElementById('authorize_button').innerText == 'Takvime Ekle'){
-                    addEventToCalendar();
-                }
-            };
-
-            if (gapi.client.getToken() === null) {
-                // Prompt the user to select a Google Account and ask for consent to share their data
-                // when establishing a new session.
-                tokenClient.requestAccessToken({prompt: 'consent'});
-
-            } else {
-                // Skip display of account chooser and consent dialog for an existing session.
-                tokenClient.requestAccessToken({prompt: ''});
-
-            }
-        }
-
-        /**
-         *  Sign out the user upon button click.
-         */
-        function handleSignoutClick() {
-            const token = gapi.client.getToken();
-            if (token !== null) {
-                google.accounts.oauth2.revoke(token.access_token);
-                gapi.client.setToken('');
-                document.getElementById('content').innerText = '';
-                document.getElementById('authorize_button').innerText = 'Takvime Bağlan';
-            }
-        }
-
-        async function addEventToCalendar() {
-            const eventsToAdd = [
-                @forelse ($appointments as $appointment)
-                    @if($appointment->customer)
-                {
-                    'summary': '{{$appointment->customer->name}}',
-                    'location': '{{$appointment->business->name ?? "Silinmiş İşletme"}}',
-                    'description': '{{$appointment->note}}',
-                    'start': {
-                        'dateTime': '{{\Illuminate\Support\Carbon::parse($appointment->services->first()->start_time)->toIso8601String()}}',
-                        'timeZone': 'Europe/Istanbul'
-                    },
-                    'end': {
-                        'dateTime': '{{\Illuminate\Support\Carbon::parse($appointment->services->last()->end_time)->toIso8601String()}}',
-                        'timeZone': 'Europe/Istanbul'
-                    },
-                    'recurrence': [],
-                    'attendees': [
-                            @foreach($appointment->services as $service)
-                        {'email': '{{$service->personel->email}}'},
-                        @endforeach
-                    ],
-                    'reminders': {
-                        'useDefault': false,
-                        'overrides': [
-                            {'method': 'email', 'minutes': 120},
-                            {'method': 'popup', 'minutes': 10}
-                        ]
-                    }
-                },
-                    @endif
-                @empty
-                @endforelse
-            ];
-
-            addMultipleEventsToCalendar(eventsToAdd);
-        }
-        async function addEventToCalendar() {
-            const eventsToAdd = [
-                    @forelse ($appointments as $appointment)
-                    @if($appointment->customer)
-                    {
-                        'summary': '{{$appointment->customer->name}}',
-                        'location': '{{$appointment->business->name}}',
-                        'description': '{{$appointment->note}}',
-                        'start': {
-                            'dateTime': '{{\Illuminate\Support\Carbon::parse($appointment->services->first()->start_time)->toIso8601String()}}',
-                            'timeZone': 'Europe/Istanbul'
-                        },
-                        'end': {
-                            'dateTime': '{{\Illuminate\Support\Carbon::parse($appointment->services->last()->end_time)->toIso8601String()}}',
-                            'timeZone': 'Europe/Istanbul'
-                        },
-                        'recurrence': [],
-                        'attendees': [
-                                @foreach($appointment->services as $service)
-                            {'email': '{{$service->personel->email}}'},
-                            @endforeach
-                        ],
-                        'reminders': {
-                            'useDefault': false,
-                            'overrides': [
-                                {'method': 'email', 'minutes': 120},
-                                {'method': 'popup', 'minutes': 10}
-                            ]
-                        }
-                    },
-                    @endif
-                @empty
-                @endforelse
-            ];
-
-            // Eklenmiş olan randevuların ID'lerini tutmak için bir dizi oluşturun
-            const addedEventIds = [];
-
-            try {
-                // Mevcut randevuları alın
-                const existingEvents = await gapi.client.calendar.events.list({
-                    'calendarId': 'primary',
-                    'timeMin': (new Date()).toISOString(),
-                    'showDeleted': false,
-                    'singleEvents': true,
-                    'maxResults': 100, // Gerekirse sayıyı artırın
-                    'orderBy': 'startTime',
-                });
-
-                // Eklenmiş olan randevuların ID'lerini toplayın
-                if (existingEvents.result.items) {
-                    existingEvents.result.items.forEach((event) => {
-                        addedEventIds.push(event.id);
-                    });
-                }
-
-                // Yeni randevuları eklerken kontrol edin
-                const batch = gapi.client.newBatch();
-                eventsToAdd.forEach((event, index) => {
-                    // Eğer bu randevu daha önce eklenmemişse, ekleyin
-                    if (!addedEventIds.includes(index.toString())) {
-                        batch.add(gapi.client.calendar.events.insert({
-                            'calendarId': 'primary',
-                            'resource': event,
-                        }), {'id': index.toString()});
-                    }
-                });
-
-                const response = await batch;
-                alert('Takvime Eklendi', response);
-            } catch (err) {
-                console.error('Error adding events: ', err);
-            }
-        }
-        async function addMultipleEventsToCalendar(events) {
-            try {
-                const batch = gapi.client.newBatch();
-                events.forEach((event, index) => {
-                    batch.add(gapi.client.calendar.events.insert({
-                        'calendarId': 'primary',
-                        'resource': event,
-                    }), {'id': index.toString()});
-                });
-
-                const response = await batch;
-                alert('Takvime Eklendi', response);
-            } catch (err) {
-                console.error('Error adding events: ', err);
-            }
-        }
-
-    </script>
-    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
-    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 
 @endsection
