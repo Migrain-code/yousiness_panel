@@ -81,7 +81,7 @@
                                            @if($businessCustomer->status==1)
                                                <span class="badge light badge-success">Aktif</span>
                                            @else
-                                               <span class="badge light badge-danger">Engellendi</span>
+                                               <span class="badge light badge-danger">Doğrulanmadı</span>
                                            @endif
                                        </td>
                                        <td>
