@@ -111,7 +111,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        dd($customer->permissions);
+        dd($customer);
         return view('business.customer.edit', compact('customer'));
     }
 
