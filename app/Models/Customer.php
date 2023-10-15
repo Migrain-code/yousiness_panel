@@ -45,6 +45,6 @@ class Customer extends Authenticatable
 
     public function permissions()
     {
-        return $this->hasOne(Customer::class ,'customer_id', 'id');
+        return $this->hasOne(CustomerNotificationPermission::class ,'customer_id', 'id');
     }
 }
