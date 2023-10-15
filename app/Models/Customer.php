@@ -42,4 +42,9 @@ class Customer extends Authenticatable
         Sms::send($clean_phone_number, $message);
         return true;
     }
+
+    public function permissions()
+    {
+        return $this->hasOne(Customer::class ,'customer_id', 'id');
+    }
 }
