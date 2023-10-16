@@ -107,10 +107,26 @@
 
             </li>
             <li>
-                <a class="has-arrow " href="{{route('business.customer.index')}}">
+                <a class="has-arrow " disabled="disabled" href="{{route('business.customer.index')}}">
                     <i class="material-icons-outlined">people</i>
                     <span class="nav-text">Kunden</span>
                 </a>
+                {{--
+                    <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                    <i class="material-icons-outlined">people</i>
+                    <span class="nav-text">Kunden</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li>
+                        <a href="{{route('business.customer.index')}}">Kayıtlı</a>
+                    </li>
+                    <li>
+                        <a href="{{route('business.customer.list')}}">Randevulu</a>
+                    </li>
+
+                </ul>
+                --}}
+
             </li>
             <li>
                 <a class="has-arrow " disabled="disabled" href="{{route('business.businessComment.index')}}">

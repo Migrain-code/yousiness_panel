@@ -1,6 +1,6 @@
 @extends('business.setup.layouts.master')
 @section('links')
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <style>
 
         .swiper-container {
@@ -16,11 +16,13 @@
         .swiper-slide {
             flex-shrink: 0;
         }
+
         .swiper-buttons {
             position: absolute;
             top: 3px;
-            right:30px;
+            right: 30px;
         }
+
         .swiper-button-next {
             background-color: #0000ff;
             color: #ffffff;
@@ -36,6 +38,7 @@
             border: 0;
             margin-bottom: 0px;
         }
+
         .swiper-button-prev {
             background-color: #0000ff;
             color: #ffffff;
@@ -122,12 +125,15 @@
                 <div class="onboarding-content">
                     <div class="row my-2">
                         <div class="col-lg-6 col-sm-12 col-md-6">
-                            <ul class="nav nav-tabs nav-tabs-solid nav-justified" style="width: 100%;padding: 5px;background: #600ee42e;border-radius: 80px">
+                            <ul class="nav nav-tabs nav-tabs-solid nav-justified"
+                                style="width: 100%;padding: 5px;background: #600ee42e;border-radius: 80px">
                                 <li class="nav-item">
-                                    <a class="nav-link active" style="border-radius: 45px" href="#solid-rounded-justified-tab-monthly" data-bs-toggle="tab">Aylık</a>
+                                    <a class="nav-link active" style="border-radius: 45px"
+                                       href="#solid-rounded-justified-tab-monthly" data-bs-toggle="tab">Aylık</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" style="border-radius: 45px" href="#solid-rounded-justified-tab-yearly" data-bs-toggle="tab">Yıllık</a>
+                                    <a class="nav-link" style="border-radius: 45px"
+                                       href="#solid-rounded-justified-tab-yearly" data-bs-toggle="tab">Yıllık</a>
                                 </li>
                             </ul>
                         </div>
@@ -141,29 +147,59 @@
                                 @csrf
                                 <div class="tab-content mb-3">
                                     <!--Monthly Packages-->
-                                    <div class="tab-pane active show position-relative" id="solid-rounded-justified-tab-monthly">
+                                    <div class="tab-pane active show position-relative"
+                                         id="solid-rounded-justified-tab-monthly">
                                         <div class="swiper-container">
                                             <div class="swiper-wrapper">
                                                 @forelse($monthlyPackages as $package)
-                                                <div class="swiper-slide" style="width: 350px;">
-                                                    <div class="col-lg-9 mb-5 mb-lg-0">
-                                                            <div class="p-5 rounded-lg shadow" style="min-width: max-content;text-align: center;background-color: #F5F8FA">
+                                                    <div class="swiper-slide" style="width: 350px;">
+                                                        <div class="col-lg-9 mb-5 mb-lg-0">
+                                                            <div class="p-5 rounded-lg shadow"
+                                                                 style="min-width: max-content;text-align: center;background-color: #F5F8FA">
                                                                 <h1 class="h6 text-uppercase font-weight-bold mb-4">{{$package->name}}</h1>
-                                                                <h2 class="h1 font-weight-bold">{{$package->price == 0 ?"Ücretiz" : "€". $package->price}}<span class="text-small font-weight-normal ml-2"> / aylık</span></h2>
+                                                                <h2 class="h1 font-weight-bold">{{$package->price == 0 ?"Ücretiz" : "€". $package->price}}
+                                                                    <span class="text-small font-weight-normal ml-2"> / aylık</span>
+                                                                </h2>
 
                                                                 <div class="custom-separator my-4 mx-auto bg-primary"></div>
 
-                                                                <ul class="list-unstyled my-5 text-small" style="text-align: center;">
+                                                                <ul class="list-unstyled my-5 text-small"
+                                                                    style="text-align: center;">
                                                                     @foreach($package->proparties as $propartie)
-                                                                        <li class="mb-3" style="font-size: 18px;align-items: center; display: flex;">
-                                                                            <i class="fa fa-check-circle me-2" style="font-size: 35px;color: #00cc527d"></i>{{$propartie->list->name}}
-                                                                        </li>
+                                                                        @if($loop->index < 10)
+                                                                            <!-- Sadece ilk 10 özelliği listele -->
+                                                                            <li class="mb-3"
+                                                                                style="font-size: 18px; align-items: center; display: flex;">
+                                                                                <i class="fa fa-check-circle me-2"
+                                                                                   style="font-size: 35px; color: #00cc527d"></i>{{$propartie->list->name}}
+                                                                            </li>
+                                                                        @else
+                                                                            @if($loop->index == 10)
+                                                                                <li>
+                                                                                    <button class="show-more-button btn btn-primary"
+                                                                                            type="button">Daha Fazla
+                                                                                    </button>
+                                                                                </li>
+                                                                            @endif
+                                                                            <div class="hidden-props"
+                                                                                 style="display: none;">
+                                                                                <li class="mb-3"
+                                                                                    style="font-size: 18px; align-items: center; display: flex">
+                                                                                    <i class="fa fa-check-circle me-2"
+                                                                                       style="font-size: 35px; color: #00cc527d"></i>{{$propartie->list->name}}
+                                                                                </li>
+                                                                            </div>
+
+                                                                        @endif
                                                                     @endforeach
+
 
                                                                 </ul>
                                                                 <div class="form-check-inline visits me-0 w-100">
                                                                     <label class="visit-btns" style="width: 100%">
-                                                                        <input type="radio" name="package_id" class="form-check-input"  value="{{$package->id}}">
+                                                                        <input type="radio" name="package_id"
+                                                                               class="form-check-input"
+                                                                               value="{{$package->id}}">
                                                                         <span class="visit-rsn" style="">
                                                                            Abone Ol
                                                                         </span>
@@ -171,7 +207,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                </div>
+                                                    </div>
                                                 @empty
                                                 @endforelse
                                             </div>
@@ -184,23 +220,31 @@
                                                 @forelse($yearlyPackages as $package)
                                                     <div class="swiper-slide" style="width: 350px;">
                                                         <div class="col-lg-9 mb-5 mb-lg-0">
-                                                            <div class="p-5 rounded-lg shadow" style="min-width: max-content;text-align: center;background-color: #F5F8FA">
+                                                            <div class="p-5 rounded-lg shadow"
+                                                                 style="min-width: max-content;text-align: center;background-color: #F5F8FA">
                                                                 <h1 class="h6 text-uppercase font-weight-bold mb-4">{{$package->name}}</h1>
-                                                                <h2 class="h1 font-weight-bold">{{$package->price == 0 ?"Ücretiz" : "€". $package->price}}<span class="text-small font-weight-normal ml-2"> / yıllık</span></h2>
+                                                                <h2 class="h1 font-weight-bold">{{$package->price == 0 ?"Ücretiz" : "€". $package->price}}
+                                                                    <span class="text-small font-weight-normal ml-2"> / yıllık</span>
+                                                                </h2>
 
                                                                 <div class="custom-separator my-4 mx-auto bg-primary"></div>
 
-                                                                <ul class="list-unstyled my-5 text-small" style="text-align: center;">
+                                                                <ul class="list-unstyled my-5 text-small"
+                                                                    style="text-align: center;">
                                                                     @foreach($package->proparties as $propartie)
-                                                                        <li class="mb-3" style="font-size: 18px;align-items: center; display: flex;">
-                                                                            <i class="fa fa-check-circle me-2" style="font-size: 35px;color: #00cc527d"></i>{{$propartie->list->name}}
+                                                                        <li class="mb-3"
+                                                                            style="font-size: 18px;align-items: center; display: flex;">
+                                                                            <i class="fa fa-check-circle me-2"
+                                                                               style="font-size: 35px;color: #00cc527d"></i>{{$propartie->list->name}}
                                                                         </li>
                                                                     @endforeach
 
                                                                 </ul>
                                                                 <div class="form-check-inline visits me-0 w-100">
                                                                     <label class="visit-btns" style="width: 100%">
-                                                                        <input type="radio" name="package_id" class="form-check-input"  value="{{$package->id}}">
+                                                                        <input type="radio" name="package_id"
+                                                                               class="form-check-input"
+                                                                               value="{{$package->id}}">
                                                                         <span class="visit-rsn" style="">
                                                                            Abone Ol
                                                                         </span>
@@ -246,6 +290,26 @@
 
         });
 
+    </script>
+    <script>
+        // JavaScript kullanarak "Daha Fazla" butonunu tıkladığınızda diğer özellikleri göster
+        $('.show-more-button').on("click", function () {
+
+            if (this.innerText == "Daha Fazla") {
+                const hiddenProps = document.querySelectorAll(".hidden-props");
+                hiddenProps.forEach(function (hiddenProp) {
+                    hiddenProp.style.display = "block";
+                });
+                this.innerText = "Daha Az"; // "Daha Fazla" butonunu gizle
+            } else {
+                const hiddenProps = document.querySelectorAll(".hidden-props");
+                hiddenProps.forEach(function (hiddenProp) {
+                    hiddenProp.style.display = "none";
+                });
+                this.innerText = "Daha Fazla"; // "Daha Fazla" butonunu gizle
+            }
+
+        });
     </script>
 
 @endsection

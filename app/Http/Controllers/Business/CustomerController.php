@@ -24,12 +24,24 @@ class CustomerController extends Controller
             'Kadın',
             'Erkek'
         ];
+        $businessUser = auth('business')->user();
+
+        $bCustomers = $businessUser->appointments()->with('customer')->get()->pluck('customer');
+        return view('business.customer.index', compact('genderList', 'bCustomers'));
+    }
+
+    public function listView()
+    {
+        $genderList=[
+            'Kadın',
+            'Erkek'
+        ];
         $bCustomerIds = [];
         $businessUser = auth('business')->user();
 
         $bCustomers = $businessUser->appointments()->with('customer')->get()->pluck('customer');
 
-        return view('business.customer.index', compact('genderList', 'bCustomers', 'bCustomerIds'));
+        return view('business.customer.list', compact('genderList', 'bCustomers', 'bCustomerIds'));
     }
 
     public function export()
@@ -85,14 +97,9 @@ class CustomerController extends Controller
 
     }
 
-    public function show()
+    public function show(Customer $customer)
     {
-        $businessUser = auth('business')->user();
-
-        $bCustomers = $businessUser->appointments()->with('customer')->get()->pluck('customer');
-
-        return Excel::download(new BusinessCustomerExport($bCustomers), 'customers.xlsx');
-
+        return view('business.customer.show', compact('customer'));
     }
     public function delete($id)
     {
@@ -123,7 +130,62 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $request->validate([
+            'name'=>"required|string|min:3",
+            'custom_email'=>"required|string|min:8",
+            'gender'=>"required|string"
+        ], [], [
+            'name'=> "Müşteri Adı",
+            'custom_email'=> "E-posta Adresi",
+            'gender'=> "Cinsiyet",
+
+        ]);
+        if ($request->email == $customer->email){
+            $customer->name=$request->input('name');
+            $customer->email=$request->input('email');
+            $customer->phone=$request->input('email');
+            $customer->custom_email=$request->input('custom_email');
+            if ($request->has('password'))
+            {
+                $customer->password= Hash::make($request->input('password'));
+            }
+            $customer->gender=$request->input('gender');
+            $customer->status=1;
+            if ($customer->save()){
+                return to_route('business.customer.index')->with('response', [
+                    'status'=>"success",
+                    'message'=>"Müşteri Bilgileri Güncellendi"
+                ]);
+            }
+        }
+        else{
+            $findCustomer = Customer::where('email', $request->email)->first();
+            if ($findCustomer){
+                return to_route('business.customer.edit', $customer->id)->with('response', [
+                    'status'=>"danger",
+                    'message'=>"Bu telefon numarası ile kayıtlı kullanıcı bulunmakta lütfen başka bir telefon numarası deneyin."
+                ]);
+            }
+            else{
+                $customer->name=$request->input('name');
+                $customer->email=$request->input('email');
+                $customer->phone=$request->input('email');
+                $customer->custom_email=$request->input('custom_email');
+                if ($request->has('password'))
+                {
+                    $customer->password= Hash::make($request->input('password'));
+                }
+                $customer->gender=$request->input('gender');
+                $customer->status=1;
+                if ($customer->save()){
+                    return to_route('business.customer.index')->with('response', [
+                        'status'=>"success",
+                        'message'=>"Müşteri Bilgileri Güncellendi"
+                    ]);
+                }
+            }
+        }
+
     }
 
     /**

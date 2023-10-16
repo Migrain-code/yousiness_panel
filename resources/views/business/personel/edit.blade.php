@@ -8,7 +8,7 @@
                 <div class="page-titles">
                     <div class="d-flex align-items-center">
                         <h2 class="heading">
-                            Profil Düzenle
+                            Personel Düzenle
                         </h2>
                     </div>
                 </div>
@@ -33,13 +33,13 @@
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            Toplam Randevu Süresi
+                                            Randevu Süresi
                                         </a>
-                                        <span>{{$totalTime}}</span>
+                                        <span>{{$totalTime." dk"}}</span>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            Randevu
+                                            Randevu Sayısı
                                         </a>
                                         <span>{{$appointments->count()}}</span>
                                     </li>
@@ -59,7 +59,7 @@
                 <div class="card your_balance">
                     <div class="card-header border-0">
                         <div>
-                            <h2 class="heading mb-1">Personel Bakiyesi</h2>
+                            <h2 class="heading mb-1">Personel Bilgileri</h2>
                             <span>{{now()->format('d.m.Y H:i:s')}}</span>
                         </div>
                     </div>
@@ -68,19 +68,19 @@
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="mothly-income" style="background-color: #600ee4;padding: 20px 10px;border-radius: 18px;line-height: 2em">
                                     <span class="text-white fw-bold">Bu Ay</span>
-                                    <h4 class="text-white">€{{number_format($theMonthTotal, 2, ',', '.')}}</h4>
+                                    <h4 class="text-white">{{$theMonthTotal}}</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="mothly-income" style="background-color: #ff7d10;padding: 20px 10px;border-radius: 18px;line-height: 2em">
                                     <span class="text-white fw-bold">Bu Yıl</span>
-                                    <h4 class="text-white">€{{number_format($theYearTotal, 2, ',', '.')}}</h4>
+                                    <h4 class="text-white">{{$theYearTotal}}</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="mothly-income" style="background-color: #4cb32b;padding: 20px 10px;border-radius: 18px;line-height: 2em">
-                                    <span class="text-white fw-bold">Toplam Kazanç</span>
-                                    <h4 class="text-white">€{{number_format($allTotal, 2, ',', '.')}}</h4>
+                                    <span class="text-white fw-bold">Toplam Randevu</span>
+                                    <h4 class="text-white">{{$allTotal}}</h4>
                                 </div>
                             </div>
                         </div>
@@ -304,7 +304,7 @@
                                     <div class="row mx-4 my-4">
 
                                         @forelse($appointments as $appointment)
-                                            @if($appointment->customer)
+
                                                 <!-- ----column---- -->
                                                 <div class="col-xl-4 col-md-6">
                                                     <div class="card contact_list">
@@ -330,9 +330,28 @@
                                                                         </svg>
                                                                     </a>
                                                                     <div class="dropdown-menu dropdown-menu-end" style="">
-                                                                        <a class="dropdown-item" href="javascript:void(0);">Onayla</a>
-                                                                        <a class="dropdown-item" href="javascript:void(0);">İptal et</a>
-                                                                        <a class="dropdown-item btn btn-primary text-white" href="javascript:void(0);"><i class="la la-info-circle"></i> Detay</a>
+                                                                        @if($appointment->status != 8)
+                                                                            <a class="dropdown-item"
+                                                                               href="{{route('business.appointment.reject', $appointment->id)}}">İptal
+                                                                                Et</a>
+                                                                        @endif
+                                                                        @if($appointment->status == 0)
+                                                                            <a class="dropdown-item"
+                                                                               href="{{route('business.appointment.accept', $appointment->id)}}">Randevuyu
+                                                                                Onayla</a>
+                                                                        @endif
+                                                                        @if($appointment->status== 3)
+                                                                            <a class="dropdown-item" href="javascript:void(0);">Randevuyu
+                                                                                Tamamla</a>
+                                                                        @endif
+
+
+                                                                        @if($appointment->status == 5)
+                                                                            <div class="dropdown-divider"></div>
+                                                                            <a class="dropdown-item" href="javascript:void(0);">Ödemeyi
+                                                                                Onayla</a>
+                                                                        @endif
+                                                                        <a class="dropdown-item btn btn-primary text-white" href="{{route('business.appointment.show', $appointment->id)}}"><i class="la la-info-circle"></i> Detay</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -362,28 +381,14 @@
                                                     </div>
                                                 </div>
                                                 <!-- ----/column---- -->
-                                            @endif
+
                                         @empty
+                                            <div class="alert alert-warning text-center">Randevu Kaydı Bulunamadı</div>
                                         @endforelse
                                     </div>
                                     <div class="table-pagenation mb-3">
-                                        <p class="ms-0"><span>{{$appointments->count()}}</span> Kayıttan <span>10</span>kayıt listeleniyor</p>
-                                        <nav>
-                                            <ul class="pagination pagination-gutter pagination-primary no-bg">
-                                                <li class="page-item page-indicator">
-                                                    <a class="page-link" href="javascript:void(0)">
-                                                        <i class="fa-solid fa-angle-left"></i></a>
-                                                </li>
-                                                <li class="page-item "><a class="page-link" href="javascript:void(0)">1</a>
-                                                </li>
-                                                <li class="page-item active"><a class="page-link" href="javascript:void(0)">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                                                <li class="page-item page-indicator me-0">
-                                                    <a class="page-link" href="javascript:void(0)">
-                                                        <i class="fa-solid fa-angle-right"></i></a>
-                                                </li>
-                                            </ul>
-                                        </nav>
+                                        <p class="ms-0"><span>{{$appointments->count()}}</span> Kayıt listeleniyor</p>
+                                        {!! $appointments->links() !!}
                                     </div>
                                 </div>
                             </div>

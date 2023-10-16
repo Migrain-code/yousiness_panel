@@ -24,55 +24,44 @@
     </div>
     <div class="row mx-4">
         @include('business.layouts.component.alert')
-        @include('business.layouts.component.error')
     </div>
     <div class="row">
         <div class="card">
             <div class="card-header">
                 <div class="card-title">Müşteri Detayı</div>
             </div>
-            <form method="post" action="{{route('business.customer.update', $customer->id)}}">
-                @csrf
-                @method('PUT')
-                <div class="card-body">
-                    <div class="form-group">
-                        <label>Ad Soyad</label>
-                        <input type="text" class="form-control" value="{{$customer->name}}" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label>Telefon</label>
-                        <input type="number" class="form-control" value="{{$customer->email}}" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label>E-posta</label>
-                        <input type="email" class="form-control" value="{{$customer->custom_email}}" name="custom_email">
-                    </div>
-                    <div class="form-group">
-                        <label>Cinsiyet</label>
-                        <select name="gender" class="form-control">
-                            <option value="0" @selected($customer->gender == 0)>Erkek</option>
-                            <option value="1" @selected($customer->gender == 1)>Kadın</option>
-                        </select>
-                    </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Ad Soyad</label>
+                    <input type="text" class="form-control" value="{{$customer->name}}" name="name">
+                </div>
+                <div class="form-group">
+                    <label>Telefon</label>
+                    <input type="number" class="form-control" value="{{$customer->email}}" name="email">
+                </div>
+                <div class="form-group">
+                    <label>E-posta</label>
+                    <input type="email" class="form-control" value="{{$customer->custom_email}}" name="custom_email">
+                </div>
+                <div class="form-group">
+                    <label>Cinsiyet</label>
+                    <select name="gender" class="form-control">
+                        <option value="0" @selected($customer->gender == 0)>Erkek</option>
+                        <option value="1" @selected($customer->gender == 1)>Kadın</option>
+                    </select>
+                </div>
 
+                @if($customer->permissions)
                     <div class="form-group">
-                        <label>Şifre</label>
-                        <input type="text" class="form-control" value="" name="password">
-                    </div>
-                    @if($customer->permissions)
-                        <div class="form-group">
                             <div class="col-4 alert alert-{{$customer->permissions->is_email == 1 ? "success " : "danger "}}mt-2 me-2">E-posta İzni</div>
                             <div class="col-4 alert alert-{{$customer->permissions->is_phone == 1 ? "success " : "danger "}}mt-2 me-2">Arama İzni</div>
 
                             <div class="col-4 alert alert-{{$customer->permissions->is_notification == 1 ? "success " : "danger "}}mt-2 me-2">Bildirim İzni</div>
                             <div class="col-4 alert alert-{{$customer->permissions->is_sms == 1 ? "success " : "danger "}}mt-2 me-2">Sms İzni</div>
-                        </div>
-                    @endif
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Güncelle</button>
-                </div>
-            </form>
+                    </div>
+                @endif
+
+            </div>
         </div>
     </div>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Business;
 
+use App\Exports\BusinessAppointmentExport;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\AppointmentServices;
@@ -12,6 +13,7 @@ use Faker\Provider\Person;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AppointmentController extends Controller
 {
@@ -153,5 +155,14 @@ class AppointmentController extends Controller
     public function destroy(Appointment $appointment)
     {
         //
+    }
+
+    public function export()
+    {
+        $businessUser = auth('business')->user();
+
+        $appointments = $businessUser->appointments;
+
+        return Excel::download(new BusinessAppointmentExport($appointments), 'appointments.xlsx');
     }
 }

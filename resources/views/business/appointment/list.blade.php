@@ -164,8 +164,8 @@
 
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="javascript:void(0);">Excel</a>
-                                                <a class="dropdown-item" href="javascript:void(0);">PDF</a>
+                                                <a class="dropdown-item" href="{{route('business.appointment.export.excel')}}">Excel</a>
+
                                             </div>
                                         </div>
                                     </div>
@@ -216,11 +216,8 @@
                                                                         İşlemler
                                                                     </button>
                                                                     <div class="dropdown-menu">
-                                                                        <a class="dropdown-item"
-                                                                           href="{{route('business.appointment.show', $appointment->id)}}">Detay</a>
-                                                                        <a class="dropdown-item"
-                                                                           href="{{route('business.appointment.reject', $appointment->id)}}">İptal
-                                                                            Et</a>
+                                                                        <a class="dropdown-item" href="{{route('business.appointment.show', $appointment->id)}}">Detay</a>
+                                                                        <a class="dropdown-item" href="{{route('business.appointment.reject', $appointment->id)}}">İptal Et</a>
                                                                         @if($appointment->status == 0)
                                                                             <a class="dropdown-item"
                                                                                href="{{route('business.appointment.accept', $appointment->id)}}">Randevuyu
@@ -395,5 +392,7 @@
             setInterval(clearPastAppointments, 60000);
         });
     </script>
+    <script>
 
+    </script>
 @endsection

@@ -9,24 +9,21 @@
             }
         }
         .fc .fc-daygrid-event {
-            margin-top: 1px;
             background: #878780;
             z-index: 6;
-            border-radius: 15px;
+            border-radius: 5px;
             align-items: center;
             justify-content: center;
         }
         .fc-event, .external-event {
-
             border: none;
-            cursor: move;
+            cursor: pointer;
             font-size: 0.8125rem;
-            margin: 0.3125rem 0.4375rem;
             padding: 0.3125rem;
             text-align: center;
-            min-height: 86px;
+            min-height: 35px;
             background: #878780;
-            border-radius: 15px;
+            border-radius: 5px;
         }
         .fc .fc-daygrid-day.fc-day-today {
             background-color: var(--fc-bg-event-color);
@@ -187,71 +184,8 @@
             </div>
         </div>
     </div>
+
     {{--
-        <div class="modal fade bd-example-modal-lg" style="width: 90% !important;" tabindex="-1" role="dialog"
-         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content" style="width: 120% !important;">
-                <div class="modal-header">
-                    <h5 class="modal-title">Randevu Oluştur</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal">
-                    </button>
-                </div>
-                <form method="post" action="{{route('business.appointment.store')}}">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label">Müşteri</label>
-                                <select name="customer_id" class="form-control">
-                                    <option>Müşteri Seçiniz</option>
-                                    @forelse(auth('business')->user()->customers as $bCustomer)
-                                        <option value="{{$bCustomer->customer->id}}">{{$bCustomer->customer->name}}</option>
-                                    @empty
-                                    @endforelse
-                                </select>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label">Personel</label>
-                                <select name="personel_id" id="personel_id" class="form-control">
-                                    <option>Personel Seçiniz</option>
-                                    @forelse(auth('business')->user()->personel as $personel)
-                                        <option value="{{$personel->id}}">{{$personel->name}}</option>
-                                    @empty
-                                    @endforelse
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label">Hizmetler</label>
-                                <select name="service_id" id="service_id" class="form-control">
-                                    <option>Hizmet Seçiniz</option>
-                                    @forelse(auth('business')->user()->service as $service)
-                                        <option value="{{$service->id}}">{{$service->subCategory->name. "(". $service->gender->name . ")"}}</option>
-                                    @empty
-                                    @endforelse
-                                </select>
-                            </div>
-                            <div class="col-6">
-                                <label class="form-label">Tarih Seçin</label>
-                                <input type="text" name="start_time" class="form-control" placeholder="2017-06-04"
-                                       id="min-date">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
-
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    --}}
-
     <div class="modal fade" id="eventDetailsModal" tabindex="-1" role="dialog" aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content" >
@@ -275,6 +209,8 @@
             </div>
         </div>
     </div>
+
+    ---}}
 @endsection
 @section('scripts')
 
@@ -353,17 +289,20 @@
                 start: '{{\Illuminate\Support\Carbon::parse($appointment->services->first()->start_time)->toIso8601String()}}', // Başlangıç tarihi ve saat
                 end: '{{\Illuminate\Support\Carbon::parse($appointment->services->last()->end_time)->toIso8601String()}}',    // Bitiş tarihi ve saat
                 customer: '{{$appointment->customer->name}}',
+                links: '{{route('business.appointment.show', $appointment->id)}}',
                 clockRange: '{{\Illuminate\Support\Carbon::parse($appointment->services->first()->start_time)->format('H:i'). '-'. \Illuminate\Support\Carbon::parse($appointment->services->last()->end_time)->format('H:i')}}',
                 statusText: '{{$appointment->status('text')}}',
                 statusCode: '{{$appointment->status('code')}}',
                 image: '{{image($appointment->customer->image)}}',
                 services: [
-                        @foreach($appointment->services as $service)
-                    {
-                        image: '{{storage($service->personel->image)}}',
-                        personel: '{{$service->personel->name}}',
-                        hizmet: '{{$service->service->subCategory->name}}'
-                    },
+                    @foreach($appointment->services as $service)
+                        @if($service->personel)
+                            {
+                                image: '{{storage($service->personel->image)}}',
+                                personel: '{{$service->personel->name}}',
+                                hizmet: '{{$service->service->subCategory->name}}'
+                            },
+                        @endif
                     @endforeach
                 ]
 
