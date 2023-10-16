@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BusinessCategory;
+use App\Models\BusinessTypeCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
@@ -115,6 +116,12 @@ class BusinessCategoryController extends Controller
      */
     public function destroy(BusinessCategory $businessCategory)
     {
-        //
+        BusinessTypeCategory::where('category_id', $businessCategory->id)->delete();
+        if ($businessCategory->delete()){
+            return \response()->json([
+               'status' => "success",
+               'message'=> "Kategori silindi"
+            ]);
+        }
     }
 }

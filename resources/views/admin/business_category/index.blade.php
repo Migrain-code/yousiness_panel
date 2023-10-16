@@ -76,7 +76,7 @@
                                     <td>{{$categorie->name}}</td>
                                     <td>
                                         <a class="btn btn-primary" href="{{route('admin.businessCategory.edit', $categorie->id)}}"><i class="fa fa-edit"></i></a>
-                                        {{--<button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.businessCategory.destroy', $categorie->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>---}}
+                                        <button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.businessCategory.destroy', $categorie->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                             @empty
@@ -107,7 +107,7 @@
         function deleteAction(hostUrl, index){
             var table = $('#example').DataTable();
             Swal.fire({
-                text: "Bu kaydı silmek istediğine eminmisin?",
+                text: "Bu kategoriyi silmek istediğine eminmisin? Sildiğiniz takdirde bu kategoriyi ekleyen işletmelerin kategori listesinden de silinecek.",
                 icon: "warning",
                 showCancelButton: true,
                 buttonsStyling: false,

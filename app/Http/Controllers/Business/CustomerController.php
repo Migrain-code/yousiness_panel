@@ -50,7 +50,7 @@ class CustomerController extends Controller
 
         $bCustomers = $businessUser->appointments()->with('customer')->get()->pluck('customer');
 
-        return Excel::download(new BusinessCustomerExport($bCustomers), 'customers.xlsx');
+        return Excel::download(new BusinessCustomerExport($bCustomers), 'kundenliste.xlsx');
 
     }
     /**

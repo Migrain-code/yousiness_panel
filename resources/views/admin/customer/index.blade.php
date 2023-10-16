@@ -52,41 +52,43 @@
                             <tr>
                                 <th></th>
                                 <th>İsim Soyisim</th>
+                                <th>E-posta</th>
                                 <th>Telefon</th>
                                 <th>Kayıt Zamanı</th>
-                                <th>Yasak</th>
+                                <th>Kayıtlı Mı?</th>
+                                <th>Randevu Sayısı</th>
+                                <th>Durum</th>
                                 <th>İşlemler</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($allCustomer as $customer)
+                            @forelse($allCustomer as $businessCustomer)
                                 <tr>
                                     <td>
                                         <img class="rounded-circle" width="35"
-                                             src="{{asset($customer->image)}}" alt="">
+                                             src="{{image($businessCustomer->image)}}" alt="">
                                     </td>
-                                    <td>{{$customer->name}}</td>
+                                    <td>{{$businessCustomer->name}}</td>
                                     <td>
-                                        <a href="tel:{{$customer->phone}}"><strong>{{$customer->phone}}</strong></a>
+                                        <a href="mailto:{{$businessCustomer->custom_email}}"><strong>{{$businessCustomer->custom_email}}</strong></a>
                                     </td>
-                                    <td>{{$customer->created_at->format('d.m.Y')}}</td>
                                     <td>
-                                        @if($customer->status==1)
+                                        <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
+                                    </td>
+                                    <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
+                                    <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                    <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
+                                    <td>
+                                        @if($businessCustomer->status==1)
                                             <span class="badge light badge-success">Aktif</span>
                                         @else
-                                            <span class="badge light badge-danger">Engellendi</span>
+                                            <span class="badge light badge-danger">Doğrulanmadı</span>
                                         @endif
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow sharp me-2"
-                                               onclick="onDelete('{{route('admin.customer.destroy', $customer->id)}}', '{{$loop->index}}')">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-danger shadow sharp"
-                                               onclick="onDelete('{{route('admin.customer.destroy', $customer->id)}}', '{{$loop->index}}')">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
+                                            <a href="{{route('admin.customer.edit', $businessCustomer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="btn btn-danger shadow btn-xs sharp" onclick="onDelete('{{route('admin.customer.destroy', $businessCustomer->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -107,20 +109,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
-                <form method="post" action="{{route('business.customer.store')}}">
+                <form method="post" action="{{route('admin.customer.store')}}">
                     @csrf
                     <div class="modal-body">
-                       <div class="form-group">
-                           <label>Ad Soyad</label>
-                           <input type="text" class="form-control" name="name">
-                       </div>
+                        <div class="form-group">
+                            <label>Ad Soyad</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
                         <div class="form-group">
                             <label>Telefon</label>
-                            <input type="text" class="form-control" name="phone">
+                            <input type="number" class="form-control" name="email">
                         </div>
                         <div class="form-group">
                             <label>E-posta</label>
-                            <input type="email" class="form-control" name="email">
+                            <input type="email" class="form-control" name="custom_email">
                         </div>
                         <div class="form-group">
                             <label>Cinsiyet</label>
@@ -134,7 +136,6 @@
                             <input type="text" class="form-control" name="password">
                         </div>
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
                         <button type="submit" class="btn btn-primary">Kaydet</button>
