@@ -169,7 +169,6 @@
                                 @empty
                                 @endforelse
                                 @forelse($bCustomers as $businessCustomer)
-                                    @if($businessCustomer)
                                         <tr>
                                             <td>
                                                 <img class="rounded-circle" width="35"
@@ -196,13 +195,6 @@
                                                 <a href="{{route('business.customer.show', $businessCustomer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-eye"></i></a>
                                             </td>
                                         </tr>
-                                    @else
-                                        <tr>
-                                            <td colspan="9">
-                                                <div class="alert alert-warning">Müşteri silindi</div>
-                                            </td>
-                                        </tr>
-                                    @endif
                                 @empty
                                 @endforelse
                             @endif
