@@ -71,15 +71,7 @@ class Business extends Authenticatable
 
     public function customers()
     {
-        return $this->hasMany(BusinessCustomer::class, 'business_id', 'id')->withDefault([
-            'name' => "Silinmiş Müşteri",
-            'image' => "Silinmiş Müşteri",
-            'custom_email' => "Silinmiş Müşteri",
-            'phone' => "Silinmiş Müşteri",
-            'created_at' => Carbon::now(),
-            'email' => "Silinmiş Müşteri",
-            'status' => "Silinmiş Müşteri",
-        ]);
+        return $this->hasMany(BusinessCustomer::class, 'business_id', 'id');
     }
 
     public function appointments()
