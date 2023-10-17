@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -70,7 +71,15 @@ class Business extends Authenticatable
 
     public function customers()
     {
-        return $this->hasMany(BusinessCustomer::class, 'business_id', 'id');
+        return $this->hasMany(BusinessCustomer::class, 'business_id', 'id')->withDefault([
+            'name' => "Silinmiş Müşteri",
+            'image' => "Silinmiş Müşteri",
+            'custom_email' => "Silinmiş Müşteri",
+            'phone' => "Silinmiş Müşteri",
+            'created_at' => Carbon::now(),
+            'email' => "Silinmiş Müşteri",
+            'status' => "Silinmiş Müşteri",
+        ]);
     }
 
     public function appointments()
