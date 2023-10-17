@@ -165,6 +165,7 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
+        BusinessCustomer::where('customer_id', $customer->id)->delete();
         if ($customer->delete()){
             return response()->json([
                 'status' => "success",
