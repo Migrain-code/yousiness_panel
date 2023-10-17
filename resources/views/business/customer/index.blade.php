@@ -137,8 +137,7 @@
                                 @endforelse
                             @else
                                 @forelse(auth('business')->user()->customers as $customer)
-                                    @if($customer)
-                                        <tr>
+                                    <tr>
                                             <td>
                                                 <img class="rounded-circle" width="35"
                                                      src="{{image($customer->customer->image)}}" alt="">
@@ -167,7 +166,6 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endif
                                 @empty
                                 @endforelse
                                 @forelse($bCustomers as $businessCustomer)
