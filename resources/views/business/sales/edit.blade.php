@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Satış İşlemleri
+                        Verkäufe
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -36,9 +36,9 @@
                     @method('PUT')
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Müşteri Seçiniz</label>
+                            <label class="form-label">Kunde</label>
                             <select name="customer_id" class="form-control">
-                                <option>Müşteri</option>
+                                <option>Kunde Auswählen</option>
                                 @forelse($customers as $customer)
                                     <option value="{{$customer->id}}" @selected($customer->id == $productSale->customer_id)>{{$customer->name}}</option>
                                 @empty
@@ -46,9 +46,9 @@
                             </select>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Ürün</label>
+                            <label class="form-label">Produkt</label>
                             <select name="product_id" class="form-control">
-                                <option>Ürün Seçiniz</option>
+                                <option>Produkt Auswählen</option>
                                 @forelse(auth('business')->user()->products as $product)
                                     <option value="{{$product->id}}" @selected($product->id == $productSale->product_id)>{{$product->name}}</option>
                                 @empty
@@ -58,19 +58,19 @@
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Adet</label>
+                            <label class="form-label">Anzahl</label>
                             <input type="number" class="form-control" name="piece" value="{{$product->piece}}">
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Tutar</label>
+                            <label class="form-label">Betrag</label>
                             <input type="text" class="form-control" value="{{$productSale->total}}" name="price">
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Ödeme Yöntemi</label>
+                            <label class="form-label">Zahlungsart</label>
                             <select name="payment_type" class="form-control">
-                                <option>Ödeme Yöntemi Seçiniz</option>
+                                <option>Zahlungsart Auswählen</option>
                                 @forelse($payment_types as $payment)
                                     <option value="{{$loop->index}}" @selected($loop->index == $productSale->payment_type)>{{$payment}}</option>
                                 @empty
@@ -78,9 +78,9 @@
                             </select>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Satıcı</label>
+                            <label class="form-label">Verkäufer</label>
                             <select name="personel_id" class="form-control">
-                                <option>Satıcı Seçiniz</option>
+                                <option>Personal Auswählen</option>
                                 @forelse(auth('business')->user()->personel as $personel)
                                     <option value="{{$personel->id}}" @selected($personel->id == $productSale->personel_id)>{{$personel->name}}</option>
                                 @empty
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <button type="submit" class="btn btn-primary">Güncelle</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>

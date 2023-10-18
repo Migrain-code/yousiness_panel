@@ -101,7 +101,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">Görsel</span>
+                                                <span class="required">Foto</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki ilk bölümdeki büyük görsel"></i>
                                             </label>
                                             <!--end::Label-->

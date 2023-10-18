@@ -39,7 +39,7 @@ class BusinessBlogController extends Controller
             'description'=>"Açıklama Metni",
             'meta_keys'=>"Meta anahtar kelimeleri",
             'meta_description'=>"Meta açıklama Metni",
-            'image'=>"Görsel",
+            'image'=>"Foto",
         ]);
         $blog=new BusinessBlog();
         $blog->title=$request->input('title');

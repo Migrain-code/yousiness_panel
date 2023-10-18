@@ -40,7 +40,7 @@
                             <input type="text" class="form-control input-default " value="{{$page->title}}{{old('title')}}" name="title" >
                         </div>
                         <div class="mb-3">
-                            <label>Görsel</label>
+                            <label>Foto</label>
                             <input type="file" class="form-control input-default" name="image" >
                         </div>
                         <div class="mb-3">

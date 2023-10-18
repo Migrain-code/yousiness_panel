@@ -33,7 +33,7 @@ class AdsController extends Controller
             'image'=>"required",
         ], [], [
             'title'=>"Başlık",
-            'image'=>"Görsel",
+            'image'=>"Foto",
         ]);
         $ads=new Ads();
         $ads->title=$request->input('title');

@@ -12,19 +12,19 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-12">
-                            <label class="form-label">Konu</label>
+                            <label class="form-label">Thema</label>
                             <input type="text" class="form-control" name="subject">
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-12">
-                            <label class="form-label">İçerik</label>
+                            <label class="form-label">Inhallt</label>
                             <textarea type="number" class="form-control" rows="7" name="content"></textarea>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="alert alert-warning">Talep göndermeden önce <a href="#" class="text-warning fw-bold text-decoration-underline"> eğitimlerimize</a> veya <a href="#" class="text-warning fw-bold text-decoration-underline">sık sorulan sorulara</a> göz atmak istermisiniz?</div>
+                        <div class="alert alert-warning">Möchten Sie einen  <a href="#" class="text-warning fw-bold text-decoration-underline"> Blick auf unsere Erklärvideo </a> oder  <a href="#" class="text-warning fw-bold text-decoration-underline">FAQ werfen, </a> bevor Sie eine Anfrage senden?</div>
                     </div>
 
                     {{--End Modal Body--}}
@@ -32,7 +32,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
-                    <button type="submit" class="btn btn-primary">Gönder</button>
+                    <button type="submit" class="btn btn-primary">Speichern</button>
                 </div>
             </form>
         </div>

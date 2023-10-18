@@ -36,23 +36,23 @@
                     @method('PUT')
                     <div class="row">
                         <div class="mb-3 col-md-12">
-                            <label class="form-label">Ürün Adı</label>
+                            <label class="form-label">Produktname</label>
                             <input type="text" class="form-control" value="{{$product->name}}" name="name">
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Ürün Fiyat</label>
+                            <label class="form-label">Preis</label>
                             <input type="number" class="form-control" value="{{$product->price}}" name="price">
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Ürün Adet</label>
+                            <label class="form-label">Bestand</label>
                             <input type="number" class="form-control" value="{{$product->piece}}" name="piece">
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Barkod Numarası</label>
+                            <label class="form-label">Produktnummer</label>
                             <input type="text" class="form-control" value="{{$product->barcode}}" name="barcode">
                         </div>
                     </div>

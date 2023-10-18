@@ -35,7 +35,7 @@ class SocialMediaController extends Controller
             'link'=>"required",
         ], [], [
             'title'=>"Başlık",
-            'image'=>"Görsel",
+            'image'=>"Foto",
             'link'=>"Link"
         ]);
         $socialMedia=new SocialMedia();

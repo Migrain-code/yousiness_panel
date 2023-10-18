@@ -80,8 +80,9 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>İşletme Türü</h6>
-                            <p>İşletme Türnüzü Seçiniz. </p>
+                            <h6>Wählen Sie ihre Salon Kategorie(n) aus</h6>
+                            <p>Wir werden ihren Salon in Kategorien einteilen. Deshalb ist es wichtig, dass sie die entsprechende Salon Arten auswählen.
+ </p>
                         </div>
                     </a>
                 </li>
@@ -92,8 +93,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>İşletme Bilgileri</h6>
-                            <p>İşletme Bilgilerini Giriniz.</p>
+                            <h6>Salon Details angeben</h6>
+                            <p>Geben Sie die Informationen zu Ihrem Salon ein und stellen Sie sicher, dass Ihre Kunden Sie zu den richtigen Daten und Zeiten erreichen können.</p>
                         </div>
                     </a>
                 </li>
@@ -104,8 +105,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>Adres Bilgileri</h6>
-                            <p>İşletme Adres/Konum Bilgileri</p>
+                            <h6>Standort Informationen angeben</h6>
+                            <p>Damit Ihr Salon im System und im normalen Leben der Kunden leicht gefunden werden kann, geben Sie ihre Adressdaten vollständig an.</p>
                         </div>
                     </a>
                 </li>
@@ -115,8 +116,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>Paket Seçimi</h6>
-                            <p>Hizmet Paketi Seçiniz.</p>
+                            <h6>Yousiness Paket Auswählen</h6>
+                            <p>Wählen Sie das passende Paket aus, dass für Ihr System definiert werden soll. </p>
                         </div>
                     </a>
                 </li>
@@ -126,8 +127,8 @@
                             <span>5</span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>Ödeme İşlemi</h6>
-                            <p>Paket Ödemesi Yapınız.</p>
+                            <h6>Zahlung ausführen</h6>
+                            <p>Nehmen Sie die Zahlung vor und das entsprechende Paket wird für Ihr System definiert.</p>
                         </div>
                     </a>
                 </li>

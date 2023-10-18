@@ -42,7 +42,7 @@
                         <input type="text" class="form-control input-default " value="{{$swiper->link}} {{old('link')}}" name="link" >
                     </div>
                     <div class="mb-3">
-                        <label>Görsel</label>
+                        <label>Foto</label>
                         <input type="file" class="form-control input-default" name="image" >
                         <img src="{{asset($swiper->image)}}" width="100px" class="mt-3">
                     </div>

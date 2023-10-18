@@ -54,7 +54,7 @@ class PageController extends Controller
             'description'=>"Açıklama Metni",
             'meta_keys'=>"Meta anahtar kelimeleri",
             'meta_description'=>"Meta açıklama Metni",
-            'image'=>"Görsel",
+            'image'=>"Foto",
         ]);
         $page=new Page();
         $page->title=$request->input('title');

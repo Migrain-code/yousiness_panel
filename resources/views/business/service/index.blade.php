@@ -117,7 +117,7 @@
                         <div class="row">
                             <div class="mb-3 col-md-12">
                                 <label class="form-label"> Kategorie
-                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Kategorie Açıklama">
+                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Kategorie Bemerkung">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
@@ -141,7 +141,7 @@
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label class="form-label"> Arbeitszeit
-                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Arbeitszeit Açıklama">
+                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Arbeitszeit Bemerkung">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
@@ -156,7 +156,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"> Preis
-                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Preis açıklama">
+                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Preis Bemerkung">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>

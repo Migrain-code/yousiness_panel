@@ -117,11 +117,11 @@ class PersonelController extends Controller
             'phone' => "Mobilnummer",
             'name' => "İsim",
             'password' => "Passwort",
-            'off_day' => "Tatil Günü",
+            'off_day' => "Freier Tag",
             'gender' => "Geschlecht",
             'rate' => "Çalışma Payı",
-            'services' => "Hizmet",
-            'image' => "Görsel"
+            'services' => "Dienstleistung",
+            'image' => "Foto"
         ]);
         $personel = new Personel();
         $personel->business_id = auth('business')->id();

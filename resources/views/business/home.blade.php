@@ -172,7 +172,7 @@
                     <h4 class="card-title">HEUTIGE TERMINE</h4>
                     {{--   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">
                             <i class="fa-solid fa-plus-circle me-2"></i>
-                            Personel Ekle
+                            Personal Hinzufügen
                             </button>
                             ---}}
                 </div>

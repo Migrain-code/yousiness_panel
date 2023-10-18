@@ -44,7 +44,7 @@
                             <thead>
                             <tr>
                                 <th></th>
-                                <th>İsim Soyisim</th>
+                                <th>Name Nachname</th>
                                 <th>E-Mail</th>
                                 <th>Mobilnummer</th>
                                 <th>Kayıt Zamanı</th>

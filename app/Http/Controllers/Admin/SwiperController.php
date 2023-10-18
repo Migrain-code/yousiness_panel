@@ -22,7 +22,7 @@ class SwiperController extends Controller
             'title'=>"required",
             'image'=>"required",
         ], [],[
-            'image'=>"Görsel",
+            'image'=>"Foto",
             'title'=>"Başlık"
         ]);
         $swiper=new Swiper();

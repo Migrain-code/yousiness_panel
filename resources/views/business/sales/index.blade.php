@@ -9,7 +9,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Satış İşlemleri
+                        Verkäufe
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -34,7 +34,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Ürün Satış Listesi</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Satış Yap</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Paketverkauf</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -43,11 +43,11 @@
                             <tr>
                                 <th>Müşteri Adı</th>
                                 <th>Personel Adı</th>
-                                <th>Ürün Adı</th>
+                                <th>Produktname</th>
                                 <th>Ödeme Tipi</th>
                                 <th>Adet</th>
                                 <th>Toplam Fiyat</th>
-                                <th>Satış Tarihi</th>
+                                <th>Datum</th>
                                 <th>İşlemler</th>
                             </tr>
                             </thead>
@@ -81,7 +81,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Satış Yap</h5>
+                    <h5 class="modal-title">Paketverkauf</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -90,9 +90,9 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Müşteri <span class="text-warning">{{auth('business')->user()->customers->count() == 0 ? "(Müşteriler menüsünden müşteri ekleyin)":""}} </span></label>
+                                <label class="form-label">Kunde <span class="text-warning">{{auth('business')->user()->customers->count() == 0 ? "(Von Kundenliste Auswählen)":""}} </span></label>
                                 <select name="customer_id" class="form-control">
-                                    <option>Müşteri Seçiniz</option>
+                                    <option>Kunde Auswählen</option>
                                     @forelse($customers as $customer)
                                         <option value="{{$customer->id}}">{{$customer->name}}</option>
                                     @empty
@@ -100,9 +100,9 @@
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Ürün</label>
+                                <label class="form-label">Produkt</label>
                                 <select name="product_id" id="product_id" class="form-control">
-                                    <option>Ürün Seçiniz</option>
+                                    <option>Produkt Auswählen</option>
                                     @forelse(auth('business')->user()->products as $product)
                                         <option value="{{$product->id}}">{{$product->name}}</option>
                                     @empty
@@ -112,17 +112,17 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Adet</label>
+                                <label class="form-label">Anzahl</label>
                                 <input type="number" id="piece" class="form-control" name="piece">
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Tutar <span class="text-warning">1 Ürünün Fiyatını Giriniz</span></label>
+                                <label class="form-label">Betrag <span class="text-warning">(Geben Sie den Preis für 1 Artikel ein)</span></label>
                                 <input type="text" id="price" class="form-control" name="price">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Ödeme Yöntemi</label>
+                                <label class="form-label">Zahlungsart</label>
                                 <select name="payment_type" class="form-control">
                                     <option>Ödeme Yöntemi Seçiniz</option>
                                     @forelse($payment_types as $payment)
@@ -132,9 +132,9 @@
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Satıcı</label>
+                                <label class="form-label">Verkäufer</label>
                                 <select name="personel_id" class="form-control">
-                                    <option>Satıcı Seçiniz</option>
+                                    <option>Personal Auswählen</option>
                                     @forelse(auth('business')->user()->personel as $personel)
                                         <option value="{{$personel->id}}">{{$personel->name}}</option>
                                     @empty
