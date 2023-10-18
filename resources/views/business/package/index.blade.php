@@ -44,7 +44,7 @@
                             <tr>
                                 <th>Satış Tarihi</th>
                                 <th>Müşteri Adı</th>
-                                <th>Hizmet Adı</th>
+                                <th>Dienstleistungen</th>
                                 <th>Personel Adı</th>
                                 <th>Paket Tipi</th>
                                 <th>Adet</th>
@@ -159,7 +159,7 @@
                                <input type="datetime-local" id="opDate" class="form-control">
                         </div>
                         <div class="col-12 mt-3">
-                            <button type="button" class="btn btn-primary" style="margin-left: 10px;" onclick="addUsage()" id="addUsageBtn">Kaydet</button>
+                            <button type="button" class="btn btn-primary" style="margin-left: 10px;" onclick="addUsage()" id="addUsageBtn">Speichern</button>
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
                             <input type="number" class="form-control" id="amount">
                         </div>
                         <div class="col-12 mt-3">
-                            <button type="button" class="btn btn-primary" style="margin-left: 10px;" onclick="addPayment()" id="addPaymentBtn">Kaydet</button>
+                            <button type="button" class="btn btn-primary" style="margin-left: 10px;" onclick="addPayment()" id="addPaymentBtn">Speichern</button>
                         </div>
                     </div>
                 </div>
@@ -302,8 +302,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>

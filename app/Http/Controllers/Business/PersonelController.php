@@ -113,12 +113,12 @@ class PersonelController extends Controller
             'services' => "required",
             'image' => "required",
         ], [], [
-            'email' => "E-posta",
-            'phone' => "Telefon",
+            'email' => "E-Mail",
+            'phone' => "Mobilnummer",
             'name' => "İsim",
-            'password' => "Şifre",
+            'password' => "Passwort",
             'off_day' => "Tatil Günü",
-            'gender' => "Cinsiyet",
+            'gender' => "Geschlecht",
             'rate' => "Çalışma Payı",
             'services' => "Hizmet",
             'image' => "Görsel"

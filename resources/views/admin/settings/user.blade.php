@@ -208,7 +208,7 @@
                                                 <!--end::Button-->
                                                 <!--begin::Button-->
                                                 <button type="submit" class="btn btn-primary">
-                                                    <span class="indicator-label">Kaydet</span>
+                                                    <span class="indicator-label">Speichern</span>
                                                 </button>
                                                 <!--end::Button-->
                                             </div>
@@ -446,7 +446,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Telefon</span>
+                                                <span>Mobilnummer</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki hakkımızda alanı başlık"></i>
                                             </label>
                                             <!--end::Label-->
@@ -463,7 +463,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>E-posta</span>
+                                                <span>E-Mail</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki hakkımızda alanı başlık"></i>
                                             </label>
                                             <!--end::Label-->
@@ -518,7 +518,7 @@
                                         <div class="col-md-12 mt-3">
                                             <!--begin::Button-->
                                             <button type="submit" class="btn btn-primary w-100">
-                                                <span class="indicator-label">Kaydet</span>
+                                                <span class="indicator-label">Speichern</span>
                                             </button>
                                             <!--end::Button-->
                                         </div>
@@ -621,7 +621,7 @@
                                                 <!--end::Button-->
                                                 <!--begin::Button-->
                                                 <button type="submit" class="btn btn-primary">
-                                                    <span class="indicator-label">Kaydet</span>
+                                                    <span class="indicator-label">Speichern</span>
                                                 </button>
                                                 <!--end::Button-->
                                             </div>

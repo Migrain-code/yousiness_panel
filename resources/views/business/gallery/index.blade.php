@@ -123,7 +123,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Tüm Fotoğraflar</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Fotoğraf Ekle</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Foto Hinzufügen</button>
                 </div>
                 <div class="card-body">
                     <div class="row">

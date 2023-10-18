@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
-                                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                                    <button type="submit" class="btn btn-primary">Speichern</button>
                                 </div>
                             </form>
                         </div>
@@ -86,7 +86,7 @@
                         <tr>
                             <th>İsim</th>
                             <th>İşletme</th>
-                            <th>Telefon</th>
+                            <th>Mobilnummer</th>
                             <th>Durum</th>
                             <th>İşlemler</th>
                         </tr>

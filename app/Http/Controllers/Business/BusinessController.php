@@ -192,7 +192,7 @@ class BusinessController extends Controller
         return to_route('business.profile.show')->with('response', [
             'status'=>"success",
             'title'=>"Başarılı",
-            'message'=>"Çalışma Saatleriniz Başarılı Bir Şekilde Güncellendi"
+            'message'=>"Hier werden die Tage angezeigt, die nicht zu den Feiertagen Ihrer Mitarbeiter gehören. Sie müssen andere Feiertage als diese Tage für das Personal eingeben.niz Başarılı Bir Şekilde Güncellendi"
         ]);
     }
     /**

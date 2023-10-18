@@ -131,7 +131,7 @@
                                     </div>
                                     <div class="col-lg-6 mb-2">
                                         <div class="mb-3">
-                                            <label class="text-label form-label">Telefon*</label>
+                                            <label class="text-label form-label">Mobilnummer*</label>
                                             <input type="text" name="phone" class="form-control" placeholder="(+1)408-657-9007" >
                                         </div>
                                     </div>
@@ -181,13 +181,13 @@
                                 <div class="row">
                                     <div class="col-lg-6 mb-2">
                                         <div class="mb-3">
-                                            <label class="text-label form-label">E-posta*</label>
+                                            <label class="text-label form-label">E-Mail*</label>
                                             <input type="text" name="email" class="form-control" placeholder="example@example.com" >
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-2">
                                         <div class="mb-3">
-                                            <label class="text-label form-label">Şifre*</label>
+                                            <label class="text-label form-label">Passwort*</label>
                                             <input type="password" class="form-control" name="password" placeholder="" >
                                         </div>
                                     </div>
@@ -411,8 +411,8 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="skip-email text-center">
-                                            <p>Tüm Bilgilerden emin olduysanız Kaydet butonuna tıklayın</p>
-                                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                                            <p>Tüm Bilgilerden emin olduysanız Speichern butonuna tıklayın</p>
+                                            <button type="submit" class="btn btn-primary">Speichern</button>
                                         </div>
                                     </div>
                                 </div>

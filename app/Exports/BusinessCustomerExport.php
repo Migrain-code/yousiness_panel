@@ -51,8 +51,8 @@ class BusinessCustomerExport implements FromCollection,WithColumnFormatting, Wit
     {
         return [
             'Ad',
-            'E-posta',
-            'Telefon',
+            'E-Mail',
+            'Mobilnummer',
             'Kayıt Zamanı',
             'Kayıtlı mı?',
             'Randevu Sayısı',

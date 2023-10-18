@@ -44,7 +44,7 @@
                             </form>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" onclick="$('#resetForm').submit()" class="btn btn-primary">Kaydet</button>
+                            <button type="submit" onclick="$('#resetForm').submit()" class="btn btn-primary">Speichern</button>
                         </div>
                     </div>
                 </div>

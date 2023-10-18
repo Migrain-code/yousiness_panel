@@ -41,7 +41,7 @@ class HomeController extends Controller
         $request->validate([
             'password'=>"required|confirmed",
         ], [], [
-            'password'=>"Şifre",
+            'password'=>"Passwort",
         ]);
         $business=auth('business')->user();
         $business->password=Hash::make($request->input('password'));

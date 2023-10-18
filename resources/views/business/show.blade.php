@@ -222,19 +222,19 @@
                                                            name="owner" class="form-control">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">E-posta</label>
+                                                    <label class="form-label">E-Mail</label>
                                                     <input type="email" value="{{$business->owner_email}}"
                                                            placeholder="Email" name="owner_email" class="form-control">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">Telefon <span class="text-warning">(Girişte Kullanılan Telefon)</span>
+                                                    <label class="form-label">Mobilnummer <span class="text-warning">(Girişte Kullanılan Telefon)</span>
                                                     </label>
                                                     <input type="text" id="phone_1" value="{{$business->email}}"
-                                                           placeholder="Telefon" name="email" class="form-control">
+                                                           placeholder="Mobilnummer" name="email" class="form-control">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">Şifre</label>
-                                                    <input type="password" name="password" placeholder="Şifre"
+                                                    <label class="form-label">Passwort</label>
+                                                    <input type="password" name="password" placeholder="Passwort"
                                                            class="form-control">
                                                 </div>
                                             </div>
@@ -253,8 +253,8 @@
                                             <a type="button" class="mx-2 text-primary" style="max-width: 12px"
                                                data-bs-container="body" data-bs-toggle="popover"
                                                data-bs-placement="bottom"
-                                               data-bs-content="İşletmenizin çalışmaayacağı günleri seçili hale getiriniz."
-                                               title="" data-bs-original-title="Tatil Günleri">
+                                               data-bs-content="Wählen Sie die Tage aus, an denen Ihr Salon nicht arbeitet."
+                                               title="" data-bs-original-title="Geschlossene Tage">
                                                 <i class="fa fa-question-circle"></i>
                                             </a>
                                         </div>

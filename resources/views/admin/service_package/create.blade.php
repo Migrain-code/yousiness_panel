@@ -35,7 +35,7 @@
                                    <textarea type="text" rows="5" class="form-control input-default " name="price" placeholder="Örneğin(Bu alana gireceğiniz veri işletmelerin fiyatlarını bilmelerini sağlaycaktır)"></textarea>
                                </div>
                                <div class="mb-3 text-center">
-                                   <button type="submit" class="btn btn-primary">Kaydet</button>
+                                   <button type="submit" class="btn btn-primary">Speichern</button>
                                </div>
 
                        </div>

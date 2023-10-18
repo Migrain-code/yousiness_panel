@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
                     <button type="submit" class="btn btn-primary">Gönder</button>
                 </div>
             </form>

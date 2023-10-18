@@ -211,7 +211,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">Telefon</span>
+                                                <span class="required">Mobilnummer</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Site Adınızı Güncelleyin"></i>
                                             </label>
                                             <!--end::Label-->
@@ -226,7 +226,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">E-posta</span>
+                                                <span class="required">E-Mail</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Site Adınızı Güncelleyin"></i>
                                             </label>
                                             <!--end::Label-->

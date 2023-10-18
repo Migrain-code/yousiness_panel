@@ -45,8 +45,8 @@
                             <tr>
                                 <th></th>
                                 <th>İsim Soyisim</th>
-                                <th>E-posta</th>
-                                <th>Telefon</th>
+                                <th>E-Mail</th>
+                                <th>Mobilnummer</th>
                                 <th>Kayıt Zamanı</th>
                                 <th>Kayıtlı Mı?</th>
                                 <th>Randevu Sayısı</th>
@@ -93,7 +93,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Müşteri Ekle</h5>
+                    <h5 class="modal-title">Kunden Hinzufügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -101,33 +101,33 @@
                     @csrf
                     <div class="modal-body">
                        <div class="form-group">
-                           <label>Ad Soyad</label>
+                           <label>Name Nachname</label>
                            <input type="text" class="form-control" name="name">
                        </div>
                         <div class="form-group">
-                            <label>Telefon</label>
+                            <label>Mobilnummer</label>
                             <input type="text" class="form-control" name="phone">
                         </div>
                         <div class="form-group">
-                            <label>E-posta</label>
+                            <label>E-Mail</label>
                             <input type="email" class="form-control" name="email">
                         </div>
                         <div class="form-group">
-                            <label>Cinsiyet</label>
+                            <label>Geschlecht</label>
                             <select name="gender" class="form-control">
                                 <option value="0">Erkek</option>
                                 <option value="1">Kadın</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Şifre</label>
+                            <label>Passwort</label>
                             <input type="text" class="form-control" name="password">
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>

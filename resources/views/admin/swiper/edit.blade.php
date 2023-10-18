@@ -48,7 +48,7 @@
                     </div>
                     <div class="modal-footer">
 
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>
