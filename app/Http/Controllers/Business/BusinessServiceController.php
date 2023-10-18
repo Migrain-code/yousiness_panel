@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BusinessService;
 use App\Models\BusinnessType;
 use App\Models\DayList;
+use App\Models\PersonelService;
 use App\Models\ServiceCategory;
 use App\Models\ServiceSubCategory;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class BusinessServiceController extends Controller
     public function gender(Request $request)
     {
         if ($request->gender == "all") {
-            $category = ServiceCategory::with('type')->latest("type_id")->get();
+            $category = ServiceCategory::with('type')->where('type_id', 1)->get();
         } else {
             $category = ServiceCategory::where('type_id', $request->gender)->get();
         }
@@ -62,6 +63,7 @@ class BusinessServiceController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'category' => "required",
             'sub_category' => "required",
@@ -73,25 +75,49 @@ class BusinessServiceController extends Controller
             'time' => "Hizmet Süresi",
             'price' => "Hizmet Fiyatı",
         ]);
+        if ($request->gender == "all"){
+            $serviceSubCategory = ServiceSubCategory::find($request->input('sub_category'));
+            $businessService = new BusinessService();
+            $businessService->business_id = auth('business')->id();
+            $businessService->type = $serviceSubCategory->category->type_id;
+            $businessService->category = $serviceSubCategory->category_id;
+            $businessService->sub_category = $serviceSubCategory->id;
+            $businessService->time = $request->input('time');
+            $businessService->price = $this->sayiDuzenle($request->input('price'));
+            $businessService->save();
 
-        $businessService = new BusinessService();
-        $businessService->business_id = auth('business')->id();
-        if ($request->gender == "all") {
-            $serviceCategory = ServiceCategory::find($request->input('category'));
-            $businessService->type = $serviceCategory->type_id;
-        } else {
-            $businessService->type = $request->input('gender');
-        }
-        $businessService->category = $request->input('category');
-        $businessService->sub_category = $request->input('sub_category');
-        $businessService->time = $request->input('time');
-        $businessService->price = $this->sayiDuzenle($request->input('price'));
-        if ($businessService->save()) {
+            $serviceSubCategorys2 = ServiceSubCategory::where('slug', $serviceSubCategory->slug."-m")->first();
+            $businessService = new BusinessService();
+            $businessService->business_id = auth('business')->id();
+            $businessService->type = $serviceSubCategorys2->category->type_id;
+            $businessService->category = $serviceSubCategorys2->category_id;
+            $businessService->sub_category = $serviceSubCategorys2->id;
+            $businessService->time = $request->input('time');
+            $businessService->price = $this->sayiDuzenle($request->input('price'));
+            $businessService->save();
+
             return to_route('business.businessService.index')->with('response', [
                 'status' => "success",
                 'title' => "Başarılı",
                 'message' => "Hizmet Eklendi. Aşağıdaki Listede Görebilirsiniz"
             ]);
+
+        }
+        else{
+            $businessService = new BusinessService();
+            $businessService->business_id = auth('business')->id();
+            $businessService->type = $request->input('gender');
+            $businessService->category = $request->input('category');
+            $businessService->sub_category = $request->input('sub_category');
+            $businessService->time = $request->input('time');
+            $businessService->price = $this->sayiDuzenle($request->input('price'));
+            if ($businessService->save()) {
+                return to_route('business.businessService.index')->with('response', [
+                    'status' => "success",
+                    'title' => "Başarılı",
+                    'message' => "Hizmet Eklendi. Aşağıdaki Listede Görebilirsiniz"
+                ]);
+            }
         }
     }
 
@@ -114,7 +140,7 @@ class BusinessServiceController extends Controller
      */
     public function edit(BusinessService $businessService)
     {
-        //
+        return view('business.service.edit', compact('businessService'));
     }
 
     /**
@@ -126,7 +152,19 @@ class BusinessServiceController extends Controller
      */
     public function update(Request $request, BusinessService $businessService)
     {
-        //
+        $businessService->business_id = auth('business')->id();
+        $businessService->type = $request->input('gender');
+        $businessService->category = $request->input('category');
+        $businessService->sub_category = $request->input('sub_category');
+        $businessService->time = $request->input('time');
+        $businessService->price = $this->sayiDuzenle($request->input('price'));
+        if ($businessService->save()) {
+            return to_route('business.businessService.index')->with('response', [
+                'status' => "success",
+                'title' => "Başarılı",
+                'message' => "Hizmet Güncellendi. Aşağıdaki Listede Görebilirsiniz"
+            ]);
+        }
     }
 
     /**
@@ -137,7 +175,13 @@ class BusinessServiceController extends Controller
      */
     public function destroy(BusinessService $businessService)
     {
-        //
+        PersonelService::where('service_id', $businessService->id)->delete();
+        if ($businessService->delete()){
+            return response()->json([
+                'status' => "success",
+                'message' => "Hizmet Silindi",
+            ]);
+        }
     }
 
     function sayiDuzenle($sayi){

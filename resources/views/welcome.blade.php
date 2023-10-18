@@ -574,7 +574,9 @@
                                                 <div class="tp-testimonial-five-wrapper d-flex justify-content-between align-items-center">
                                                     <div class="tp-testimonial-five-top-info d-flex align-items-center">
                                                         <div class="tp-testimonial-five-avata">
-                                                            <img src="{{asset($comment->image)}}" alt="">
+                                                            @if($comment->image)
+                                                                <img src="{{asset($comment->image)}}" alt="">
+                                                            @endif
                                                         </div>
                                                         <div class="tp-testimonial-five-author-info">
                                                             <h4>{{$comment->name}}</h4>

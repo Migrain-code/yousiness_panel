@@ -101,6 +101,11 @@ class MainPageSectionController extends Controller
      */
     public function destroy(MainPageSection $mainPageSection)
     {
-        //
+        if($mainPageSection->delete()){
+            return response()->json([
+               'status' => "success",
+               'message' => "Bölüm Silindi"
+            ]);
+        }
     }
 }

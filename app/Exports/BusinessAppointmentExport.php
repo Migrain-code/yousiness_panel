@@ -2,7 +2,8 @@
 
 namespace App\Exports;
 
-use App\Models\Customer;
+use App\Models\Appointment;
+use Illuminate\Support\Carbon;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
@@ -10,7 +11,7 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
-class BusinessCustomerExport implements FromCollection,WithColumnFormatting, WithMapping, WithHeadings, WithColumnWidths
+class BusinessAppointmentExport implements FromCollection,WithColumnFormatting, WithMapping, WithHeadings, WithColumnWidths
 {
     public $data;
 
@@ -27,16 +28,14 @@ class BusinessCustomerExport implements FromCollection,WithColumnFormatting, Wit
         return $this->data;
     }
 
-    public function map($customer): array
+    public function map($appointment): array
     {
         return [
-            $customer->name,
-            $customer->custom_email,
-            $customer->phone,
-            $customer->created_at,
-            $customer->email != "" ? "Kayıtlı" : "Kayıt Olmamış",
-            $customer->businessAppointments(auth('business')->id())->count(),
-            $customer->status == 1 ? "Doğrulanmamış" : "Aktif",
+            $appointment->customer->name,
+            Carbon::parse($appointment->date)->format('d.m.Y'),
+            $appointment->status('text'),
+            $appointment->services->count(),
+            $appointment->calculateTotal($appointment->services)."€"
         ];
     }
 
@@ -50,13 +49,11 @@ class BusinessCustomerExport implements FromCollection,WithColumnFormatting, Wit
     public function headings(): array
     {
         return [
-            'NAME NACHNAME',
-            'E-Mail',
-            'MOBILNUMMER',
-            'REGISTRIERDATUM',
-            'REGISTRIERT',
-            'TERMINE',
-            'STATUS',
+            'müşteri adı',
+            'randevu tarihi',
+            'randevu durumu',
+            'işlem sayısı',
+            'tutar',
         ];
     }
 
@@ -68,8 +65,6 @@ class BusinessCustomerExport implements FromCollection,WithColumnFormatting, Wit
             'C' => 14,
             'D' => 14,
             'E' => 23,
-            'F' => 14,
-            'G' => 14,
         ];
     }
 }

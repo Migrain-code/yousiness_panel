@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('business.layouts.master')
 @section('styles')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -30,29 +30,25 @@
     </div>
     <div class="row mx-4">
         @include('business.layouts.component.alert')
+        @include('business.layouts.component.error')
     </div>
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Müşteriler Listesi</h4>
-                    <div>
-                        <a href="{{route('admin.customer.export.excel')}}" class="btn btn-primary"> <i class="fa fa-arrow-alt-circle-down"></i> Excele Aktar</a>
+                    <div class="d-flex">
+                        <a href="{{route('business.customer.export.excel')}}" class="btn btn-primary me-2"> <i class="fa fa-arrow-alt-circle-down"></i> Excele Aktar</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" class="btn btn-primary">Müşteri Ekle</a>
 
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Müşteri
-                            Ekle
-                        </button>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="example3" class="display" style="min-width: 845px; width: 100%">
+                        <table id="example3" class="display" style="min-width: 845px">
                             <thead>
                             <tr>
                                 <th></th>
-                                <th>Name Nachname</th>
-                                <th>Mobilnummer</th>
                                 <th>İsim Soyisim</th>
                                 <th>E-posta</th>
                                 <th>Telefon</th>
@@ -64,38 +60,38 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($allCustomer as $businessCustomer)
-                                <tr>
-                                    <td>
-                                        <img class="rounded-circle" width="35"
-                                             src="{{image($businessCustomer->image)}}" alt="">
-                                    </td>
-                                    <td>{{$businessCustomer->name}}</td>
-                                    <td>
-                                        <a href="mailto:{{$businessCustomer->custom_email}}"><strong>{{$businessCustomer->custom_email}}</strong></a>
-                                    </td>
-                                    <td>
-                                        <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
-                                    </td>
-                                    <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
-                                    <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
-                                    <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
-                                    <td>
-                                        @if($businessCustomer->status==1)
-                                            <span class="badge light badge-success">Aktif</span>
-                                        @else
-                                            <span class="badge light badge-danger">Doğrulanmadı</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="{{route('admin.customer.edit', $businessCustomer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp" onclick="onDelete('{{route('admin.customer.destroy', $businessCustomer->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                            @forelse($bCustomers as $businessCustomer)
+                                @if($businessCustomer)
+                                    <tr>
+                                        <td>
+                                            <img class="rounded-circle" width="35"
+                                                 src="{{image($businessCustomer->image)}}" alt="">
+                                        </td>
+                                        <td>{{$businessCustomer->name}}</td>
+                                        <td>
+                                            <a href="mailto:{{$businessCustomer->custom_email}}"><strong>{{$businessCustomer->custom_email}}</strong></a>
+                                        </td>
+                                        <td>
+                                            <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
+                                        </td>
+                                        <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
+                                        <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                        <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
+                                        <td>
+                                            @if($businessCustomer->status==1)
+                                                <span class="badge light badge-success">Aktif</span>
+                                            @else
+                                                <span class="badge light badge-danger">Doğrulanmadı</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{route('business.customer.show', $businessCustomer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                @endif
                             @empty
                             @endforelse
+
                             </tbody>
                         </table>
                     </div>
@@ -103,28 +99,17 @@
             </div>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg" id="customerAddModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Kunden Hinzufügen</h5>
+                    <h5 class="modal-title">Müşteri Ekle</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
-                <form method="post" action="{{route('admin.customer.store')}}">
+                <form method="post" action="{{route('business.customer.store')}}">
                     @csrf
                     <div class="modal-body">
-                       <div class="form-group">
-                           <label>Name Nachname</label>
-                           <input type="text" class="form-control" name="name">
-                       </div>
-                        <div class="form-group">
-                            <label>Mobilnummer</label>
-                            <input type="text" class="form-control" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label>E-Mail</label>
-                            <input type="email" class="form-control" name="email">
                         <div class="form-group">
                             <label>Ad Soyad</label>
                             <input type="text" class="form-control" name="name">
@@ -138,20 +123,21 @@
                             <input type="email" class="form-control" name="custom_email">
                         </div>
                         <div class="form-group">
-                            <label>Geschlecht</label>
+                            <label>Cinsiyet</label>
                             <select name="gender" class="form-control">
                                 <option value="0">Erkek</option>
                                 <option value="1">Kadın</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Passwort</label>
+                            <label>Şifre</label>
                             <input type="text" class="form-control" name="password">
                         </div>
                     </div>
+
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
-                        <button type="submit" class="btn btn-primary">Speichern</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
                     </div>
                 </form>
             </div>
@@ -186,7 +172,7 @@
                         type: "POST",
                         data: {
                             _token: '{{csrf_token()}}',
-                            '_method': 'DELETE',
+                            _method: 'DELETE'
                         },
                         dataType: "JSON",
                         success: function (res) {
