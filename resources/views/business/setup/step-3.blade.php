@@ -53,9 +53,6 @@
                     </a>
                 </li>
 
-                <li>
-                    <div id="embedView"></div>
-                </li>
 
             </ul>
         </div>
@@ -84,14 +81,18 @@
                             </div>
 
                         </div>
+
                         <div class="form-group col-lg-12">
                             <label>İşletme Adresi</label>
                             <textarea class="form-control" name="address" id="address" rows="6">{{$business->address}}</textarea>
                         </div>
-                        <div class="form-group col-lg-12">
+
+                        <div class="form-group col-lg-12" style="display: none">
                             <label>Harita Kodu</label>
                             <textarea class="form-control read-content" name="embed" id="embed" readonly rows="6">{{$business->embed}}</textarea>
                         </div>
+
+                        <div id="embedView"></div>
                     </form>
                 </div>
             </div>

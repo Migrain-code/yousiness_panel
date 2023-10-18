@@ -30,13 +30,26 @@
     </div>
     <div class="row mx-4">
         @include('business.layouts.component.alert')
+        @include('business.layouts.component.error')
     </div>
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Müşteriler Listesi</h4>
-                    <a href="{{route('business.customer.export.excel')}}" class="btn btn-primary"> <i class="fa fa-arrow-alt-circle-down"></i> Excele Aktar</a>
+
+                    <div class="d-flex">
+                        <form method="get" action="{{route('business.customer.index')}}" id="typeForm">
+                            <select name="type" id="typeSelect" class="me-2">
+                                <option value="all" selected>Hepsi</option>
+                                <option value="registered" @selected(isset(request()->query()["type"]) && request()->query()["type"] == "registered")>Kayıtlı Müşteriler</option>
+                                <option value="appointment" @selected(isset(request()->query()["type"]) && request()->query()["type"] == "appointment")>Randevu Alan Müşteriler</option>
+                            </select>
+                        </form>
+                        <a href="{{route('business.customer.export.excel')}}" class="btn btn-primary me-2"> <i class="fa fa-arrow-alt-circle-down"></i> Excele Aktar</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" class="btn btn-primary">Müşteri Ekle</a>
+
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -50,38 +63,143 @@
                                 <th>Kayıt Zamanı</th>
                                 <th>Kayıtlı Mı?</th>
                                 <th>Randevu Sayısı</th>
-                                <th>Yasak</th>
+                                <th>Durum</th>
                                 <th>İşlemler</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($bCustomers as $businessCustomer)
-                                <tr>
-                                    <td>
-                                        <img class="rounded-circle" width="35"
-                                             src="{{image($businessCustomer->image)}}" alt="">
-                                    </td>
-                                    <td>{{$businessCustomer->name}}</td>
-                                    <td>
-                                        <a href="mailto:{{$businessCustomer->custom_email}}"><strong>{{$businessCustomer->custom_email}}</strong></a>
-                                    </td>
-                                    <td>
-                                        <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
-                                    </td>
-                                    <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
-                                    <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
-                                    <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
-                                    <td>
-                                        @if($businessCustomer->status==1)
-                                            <span class="badge light badge-success">Aktif</span>
-                                        @else
-                                            <span class="badge light badge-danger">Engellendi</span>
-                                        @endif
-                                    </td>
+                            @if(isset(request()->query()["type"]) && request()->query()["type"] == "registered")
+                                @forelse(auth('business')->user()->customers as $customer)
+                                    @if($customer)
+                                        <tr>
+                                            <td>
+                                                <img class="rounded-circle" width="35"
+                                                     src="{{image($customer->customer->image)}}" alt="">
+                                            </td>
+                                            <td>{{$customer->customer->name}}</td>
+                                            <td>
+                                                <a href="mailto:{{$customer->customer->custom_email}}"><strong>{{$customer->customer->custom_email}}</strong></a>
+                                            </td>
+                                            <td>
+                                                <a href="tel:{{$customer->customer->phone}}"><strong>{{$customer->customer->phone}}</strong></a>
+                                            </td>
+                                            <td>{{$customer->customer->created_at->format('d.m.Y')}}</td>
+                                            <td>{{$customer->customer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                            <td>{{$customer->customer->businessAppointments(auth('business')->id())->count()}}</td>
+                                            <td>
+                                                @if($customer->customer->status==1)
+                                                    <span class="badge light badge-success">Aktif</span>
+                                                @else
+                                                    <span class="badge light badge-danger">Engellendi</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <a href="{{route('business.customer.edit', $customer->customer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                    <a href="#" class="btn btn-danger shadow btn-xs sharp" onclick="onDelete('{{route('business.customer.destroy', $customer->customer->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @empty
+                                @endforelse
+                            @elseif(isset(request()->query()["type"]) && request()->query()["type"] == "appointment")
+                                @forelse($bCustomers as $businessCustomer)
+                                    @if($businessCustomer)
+                                        <tr>
+                                            <td>
+                                                <img class="rounded-circle" width="35"
+                                                     src="{{image($businessCustomer->image)}}" alt="">
+                                            </td>
+                                            <td>{{$businessCustomer->name}}</td>
+                                            <td>
+                                                <a href="mailto:{{$businessCustomer->custom_email}}"><strong>{{$businessCustomer->custom_email}}</strong></a>
+                                            </td>
+                                            <td>
+                                                <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
+                                            </td>
+                                            <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
+                                            <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                            <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
+                                            <td>
+                                                @if($businessCustomer->status==1)
+                                                    <span class="badge light badge-success">Aktif</span>
+                                                @else
+                                                    <span class="badge light badge-danger">Doğrulanmadı</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{route('business.customer.show', $businessCustomer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @empty
+                                @endforelse
+                            @else
+                                @forelse(auth('business')->user()->customers as $customer)
+                                    <tr>
+                                            <td>
+                                                <img class="rounded-circle" width="35"
+                                                     src="{{image($customer->customer->image)}}" alt="">
+                                            </td>
+                                            <td>{{$customer->customer->name}}</td>
+                                            <td>
+                                                <a href="mailto:{{$customer->customer->custom_email}}"><strong>{{$customer->customer->custom_email}}</strong></a>
+                                            </td>
+                                            <td>
+                                                <a href="tel:{{$customer->customer->phone}}"><strong>{{$customer->customer->phone}}</strong></a>
+                                            </td>
+                                            <td>{{$customer->customer->created_at->format('d.m.Y')}}</td>
+                                            <td>{{$customer->customer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                            <td>{{$customer->customer->businessAppointments(auth('business')->id())->count()}}</td>
+                                            <td>
+                                                @if($customer->customer->status==1)
+                                                    <span class="badge light badge-success">Aktif</span>
+                                                @else
+                                                    <span class="badge light badge-danger">Engellendi</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <a href="{{route('business.customer.edit', $customer->customer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                    <a href="#" class="btn btn-danger shadow btn-xs sharp" onclick="onDelete('{{route('business.customer.destroy', $customer->customer->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                @empty
+                                @endforelse
+                                @forelse($bCustomers as $businessCustomer)
+                                        <tr>
+                                            <td>
+                                                <img class="rounded-circle" width="35"
+                                                     src="{{image($businessCustomer->image)}}" alt="">
+                                            </td>
+                                            <td>{{$businessCustomer->name}}</td>
+                                            <td>
+                                                <a href="mailto:{{$businessCustomer->custom_email}}"><strong>{{$businessCustomer->custom_email}}</strong></a>
+                                            </td>
+                                            <td>
+                                                <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
+                                            </td>
+                                            <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
+                                            <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                            <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
+                                            <td>
+                                                @if($businessCustomer->status==1)
+                                                    <span class="badge light badge-success">Aktif</span>
+                                                @else
+                                                    <span class="badge light badge-danger">Doğrulanmadı</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{route('business.customer.show', $businessCustomer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                @empty
+                                @endforelse
+                            @endif
 
-                                </tr>
-                            @empty
-                            @endforelse
+
                             </tbody>
                         </table>
                     </div>
@@ -89,7 +207,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg" id="customerAddModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -111,6 +229,12 @@
                         <div class="form-group">
                             <label>E-Mail</label>
                             <input type="email" class="form-control" name="email">
+                            <label>Telefon</label>
+                            <input type="number" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>E-posta</label>
+                            <input type="email" class="form-control" name="custom_email">
                         </div>
                         <div class="form-group">
                             <label>Geschlecht</label>
@@ -162,6 +286,7 @@
                         type: "POST",
                         data: {
                             _token: '{{csrf_token()}}',
+                            _method: 'DELETE'
                         },
                         dataType: "JSON",
                         success: function (res) {
@@ -189,5 +314,9 @@
             })
         }
     </script>
-
+    <script>
+        $('#typeSelect').on('change', function (){
+            $('#typeForm').submit();
+        });
+    </script>
 @endsection

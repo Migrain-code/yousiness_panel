@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Business;
 
+use App\Exports\BusinessAppointmentExport;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\AppointmentServices;
@@ -12,6 +13,7 @@ use Faker\Provider\Person;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AppointmentController extends Controller
 {
@@ -24,14 +26,25 @@ class AppointmentController extends Controller
     {
         $todayAppointments= Appointment::where('business_id',auth('business')->id())
             ->where('status', 1)
-            ->whereRaw("STR_TO_DATE(start_time, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
-            ->orderByRaw("STR_TO_DATE(start_time, '%d.%m.%Y %H:%i')")
+            ->whereRaw("STR_TO_DATE(date, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
+            ->orderByRaw("STR_TO_DATE(date, '%d.%m.%Y %H:%i')")
             ->get();
         $appointments = Appointment::where('business_id',auth('business')->id())->get();
 
         return view('business.appointment.index', compact('todayAppointments', 'appointments'));
     }
 
+    public function listView()
+    {
+        $todayAppointments= Appointment::where('business_id',auth('business')->id())
+            ->where('status', 1)
+            ->whereRaw("STR_TO_DATE(date, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
+            ->orderByRaw("STR_TO_DATE(date, '%d.%m.%Y')")
+            ->get();
+        $appointments = Appointment::where('business_id',auth('business')->id())->get();
+
+        return view('business.appointment.list', compact('todayAppointments', 'appointments'));
+    }
     public function reject($id)
     {
         $findAppointment = Appointment::find($id);
@@ -142,5 +155,14 @@ class AppointmentController extends Controller
     public function destroy(Appointment $appointment)
     {
         //
+    }
+
+    public function export()
+    {
+        $businessUser = auth('business')->user();
+
+        $appointments = $businessUser->appointments;
+
+        return Excel::download(new BusinessAppointmentExport($appointments), 'appointments.xlsx');
     }
 }

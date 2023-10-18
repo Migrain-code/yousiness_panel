@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -75,7 +76,7 @@ class Business extends Authenticatable
 
     public function appointments()
     {
-        return $this->hasMany(Appointment::class, 'business_id', 'id')->orderBy('start_time', 'desc');
+        return $this->hasMany(Appointment::class, 'business_id', 'id')->orderBy('date', 'desc');
     }
 
     public function cities()

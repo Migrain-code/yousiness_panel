@@ -4,11 +4,11 @@
 
         <!-- Row -->
         <div class="row">
-            <div class="col-xl-9 col-xxl-8">
+            <div class="col-xl-12 col-xxl-12">
                 <!-- Row -->
                 <div class="row">
                     <!-- ----column---- -->
-                    <div class="col-xl-12">
+                    <div class="col-8">
                         <div class="user card ">
                             <div class="user-head">
                                 <div class="user-info">
@@ -36,7 +36,7 @@
                                                             <path d="M24 1.85315C24.0075 1.76443 24.0075 1.67522 24 1.58649L23.88 1.33315C23.88 1.33315 23.88 1.23982 23.8133 1.19982L23.7467 1.13315L23.5333 0.95982C23.475 0.90049 23.4075 0.850965 23.3333 0.813154L23.1067 0.733154H22.84H1.24H0.973333L0.746667 0.826487C0.672327 0.85818 0.604514 0.903389 0.546667 0.95982L0.333333 1.13315C0.333333 1.13315 0.333333 1.13315 0.333333 1.19982C0.333333 1.26649 0.333333 1.29315 0.266667 1.33315L0.146667 1.58649C0.13912 1.67522 0.13912 1.76443 0.146667 1.85315L0 1.99982V17.9998C0 18.3534 0.140476 18.6926 0.390524 18.9426C0.640573 19.1927 0.979711 19.3332 1.33333 19.3332H13.3333C13.687 19.3332 14.0261 19.1927 14.2761 18.9426C14.5262 18.6926 14.6667 18.3534 14.6667 17.9998C14.6667 17.6462 14.5262 17.3071 14.2761 17.057C14.0261 16.807 13.687 16.6665 13.3333 16.6665H2.66667V4.66649L11.2 11.0665C11.4308 11.2396 11.7115 11.3332 12 11.3332C12.2885 11.3332 12.5692 11.2396 12.8 11.0665L21.3333 4.66649V16.6665H18.6667C18.313 16.6665 17.9739 16.807 17.7239 17.057C17.4738 17.3071 17.3333 17.6462 17.3333 17.9998C17.3333 18.3534 17.4738 18.6926 17.7239 18.9426C17.9739 19.1927 18.313 19.3332 18.6667 19.3332H22.6667C23.0203 19.3332 23.3594 19.1927 23.6095 18.9426C23.8595 18.6926 24 18.3534 24 17.9998V1.99982C24 1.99982 24 1.90649 24 1.85315ZM12 8.33315L5.33333 3.33315H18.6667L12 8.33315Z" fill="#FCFCFC"></path>
                                                         </svg>
                                                     </div>
-                                                    <h4 class="details"><a href="mailto: {{$appointment->customer->email}}">{{$appointment->customer->email}}</a></h4>
+                                                    <h4 class="details"><a href="mailto: {{$appointment->customer->custom_email}}">{{$appointment->customer->custom_email}}</a></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -47,6 +47,50 @@
 
                     </div>
                     <!-- ----/column---- -->
+                    <div class="col-4 ">
+                        <!-- --row-- -->
+                        <div class="row">
+                            <!-- ----column---- -->
+                            <div class="col-xl-12">
+                                <div class="clearfix">
+                                    <div class="card card-bx profile-card author-profile m-b30">
+                                        <div class="card-header">
+                                            <div class="card-title">
+                                                Randevu Özeti
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="p-3" style="text-align: left;font-size: 16px;line-height: 2.8em">
+                                                <ul>
+                                                    <li class="border-top border-primary"><b>Tarih :</b> {{\Illuminate\Support\Carbon::parse($appointment->date)->format('d.m.Y')}}</li>
+
+                                                    <li class="border-top border-primary"><b>Ödenecek Tutar :</b> <span class="text-success">{{$appointment->calculateTotal($appointment->services)}} €</span> </li>
+                                                    <li class="border-top border-primary">
+                                                        <b>Durumu : {!! $appointment->status('html') !!}</b>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="info-list border-top border-primary">
+                                                @if($appointment->status==5)
+                                                    <a class="btn btn-primary my-2">Ödeme Al</a>
+                                                @endif
+                                                @if($appointment->status==6)
+                                                    <a class="btn btn-primary my-2">Ödeme Onayla</a>
+                                                @endif
+                                                @if($appointment->status==7)
+                                                    <span class="alert alert-warning">Randevu Tamamlandı. İşlem yapmazsınız</span>
+                                                @endif
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ----/column---- -->
+
+                        </div>
+                        <!-- --row-- -->
+                    </div>
                 </div>
                 <div class="row">
                     <div class="card">
@@ -83,51 +127,7 @@
                 </div>
             </div>
             <!-- ----column---- -->
-            <div class="col-xl-3 col-xxl-4">
-                <!-- --row-- -->
-                <div class="row">
-                    <!-- ----column---- -->
-                    <div class="col-xl-12">
-                        <div class="clearfix">
-                            <div class="card card-bx profile-card author-profile m-b30">
-                                <div class="card-header">
-                                    <div class="card-title">
-                                        Randevu Özeti
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="p-3" style="text-align: left;font-size: 16px;line-height: 2.8em">
-                                        <ul>
-                                            <li class="border-top border-primary"><b>Başlangıç Saati :</b> {{$appointment->start_time->format('d.m.Y H:i')}}</li>
-                                            <li class="border-top border-primary"><b>Bitiş Saati :</b> {{$appointment->end_time->format('d.m.Y H:i')}}</li>
 
-                                            <li class="border-top border-primary"><b>Ödenecek Tutar :</b> <span class="text-success">{{$appointment->calculateTotal($appointment->services)}} €</span> </li>
-                                            <li class="border-top border-primary">
-                                                <b>Durumu : {!! $appointment->status('html') !!}</b>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="info-list border-top border-primary">
-                                        @if($appointment->status==5)
-                                            <a class="btn btn-primary my-2">Ödeme Al</a>
-                                        @endif
-                                        @if($appointment->status==6)
-                                            <a class="btn btn-primary my-2">Ödeme Onayla</a>
-                                        @endif
-                                        @if($appointment->status==7)
-                                            <span class="alert alert-warning">Randevu Tamamlandı. İşlem yapmazsınız</span>
-                                        @endif
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ----/column---- -->
-
-                </div>
-                <!-- --row-- -->
-            </div>
             <!-- ----/column---- -->
         </div>
 

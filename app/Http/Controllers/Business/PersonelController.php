@@ -201,17 +201,17 @@ class PersonelController extends Controller
             return $appointment->service;
         })->flatten();
 
-        $theYearServices = $personel->appointments()->whereYear('created_at', now()->year)->get()->map(function ($appointment) {
+        /*$theYearServices = $personel->appointments()->whereYear('created_at', now()->year)->get()->map(function ($appointment) {
             return $appointment->service;
-        })->flatten();
+        })->flatten();*/
 
-        $theMonthServices = $personel->appointments()
+        /*$theMonthServices = $personel->appointments()
             ->whereYear('created_at', now()->year)
             ->whereMonth('created_at', now()->month)
             ->get()
             ->map(function ($appointment) {
                 return $appointment->service;
-            })->flatten();
+            })->flatten();*/
 
         $totalPrice = $this->appointmentTotalPrice($businessServices);
 
@@ -224,22 +224,33 @@ class PersonelController extends Controller
         $packageSales = $personel->packageSales;// Paket satış listesi
         $productSales = $personel->productSales;// Ürün satışı listesi
 
-        $theYearPackageSale = $personel->packageSales()->whereYear('seller_date', now()->year)->sum('total');//bu yılki paket satış toplamı
-        $theYearProductSale = $personel->productSales()->whereYear('created_at', now()->year)->sum('total');//bu yılki ürün satışı toplamı
-        $theYearAppointmentTotal = $this->appointmentTotalPrice($theYearServices);
+        //$theYearPackageSale = $personel->packageSales()->whereYear('seller_date', now()->year)->sum('total');//bu yılki paket satış toplamı
+        //$theYearProductSale = $personel->productSales()->whereYear('created_at', now()->year)->sum('total');//bu yılki ürün satışı toplamı
+        //$theYearAppointmentTotal = $this->appointmentTotalPrice($theYearServices);
 
-        $theMonthPackageSale = $personel->packageSales()->whereYear('seller_date', now()->year)->whereMonth('seller_date', now()->month)->sum('total');
-        $theMonthProductSale = $personel->productSales()->whereYear('created_at', now()->year)->whereMonth('created_at', now()->month)->sum('total');
-        $theMonthAppointmentTotal = $this->appointmentTotalPrice($theMonthServices);
+        //$theMonthPackageSale = $personel->packageSales()->whereYear('seller_date', now()->year)->whereMonth('seller_date', now()->month)->sum('total');
+        //$theMonthProductSale = $personel->productSales()->whereYear('created_at', now()->year)->whereMonth('created_at', now()->month)->sum('total');
+        //$theMonthAppointmentTotal = $this->appointmentTotalPrice($theMonthServices);
 
-        $theMonthTotal = $theMonthPackageSale + $theMonthProductSale + $theMonthAppointmentTotal;
-        $theYearTotal = $theYearPackageSale + $theYearProductSale + $theYearAppointmentTotal;
-        $allTotal = $packageSales->sum('total') + $productSales->sum('total') + $totalPrice;
+        //$theMonthTotal = $theMonthPackageSale + $theMonthProductSale + $theMonthAppointmentTotal;
+        //$theYearTotal = $theYearPackageSale + $theYearProductSale + $theYearAppointmentTotal;
+        //$allTotal = $packageSales->sum('total') + $productSales->sum('total') + $totalPrice;
 
+        $theMonthTotal = $personel->appointments()
+            ->where('status', 7)
+            ->whereRaw("STR_TO_DATE(start_time, '%Y-%m-%d') = ?", [Carbon::now()->format('Y-m-d')])
+            ->count();
+
+        $theYearTotal = $personel->appointments()
+            ->where('status', 7)
+            ->whereRaw("YEAR(STR_TO_DATE(start_time, '%Y-%m-%d %H:%i:%s')) = ?", [Carbon::now()->year])
+            ->count();
+
+        $allTotal = $personel->appointments()->where('status', 7)->count();
         $monthlyAppointmentCounts = [];
         for ($month = 1; $month <= 12; $month++) {
 
-            $count = $personel->appointments()->whereMonth('created_at', $month)->count();
+            $count = $personel->appointments()->where('status', 7)->whereMonth('created_at', $month)->count();
 
             $monthlyAppointmentCounts[] = $count;
         }

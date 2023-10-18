@@ -67,38 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             return {
                 html: '<div class="event-content">' +
-                    '<h5 style="color: white;margin-bottom: -5px;">' + info.event.title + '</h5>' +
-                    '<p style="color:white; font-weight: 600; font-size: 14px;margin-bottom: -4px;">' + clockRange + '</p>' +
-                    '<span class="badge badge-' + statusCode + '">' + status + '</span>' +
+                    '<h5 style="color: white;margin-bottom: -5px;font-size: 11px;">' + info.event.title + '</h5>' +
+                    '<p style="color:white; font-weight: 600; font-size: 11px;margin-bottom: -4px;">' + clockRange + '</p>' +
                     '</div>'
             };
         },
         eventClick: function (info) {
             var modal = $('#eventDetailsModal');
-            var customerName = info.event.extendedProps.customer;
-            var customerImage = info.event.extendedProps.image;
-            var servicesList = info.event.extendedProps.services;
-            var clock = info.event.extendedProps.clockRange;
-
-            modal.find('#customerName').text(customerName);
-
-            modal.find('#customerImage').attr('src', customerImage);
-            modal.find('#appointmentClock').text(clock);
-            modal.find('#servicesList').empty();
-
-            for (var i = 0; i < servicesList.length; i++) {
-                var service = servicesList[i];
-                var listItem = '<li style="border: 1px solid black;border-radius: 15px;margin-bottom: 10px;padding: 5px;">' +
-                    '<img src="' + service.image +
-                    '" style="width: 33px;height: 33px;border-radius: 50%;">' +
-                    '</strong> ' + service.personel +
-                    ', <strong>Dienstleistung:</strong> ' + service.hizmet +
-                    '</li>';
-                modal.find('#servicesList').append(listItem);
-
-            }
-
-            modal.modal('show');
+            var route_link = info.event.extendedProps.links;
+            window.location.href = route_link;
         }
     });
     calendar.render();

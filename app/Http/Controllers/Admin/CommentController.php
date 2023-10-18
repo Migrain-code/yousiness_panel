@@ -51,19 +51,19 @@ class CommentController extends Controller
         $request->validate([
             'name'=>"required",
             'business_name'=>"required",
-            'image'=>"required",
             'description'=>"required"
         ],[],[
             'name'=>"Yorum Yapan Adı",
             'business_name'=>"Yorum yapan işletme adı",
-            'image'=>"İşletme Logosu",
             'description'=>"Yorum metni",
         ]);
         $comment=new Comment();
         $comment->name=$request->input('name');
         $comment->business=$request->input('business_name');
         $comment->description=$request->input('description');
-        $comment->image="storage/".$request->file('image')->store('comments_logo');
+        if ($request->hasFile('image')){
+            $comment->image="storage/".$request->file('image')->store('comments_logo');
+        }
         $comment->user_statu = $request->input('user_statu');
         if ($comment->save()){
             return to_route('admin.comment.index')->with('response', [
