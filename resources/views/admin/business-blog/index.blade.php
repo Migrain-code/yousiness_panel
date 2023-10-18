@@ -62,7 +62,7 @@
 
                                     </div>
                                     <div class="mb-3">
-                                        <label>Görsel</label>
+                                        <label>Foto</label>
                                         <input type="file" class="form-control input-default " value="{{old('image')}}" name="image" >
                                     </div>
                                     <div class="mb-3">
@@ -94,9 +94,9 @@
                     <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>Görsel</th>
+                            <th>Foto</th>
                             <th>Başlık</th>
-                            <th>Açıklama</th>
+                            <th>Bemerkung</th>
                             <th>Durum</th>
                             <th>İşlemler</th>
                         </tr>

@@ -313,7 +313,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Randevu Aralığı</label>
+                                                        <label class="form-label">Dauer der Dienstleistung</label>
                                                         <select class="form-control" name="minute">
                                                             <option value="">Süre Seçiniz</option>
                                                             <option value="5" @selected($business->appoinment_range=="5")>
@@ -370,7 +370,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Salon E-posta</label>
+                                                        <label class="form-label">Salon E-Mail</label>
                                                         <input type="email" name="b_email"
                                                                value="{{$business->business_email}}" placeholder="Email"
                                                                class="form-control">

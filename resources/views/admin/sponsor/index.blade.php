@@ -80,7 +80,7 @@
                     <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>Görsel</th>
+                            <th>Foto</th>
                             <th>Ad</th>
                             <th>İşlemler</th>
                         </tr>

@@ -46,7 +46,7 @@
                                         <input type="text" class="form-control input-default " name="price" placeholder="">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Paket Tipi</label>
+                                        <label>Pakettyp</label>
                                         <select type="text" class="form-control input-default " name="type">
                                             <option value="0">Aylık</option>
                                             <option value="1">Yıllık</option>

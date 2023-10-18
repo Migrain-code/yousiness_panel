@@ -40,11 +40,11 @@
                         </div>
 
                         <div class="mb-3">
-                            <label>Açıklama</label>
+                            <label>Bemerkung</label>
                             <textarea class="form-control input-default " name="description" >{!! $mainPageSection->description !!}</textarea>
                         </div>
                         <div class="mb-3">
-                            <label>Görsel</label>
+                            <label>Foto</label>
                             <input type="file" class="form-control input-default " name="image" >
                             <img src="{{asset($mainPageSection->image)}}" style="max-width: 300px;margin-top: 30px;">
                         </div>

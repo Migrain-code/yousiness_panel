@@ -60,7 +60,7 @@ class AdminBusinessesExport implements FromCollection,WithColumnFormatting, With
             'İşletme Sahibi',
             'Mobilnummer',
             'E-Mail',
-            'Tatil Günü',
+            'Freier Tag',
             'Mesai Başlangıç Saati',
             'Mesai Bitiş Saati',
             'Onay Türü',

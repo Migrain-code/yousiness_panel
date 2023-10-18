@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     '<img src="' + service.image +
                     '" style="width: 33px;height: 33px;border-radius: 50%;">' +
                     '</strong> ' + service.personel +
-                    ', <strong>Hizmet:</strong> ' + service.hizmet +
+                    ', <strong>Dienstleistung:</strong> ' + service.hizmet +
                     '</li>';
                 modal.find('#servicesList').append(listItem);
 

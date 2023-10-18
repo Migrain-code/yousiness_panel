@@ -433,7 +433,7 @@
                                     <img src="/business/assets/img/cta/apple_store_logo.svg" width="200" height="80"
                                          class="">
                                 </div>
-                                <div class="col-lg-4 Müşterilerimizincol-md-6 col-sm-12">
+                                <div class="col-lg-4 col-md-6 col-sm-12">
                                     <img src="/business/assets/img/cta/google_play_logo.svg" width="200" height="80">
                                 </div>
 

@@ -141,8 +141,8 @@ class HomeController extends Controller
             'fullName'=>"Name Nachname",
             'email'=>"E-Mail",
             'phone'=>"Mobilnummer",
-            'subject'=>"Konu",
-            'message'=>"İletişim Mesajı",
+            'subject'=>"Betreff Nachricht",
+            'message'=>"Nachricht",
         ]);
         $businessContact=new BusinessContact();
         $businessContact->fullName=$request->fullName;

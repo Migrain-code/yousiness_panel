@@ -51,7 +51,7 @@
                             <thead>
                             <tr>
                                 <th></th>
-                                <th>İsim Soyisim</th>
+                                <th>Name Nachname</th>
                                 <th>Mobilnummer</th>
                                 <th>Kayıt Zamanı</th>
                                 <th>Yasak</th>

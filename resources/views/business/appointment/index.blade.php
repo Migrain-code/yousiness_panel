@@ -202,9 +202,9 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Müşteri</label>
+                                <label class="form-label">Kunde</label>
                                 <select name="customer_id" class="form-control">
-                                    <option>Müşteri Seçiniz</option>
+                                    <option>Kunde Auswählen</option>
                                     @forelse(auth('business')->user()->customers as $bCustomer)
                                         <option value="{{$bCustomer->customer->id}}">{{$bCustomer->customer->name}}</option>
                                     @empty
@@ -226,7 +226,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Hizmetler</label>
                                 <select name="service_id" id="service_id" class="form-control">
-                                    <option>Hizmet Seçiniz</option>
+                                    <option>Dienstleistung Auswählen</option>
                                     @forelse(auth('business')->user()->service as $service)
                                         <option value="{{$service->id}}">{{$service->subCategory->name. "(". $service->gender->name . ")"}}</option>
                                     @empty

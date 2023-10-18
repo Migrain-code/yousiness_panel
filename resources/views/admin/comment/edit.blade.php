@@ -56,7 +56,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="user_statu" @checked($comment->user_statu == 1) value="1" id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
-                                    Müşteri
+                                    Kunde
                                 </label>
                             </div>
                             <div class="form-check">

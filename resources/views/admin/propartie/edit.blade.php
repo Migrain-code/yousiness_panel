@@ -46,7 +46,7 @@
                         <img src="{{asset($propartie->icon)}}" style="max-width: 150px">
                     </div>
                     <div class="mb-3">
-                        <label>Görsel</label>
+                        <label>Foto</label>
                         <input type="file" class="form-control input-default mb-2" name="image" placeholder="Örneğin(Randevu Hatırlatma)">
                         <img src="{{asset($propartie->image)}}" style="max-width: 150px">
 

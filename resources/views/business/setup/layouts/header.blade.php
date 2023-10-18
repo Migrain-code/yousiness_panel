@@ -53,7 +53,7 @@
         <!---Left Panel----->
         <div class="left-panel mt-2 mb-3">
             <div class="onboarding-logo text-center">
-                <h1 style="color: white">İşletme Kurulumu</h1>
+                <h1 style="color: white">Unternehmensgründung</h1>
             </div>
             <div class="onboard-img">
                 <img src="/business/setup/assets/img/onboard-img/onb-slide-img.png" class="img-fluid" alt="">
@@ -64,39 +64,9 @@
                     <!-- Slider Item -->
                     <div class="onboard-item text-center">
                         <div class="onboard-content">
-                            <h3>1.Adım İşletme Türünüzü Seçiniz</h3>
+                            <h3>1.Schritt: Wählen Sie ihre Salon Kategorie(n) aus</h3>
                             <p>
-                                İşletmenizi kategorilere göre sınıflandıracağız. Size uygun işletme türünü seçiniz.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- /Slider Item -->
-                    <!-- Slider Item -->
-                    <div class="onboard-item text-center">
-                        <div class="onboard-content">
-                            <h3>2. Adım İşletme Detayları</h3>
-                            <p>
-                                İşletmenizin detaylı bilgilerini girerek müşterilerin sizlere doğru tarih ve saattlerde ulaşabilmesini sağlayın.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- /Slider Item -->
-                    <!-- Slider Item -->
-                    <div class="onboard-item text-center">
-                        <div class="onboard-content">
-                            <h3>3. Adım Yetkili Bilgileri</h3>
-                            <p>
-                                İşletmeyi yönetecek olan kişinin bilgilerini bu alana girmeniz gerekmektedir. Buraya girdiğiniz bilgiler ile üst yönetim paneline geçiş yapacaksınız.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- /Slider Item -->
-                    <!-- Slider Item -->
-                    <div class="onboard-item text-center">
-                        <div class="onboard-content">
-                            <h3>4. Adım Yetkili Bilgileri</h3>
-                            <p>
-                                Bu adımda sisteminize tanımlanacak paketi seçmeniz gerekmektedir. Paketi seçtikten sonra ödemenizi yapın ve sonrasında paket sisteminize tanımlanacaktır.
+                            Wir werden ihren Salon in Kategorien einteilen. Deshalb ist es wichtig, dass sie die entsprechende Salon Arten auswählen.
 
                             </p>
                         </div>
@@ -105,10 +75,39 @@
                     <!-- Slider Item -->
                     <div class="onboard-item text-center">
                         <div class="onboard-content">
-                            <h3>5. Panele Gidin</h3>
+                            <h3>2. Schritt: Salon Details angeben</h3>
                             <p>
-                                Bu adımı geldiyseniz kurulumunuz bitmiş demektir. Şimdi paneli göstere tıklayın yetkili bilgilerinizi girin ve panelde işlem yapmaya başlayın.
+                            Geben Sie die Informationen zu Ihrem Salon ein und stellen Sie sicher, dass Ihre Kunden Sie zu den richtigen Daten und Zeiten erreichen können.
                             </p>
+                        </div>
+                    </div>
+                    <!-- /Slider Item -->
+                    <!-- Slider Item -->
+                    <div class="onboard-item text-center">
+                        <div class="onboard-content">
+                            <h3>3.Schritt: Standort Informationen angeben</h3>
+                            <p>
+                            Damit Ihr Salon im System und im normalen Leben der Kunden leicht gefunden werden kann, geben Sie ihre Adressdaten vollständig an.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /Slider Item -->
+                    <!-- Slider Item -->
+                    <div class="onboard-item text-center">
+                        <div class="onboard-content">
+                            <h3>4. Schritt: Yousiness Paket Auswählen</h3>
+                            <p>
+                            Wählen Sie das passende Paket aus, dass für Ihr System definiert werden soll. 
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /Slider Item -->
+                    <!-- Slider Item -->
+                    <div class="onboard-item text-center">
+                        <div class="onboard-content">
+                            <h3>5. Weiter zum Dashboard</h3>
+                            <p>
+                            Wenn Sie diesen Schritt erreicht haben, ist Ihre Installation abgeschlossen. Klicken Sie nun auf "Dashboard anzeigen", geben Sie Ihre autorisierten Informationen ein und starten Sie die Bearbeitung des Dashboards.                            </p>
                         </div>
                     </div>
                     <!-- /Slider Item -->
@@ -123,6 +122,6 @@
                 <div class="row">
                     <div class="col-lg-12 p-0">
                         <div class="right-panel-title text-center">
-                            <a href="#" style="color: white;font-weight: bold">İşletme Kurulumu</a>
+                            <a href="#" style="color: white;font-weight: bold">Unternehmensgründung</a>
                         </div>
                     </div>

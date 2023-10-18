@@ -52,7 +52,7 @@ class ActivityController extends Controller
             'description' => "Açıklama Metni",
             'meta_keys' => "Meta anahtar kelimeleri",
             'meta_description' => "Meta açıklama Metni",
-            'image' => "Görsel",
+            'image' => "Foto",
             'start_date' => "Başlangıç Zamanı",
             'stop_date' => "Bitiş Zamanı",
             'city' => "Plz/ Stadtname",

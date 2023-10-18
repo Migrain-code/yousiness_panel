@@ -54,7 +54,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
                                 </div>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li class="dropdown-item"><a href="javascript:void(0)"><i class="fa fa-users text-primary me-2"></i> Personel Ekle</a></li>
+                                    <li class="dropdown-item"><a href="javascript:void(0)"><i class="fa fa-users text-primary me-2"></i> Personal Hinzufügen</a></li>
                                     <li class="dropdown-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus text-primary me-2"></i> Dienstleistungen Hinzufügen</a></li>
                                     <li class="dropdown-item"><a href="javascript:void(0)"><i class="fa fa-ban text-primary me-2"></i> Engelle</a></li>
                                 </ul>

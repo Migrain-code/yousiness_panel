@@ -92,7 +92,7 @@
             </li>
             <li>
                 <a class="has-arrow " disabled href="{{route('business.appointment.index')}}">
-                    <i class="material-icons-outlined">public</i>
+                    <i class="material-icons-outlined">event</i>
                     <span class="nav-text">Termine</span>
                 </a>
             </li>
