@@ -72,7 +72,7 @@
                             <span>{{config('settings.bussiness_site_title')}} 2015-{{now()->year}}. Tüm hakları saklıdır.</span>
                         </div>
                         <div class="footer-copyright-links">
-                            <a href="#">Şartlar ve Koşullar</a>
+                            <a href="#">Şartlar ve Koşullar 1</a>
                             <a href="#">Gizlilik Koşulları</a>
                         </div>
                     </div>
