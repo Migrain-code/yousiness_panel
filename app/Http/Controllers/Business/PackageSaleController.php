@@ -95,10 +95,10 @@ class PackageSaleController extends Controller
             'personel_id' => "required",
             'package_type' => "required",
         ], [], [
-            'customer_id'=> "Müşteri",
-            'service_id' => "Hizmet",
+            'customer_id'=> "Kunde",
+            'service_id' => "Dienstleistung",
             'amount' => "Fiyat",
-            'total' => "Toplam Tutar",
+            'total' => "Betrag",
             'personel_id' => "Personel",
             'package_type' => "Paket Türü",
         ]);

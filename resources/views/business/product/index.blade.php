@@ -30,14 +30,14 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Ürün Listesi</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Ürün Ekle</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Produkt Hinzufügen</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example3" class="display" style="min-width: 845px">
                             <thead>
                             <tr>
-                                <th>Ürün Adı</th>
+                                <th>Produktname</th>
                                 <th>Fiyat</th>
                                 <th>Adet</th>
                                 <th>Barkod</th>
@@ -73,7 +73,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Ürün Ekle</h5>
+                    <h5 class="modal-title">Produkt Hinzufügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -82,23 +82,23 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="mb-3 col-md-12">
-                                <label class="form-label">Ürün Adı</label>
+                                <label class="form-label">Produktname</label>
                                 <input type="text" class="form-control" name="name">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Ürün Fiyat</label>
+                                <label class="form-label">Preis</label>
                                 <input type="text" class="form-control" id="priceInput" name="price">
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Ürün Adet</label>
+                                <label class="form-label">Bestand</label>
                                 <input type="number" class="form-control" name="piece">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Barkod Numarası</label>
+                                <label class="form-label">Produktnummer</label>
                                 <input type="text" class="form-control" name="barcode">
                             </div>
                         </div>
@@ -106,8 +106,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>

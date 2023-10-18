@@ -35,21 +35,21 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Paket Satış Listesi</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Satış Yap</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Paketverkauf</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example3" class="display" style="width: 100%;">
                             <thead>
                             <tr>
-                                <th>Satış Tarihi</th>
+                                <th>Datum</th>
                                 <th>Müşteri Adı</th>
-                                <th>Hizmet Adı</th>
+                                <th>Dienstleistungen</th>
                                 <th>Personel Adı</th>
-                                <th>Paket Tipi</th>
+                                <th>Pakettyp</th>
                                 <th>Adet</th>
                                 <th>Kalan Adet</th>
-                                <th>Toplam Tutar</th>
+                                <th>Betrag</th>
                                 <th>Ödenen Tutar</th>
                                 <th>Kalan Tutar</th>
                                 <th>İşlemler</th>
@@ -159,7 +159,7 @@
                                <input type="datetime-local" id="opDate" class="form-control">
                         </div>
                         <div class="col-12 mt-3">
-                            <button type="button" class="btn btn-primary" style="margin-left: 10px;" onclick="addUsage()" id="addUsageBtn">Kaydet</button>
+                            <button type="button" class="btn btn-primary" style="margin-left: 10px;" onclick="addUsage()" id="addUsageBtn">Speichern</button>
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
                             <input type="number" class="form-control" id="amount">
                         </div>
                         <div class="col-12 mt-3">
-                            <button type="button" class="btn btn-primary" style="margin-left: 10px;" onclick="addPayment()" id="addPaymentBtn">Kaydet</button>
+                            <button type="button" class="btn btn-primary" style="margin-left: 10px;" onclick="addPayment()" id="addPaymentBtn">Speichern</button>
                         </div>
                     </div>
                 </div>
@@ -231,7 +231,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Satış Yap</h5>
+                    <h5 class="modal-title">Paketverkauf</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -240,9 +240,9 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Müşteri Seçiniz</label>
+                                <label class="form-label">Kunde Auswählen</label>
                                 <select name="customer_id" class="form-control">
-                                    <option value="">Müşteri Seçiniz</option>
+                                    <option value="">Kunde</option>
                                     @forelse($customers as $customer)
                                         <option value="{{$customer->id}}">{{$customer->name}}</option>
                                     @empty
@@ -250,9 +250,9 @@
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Hizmet</label>
+                                <label class="form-label">Dienstleistung</label>
                                 <select name="service_id" class="form-control">
-                                    <option value="">Hizmet Seçiniz</option>
+                                    <option value="">Dienstleistung Auswählen</option>
                                     @forelse(auth('business')->user()->services as $service)
                                         <option value="{{$service->id}}">{{$service->subCategory->name . "(".$service->gender->name.")"}}</option>
                                     @empty
@@ -262,9 +262,9 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Paket Tipi</label>
+                                <label class="form-label">Pakettyp</label>
                                 <select name="package_type" class="form-control">
-                                    <option value="">Paket Tipi Seçiniz</option>
+                                    <option value="">Pakettyp Auswählen</option>
                                     @forelse($package_types as $package)
                                         <option value="{{$loop->index}}">{{$package}}</option>
                                     @empty
@@ -272,9 +272,9 @@
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Satıcı</label>
+                                <label class="form-label">Verkäufer</label>
                                 <select name="personel_id" class="form-control">
-                                    <option value="">Satıcı Seçiniz</option>
+                                    <option value="">Personal Auswählen</option>
                                     @forelse(auth('business')->user()->personel as $personel)
                                         <option value="{{$personel->id}}">{{$personel->name}}</option>
                                     @empty
@@ -284,17 +284,17 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Miktar</label>
+                                <label class="form-label">Anzahl</label>
                                 <input type="number" class="form-control" name="amount">
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Toplam Tutar</label>
+                                <label class="form-label">Betrag</label>
                                 <input type="text" class="form-control" id="totalInput" name="total">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Satış Tarihi</label>
+                                <label class="form-label">Datum</label>
                                 <input name="seller_date" type="date" class="datepicker-default form-control" id="datepicker">
                             </div>
                         </div>
@@ -302,8 +302,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>

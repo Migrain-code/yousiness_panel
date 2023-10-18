@@ -66,7 +66,7 @@
                                         <input type="text" class="form-control input-default " name="name" placeholder="Örneğin(Berber)">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Telefon</label>
+                                        <label>Mobilnummer</label>
                                         <input type="text" class="form-control input-default " name="phone" placeholder="">
                                     </div>
                                     <div class="mb-3">
@@ -108,7 +108,7 @@
                         <tr>
                             <th>Logo</th>
                             <th>İşletme Adı</th>
-                            <th>Telefon</th>
+                            <th>Mobilnummer</th>
                             <th>Durum</th>
                             <th>Tanımlı Paket</th>
                             <th>İşlemler</th>

@@ -46,7 +46,7 @@
                                         <input type="text" class="form-control input-default " name="price" placeholder="">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Paket Tipi</label>
+                                        <label>Pakettyp</label>
                                         <select type="text" class="form-control input-default " name="type">
                                             <option value="0">Aylık</option>
                                             <option value="1">Yıllık</option>
@@ -57,7 +57,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
-                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                                <button type="submit" class="btn btn-primary">Speichern</button>
                             </div>
                             </form>
                         </div>

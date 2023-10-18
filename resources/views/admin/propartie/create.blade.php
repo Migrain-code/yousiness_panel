@@ -43,7 +43,7 @@
 
                     </div>
                     <div class="mb-3 text-center">
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>

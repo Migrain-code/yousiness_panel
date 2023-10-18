@@ -56,7 +56,7 @@
 
                                     </div>
                                     <div class="mb-3">
-                                        <label>Görsel</label>
+                                        <label>Foto</label>
                                         <input type="file" class="form-control input-default " name="image" placeholder="Örneğin(Randevu Hatırlatma)">
 
                                     </div>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
-                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                                <button type="submit" class="btn btn-primary">Speichern</button>
                             </div>
                             </form>
                         </div>

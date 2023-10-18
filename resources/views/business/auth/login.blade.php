@@ -259,7 +259,7 @@
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
                                             <input id="myInput" class="inputText password" type="password" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" name="password" required>
-                                            <span class="floating-label">Şifre</span>
+                                            <span class="floating-label">Passwort</span>
                                             <span id="click" class="eye-btn">
                                        <span class="eye-on">
                                           <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -42,7 +42,7 @@
                                <input type="text" class="form-control input-default " value="{{$bussinessPackage->price}}" name="price" placeholder="">
                            </div>
                            <div class="mb-3">
-                               <label>Paket Tipi</label>
+                               <label>Pakettyp</label>
                                <select type="text" class="form-control input-default " name="type">
                                    <option value="0" @selected($bussinessPackage->type==0)>Aylık</option>
                                    <option value="1" @selected($bussinessPackage->type==1)>Yıllık</option>

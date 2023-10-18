@@ -58,9 +58,9 @@ class AdminBusinessesExport implements FromCollection,WithColumnFormatting, With
         return [
             'İşletme Adı',
             'İşletme Sahibi',
-            'Telefon',
-            'E-posta',
-            'Tatil Günü',
+            'Mobilnummer',
+            'E-Mail',
+            'Freier Tag',
             'Mesai Başlangıç Saati',
             'Mesai Bitiş Saati',
             'Onay Türü',

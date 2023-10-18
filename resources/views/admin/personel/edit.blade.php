@@ -159,18 +159,18 @@
                                             </div>
                                             <div class="row">
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">E-posta</label>
+                                                    <label class="form-label">E-Mail</label>
                                                     <input type="email" class="form-control" name="email" value="{{$personel->email}}">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">Şifre</label>
+                                                    <label class="form-label">Passwort</label>
                                                     <input type="text" class="form-control" name="password" >
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">Telefon</label>
-                                                    <input type="text" class="form-control" placeholder="0555 555 55 55" value="{{$personel->phone}}" name="phone">
+                                                    <label class="form-label">Mobilnummer</label>
+                                                    <input type="text" class="form-control" placeholder="+49 172 123 45 67" value="{{$personel->phone}}" name="phone">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label">Onay İzni</label>
@@ -182,8 +182,8 @@
                                             </div>
                                             <div class="row">
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">Tatil Günü
-                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin izin günleri dışındaki günler görüntülenir. Personele bu günler dışındaki tatil günlerini girmeniz gerekir." title="İzin günleri">
+                                                    <label class="form-label">Freier Tag
+                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Tage angezeigt, die nicht zu den Feiertagen Ihrer Mitarbeiter gehören. Sie müssen andere Feiertage als diese Tage für das Personal eingeben." title="Feiertag">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button></label>
                                                     <select name="off_day" class="form-control">
@@ -199,7 +199,7 @@
                                             <div class="row">
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label">Mesai Başlangıç
-                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin çalışma saatleri görüntülenir. Personele bu saatler aralığında çalışma zamanı belirleyebilirsiniz." title="Çalışma Saatleri">
+                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin Arbeitszeit görüntülenir. Personele bu saatler aralığında çalışma zamanı belirleyebilirsiniz." title="Arbeitszeit">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button>
                                                     </label>
@@ -208,7 +208,7 @@
                                                 </div>
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label"> Mesai Bitiş
-                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin çalışma saatleri görüntülenir. Personele bu saatler aralığında çalışma zamanı belirleyebilirsiniz." title="Çalışma Saatleri">
+                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin Arbeitszeit görüntülenir. Personele bu saatler aralığında çalışma zamanı belirleyebilirsiniz." title="Arbeitszeit">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button>
                                                     </label>
@@ -220,7 +220,7 @@
                                             <div class="row">
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label">Yemek Arası Başlangıç <span class="text-warning">(Zorunlu Değil)</span>
-                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin çalışma saatleri görüntülenir. Personele bu saatler aralığında çalışma zamanı belirleyebilirsiniz." title="Çalışma Saatleri">
+                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin Arbeitszeit görüntülenir. Personele bu saatler aralığında çalışma zamanı belirleyebilirsiniz." title="Arbeitszeit">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button>
                                                     </label>
@@ -228,8 +228,8 @@
 
                                                 </div>
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label"> Yemek Arası Bitiş <span class="text-warning">(Zorunlu Değil)</span>
-                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin çalışma saatleri görüntülenir. Personele bu saatler aralığında çalışma zamanı belirleyebilirsiniz." title="Çalışma Saatleri">
+                                                    <label class="form-label"> Pausenende <span class="text-warning">(Zorunlu Değil)</span>
+                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin Arbeitszeit görüntülenir. Personele bu saatler aralığında çalışma zamanı belirleyebilirsiniz." title="Arbeitszeit">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button>
                                                     </label>
@@ -240,13 +240,13 @@
                                             <div class="row">
                                                 @if(auth('business')->user()->type_id == 3)
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label"> Hizmet Sunulan Cinsiyet
-                                                            <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
+                                                        <label class="form-label"> Geschlecht von Kunde
+                                                            <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Geschlechter angezeigt, die Ihre Mitarbeiter bedienen. Sie können das gewünschte Geschlecht aus dieser Geschlechtsauswahl auswählen." title="Geschlechtsspezifische Einstellungen">
                                                                 <i class="fa-solid fa-question-circle"></i>
                                                             </button>
                                                         </label>
                                                         <select name="gender" id="gender" class="form-control">
-                                                            <option value="">Cinsiyet Seçiniz</option>
+                                                            <option value="">Geschlecht Seçiniz</option>
                                                             <option value="1" @selected($personel->gender == 1)>Kadın</option>
                                                             <option value="2" @selected($personel->gender == 2)>Erkek</option>
                                                             <option value="3" @selected($personel->gender == 3)>Her İkiside</option>
@@ -255,12 +255,13 @@
                                                 @endif
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label"> Hizmet Payı
-                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin personel ile nasıl çalıştığını seçerek yaptığı işlemlerden onun payına düşecek pay oranını seçebilirsiniz" title="Personel Payı">
+                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier können Sie festlegen, wie Ihr Unternehmen mit den Mitarbeitern zusammenarbeitet, und den
+Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktionen zugewiesen wird." title="Personalanteil">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button>
                                                     </label>
                                                     <select name="rate" class="form-control">
-                                                        <option value="">Hizmet Payı Seçiniz</option>
+                                                        <option value="">Lohnart Auswählen</option>
                                                         @forelse($rates as $row)
                                                             <option value="{{$row->id}}" @selected($row->id == $personel->rate)>{{$row->rate == 0 ? "Maaşlı Çalışan". " %". $row->rate : "% ".$row->rate}}</option>
                                                         @empty
@@ -270,8 +271,8 @@
                                             </div>
                                             <div class="row">
                                                 <div class="mb-3 col-md-12">
-                                                    <label class="form-label"> Hizmet Seçiniz <span class="text-warning">(Birden Fazla Seçilebilir)</span>
-                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin personelinin hizmet vereceği tanımladığınız hizmetler görüntülenir. Hizmet Sunulan cinsiyet alanında seçtiğiniz cinsiyete göre listelenir " title="Personel Payı">
+                                                    <label class="form-label"> Dienstleistung Auswählen <span class="text-warning">(Mehrauswahl möglich)</span>
+                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin personelinin hizmet vereceği tanımladığınız hizmetler görüntülenir. Hizmet Sunulan cinsiyet alanında seçtiğiniz cinsiyete göre listelenir " title="Personalanteil">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button>
                                                     </label>
@@ -288,13 +289,14 @@
                                             </div>
                                             <div class="row">
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label"> Randevu Aralığı
-                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin personel ile nasıl çalıştığını seçerek yaptığı işlemlerden onun payına düşecek pay oranını seçebilirsiniz" title="Personel Payı">
+                                                    <label class="form-label"> Dauer der Dienstleistung
+                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier können Sie festlegen, wie Ihr Unternehmen mit den Mitarbeitern zusammenarbeitet, und den
+Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktionen zugewiesen wird." title="Personalanteil">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button>
                                                     </label>
                                                     <select name="range" class="form-control">
-                                                        <option value="">Randevu Aralığı Seçiniz</option>
+                                                        <option value="">Zeit Auswählen</option>
                                                         <option value="5" @selected($personel->range == 5)>5 Dakika</option>
                                                         <option value="10" @selected($personel->range == 10)>10 Dakika</option>
                                                         <option value="20" @selected($personel->range == 20)>20 Dakika</option>
@@ -304,8 +306,9 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label"> Açıklama
-                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin personel ile nasıl çalıştığını seçerek yaptığı işlemlerden onun payına düşecek pay oranını seçebilirsiniz" title="Personel Payı">
+                                                    <label class="form-label"> Bemerkung
+                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #d59c4b;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier können Sie festlegen, wie Ihr Unternehmen mit den Mitarbeitern zusammenarbeitet, und den
+Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktionen zugewiesen wird." title="Personalanteil">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button>
                                                     </label>

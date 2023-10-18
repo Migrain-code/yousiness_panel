@@ -19,7 +19,7 @@
                                         <div>
                                             <div class="profile-name">
                                                 <h3 class="name">{{$appointment->customer->name}}</h3>
-                                                <h5>Müşteri</h5>
+                                                <h5>Kunde</h5>
                                             </div>
                                             <div class="user-contact">
                                                 <div class="user-number ">
@@ -104,7 +104,7 @@
                                 <thead>
                                 <tr>
                                     <th>Personel</th>
-                                    <th>Hizmet</th>
+                                    <th>Dienstleistung</th>
                                     <th>Başlangıç Saati</th>
                                     <th>Bitiş Saati</th>
                                 </tr>

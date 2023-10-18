@@ -108,7 +108,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Açıklama</span>
+                                                <span>Bemerkung</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki hakkımızda alanı başlık"></i>
                                             </label>
                                             <!--end::Label-->
@@ -126,7 +126,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">Görsel</span>
+                                                <span class="required">Foto</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki ilk bölümdeki büyük görsel"></i>
                                             </label>
                                             <!--end::Label-->
@@ -143,7 +143,7 @@
                                         <div class="col-md-12 mt-3">
                                             <!--begin::Button-->
                                             <button type="submit" class="btn btn-primary w-100">
-                                                <span class="indicator-label">Kaydet</span>
+                                                <span class="indicator-label">Speichern</span>
                                             </button>
                                             <!--end::Button-->
                                         </div>
@@ -461,7 +461,7 @@
                                         <div class="col-md-12 mt-3">
                                             <!--begin::Button-->
                                             <button type="submit" class="btn btn-primary w-100">
-                                                <span class="indicator-label">Kaydet</span>
+                                                <span class="indicator-label">Speichern</span>
                                             </button>
                                             <!--end::Button-->
                                         </div>
@@ -586,7 +586,7 @@
                                         <div class="col-md-12 mt-3">
                                             <!--begin::Button-->
                                             <button type="submit" class="btn btn-primary w-100">
-                                                <span class="indicator-label">Kaydet</span>
+                                                <span class="indicator-label">Speichern</span>
                                             </button>
                                             <!--end::Button-->
                                         </div>

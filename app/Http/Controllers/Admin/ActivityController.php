@@ -52,12 +52,12 @@ class ActivityController extends Controller
             'description' => "Açıklama Metni",
             'meta_keys' => "Meta anahtar kelimeleri",
             'meta_description' => "Meta açıklama Metni",
-            'image' => "Görsel",
+            'image' => "Foto",
             'start_date' => "Başlangıç Zamanı",
             'stop_date' => "Bitiş Zamanı",
             'city' => "Plz/ Stadtname",
             'hotel' => "Otel veya Yer Adı",
-            'phone' => "Telefon",
+            'phone' => "Mobilnummer",
             'sliders' => "Slider Görselleri",
             'galleries' => "Galeri Görselleri",
         ]);
@@ -208,7 +208,7 @@ class ActivityController extends Controller
             'start_date' => "Başlangıç Zamanı",
             'stop_date' => "Bitiş Zamanı",
             'hotel' => "Otel veya Yer Adı",
-            'phone' => "Telefon",
+            'phone' => "Mobilnummer",
         ]);
         $activity->title = $request->input('title');
         $activity->slug = Str::slug($request->input('title'));

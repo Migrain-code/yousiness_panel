@@ -92,7 +92,7 @@
                                         <input type="text" class="form-control input-default " value="{{old('video')}}" name="video" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>Görsel</label>
+                                        <label>Foto</label>
                                         <input type="file"  class="form-control input-default " value="{{old('image')}}" name="image" >
                                     </div>
                                     <div class="mb-3">
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
-                                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                                    <button type="submit" class="btn btn-primary">Speichern</button>
                                 </div>
                             </form>
                         </div>
@@ -150,7 +150,7 @@
                     <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>Görsel</th>
+                            <th>Foto</th>
                             <th>Başlık</th>
                             <th>Tarih</th>
                             <th>Durum</th>

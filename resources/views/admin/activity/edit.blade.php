@@ -41,7 +41,7 @@
                 </div>
                 <div class="row">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i> Personel Ekle</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i> Personal Hinzufügen</button>
                         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenter3"><i class="fa fa-plus-circle"></i> Sponsor Ekle</button>
                         <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2"><i class="fa fa-list"></i> Katılımcı Listesi</button>
                         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter4"><i class="fa fa-list"></i> Sponsor Listesi</button>
@@ -71,7 +71,7 @@
                             <input type="text" class="form-control input-default " value="{{$activity->embed}} {{old('video')}}" name="video" >
                         </div>
                         <div class="mb-3">
-                            <label>Görsel (<a href="{{asset($activity->image)}}" target="_blank">Görüntüle</a>)</label>
+                            <label>Foto (<a href="{{asset($activity->image)}}" target="_blank">Görüntüle</a>)</label>
                             <input type="file"  class="form-control input-default " value="" name="image" >
                         </div>
                         <div class="mb-3">
@@ -107,7 +107,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>
@@ -143,7 +143,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>
@@ -154,7 +154,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content" style="width: 800px">
                 <div class="modal-header">
-                    <h5 class="modal-title">Personel Ekle</h5>
+                    <h5 class="modal-title">Personal Hinzufügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -174,7 +174,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>
@@ -249,7 +249,7 @@
                     <table class="table table-responsive-md" id="myTable3">
                         <thead style="color: black">
                         <tr>
-                            <th><strong>Görsel</strong></th>
+                            <th><strong>Foto</strong></th>
                             <th><strong>Link</strong></th>
                             <th><strong>Durumu</strong></th>
                             <th><strong>İşlemler</strong></th>

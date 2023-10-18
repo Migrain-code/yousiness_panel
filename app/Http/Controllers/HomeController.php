@@ -69,7 +69,7 @@ class HomeController extends Controller
         ], [], [
             'fullname'=>"İşletme Sahibi",
             'business_name'=>"İşletme Adı",
-            'phone'=>"Telefon"
+            'phone'=>"Mobilnummer"
         ]);
         $businessInfo=new BusinessInfo();
         $businessInfo->fullname=$request->input('fullname');
@@ -138,11 +138,11 @@ class HomeController extends Controller
             'subject'=>"required",
             'message'=>"required",
         ],[],[
-            'fullName'=>"Ad Soyad",
-            'email'=>"E-posta",
-            'phone'=>"Telefon",
-            'subject'=>"Konu",
-            'message'=>"İletişim Mesajı",
+            'fullName'=>"Name Nachname",
+            'email'=>"E-Mail",
+            'phone'=>"Mobilnummer",
+            'subject'=>"Betreff Nachricht",
+            'message'=>"Nachricht",
         ]);
         $businessContact=new BusinessContact();
         $businessContact->fullName=$request->fullName;

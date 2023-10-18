@@ -30,7 +30,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Hizmet Listesi</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Hizmet Ekle</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Dienstleistungen Hinzufügen</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -38,9 +38,9 @@
                             <thead>
                             <tr>
                                 <th></th>
-                                <th>Cinsiyet</th>
-                                <th>Hizmet Tipi</th>
-                                <th>Hizmet Adı</th>
+                                <th>Geschlecht</th>
+                                <th>Kategorie</th>
+                                <th>Dienstleistungen</th>
                                 <th>Süre</th>
                                 <th>Fiyat</th>
                                 {{--
@@ -103,7 +103,7 @@
                             @if(auth('business')->user()->type_id == 3)
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label"> Geschlecht von Kunde
-                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
+                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Geschlechter, die Ihr Salon bedient angezeigt. Sie können jedes dieser Geschlechter für Ihr Personal auswählen." title="Geschlechtsspezifische Einstellungen">
                                             <i class="fa-solid fa-question-circle"></i>
                                         </button>
                                     </label>
@@ -121,7 +121,7 @@
                         <div class="row">
                             <div class="mb-3 col-md-12">
                                 <label class="form-label"> Kategorie
-                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
+                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Kategorie Bemerkung">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
@@ -132,8 +132,8 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-12">
-                                <label class="form-label"> Hizmet Adı
-                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
+                                <label class="form-label"> Dienstleistungen
+                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Dienstleistungen Açıkmala">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
@@ -144,8 +144,8 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label"> İşlem Süresi
-                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
+                                <label class="form-label"> Arbeitszeit
+                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Arbeitszeit Bemerkung">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
@@ -159,8 +159,8 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label"> İşlem Ücreti
-                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
+                                <label class="form-label"> Preis
+                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Preis Bemerkung">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
@@ -173,8 +173,8 @@
                         {{--End Modal Body--}}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
-                        <button type="submit" class="btn btn-primary" id="send_form_button" disabled>Kaydet</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
+                        <button type="submit" class="btn btn-primary" id="send_form_button" disabled>Speichern</button>
                     </div>
                 </form>
             </div>

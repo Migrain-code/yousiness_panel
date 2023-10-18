@@ -194,7 +194,7 @@
                                         <div class="col-md-12 mt-3">
                                             <!--begin::Button-->
                                             <button type="submit" class="btn btn-primary w-100">
-                                                <span class="indicator-label">Kaydet</span>
+                                                <span class="indicator-label">Speichern</span>
                                             </button>
                                             <!--end::Button-->
                                         </div>
@@ -397,7 +397,7 @@
                                         <div class="col-md-12 mt-3">
                                             <!--begin::Button-->
                                             <button type="submit" class="btn btn-primary w-100">
-                                                <span class="indicator-label">Kaydet</span>
+                                                <span class="indicator-label">Speichern</span>
                                             </button>
                                             <!--end::Button-->
                                         </div>

@@ -113,15 +113,15 @@ class PersonelController extends Controller
             'services' => "required",
             'image' => "required",
         ], [], [
-            'email' => "E-posta",
-            'phone' => "Telefon",
+            'email' => "E-Mail",
+            'phone' => "Mobilnummer",
             'name' => "İsim",
-            'password' => "Şifre",
-            'off_day' => "Tatil Günü",
-            'gender' => "Cinsiyet",
+            'password' => "Passwort",
+            'off_day' => "Freier Tag",
+            'gender' => "Geschlecht",
             'rate' => "Çalışma Payı",
-            'services' => "Hizmet",
-            'image' => "Görsel"
+            'services' => "Dienstleistung",
+            'image' => "Foto"
         ]);
         $personel = new Personel();
         $personel->business_id = auth('business')->id();

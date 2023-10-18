@@ -76,7 +76,7 @@
                                 <img src="/business/assets/img/contact/contact-icon-sm-6.png" alt="">
                             </div>
                             <div class="contact-info-title-box">
-                                <h5 class="contact-info-title-sm"><a href="#">Telefon</a></h5>
+                                <h5 class="contact-info-title-sm"><a href="#">Mobilnummer</a></h5>
                                 <p>{{config('settings.site_phone')}} <br>
 
                             </div>
@@ -88,7 +88,7 @@
                                 <img src="/business/assets/img/contact/contact-icon-sm-7.png" alt="">
                             </div>
                             <div class="contact-info-title-box">
-                                <h5 class="contact-info-title-sm"><a href="#">E-Posta</a></h5>
+                                <h5 class="contact-info-title-sm"><a href="#">E-Mail</a></h5>
                                 <p>{{config('settings.site_email')}} <br>
 
                             </div>
