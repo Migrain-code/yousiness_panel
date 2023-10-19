@@ -100,7 +100,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Fotoğraf Galerisi
+                      "Fotogalerie
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -110,7 +110,7 @@
 							</svg>
 						</span>
                     <div class="calender-picker">
-                        <h6 class="fs-14 mb-0 ms-2 font-w600">Bugün</h6>
+                        <h6 class="fs-14 mb-0 ms-2 font-w600">Heute</h6>
                         <input class="form-control" type="text" readonly="">
                     </div>
                 </div>
@@ -122,7 +122,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Tüm Fotoğraflar</h4>
+                    <h4 class="card-title">Alle Fotos</h4>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Foto Hinzufügen</button>
                 </div>
                 <div class="card-body">

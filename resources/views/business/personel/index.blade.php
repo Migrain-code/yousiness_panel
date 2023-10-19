@@ -9,7 +9,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Personeller
+                    Mitarbeiter
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -19,7 +19,7 @@
 							</svg>
 						</span>
                     <div class="calender-picker">
-                        <h6 class="fs-14 mb-0 ms-2 font-w600">Bugün</h6>
+                        <h6 class="fs-14 mb-0 ms-2 font-w600">Heute</h6>
                         <input class="form-control" type="text" readonly="">
                     </div>
                 </div>
@@ -33,7 +33,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Personel Listesi</h4>
+                    <h4 class="card-title">Liste</h4>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Personal Hinzufügen</button>
                 </div>
                 <div class="card-body">
@@ -43,8 +43,8 @@
                             <tr>
                                 <th></th>
                                 <th>Name Nachname</th>
-                                <th>Mobilnummer</th>
-                                <th>Onay</th>
+                                <th>Telefon</th>
+                                <th>Kompetenz</th>
                                 <th>Freier Tag</th>
                                 <th>Geschlecht</th>
                                 <th>İşlemler</th>
@@ -60,9 +60,9 @@
                                        <td><a href="tel:{{$personel->phone}}"><strong>{{$personel->phone}}</strong></a></td>
                                        <td>
                                            @if($personel->accept==1)
-                                               <span class="badge light badge-success">İzin Verildi</span>
+                                               <span class="badge light badge-success">Ja</span>
                                            @else
-                                               <span class="badge light badge-danger">İzin Verilmedi</span>
+                                               <span class="badge light badge-danger">Nein</span>
                                            @endif
                                        </td>
                                        <td>{{$personel->restDay->name}}</td>
@@ -93,7 +93,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Personal Hinzufügen</h5>
+                    <h5 class="modal-title">Mitarbeiter Hinzufügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -124,14 +124,14 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Genehmigungserlaubnis</label>
                                 <select name="accept" class="form-control">
-                                    <option value="1" @selected(old('accept') == 1)>İzin Ver</option>
-                                    <option value="0" @selected(old('accept') == 0)>İzin Verme</option>
+                                    <option value="1" @selected(old('accept') == 1)>Ja</option>
+                                    <option value="0" @selected(old('accept') == 0)>Nein</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Freier Tag
+                                <label class="form-label">Freiertag
                                     <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Tage angezeigt, die nicht zu den Feiertagen Ihrer Mitarbeiter gehören. Sie müssen andere Feiertage als diese Tage für das Personal eingeben." title="Feiertag">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button></label>
@@ -169,7 +169,7 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Yemek Arası Başlangıç <span class="text-warning">(Zorunlu Değil)</span>
+                                <label class="form-label">Pausenanfang <span class="text-warning">(Zorunlu Değil)</span>
                                     <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Arbeitszeiten Ihrer Mitarbeiter angezeigt.
 Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                         <i class="fa-solid fa-question-circle"></i>
@@ -199,10 +199,10 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                         </button>
                                     </label>
                                     <select name="gender" id="gender" class="form-control">
-                                            <option value="">Geschlecht Auswählen</option>
-                                            <option value="1" @selected(old("gender") == "1")>Kadın</option>
-                                            <option value="2" @selected(old("gender") == "2")>Erkek</option>
-                                            <option value="3" @selected(old("gender") == "3")>Her İkiside</option>
+                                            <option value="">Geschlecht Kunden</option>
+                                            <option value="1" @selected(old("gender") == "1")>Frau</option>
+                                            <option value="2" @selected(old("gender") == "2")>Mann</option>
+                                            <option value="3" @selected(old("gender") == "3")>Beide</option>
                                     </select>
                                 </div>
                             @else
@@ -218,7 +218,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                 <select name="rate" class="form-control">
                                     <option value="">Lohnart Auswählen</option>
                                     @forelse($rates as $row)
-                                        <option value="{{$row->id}}" @selected(old("rate") == $row->id)>{{$row->rate == 0 ? "Maaşlı Çalışan". " %". $row->rate : "% ".$row->rate}}</option>
+                                        <option value="{{$row->id}}" @selected(old("rate") == $row->id)>{{$row->rate == 0 ? "Angesteller". " %". $row->rate : "% ".$row->rate}}</option>
                                     @empty
                                     @endforelse
                                 </select>

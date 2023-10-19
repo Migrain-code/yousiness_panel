@@ -150,9 +150,9 @@
                                     <h2 class="heading">Tüm Randevular</h2>
                                     <div class="d-flex align-items-center">
                                         <select class="image-select default-select dashboard-select me-4" aria-label="Default">
-                                            <option selected>Bu Ay</option>
-                                            <option value="1">Bu Hafta</option>
-                                            <option value="2">Bu Yıl</option>
+                                            <option selected>Diesen Monat</option>
+                                            <option value="1">Diese Woche</option>
+                                            <option value="2">Dieses Jahr</option>
                                         </select>
                                         <div class="dropdown">
                                             <a href="javascript:void(0);" class="btn-link btn sharp tp-btn btn-primary pill" data-bs-toggle="dropdown" aria-expanded="false">
@@ -300,7 +300,7 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Hizmetler</label>
+                                <label class="form-label">Dienstleistungen</label>
                                 <select name="service_id" id="service_id" class="form-control">
                                     <option>Hizmet Seçiniz</option>
                                     @forelse(auth('business')->user()->service as $service)

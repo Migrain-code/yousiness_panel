@@ -7,7 +7,7 @@
         <div class="col-lg-12">
             <div class="page-titles">
                 <div class="d-flex align-items-center">
-                    <h2 class="heading">İşletme Profili</h2>
+                    <h2 class="heading">Salon Profil</h2>
                 </div>
             </div>
         </div>
@@ -133,7 +133,7 @@
                     <div class="profile-tab">
                         <div class="custom-tab-1">
                             <ul class="nav nav-tabs">
-                                <li class="nav-item"><a href="#my-posts" data-bs-toggle="tab" class="nav-link active show">Hizmetler</a>
+                                <li class="nav-item"><a href="#my-posts" data-bs-toggle="tab" class="nav-link active show">Dienstleistungen</a>
                                 </li>
                                 <li class="nav-item"><a href="#about-me" data-bs-toggle="tab" class="nav-link">About Me</a>
                                 </li>

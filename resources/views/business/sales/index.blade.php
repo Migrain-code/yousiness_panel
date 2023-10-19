@@ -9,7 +9,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Verkäufe
+                    Produktverkauf
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -19,7 +19,7 @@
 							</svg>
 						</span>
                     <div class="calender-picker">
-                        <h6 class="fs-14 mb-0 ms-2 font-w600">Bugün</h6>
+                        <h6 class="fs-14 mb-0 ms-2 font-w600">Heute</h6>
                         <input class="form-control" type="text" readonly="">
                     </div>
                 </div>
@@ -33,22 +33,22 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Ürün Satış Listesi</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Paketverkauf</button>
+                    <h4 class="card-title">Liste</h4>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Varkaufen</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example3" class="display" style="min-width: 845px">
                             <thead>
                             <tr>
-                                <th>Müşteri Adı</th>
-                                <th>Personel Adı</th>
+                                <th>Kunde</th>
+                                <th>Verkäufer</th>
                                 <th>Produktname</th>
-                                <th>Ödeme Tipi</th>
-                                <th>Adet</th>
-                                <th>Toplam Fiyat</th>
+                                <th>Zahlungsart</th>
+                                <th>Anzahl</th>
+                                <th>Gesamtbetrag</th>
                                 <th>Datum</th>
-                                <th>İşlemler</th>
+                                <th>Transaktion</th>
                             </tr>
                             </thead>
                             <tbody>

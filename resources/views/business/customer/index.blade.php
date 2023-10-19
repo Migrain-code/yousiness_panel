@@ -9,7 +9,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Müşteriler
+                    Kunden
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -21,7 +21,7 @@
 							</svg>
 						</span>
                     <div class="calender-picker">
-                        <h6 class="fs-14 mb-0 ms-2 font-w600">Bugün</h6>
+                        <h6 class="fs-14 mb-0 ms-2 font-w600">Heute</h6>
                         <input class="form-control" type="text" readonly="">
                     </div>
                 </div>
@@ -36,18 +36,18 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Müşteriler Listesi</h4>
+                    <h4 class="card-title">Liste</h4>
 
                     <div class="d-flex">
                         <form method="get" action="{{route('business.customer.index')}}" id="typeForm">
                             <select name="type" id="typeSelect" class="me-2">
-                                <option value="all" selected>Hepsi</option>
-                                <option value="registered" @selected(isset(request()->query()["type"]) && request()->query()["type"] == "registered")>Kayıtlı Müşteriler</option>
-                                <option value="appointment" @selected(isset(request()->query()["type"]) && request()->query()["type"] == "appointment")>Randevu Alan Müşteriler</option>
+                                <option value="all" selected>All</option>
+                                <option value="registered" @selected(isset(request()->query()["type"]) && request()->query()["type"] == "registered")>Registrierte Kunden</option>
+                                <option value="appointment" @selected(isset(request()->query()["type"]) && request()->query()["type"] == "appointment")>Terminkunden</option>
                             </select>
                         </form>
-                        <a href="{{route('business.customer.export.excel')}}" class="btn btn-primary me-2"> <i class="fa fa-arrow-alt-circle-down"></i> Excele Aktar</a>
-                        <a href="#" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" class="btn btn-primary">Müşteri Ekle</a>
+                        <a href="{{route('business.customer.export.excel')}}" class="btn btn-primary me-2"> <i class="fa fa-arrow-alt-circle-down"></i> Nach Excel exportieren</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" class="btn btn-primary">Kunde Hinzufügen</a>
 
                     </div>
                 </div>
@@ -59,12 +59,12 @@
                                 <th></th>
                                 <th>Name Nachname</th>
                                 <th>E-Mail</th>
-                                <th>Mobilnummer</th>
-                                <th>Kayıt Zamanı</th>
-                                <th>Kayıtlı Mı?</th>
-                                <th>Randevu Sayısı</th>
-                                <th>Durum</th>
-                                <th>İşlemler</th>
+                                <th>Telefon</th>
+                                <th>Anmeldedatum</th>
+                                <th>Ist der Kunde registriert?</th>
+                                <th>Terminanzahl</th>
+                                <th>Gesperrt</th>
+                                <th>Transaktionen</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -84,13 +84,13 @@
                                                 <a href="tel:{{$customer->customer->phone}}"><strong>{{$customer->customer->phone}}</strong></a>
                                             </td>
                                             <td>{{$customer->customer->created_at->format('d.m.Y')}}</td>
-                                            <td>{{$customer->customer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                            <td>{{$customer->customer->email != "" ? "Eingetragen" : "Nicht registriert"}}</td>
                                             <td>{{$customer->customer->businessAppointments(auth('business')->id())->count()}}</td>
                                             <td>
                                                 @if($customer->customer->status==1)
-                                                    <span class="badge light badge-success">Aktif</span>
+                                                    <span class="badge light badge-success">Aktiv</span>
                                                 @else
-                                                    <span class="badge light badge-danger">Engellendi</span>
+                                                    <span class="badge light badge-danger">Keine Verifizierung</span>
                                                 @endif
                                             </td>
                                             <td>
@@ -119,13 +119,13 @@
                                                 <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
                                             </td>
                                             <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
-                                            <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                            <td>{{$businessCustomer->email != "" ? "Eingetragen" : "Nicht registriert"}}</td>
                                             <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
                                             <td>
                                                 @if($businessCustomer->status==1)
-                                                    <span class="badge light badge-success">Aktif</span>
+                                                    <span class="badge light badge-success">Aktiv</span>
                                                 @else
-                                                    <span class="badge light badge-danger">Doğrulanmadı</span>
+                                                    <span class="badge light badge-danger">Keine Verifizierung</span>
                                                 @endif
                                             </td>
                                             <td>
@@ -150,13 +150,13 @@
                                                 <a href="tel:{{$customer->customer->phone}}"><strong>{{$customer->customer->phone}}</strong></a>
                                             </td>
                                             <td>{{$customer->customer->created_at->format('d.m.Y')}}</td>
-                                            <td>{{$customer->customer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                            <td>{{$customer->customer->email != "" ? "Eingetragen" : "Nicht registriert"}}</td>
                                             <td>{{$customer->customer->businessAppointments(auth('business')->id())->count()}}</td>
                                             <td>
                                                 @if($customer->customer->status==1)
-                                                    <span class="badge light badge-success">Aktif</span>
+                                                    <span class="badge light badge-success">Aktiv</span>
                                                 @else
-                                                    <span class="badge light badge-danger">Engellendi</span>
+                                                    <span class="badge light badge-danger">Keine Verifizierung</span>
                                                 @endif
                                             </td>
                                             <td>
@@ -182,13 +182,13 @@
                                                 <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
                                             </td>
                                             <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
-                                            <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                            <td>{{$businessCustomer->email != "" ? "Eingetragen" : "Nicht registriert"}}</td>
                                             <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
                                             <td>
                                                 @if($businessCustomer->status==1)
-                                                    <span class="badge light badge-success">Aktif</span>
+                                                    <span class="badge light badge-success">Aktiv</span>
                                                 @else
-                                                    <span class="badge light badge-danger">Doğrulanmadı</span>
+                                                    <span class="badge light badge-danger">Keine Verifizierung</span>
                                                 @endif
                                             </td>
                                             <td>
@@ -223,7 +223,7 @@
                            <input type="text" class="form-control" name="name">
                        </div>
                         <div class="form-group">
-                            <label>Mobilnummer</label>
+                            <label>Telefon</label>
                             <input type="text" class="form-control" name="phone">
                         </div>
                         <div class="form-group">
@@ -233,14 +233,14 @@
                             <input type="number" class="form-control" name="email">
                         </div>
                         <div class="form-group">
-                            <label>E-posta</label>
+                            <label>E-Mail</label>
                             <input type="email" class="form-control" name="custom_email">
                         </div>
                         <div class="form-group">
                             <label>Geschlecht</label>
                             <select name="gender" class="form-control">
-                                <option value="0">Erkek</option>
-                                <option value="1">Kadın</option>
+                                <option value="0">Mann</option>
+                                <option value="1">Frau</option>
                             </select>
                         </div>
                         <div class="form-group">

@@ -67,7 +67,7 @@
                                     <!--begin::Heading-->
                                     <div class="row mb-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Genel Ayarlar</h2>
+                                            <h2>Allgemein</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -540,7 +540,7 @@
                                     <!--begin::Heading-->
                                     <div class="row mb-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Genel Ayarlar</h2>
+                                            <h2>Allgemein</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->

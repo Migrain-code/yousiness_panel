@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('meta_keys',"")
 @section('meta_description',"")
-@section('title','')
+@section('title','Support Anfragen')
 @section('styles')
 
 @endsection

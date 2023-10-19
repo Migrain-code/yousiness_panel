@@ -60,7 +60,7 @@
             <li>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">list</i>
-                    <span class="nav-text">Hizmetler
+                    <span class="nav-text">Dienstleistungen
                     </span>
                 </a>
                 <ul aria-expanded="false">

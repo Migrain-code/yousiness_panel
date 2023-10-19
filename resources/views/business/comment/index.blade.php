@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Yorumlar
+                    Kommentare
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -15,7 +15,7 @@
 							</svg>
 						</span>
                     <div class="calender-picker">
-                        <h6 class="fs-14 mb-0 ms-2 font-w600">Bugün</h6>
+                        <h6 class="fs-14 mb-0 ms-2 font-w600">Heute</h6>
                         <input class="form-control" type="text" readonly="">
                     </div>
                 </div>
@@ -29,18 +29,18 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Yorum Listesi</h4>
+                    <h4 class="card-title">Liste</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example3" class="display" style="min-width: 845px">
                             <thead>
                                 <tr>
-                                    <th>Müşteri Adı</th>
-                                    <th>Puanı</th>
-                                    <th>Durumu</th>
-                                    <th>Tarihi</th>
-                                    <th>İşlemler</th>
+                                    <th>Kunde</th>
+                                    <th>Sterne</th>
+                                    <th>Off/On</th>
+                                    <th>Datum</th>
+                                    <th>Transaktion</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,9 +50,9 @@
                                         <td>{{$comment->point}}</td>
                                         <td>
                                             @if($comment->status == 0)
-                                                <span class="badge light badge-info">Yayında Değil</span>
+                                                <span class="badge light badge-info">Nicht auf Sendung</span>
                                             @else
-                                                <span class="badge light badge-success">Yayında</span>
+                                                <span class="badge light badge-success">Auf Sendung</span>
                                             @endif
                                         </td>
                                         <td>{{$comment->created_at->format('d.m.Y')}}</td>
