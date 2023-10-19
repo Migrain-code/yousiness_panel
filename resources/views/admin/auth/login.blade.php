@@ -37,7 +37,8 @@
                         <div class="col-xl-12">
                             <div class="auth-form page-r-logo">
                                 <div class="text-center mb-3">
-                                    <a href="index.html"><img src="/admin/assets/images/logo-full.png" alt=""></a>
+                                    <a href="index.html"><img src="{{asset(setting('bussiness_main_white_logo'))}}" alt=""></a>
+
                                     <a href="index.html"><img src="/admin/assets/images/logo-full-light.png" alt="" class="light-logo m-auto"></a>
                                 </div>
                                 <h4 class="fs-20 text-center">Sign in your account</h4>

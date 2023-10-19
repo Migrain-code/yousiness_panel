@@ -166,7 +166,7 @@
                                 <div class="header-info2 d-flex align-items-center">
                                     <div class="d-flex align-items-center sidebar-info">
                                         <div>
-                                            <h4 class="mb-0">Nella Vita</h4>
+                                            <h4 class="mb-0">Yousiness</h4>
                                             <span class="d-block text-end">Admin</span>
                                         </div>
                                     </div>
