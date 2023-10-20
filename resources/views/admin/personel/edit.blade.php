@@ -247,9 +247,9 @@
                                                         </label>
                                                         <select name="gender" id="gender" class="form-control">
                                                             <option value="">Geschlecht Seçiniz</option>
-                                                            <option value="1" @selected($personel->gender == 1)>Kadın</option>
-                                                            <option value="2" @selected($personel->gender == 2)>Erkek</option>
-                                                            <option value="3" @selected($personel->gender == 3)>Her İkiside</option>
+                                                            <option value="1" @selected($personel->gender == 1)>Frau</option>
+                                                            <option value="2" @selected($personel->gender == 2)>Mann</option>
+                                                            <option value="3" @selected($personel->gender == 3)>Beides</option>
                                                         </select>
                                                     </div>
                                                 @endif

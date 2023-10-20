@@ -21,8 +21,8 @@ class CustomerController extends Controller
     public function index()
     {
         $genderList=[
-            'Kadın',
-            'Erkek'
+            'Frau',
+            'Mann'
         ];
         $businessUser = auth('business')->user();
 
@@ -33,8 +33,8 @@ class CustomerController extends Controller
     public function listView()
     {
         $genderList=[
-            'Kadın',
-            'Erkek'
+            'Frau',
+            'Mann'
         ];
         $bCustomerIds = [];
         $businessUser = auth('business')->user();

@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="mothly-income" style="background-color: #4cb32b;padding: 20px 10px;border-radius: 18px;line-height: 2em">
-                                    <span class="text-white fw-bold">Toplam Randevu</span>
+                                    <span class="text-white fw-bold">Gesamt</span>
                                     <h4 class="text-white">{{$allTotal}}</h4>
                                 </div>
                             </div>
@@ -223,9 +223,9 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                                         </label>
                                                         <select name="gender" id="gender" class="form-control">
                                                             <option value="">Geschlecht Auswählen</option>
-                                                            <option value="1" @selected($personel->gender == 1)>Kadın</option>
-                                                            <option value="2" @selected($personel->gender == 2)>Erkek</option>
-                                                            <option value="3" @selected($personel->gender == 3)>Her İkiside</option>
+                                                            <option value="1" @selected($personel->gender == 1)>Frau</option>
+                                                            <option value="2" @selected($personel->gender == 2)>Mann</option>
+                                                            <option value="3" @selected($personel->gender == 3)>Beides</option>
                                                         </select>
                                                     </div>
                                                 @endif
@@ -431,7 +431,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                 <table id="example3" class="display" style="min-width: 845px">
                                                     <thead>
                                                     <tr>
-                                                        <th>Müşteri Adı</th>
+                                                        <th>Name Nachname</th>
                                                         <th>Dienstleistungen</th>
                                                         <th>Adet</th>
                                                         <th>Betrag</th>
@@ -523,7 +523,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                 <table id="example4" class="display" style="min-width: 845px">
                                                     <thead>
                                                     <tr>
-                                                        <th>Müşteri Adı</th>
+                                                        <th>Name Nachname</th>
                                                         <th>Produktname</th>
                                                         <th>Adet</th>
                                                         <th>Betrag</th>

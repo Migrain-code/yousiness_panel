@@ -81,13 +81,13 @@
                             <select name="type" class="form-control">
                                 @if($business->type->id==3)
                                     <option value="">Tür Seçiniz</option>
-                                    <option value="1">Kadın</option>
-                                    <option value="2">Erkek</option>
-                                    <option value="3">Her İkiside</option>
+                                    <option value="1">Frau</option>
+                                    <option value="2">Mann</option>
+                                    <option value="3">Beides</option>
                                 @elseif($business->type->id==1)
-                                    <option value="1" selected>Kadın</option>
+                                    <option value="1" selected>Frau</option>
                                 @elseif($business->type->id==2)
-                                    <option value="2" selected>Erkek</option>
+                                    <option value="2" selected>Mann</option>
                                 @endif
                             </select>
                         </div>

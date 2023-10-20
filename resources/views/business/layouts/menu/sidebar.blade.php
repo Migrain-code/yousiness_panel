@@ -91,10 +91,8 @@
                 </a>
             </li>
             <li>
-                <a class="has-arrow " disabled href="{{route('business.appointment.index')}}">
-                    <i class="material-icons-outlined">event</i>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-                    <i class="material-icons-outlined">cloud_download</i>
+                    <i class="material-icons-outlined">event</i>
                     <span class="nav-text">Termine</span>
                 </a>
                 <ul aria-expanded="false">

@@ -140,8 +140,8 @@
                         <div class="form-group">
                             <label>Geschlecht</label>
                             <select name="gender" class="form-control">
-                                <option value="0">Erkek</option>
-                                <option value="1">Kadın</option>
+                                <option value="0">Mann</option>
+                                <option value="1">Frau</option>
                             </select>
                         </div>
                         <div class="form-group">

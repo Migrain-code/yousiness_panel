@@ -47,7 +47,7 @@
                                 <th>Kompetenz</th>
                                 <th>Freier Tag</th>
                                 <th>Geschlecht</th>
-                                <th>İşlemler</th>
+                                <th>Bearbeiten</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -70,7 +70,7 @@
                                            @if($personel->gender != 3)
                                                {{$personel->type->name}}
                                            @else
-                                               Kadın / Erkek
+                                               Frau / Mann
                                            @endif
                                        </td>
                                        <td>

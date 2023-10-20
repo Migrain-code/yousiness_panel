@@ -23,8 +23,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>İşletme Türü</h6>
-                            <p>İşletme Türnüzü Seçiniz. </p>
+                            <h6>Salon Kategorie</h6>
+                            <p>Wählen Sie Ihre Salonkategorie(n) aus. </p>
                         </div>
                     </a>
                 </li>
@@ -35,8 +35,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>İşletme Bilgileri</h6>
-                            <p>İşletme Bilgilerini Giriniz.</p>
+                            <h6>Salon Details angeben</h6>
+                            <p>Fügen Sie Ihre Salondetails hinzu.</p>
                         </div>
                     </a>
                 </li>
@@ -47,8 +47,8 @@
                             <span>3</span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>Adres Bilgileri</h6>
-                            <p>İşletme Adres/Konum Bilgileri</p>
+                            <h6>Adresse</h6>
+                            <p>Hallenadresse/Standortinformationen</p>
                         </div>
                     </a>
                 </li>
@@ -61,15 +61,15 @@
         <div class="onboarding-content-box content-wrap">
             <div class="onborad-set">
                 <div class="onboarding-title">
-                    <h2>Adres Bilgileri?<span>*</span></h2>
-                    <h6>İşletmenizi sistemde ve müşteriler normal hayatlarında kolay bulabilmeleri için 3 türde de adres bilgisi istenmektedir.
+                    <h2>Hallenadresse informationen?<span>*</span></h2>
+                    <h6>Alle 3 Arten von Adressinformationen sind erforderlich, damit Kunden Ihren Salon im System und im Alltag problemlos finden können.
                     </h6>
                 </div>
                 <div class="onboarding-content">
                     <form class="row" method="post" action="{{route('business.setup.step3Form')}}" id="step3Form">
                         @csrf
                         <div class="form-group col-lg-12">
-                            <label>İşletme Konumunu Seçiniz</label>
+                            <label>Wählen Sie den Standort der Salon aus</label>
                             <input type="hidden" name="latitude" id="latitude" value="{{$business->lat}}">
                             <input type="hidden" name="longitude" id="longitude" value="{{$business->longitude}}">
 
@@ -83,12 +83,12 @@
                         </div>
 
                         <div class="form-group col-lg-12">
-                            <label>İşletme Adresi</label>
+                            <label>Salon Adresse</label>
                             <textarea class="form-control" name="address" id="address" rows="6">{{$business->address}}</textarea>
                         </div>
 
                         <div class="form-group col-lg-12" style="display: none">
-                            <label>Harita Kodu</label>
+                            <label>Kartencode</label>
                             <textarea class="form-control read-content" name="embed" id="embed" readonly rows="6">{{$business->embed}}</textarea>
                         </div>
 
@@ -98,7 +98,7 @@
             </div>
 
             <div class="onboarding-btn">
-                <a href="#" onclick="$('#step3Form').submit()">Devam Et</a>
+                <a href="#" onclick="$('#step3Form').submit()">Weitermachen</a>
             </div>
         </div>
     </div>

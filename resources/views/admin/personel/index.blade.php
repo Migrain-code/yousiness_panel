@@ -68,7 +68,7 @@
                                            @if($personel->gender != 3)
                                                {{$personel->type->name}}
                                            @else
-                                               Kadın / Erkek
+                                               Frau / Mann
                                            @endif
                                        </td>
                                        <td>
@@ -198,9 +198,9 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                     </label>
                                     <select name="gender" id="gender" class="form-control">
                                             <option value="">Geschlecht Auswählen</option>
-                                            <option value="1">Kadın</option>
-                                            <option value="2">Erkek</option>
-                                            <option value="3">Her İkiside</option>
+                                            <option value="1">Frau</option>
+                                            <option value="2">Mann</option>
+                                            <option value="3">Beides</option>
                                     </select>
                                 </div>
                             @endif
