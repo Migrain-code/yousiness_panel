@@ -97,7 +97,7 @@
                 </a>
                 <ul aria-expanded="false">
                      <li>
-                         <a href="{{route('business.appointment.index')}}">Takvim</a>
+                         <a href="{{route('business.appointment.index')}}">Terminkalender</a>
                      </li>
                     <li>
                         <a href="{{route('business.appointment.list')}}">Liste</a>
