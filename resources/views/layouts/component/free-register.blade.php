@@ -9,10 +9,10 @@
         <div class="row g-0">
             <div class="col-12">
                 <div class="tp-cta-five-section-box text-center">
-                    <span class="tp-section-subtitle-5">HEPSİ BİR ARADA İŞLETME YÖNETİCİSİ</span>
-                    <h3 class="tp-section-title-5 pb-30"><span>Şimdi </span>İşletmenizi bir adım ileriye taşıyalım </h3>
+                    <span class="tp-section-subtitle-5">Die Brücke zwischen Ihnen und Ihren Kunden </span>
+                    <h3 class="tp-section-title-5 pb-30"><span>Lassen </span> Sie uns nun Ihren Salon einen Schritt weiter bringen </h3>
                     <div class="tp-cta-five-btn">
-                        <a class="tp-btn-yellow-lg circle-effect" href="{{route('business.register')}}">14 Gün Ücretsiz Dene</a>
+                        <a class="tp-btn-yellow-lg circle-effect" href="{{route('business.register')}}">Kostenlos Testen</a>
                     </div>
                 </div>
             </div>
