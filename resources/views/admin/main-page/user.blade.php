@@ -25,7 +25,7 @@
 															<rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="currentColor" />
 														</svg>
 													</span>
-                                    <!--end::Svg Icon-->Bölüm 1</a>
+                                    <!--end::Svg Icon-->Bereich 1</a>
                             </li>
                             <!--begin:::Tab item-->
                             <li class="nav-item">
@@ -37,7 +37,7 @@
 														<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="currentColor"></path>
 													</svg>
 													</span>
-                                    <!--end::Svg Icon-->Bölüm 2</a>
+                                    <!--end::Svg Icon-->Bereich 2</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary" data-bs-toggle="tab" href="#kt_ecommerce_settings_box_3">
@@ -48,7 +48,7 @@
 														<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="currentColor"></path>
 													</svg>
 													</span>
-                                    <!--end::Svg Icon-->Bölüm 3</a>
+                                    <!--end::Svg Icon-->Bereich 3</a>
                             </li>
                         </ul>
                         <!--end:::Tabs-->
@@ -62,7 +62,7 @@
                                     <!--begin::Heading-->
                                     <div class="row my-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Anasayfa Başlık Güncelleme Formu</h2>
+                                            <h2>Startseite Überschriften</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -70,7 +70,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Küçük Başlık</span>
+                                                <span>KKlein</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki hakkımızda alanı başlık"></i>
                                             </label>
                                             <!--end::Label-->
@@ -89,7 +89,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Küçük Başlık</span>
+                                                <span>Klein</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki hakkımızda alanı başlık"></i>
                                             </label>
                                             <!--end::Label-->
@@ -108,7 +108,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Bemerkung</span>
+                                                <span>Beschreibung</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki hakkımızda alanı başlık"></i>
                                             </label>
                                             <!--end::Label-->
@@ -126,7 +126,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">Foto</span>
+                                                <span class="required">Bild</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki ilk bölümdeki büyük görsel"></i>
                                             </label>
                                             <!--end::Label-->
@@ -164,7 +164,7 @@
                                     <!--begin::Heading-->
                                     <div class="row my-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Bölüm 2 Güncelleme Formu</h2>
+                                            <h2>Bereich 2 Bearbeiten</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -173,7 +173,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Genel Başlık</span>
+                                                <span>Überschrift</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki hakkımızda alanı başlık"></i>
                                             </label>
                                             <!--end::Label-->
@@ -188,14 +188,14 @@
                                     </div>
                                     <div class="row p-2 mt-3" style="border: 1px solid orange;max-width: 99%;border-radius: 15px">
                                         <div class="row">
-                                            <h4>Kutu 1</h4>
+                                            <h4>1. Kasten</h4>
                                         </div>
                                         <!--begin::Input group-->
                                         <div class="row fv-row mb-2">
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 1 Başlık</span>
+                                                    <span class="required">1. Kasten Überschrift</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Site Adınızı Güncelleyin"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -212,7 +212,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 1 İçerik</span>
+                                                    <span class="required">1. Kasten Inhalt</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -229,7 +229,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 1 İkon</span>
+                                                    <span class="required">1. Kasten Bild</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -246,7 +246,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 1 Buton Metni</span>
+                                                    <span class="required">1. Buton Beschriftung</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -262,7 +262,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 1 Buton Linki</span>
+                                                    <span class="required">1. Buton verlinken</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -278,14 +278,14 @@
                                     <!--begin::Box 2-->
                                     <div class="row p-2 mt-3" style="border: 1px solid orange;max-width: 99%;border-radius: 15px">
                                         <div class="row">
-                                            <h4>Kutu 2</h4>
+                                            <h4>2. Kasten</h4>
                                         </div>
                                         <!--begin::Input group-->
                                         <div class="row fv-row mb-2">
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 2 Başlık</span>
+                                                    <span class="required">2. Kasten Überschrift</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="2. Bölümdeki Kutu 2 Başlık"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -302,7 +302,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 2 İçerik</span>
+                                                    <span class="required">2. Kasten Inhalt</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="2. Bölümdeki Kutu 2 İçerik"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -319,7 +319,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 2 İkon</span>
+                                                    <span class="required">2. Kasten Bild</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="2. Bölümdeki Kutu 2 İcon"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -335,7 +335,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 2 Buton Metni</span>
+                                                    <span class="required">2. Buton Beschriftung</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -351,7 +351,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 2 Buton Linki</span>
+                                                    <span class="required">2. Buton verlinken</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -367,14 +367,14 @@
                                     <!--begin::Box 3-->
                                     <div class="row p-2 mt-3" style="border: 1px solid orange;max-width: 99%;border-radius: 15px">
                                         <div class="row">
-                                            <h4>Kutu 3</h4>
+                                            <h4>3. Kasten</h4>
                                         </div>
                                         <!--begin::Input group-->
                                         <div class="row fv-row mb-2">
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 3 Başlık</span>
+                                                    <span class="required">3. Kasten Überschrift</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="2. Bölümdeki Kutu 3 Başlık"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -391,7 +391,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 3 İçerik</span>
+                                                    <span class="required">3. Kasten Inhalt</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="2. Bölümdeki Kutu 3 İçerik"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -408,7 +408,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 3 İkon</span>
+                                                    <span class="required">3. Kasten Bild</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="2. Bölümdeki Kutu 3 İcon"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -424,7 +424,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 3 Buton Metni</span>
+                                                    <span class="required">3. Buton Beschriftung</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -440,7 +440,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 3 Buton Linki</span>
+                                                    <span class="required">3. Buton verlinken</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -478,21 +478,21 @@
                                     <!--begin::Heading-->
                                     <div class="row my-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Bölüm 3 Güncelleme Formu</h2>
+                                            <h2>Bereich 3 Bearbeiten</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
 
                                     <div class="row p-2 mt-3" style="border: 1px solid orange;max-width: 99%;border-radius: 15px">
                                         <div class="row">
-                                            <h4>Kutu 1</h4>
+                                            <h4>1. Kasten</h4>
                                         </div>
                                         <!--begin::Input group-->
                                         <div class="row fv-row mb-2">
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 1 Başlık</span>
+                                                    <span class="required">1. Kasten Überschrift</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Site Adınızı Güncelleyin"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -509,7 +509,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 1 İçerik</span>
+                                                    <span class="required">1. Kasten Inhalt</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -526,14 +526,14 @@
                                     <!--begin::Box 2-->
                                     <div class="row p-2 mt-3" style="border: 1px solid orange;max-width: 99%;border-radius: 15px">
                                         <div class="row">
-                                            <h4>Kutu 2</h4>
+                                            <h4>2. Kasten</h4>
                                         </div>
                                         <!--begin::Input group-->
                                         <div class="row fv-row mb-2">
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 2 Başlık</span>
+                                                    <span class="required">2. Kasten Überschrift</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="2. Bölümdeki Kutu 2 Başlık"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -550,7 +550,7 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Kutu 2 İçerik</span>
+                                                    <span class="required">2. Kasten Inhalt</span>
                                                     <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="2. Bölümdeki Kutu 2 İçerik"></i>
                                                 </label>
                                                 <!--end::Label-->
@@ -568,7 +568,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">Ortadaki Görsel</span>
+                                                <span class="required">Bild in der Mitte</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="2. Bölümdeki Kutu 2 İcon"></i>
                                             </label>
                                             <!--end::Label-->

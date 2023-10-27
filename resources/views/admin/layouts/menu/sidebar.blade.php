@@ -21,10 +21,10 @@
                 </a>
                 <ul aria-expanded="false">
                     <li>
-                        <a href="{{route('admin.business.index')}}">İşletme Listesi</a>
+                        <a href="{{route('admin.business.index')}}">Business Liste</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.businnessType.index')}}">Tür Listesi</a>
+                        <a href="{{route('admin.businnessType.index')}}">Kategorien Liste</a>
                     </li>
                 </ul>
 
@@ -36,7 +36,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li>
-                        <a href="{{route('admin.businessCategory.index')}}">Kategori Listesi</a>
+                        <a href="{{route('admin.businessCategory.index')}}">Kategorienliste</a>
                     </li>
                 </ul>
 
@@ -65,10 +65,10 @@
                 </a>
                 <ul aria-expanded="false">
                     <li>
-                        <a href="{{route('admin.serviceCategory.index')}}">Kategoriler</a>
+                        <a href="{{route('admin.serviceCategory.index')}}">Oberkategorien</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.serviceSubCategory.index')}}">Alt Kategoriler</a>
+                        <a href="{{route('admin.serviceSubCategory.index')}}">Unterkategorien</a>
                     </li>
                 </ul>
             </li>

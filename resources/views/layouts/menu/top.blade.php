@@ -16,14 +16,14 @@
                         
                                 <ul>
                                 <li>
-                                    <a href="/">Anasayfa</a>
+                                    <a href="/">Startseite</a>
                                 </li>
-                                <li><a href="#packets">Paketlerimiz</a></li>
+                                <li><a href="#packets">Pakete</a></li>
 
                                 <li>
-                                    <a href="#proparties">Özellikler</a></li>
+                                    <a href="#proparties">Über uns</a></li>
 
-                                <li><a href="#contact">İletişim</a></li>
+                                <li><a href="#contact">Kontakt</a></li>
 
                             </ul>
 
@@ -35,7 +35,7 @@
                         <div class="header-bottom__right d-flex align-items-center justify-content-end">
                             <div class="header-bottom__btn d-flex align-items-center">
                                 <a class="tp-btn-white tp-btn-hover alt-color-black d-none d-md-inline-block" href="{{route('business.home')}}">
-                                    <span class="white-text"><i class="fa fa-user-circle me-2"></i>Hesabım</span>
+                                    <span class="white-text"><i class="fa fa-user-circle me-2"></i>Mein Konto</span>
                                     <b style="top: 18.75px; left: -1.375px;"></b>
                                 </a>
                                 <a class="header-bottom__bar tp-menu-bar d-lg-none" href="#"><i class="fal fa-bars"></i></a>
@@ -51,12 +51,12 @@
                                         <path d="M7 8C8.92882 8 10.4924 6.433 10.4924 4.5C10.4924 2.567 8.92882 1 7 1C5.07118 1 3.50757 2.567 3.50757 4.5C3.50757 6.433 5.07118 8 7 8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                         <path d="M13 15C13 12.291 10.3108 10.1 7 10.1C3.68917 10.1 1 12.291 1 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg>
-                                    <span>Giriş yap</span>
+                                    <span>Anmelden</span>
                                 </a>
                             </div>
                             <div class="header-bottom__btn d-flex align-items-center">
                                 <a class="tp-btn-white tp-btn-hover alt-color-black d-none d-md-inline-block" href="{{route('business.register')}}">
-                                    <span class="white-text">Kayıt Ol</span>
+                                    <span class="white-text">Registrieren</span>
                                     <b style="top: 18.75px; left: -1.375px;"></b>
                                 </a>
                                 <a class="header-bottom__bar tp-menu-bar d-lg-none" href="#"><i class="fal fa-bars"></i></a>

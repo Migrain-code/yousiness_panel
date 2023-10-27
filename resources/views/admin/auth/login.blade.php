@@ -41,31 +41,31 @@
 
                                     <a href="index.html"><img src="/admin/assets/images/logo-full-light.png" alt="" class="light-logo m-auto"></a>
                                 </div>
-                                <h4 class="fs-20 text-center">Sign in your account</h4>
+                                <h4 class="fs-20 text-center"></h4>
                                 <div class="sign-in-your py-4 px-2">
                                     <form action="{{route('admin.login')}}" method="post">
                                         @csrf
                                         <div class="mb-3">
-                                            <label class="mb-1"><strong>Email</strong></label>
+                                            <label class="mb-1"><strong>E-mail</strong></label>
                                             <input type="email" name="email" class="form-control" value="hello@example.com">
                                         </div>
                                         <div class="mb-3">
-                                            <label class="mb-1"><strong>Password</strong></label>
+                                            <label class="mb-1"><strong>Passwort</strong></label>
                                             <input type="password" name="password" class="form-control" value="12345678">
                                         </div>
                                         <div class="row d-flex justify-content-between mt-4 mb-2">
                                             <div class="mb-3">
                                                 <div class="form-check custom-checkbox ms-1">
                                                     <input type="checkbox" class="form-check-input" id="basic_checkbox_1">
-                                                    <label class="form-check-label" for="basic_checkbox_1">Remember my preference</label>
+                                                    <label class="form-check-label" for="basic_checkbox_1">Merken Sie sich meine Zugangsdaten</label>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                                <a href="page_forgot_password.html">Forgot Password?</a>
+                                                <a href="page_forgot_password.html">Passwort vergessen ?</a>
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block">Sign Me In</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Einloggen</button>
                                         </div>
                                     </form>
 

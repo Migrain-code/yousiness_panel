@@ -6,6 +6,7 @@
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
                     Support Anfragen
+
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">

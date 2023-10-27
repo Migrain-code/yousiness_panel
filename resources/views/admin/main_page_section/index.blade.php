@@ -18,7 +18,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Anasayfa İşlemleri
+                Startseite Bearbeiten
                 </h2>
             </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Bölüm Listesi
+                Bereich
                 </h4>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
@@ -82,9 +82,9 @@
                     <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>Foto</th>
-                            <th>Başlık</th>
-                            <th>İşlemler</th>
+                            <th>Bild</th>
+                            <th>Überschrift</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>

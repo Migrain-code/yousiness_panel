@@ -16,7 +16,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Bilgi Talepleri
+                Business Anfragen
                 </h2>
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Talep Listesi
+                Liste
                 </h4>
                 <!-- Button trigger modal -->
                 <!-- Modal -->
@@ -84,11 +84,11 @@
                     <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>İsim</th>
-                            <th>İşletme</th>
-                            <th>Mobilnummer</th>
-                            <th>Durum</th>
-                            <th>İşlemler</th>
+                            <th>Name</th>
+                            <th>Salonname</th>
+                            <th>Telefon</th>
+                            <th>Status</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>

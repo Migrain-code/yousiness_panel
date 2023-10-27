@@ -20,7 +20,7 @@
 															<path d="M11 2.375L2 9.575V20.575C2 21.175 2.4 21.575 3 21.575H9C9.6 21.575 10 21.175 10 20.575V14.575C10 13.975 10.4 13.575 11 13.575H13C13.6 13.575 14 13.975 14 14.575V20.575C14 21.175 14.4 21.575 15 21.575H21C21.6 21.575 22 21.175 22 20.575V9.575L13 2.375C12.4 1.875 11.6 1.875 11 2.375Z" fill="currentColor" />
 														</svg>
 													</span>
-                                    <!--end::Svg Icon-->Genel</a>
+                                    <!--end::Svg Icon-->Allgemein</a>
                             </li>
                             <!--begin:::Tab item-->
 
@@ -31,7 +31,7 @@
                                         <path opacity="0.3" d="M20 22H4C3.4 22 3 21.6 3 21V2H21V21C21 21.6 20.6 22 20 22Z" fill="currentColor"></path>
                                         <path d="M12 14C9.2 14 7 11.8 7 9V5C7 4.4 7.4 4 8 4C8.6 4 9 4.4 9 5V9C9 10.7 10.3 12 12 12C13.7 12 15 10.7 15 9V5C15 4.4 15.4 4 16 4C16.6 4 17 4.4 17 5V9C17 11.8 14.8 14 12 14Z" fill="currentColor"></path>
                                     </svg>
-                                    <!--end::Svg Icon-->Site Ayarları</a>
+                                    <!--end::Svg Icon-->Homepage</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary" data-bs-toggle="tab" href="#kt_ecommerce_settings_contact">
@@ -42,7 +42,7 @@
 														<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="currentColor"></path>
 													</svg>
 													</span>
-                                    <!--end::Svg Icon-->İletişim Ayarları</a>
+                                    <!--end::Svg Icon-->Kontakt</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary" data-bs-toggle="tab" href="#kt_ecommerce_settings_social">
@@ -53,7 +53,7 @@
 														<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="currentColor"></path>
 													</svg>
 													</span>
-                                    <!--end::Svg Icon-->Sosyal Medya</a>
+                                    <!--end::Svg Icon-->Social Media</a>
                             </li>
                         </ul>
                         <!--end:::Tabs-->
@@ -67,7 +67,7 @@
                                     <!--begin::Heading-->
                                     <div class="row mb-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Allgemein</h2>
+                                            <h2>Allgemeine Einstellungen</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -76,7 +76,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">Site Başlık</span>
+                                                <span class="required">Homepage Überschrift</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the title of the store for SEO."></i>
                                             </label>
                                             <!--end::Label-->
@@ -93,7 +93,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Meta Açıklamaları</span>
+                                                <span>Meta</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set keywords for the store separated by a comma."></i>
                                             </label>
                                             <!--end::Label-->
@@ -110,7 +110,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Logo (White Tema)</span>
+                                                <span>Logo (White Thema)</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
                                             </label>
                                             <!--end::Label-->
@@ -126,7 +126,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Logo (Footer)</span>
+                                                <span>Logo Fooder</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
                                             </label>
                                             <!--end::Label-->
@@ -142,7 +142,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Logo (Dark Tema)</span>
+                                                <span>Logo (Dark Thema)</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
                                             </label>
                                             <!--end::Label-->
@@ -174,7 +174,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Sayfalama Adedi</span>
+                                                <span>Seiten Anzahl</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
                                             </label>
                                             <!--end::Label-->
@@ -188,7 +188,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Footer Hakkımızda Yazısı</span>
+                                                <span>Footer Über uns</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
                                             </label>
                                             <!--end::Label-->
@@ -204,7 +204,7 @@
                                         <div class="col-md-9 offset-md-3">
                                             <div class="d-flex">
                                                 <!--begin::Button-->
-                                                <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Cancel</button>
+                                                <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Schließen</button>
                                                 <!--end::Button-->
                                                 <!--begin::Button-->
                                                 <button type="submit" class="btn btn-primary">
@@ -227,7 +227,7 @@
                                     <!--begin::Heading-->
                                     <div class="row mb-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Site Ayarları</h2>
+                                            <h2>Seiteneinstellungen</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -236,7 +236,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Doğum günü Mesajı</span>
+                                                <span>Geburtstagsbenachrichtigung</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7"></i>
                                             </label>
                                             <!--end::Label-->
@@ -246,11 +246,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('speed_birthday_message')=="1") name="speed_birthday_message" id="category_product_count_yes" checked="checked" />
-                                                    <label class="form-check-label" for="category_product_count_yes">Gönder</label>
+                                                    <label class="form-check-label" for="category_product_count_yes">Senden</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('speed_birthday_message')=="0") name="speed_birthday_message" id="category_product_count_no" />
-                                                    <label class="form-check-label" for="category_product_count_no">Gönderme</label>
+                                                    <label class="form-check-label" for="category_product_count_no">Nicht senden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -261,7 +261,7 @@
                                     <!--begin::Heading-->
                                     <div class="row mb-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Anasayfa Görüntüleme Ayarları</h2>
+                                            <h2>Startseite Bereiche Einstellungen</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -270,7 +270,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>1. Bölüm</span>
+                                                <span>Bereich 1</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -280,11 +280,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('speed_main_page_section_1')=="1") name="speed_main_page_section_1" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('speed_main_page_section_1')=="0") name="speed_main_page_section_1" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -294,7 +294,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>2. Bölüm</span>
+                                                <span>Bereich 2</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -304,11 +304,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('speed_main_page_section_2')=="1") name="speed_main_page_section_2" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('speed_main_page_section_2')=="0") name="speed_main_page_section_2" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -318,7 +318,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>3. Bölüm</span>
+                                                <span>Bereich 3</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -328,11 +328,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('speed_main_page_section_3')=="1") name="speed_main_page_section_3" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('speed_main_page_section_3')=="0") name="speed_main_page_section_3" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -342,7 +342,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>4. Bölüm</span>
+                                                <span>Bereich 4</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -352,11 +352,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('speed_main_page_section_4')=="1") name="speed_main_page_section_4" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('speed_main_page_section_4')=="0") name="speed_main_page_section_4" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -366,7 +366,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>5. Bölüm</span>
+                                                <span>Bereich 5</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -376,11 +376,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('speed_main_page_section_5')=="1") name="speed_main_page_section_5" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('speed_main_page_section_5')=="0") name="speed_main_page_section_5" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -390,7 +390,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>6. Bölüm</span>
+                                                <span>Bereich 6</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -400,11 +400,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('speed_main_page_section_6')=="1") name="speed_main_page_section_6" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('speed_main_page_section_6')=="0") name="speed_main_page_section_6" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -419,7 +419,7 @@
 
                                                 <!--begin::Button-->
                                                 <button type="submit" class="btn btn-primary">
-                                                    <span class="indicator-label">Save</span>
+                                                    <span class="indicator-label">Speichern</span>
                                                 </button>
                                                 <!--end::Button-->
                                             </div>

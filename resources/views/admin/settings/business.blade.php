@@ -20,7 +20,7 @@
 															<path d="M11 2.375L2 9.575V20.575C2 21.175 2.4 21.575 3 21.575H9C9.6 21.575 10 21.175 10 20.575V14.575C10 13.975 10.4 13.575 11 13.575H13C13.6 13.575 14 13.975 14 14.575V20.575C14 21.175 14.4 21.575 15 21.575H21C21.6 21.575 22 21.175 22 20.575V9.575L13 2.375C12.4 1.875 11.6 1.875 11 2.375Z" fill="currentColor" />
 														</svg>
 													</span>
-                                    <!--end::Svg Icon-->Genel</a>
+                                    <!--end::Svg Icon-->Allgemein</a>
                             </li>
                             <!--end:::Tab item-->
                             <!--begin:::Tab item-->
@@ -45,7 +45,7 @@
 															<path d="M12 14C9.2 14 7 11.8 7 9V5C7 4.4 7.4 4 8 4C8.6 4 9 4.4 9 5V9C9 10.7 10.3 12 12 12C13.7 12 15 10.7 15 9V5C15 4.4 15.4 4 16 4C16.6 4 17 4.4 17 5V9C17 11.8 14.8 14 12 14Z" fill="currentColor" />
 														</svg>
 													</span>
-                                    <!--end::Svg Icon-->Site Ayarları</a>
+                                    <!--end::Svg Icon-->Seiteneinstellungen</a>
                             </li>
 
 
@@ -300,7 +300,7 @@
                                     <!--begin::Heading-->
                                     <div class="row mb-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Site Ayarları</h2>
+                                            <h2>Seiteneinstellungen</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
