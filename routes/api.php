@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CityController;
+use \App\Http\Controllers\Api\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,4 +19,12 @@ use App\Http\Controllers\Api\CityController;
 Route::get('/get/calender/{businessKey}', [\App\Http\Controllers\Api\CalenderController::class, 'getEvents']);
 Route::prefix('city')->group(function (){
     Route::post('search', [CityController::class, 'search']);
+});
+
+Route::prefix('business')->group(function () {
+    Route::prefix('auth')->group(function () {
+        Route::post('login', [AuthController::class, 'login']);
+        Route::post('check-phone', [AuthController::class, 'register']);
+        Route::post('verify', [AuthController::class, 'verify']);
+    });
 });
