@@ -71,13 +71,13 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="mothly-income" style="background-color: #600ee4;padding: 20px 10px;border-radius: 18px;line-height: 2em">
-                                    <span class="text-white fw-bold">Bu Ay</span>
+                                    <span class="text-white fw-bold">Diesen Monat</span>
                                     <h4 class="text-white">€3,741.00</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="mothly-income" style="background-color: #ff7d10;padding: 20px 10px;border-radius: 18px;line-height: 2em">
-                                    <span class="text-white fw-bold">Bu Yıl</span>
+                                    <span class="text-white fw-bold">Dieses Jahr</span>
                                     <h4 class="text-white">€3,741.00</h4>
                                 </div>
                             </div>
@@ -247,9 +247,9 @@
                                                         </label>
                                                         <select name="gender" id="gender" class="form-control">
                                                             <option value="">Geschlecht Seçiniz</option>
-                                                            <option value="1" @selected($personel->gender == 1)>Kadın</option>
-                                                            <option value="2" @selected($personel->gender == 2)>Erkek</option>
-                                                            <option value="3" @selected($personel->gender == 3)>Her İkiside</option>
+                                                            <option value="1" @selected($personel->gender == 1)>Frau</option>
+                                                            <option value="2" @selected($personel->gender == 2)>Mann</option>
+                                                            <option value="3" @selected($personel->gender == 3)>Beides</option>
                                                         </select>
                                                     </div>
                                                 @endif
@@ -416,9 +416,9 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                             </div>
                                             <div class="d-flex align-items-center mb-3">
                                                 <select class="image-select default-select dashboard-select me-2" aria-label="Default">
-                                                    <option selected>Bu Ay</option>
-                                                    <option value="1">Bu hafta</option>
-                                                    <option value="2">Bugün</option>
+                                                    <option selected>Diesen Monat</option>
+                                                    <option value="1">Diese Woche</option>
+                                                    <option value="2">Heute</option>
                                                 </select>
                                                 <div class="dropdown custom-dropdown">
                                                     <div class="btn sharp btn-primary tp-btn " data-bs-toggle="dropdown">

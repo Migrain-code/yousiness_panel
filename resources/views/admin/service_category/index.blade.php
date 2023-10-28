@@ -8,7 +8,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Hizmet Kategorileri / Liste
+                Dienstleistung Kategorien
                 </h2>
             </div>
         </div>
@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Hizmet Kategorileri Listesi
+                Kategorienliste
                 </h4>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
@@ -37,7 +37,7 @@
                             <div class="modal-body">
                                     @csrf
                                     <div class="mb-3">
-                                        <label>İşletme Türü</label>
+                                        <label>Geschlecht</label>
                                         <select name="type_id" class="form-control mb-2">
                                             <option>İşletme Türü seçiniz</option>
                                             @forelse($types as $type)
@@ -48,7 +48,7 @@
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                        <label>Kategori Adı</label>
+                                        <label>Kategorie</label>
                                         <input type="text" class="form-control input-default " name="name" placeholder="Örneğin(Berber)">
                                     </div>
                             </div>
@@ -67,9 +67,9 @@
                     <table id="example" class="display" style="min-width: 845px">
                         <thead>
                         <tr>
-                            <th>İşletme Türü</th>
-                            <th>Kategori Adı</th>
-                            <th>İşlemler</th>
+                            <th>Geschlecht</th>
+                            <th>Kategorie</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>

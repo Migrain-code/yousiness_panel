@@ -38,7 +38,7 @@
                 <div class="col-xl-12">
                     <div class="page-titles">
                         <div class="d-flex align-items-center">
-                            <h2 class="heading"> Randevular </h2>
+                            <h2 class="heading"> Terminkalender </h2>
                         </div>
 
                     </div>
@@ -70,7 +70,7 @@
                                             <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
                                             </svg>
-                                            <h4>Toplam Randevu</h4>
+                                            <h4>Gesamt</h4>
                                         </div>
                                         <div  class="chart-num">
                                             <h2>{{authUser()->appointments->count()}}</h2>
@@ -98,7 +98,7 @@
                                             <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
                                             </svg>
-                                            <h4>Tamamlanan</h4>
+                                            <h4>Vollendet</h4>
                                         </div>
                                         <div  class="chart-num">
                                             <h2>{{authUser()->appointments()->where('status', 7)->count()}}</h2>
@@ -126,7 +126,7 @@
                                             <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
                                             </svg>
-                                            <h4>İptal Edilen</h4>
+                                            <h4>Stornierte</h4>
                                         </div>
                                         <div  class="chart-num">
                                             <h2>{{authUser()->appointments()->where('status', 8)->count()}}</h2>
@@ -167,7 +167,7 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-header">
-                                <button id="authorize_button" class="btn btn-primary" onclick="handleAuthClick()">Google Takvime Bağlan</button>
+                                <button id="authorize_button" class="btn btn-primary" onclick="handleAuthClick()">Google Kalender verbinden</button>
 
                             </div>
                             <div class="card-body">

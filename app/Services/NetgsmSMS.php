@@ -24,7 +24,7 @@ class NetgsmSMS
                 'message' => $message,
                 'startdate' => '',
                 'stopdate' => '',
-                'dil' => 'TR',
+                'dil' => 'DE',
                 'bayikodu' => '',
                 'filter' => '',
                 'type' => '',

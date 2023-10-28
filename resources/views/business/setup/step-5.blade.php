@@ -10,8 +10,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>İşletme Türü</h6>
-                            <p>İşletme Türnüzü Seçiniz. </p>
+                            <h6>Salon Kategorie</h6>
+                            <p>Wählen Sie Ihre Salonkategorie(n) aus.</p>
                         </div>
                     </a>
                 </li>
@@ -22,8 +22,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>İşletme Bilgileri</h6>
-                            <p>İşletme Bilgilerini Giriniz.</p>
+                            <h6>Salon Details angeben</h6>
+                            <p>Fügen Sie Ihre Salondetails hinzu.</p>
                         </div>
                     </a>
                 </li>
@@ -34,8 +34,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>Adres Bilgileri</h6>
-                            <p>İşletme Adres/Konum Bilgileri</p>
+                            <h6>Adresse</h6>
+                            <p>Hallenadresse/Standortinformationen</p>
                         </div>
                     </a>
                 </li>
@@ -45,8 +45,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>Ödeme İşlemi</h6>
-                            <p>Hizmet Paketi Seçiniz.</p>
+                            <h6>Bezahlvorgang</h6>
+                            <p>Wählen Sie Servicepaket.</p>
                         </div>
                     </a>
                 </li>
@@ -56,8 +56,8 @@
                             <span>5</span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>Hazırız</h6>
-                            <p>Sistem Kurulumu Tamamlandı.</p>
+                            <h6>Wir sind bereit</h6>
+                            <p>Unternehmensgründung abgeschlossen</p>
                         </div>
                     </a>
                 </li>
@@ -80,12 +80,12 @@
                     <div class="alert alert-{{session('response.status')}}">{{session('response.message')}}</div>
                 @endif
                     <div class="row text-center">
-                        Yousiness kurulum işlemleriniz başarıyla tamamlandı.
-                        Paneli Göster butona basarak artık panelinizi yönetebilirsiniz.
-                        Sistemsel soru ve problemlerinizi panelinizde yer alan, destek kısmından iletebilirsiniz.
-                        E-Posta adresinize eğitim videoları gönderilmiştir.
+                    Ihr Yousiness-Installationsprozess wurde erfolgreich abgeschlossen.
+                        Sie können Ihr Panel jetzt mit der Schaltfläche „Panel anzeigen“ verwalten.
+                        Sie können Ihre systemischen Fragen und Probleme an den Support-Bereich Ihres Panels senden.
+                        Schulungsvideos wurden an Ihre E-Mail-Adresse gesendet.
                         <div class="onboarding-btn mt-2">
-                            <a href="{{route('business.home')}}">Panele Git</a>
+                            <a href="{{route('business.home')}}">Gehen Sie zum Panel</a>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                         </svg>
                     </div>
                     <div class="col-11">
-                        <strong>Yardıma İhtiyacın Var mı?</strong> <br>Eğer yardıma ihtiyacınız varsa bizimle iletişime geçiniz.<br>  <a href="tel:{{config('settings.site_phone')}}" class="alert-link"><u>{{config('settings.site_phone')}}</u></a>.
+                        <strong>Brauchst du Hilfe?</strong> <br>Wenn Sie Hilfe benötigen, kontaktieren Sie uns.<br>  <a href="tel:{{config('settings.site_phone')}}" class="alert-link"><u>{{config('settings.site_phone')}}</u></a>.
 
                     </div>
                 </div>

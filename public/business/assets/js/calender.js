@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'timeGridWeek', /*veya listWeek*/
-        timeZone: 'Europe/Istanbul',
-        locale: 'tr',
+        timeZone: 'Europe/Berlin	',
+        locale: 'de',
         themeSystem: 'bootstrap5',
         headerToolbar: {
             left: 'customPrev,customNext today',
@@ -12,37 +12,37 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         customButtons: {
             customPrev: {
-                text: 'Önceki',
+                text: 'Ehemalig',
                 click: function () {
                     calendar.prev();
                 }
             },
             customNext: {
-                text: 'Sonraki',
+                text: 'Nächste',
                 click: function () {
                     calendar.next();
                 }
             },
             today: {
-                text: 'Bugün',
+                text: 'Heute',
                 click: function () {
                     calendar.today();
                 }
             },
             customMonth: {
-                text: 'Ay',
+                text: 'Monat',
                 click: function () {
                     calendar.changeView('dayGridMonth');
                 }
             },
             customWeek: {
-                text: 'Hafta',
+                text: 'Woche',
                 click: function () {
                     calendar.changeView('timeGridWeek');
                 }
             },
             customDay: {
-                text: 'Gün',
+                text: 'Tag',
                 click: function () {
                     calendar.changeView('timeGridDay');
                 }

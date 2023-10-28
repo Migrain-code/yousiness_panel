@@ -49,7 +49,7 @@
                                             <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
                                             </svg>
-                                            <h4>Toplam Randevu</h4>
+                                            <h4>Gesamt</h4>
                                         </div>
                                         <div  class="chart-num">
                                             <h2>{{authUser()->appointments->count()}}</h2>
@@ -77,7 +77,7 @@
                                             <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
                                             </svg>
-                                            <h4>Tamamlanan</h4>
+                                            <h4>Vollendet</h4>
                                         </div>
                                         <div  class="chart-num">
                                             <h2>{{authUser()->appointments()->where('status', 7)->count()}}</h2>
@@ -105,7 +105,7 @@
                                             <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
                                             </svg>
-                                            <h4>İptal Edilen</h4>
+                                            <h4>Stornierte</h4>
                                         </div>
                                         <div  class="chart-num">
                                             <h2>{{authUser()->appointments()->where('status', 8)->count()}}</h2>
@@ -147,12 +147,12 @@
                         <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
                             <div class="card">
                                 <div class="card-header border-0 flex-wrap">
-                                    <h2 class="heading">Tüm Randevular</h2>
+                                    <h2 class="heading">Alle Termine</h2>
                                     <div class="d-flex align-items-center">
                                         <select class="image-select default-select dashboard-select me-4" aria-label="Default">
-                                            <option selected>Bu Ay</option>
-                                            <option value="1">Bu Hafta</option>
-                                            <option value="2">Bu Yıl</option>
+                                            <option selected>Diesen Monat</option>
+                                            <option value="1">Diese Woche</option>
+                                            <option value="2">Dieses Jahr</option>
                                         </select>
                                         <div class="dropdown">
                                             <a href="javascript:void(0);" class="btn-link btn sharp tp-btn btn-primary pill" data-bs-toggle="dropdown" aria-expanded="false">
@@ -175,11 +175,11 @@
                                         <table class="table-responsive-lg table display mb-4 order-table card-table text-black no-footer student-tbl" id="example3">
                                             <thead>
                                             <tr>
-                                                <th>Müşteri Adı</th>
-                                                <th style="max-width: 150px">Randevu Tarihi</th>
-                                                <th class="text-left" style="max-width: 150px;">Durumu</th>
-                                                <th style="text-align: left">İşlem Sayısı</th>
-                                                <th>İşlemler</th>
+                                                <th>Name Nachname</th>
+                                                <th style="max-width: 150px">Termin</th>
+                                                <th class="text-left" style="max-width: 150px;">Status</th>
+                                                <th style="text-align: left">Anzahl der Transaktionen</th>
+                                                <th>Transaktionen</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -213,26 +213,23 @@
                                                                 <div class="btn-group dropstart mb-1">
                                                                     <button type="button" class="btn btn-primary dropdown-toggle"
                                                                             data-bs-toggle="dropdown">
-                                                                        İşlemler
+                                                                            Transaktionen
                                                                     </button>
                                                                     <div class="dropdown-menu">
-                                                                        <a class="dropdown-item" href="{{route('business.appointment.show', $appointment->id)}}">Detay</a>
-                                                                        <a class="dropdown-item" href="{{route('business.appointment.reject', $appointment->id)}}">İptal Et</a>
+                                                                        <a class="dropdown-item" href="{{route('business.appointment.show', $appointment->id)}}">Detail</a>
+                                                                        <a class="dropdown-item" href="{{route('business.appointment.reject', $appointment->id)}}">Stornieren</a>
                                                                         @if($appointment->status == 0)
                                                                             <a class="dropdown-item"
-                                                                               href="{{route('business.appointment.accept', $appointment->id)}}">Randevuyu
-                                                                                Onayla</a>
+                                                                               href="{{route('business.appointment.accept', $appointment->id)}}">Termin bestätigen</a>
                                                                         @endif
                                                                         @if($appointment->status== 3)
-                                                                            <a class="dropdown-item" href="javascript:void(0);">Randevuyu
-                                                                                Tamamla</a>
+                                                                            <a class="dropdown-item" href="javascript:void(0);">Vollständiger Termin</a>
                                                                         @endif
 
 
                                                                         @if($appointment->status == 5)
                                                                             <div class="dropdown-divider"></div>
-                                                                            <a class="dropdown-item" href="javascript:void(0);">Ödemeyi
-                                                                                Onayla</a>
+                                                                            <a class="dropdown-item" href="javascript:void(0);">Bestätige Zahlung</a>
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -243,7 +240,7 @@
                                             @empty
                                                 <tr>
                                                     <td colspan="4">
-                                                        <div class="alert alert-warning"> Randevu Kaydı Bulunamadı </div>
+                                                        <div class="alert alert-warning"> Termindatensatz nicht gefunden </div>
                                                     </td>
                                                 </tr>
                                             @endforelse
@@ -269,7 +266,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content" style="width: 120% !important;">
                 <div class="modal-header">
-                    <h5 class="modal-title">Randevu Oluştur</h5>
+                    <h5 class="modal-title">Erstellen Sie einen Termin</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -278,9 +275,9 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Müşteri</label>
+                                <label class="form-label">Kunde</label>
                                 <select name="customer_id" class="form-control">
-                                    <option>Müşteri Seçiniz</option>
+                                    <option>Wählen Sie Kunde aus</option>
                                     @forelse(auth('business')->user()->customers as $bCustomer)
                                         <option value="{{$bCustomer->customer->id}}">{{$bCustomer->customer->name}}</option>
                                     @empty
@@ -288,9 +285,9 @@
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Personel</label>
+                                <label class="form-label">Mitarbeiterr</label>
                                 <select name="personel_id" id="personel_id" class="form-control">
-                                    <option>Personel Seçiniz</option>
+                                    <option>Mitarbeiterr Select</option>
                                     @forelse(auth('business')->user()->personel as $personel)
                                         <option value="{{$personel->id}}">{{$personel->name}}</option>
                                     @empty
@@ -300,7 +297,7 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Hizmetler</label>
+                                <label class="form-label">Dienstleistungen</label>
                                 <select name="service_id" id="service_id" class="form-control">
                                     <option>Hizmet Seçiniz</option>
                                     @forelse(auth('business')->user()->service as $service)
@@ -310,7 +307,7 @@
                                 </select>
                             </div>
                             <div class="col-6">
-                                <label class="form-label">Tarih Seçin</label>
+                                <label class="form-label">Datum auswählen</label>
                                 <input type="text" name="start_time" class="form-control" placeholder="2017-06-04"
                                        id="min-date">
                             </div>
@@ -318,8 +315,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
 
                     </div>
                 </form>

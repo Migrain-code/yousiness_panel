@@ -20,13 +20,13 @@
                             <h4 class="tp-footer__widget-title">Für Unternehmen</h4>
                             <div class="tp-footer__content">
                                 <ul>
-                                    <li><a href="{{route('business.login')}}">Anmeldung</a>
+                                    <li><a href="{{route('business.login')}}">Anmelden</a>
                                     </li>
                                     <li><a href="{{route('business.register')}}">Registrieren</a>
                                     </li>
-                                    <li><a href="{{route('faq')}}">Häufig gestellte Fragen</a>
+                                    <li><a href="{{route('faq')}}">FAQ</a>
                                     </li>
-                                    <li><a href="#about_us">über uns</a>
+                                    <li><a href="#about_us">Über uns</a>
                                     </li>
 
                                 </ul>
@@ -69,11 +69,11 @@
                 <div class="row justify-between">
                     <div class="col-lg-12 d-flex justify-content-between">
                         <div class="tp-copyright__text tp-copyright__text-3 text-center">
-                            <span>{{config('settings.bussiness_site_title')}} 2015-{{now()->year}}. Tüm hakları saklıdır.</span>
+                            <span>{{config('settings.bussiness_site_title')}} 2023-{{now()->year}}. | Deutschland</span>
                         </div>
                         <div class="footer-copyright-links">
-                            <a href="#">Şartlar ve Koşullar 1</a>
-                            <a href="#">Gizlilik Koşulları</a>
+                            <a href="#">Rechliches</a>
+                            <a href="#">Impressum</a>
                         </div>
                     </div>
                 </div>

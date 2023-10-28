@@ -7,7 +7,7 @@
         <div class="col-lg-12">
             <div class="page-titles">
                 <div class="d-flex align-items-center">
-                    <h2 class="heading">İşletme Profili</h2>
+                    <h2 class="heading">Salon Profil</h2>
                 </div>
             </div>
         </div>
@@ -81,13 +81,13 @@
                             <select name="type" class="form-control">
                                 @if($business->type->id==3)
                                     <option value="">Tür Seçiniz</option>
-                                    <option value="1">Kadın</option>
-                                    <option value="2">Erkek</option>
-                                    <option value="3">Her İkiside</option>
+                                    <option value="1">Frau</option>
+                                    <option value="2">Mann</option>
+                                    <option value="3">Beides</option>
                                 @elseif($business->type->id==1)
-                                    <option value="1" selected>Kadın</option>
+                                    <option value="1" selected>Frau</option>
                                 @elseif($business->type->id==2)
-                                    <option value="2" selected>Erkek</option>
+                                    <option value="2" selected>Mann</option>
                                 @endif
                             </select>
                         </div>
@@ -133,7 +133,7 @@
                     <div class="profile-tab">
                         <div class="custom-tab-1">
                             <ul class="nav nav-tabs">
-                                <li class="nav-item"><a href="#my-posts" data-bs-toggle="tab" class="nav-link active show">Hizmetler</a>
+                                <li class="nav-item"><a href="#my-posts" data-bs-toggle="tab" class="nav-link active show">Dienstleistungen</a>
                                 </li>
                                 <li class="nav-item"><a href="#about-me" data-bs-toggle="tab" class="nav-link">About Me</a>
                                 </li>

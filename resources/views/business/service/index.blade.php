@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Hizmetler
+                        Dienstleistungen
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -15,7 +15,7 @@
 							</svg>
 						</span>
                     <div class="calender-picker">
-                        <h6 class="fs-14 mb-0 ms-2 font-w600">Bugün</h6>
+                        <h6 class="fs-14 mb-0 ms-2 font-w600">Heute</h6>
                         <input class="form-control" type="text" readonly="">
                     </div>
                 </div>
@@ -29,8 +29,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Hizmet Listesi</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Dienstleistungen Hinzufügen</button>
+                    <h4 class="card-title">Liste</h4>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Dienstleistung Hinzufügen</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -39,14 +39,14 @@
                             <tr>
                                 <th></th>
                                 <th>Geschlecht</th>
-                                <th>Kategorie</th>
-                                <th>Dienstleistungen</th>
-                                <th>Süre</th>
-                                <th>Fiyat</th>
+                                <th>Art</th>
+                                <th>Dienstleistung</th>
+                                <th>Dauer</th>
+                                <th>Preis</th>
                                 {{--
-                                    <th>Durum</th>
+                                    <th>Status</th>
                                 --}}
-                                <th>Action</th>
+                                <th>Bearbeiten</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -66,9 +66,9 @@
                                         {{--
                                             <td>
                                             @if($service->status==1)
-                                                <span class="badge light badge-success">Aktif</span>
+                                                <span class="badge light badge-success">On</span>
                                             @else
-                                                <span class="badge light badge-danger">Pasif</span>
+                                                <span class="badge light badge-danger">Off</span>
                                             @endif
                                         </td>
                                         --}}

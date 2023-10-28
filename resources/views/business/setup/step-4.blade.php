@@ -68,8 +68,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>İşletme Türü</h6>
-                            <p>İşletme Türnüzü Seçiniz. </p>
+                            <h6>Salon Kategorie</h6>
+                            <p>Wählen Sie Ihre Salonkategorie(n) aus. </p>
                         </div>
                     </a>
                 </li>
@@ -80,8 +80,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>İşletme Bilgileri</h6>
-                            <p>İşletme Bilgilerini Giriniz.</p>
+                            <h6>Salon Details angeben</h6>
+                            <p>Fügen Sie Ihre Salondetails hinzu.</p>
                         </div>
                     </a>
                 </li>
@@ -92,8 +92,8 @@
                             <span><i class="fa fa-check-circle"></i></span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>Adres Bilgileri</h6>
-                            <p>İşletme Adres/Konum Bilgileri</p>
+                            <h6>Adresse</h6>
+                            <p>Hallenadresse/Standortinformationen</p>
                         </div>
                     </a>
                 </li>
@@ -104,8 +104,8 @@
                             <span>4</span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>Ödeme İşlemi</h6>
-                            <p>Hizmet Paketi Seçiniz.</p>
+                            <h6>Bezahlvorgang</h6>
+                            <p>Wählen Sie Servicepaket.</p>
                         </div>
                     </a>
                 </li>
@@ -117,9 +117,9 @@
         <div class="onboarding-content-box content-wrap">
             <div class="onborad-set">
                 <div class="onboarding-title">
-                    <h2>Neden Paket Seçiyorsunuz?<span>*</span></h2>
-                    <h6>Seçtiğiniz Pakete göre özelliklere erişim sağlayabileceksiniz.<br>
-                        Sağa ve sola kaydırarak paketleri görüntüleyebilirsiniz
+                    <h2>Warum entscheiden Sie sich für ein Paket?<span>*</span></h2>
+                    <h6>Sie können auf die Funktionen entsprechend dem von Ihnen gewählten Paket zugreifen.<br>
+                        Sie können Pakete anzeigen, indem Sie nach links und rechts wischen
                     </h6>
                 </div>
                 <div class="onboarding-content">
@@ -246,7 +246,7 @@
                                                                                class="form-check-input"
                                                                                value="{{$package->id}}">
                                                                         <span class="visit-rsn" style="">
-                                                                           Abone Ol
+                                                                        Abonnieren
                                                                         </span>
                                                                     </label>
                                                                 </div>
@@ -267,7 +267,7 @@
                 </div>
             </div>
             <div class="onboarding-btn">
-                <a onclick="$('#step4Form').submit()" href="#">Devam Et</a>
+                <a onclick="$('#step4Form').submit()" href="#">Weitermachen</a>
             </div>
         </div>
     </div>

@@ -142,7 +142,7 @@
         <div class="col-lg-12">
             <div class="page-titles">
                 <div class="d-flex align-items-center">
-                    <h2 class="heading">İşletme Profili</h2>
+                    <h2 class="heading">Salon Profil</h2>
                 </div>
             </div>
         </div>
@@ -176,10 +176,10 @@
                                 </div>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li class="dropdown-item"><a href="javascript:void(0)"><i
-                                                    class="fa fa-users text-primary me-2"></i> Personeller </a></li>
+                                                    class="fa fa-users text-primary me-2"></i> Mitarbeiterr </a></li>
                                     <li class="dropdown-item"><a href="javascript:void(0)" data-bs-toggle="modal"
                                                                  data-bs-target="#exampleModalCenter"><i
-                                                    class="fa fa-plus text-primary me-2"></i> Hizmetler </a></li>
+                                                    class="fa fa-plus text-primary me-2"></i> Dienstleistungen </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -199,14 +199,13 @@
                         <div class="custom-tab-1">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a href="#profile-settings" data-bs-toggle="tab" class="nav-link active show">Genel
-                                        Ayarlar</a>
+                                    <a href="#profile-settings" data-bs-toggle="tab" class="nav-link active show">Allgemein</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#my-owner" data-bs-toggle="tab" class="nav-link">Yetkili Ayarları</a>
+                                    <a href="#my-owner" data-bs-toggle="tab" class="nav-link">Kompetenz</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#about-me" data-bs-toggle="tab" class="nav-link">Çalışma Saati Ayarları</a>
+                                    <a href="#about-me" data-bs-toggle="tab" class="nav-link">Arbeitszeiten</a>
                                 </li>
 
                             </ul>
@@ -295,15 +294,15 @@
                                                 @csrf
                                                 <div class="row">
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Salon Adı</label>
+                                                        <label class="form-label">Salonname</label>
                                                         <input type="text" placeholder="Salon Adı"
                                                                value="{{$business->name}}" class="form-control"
                                                                name="business_name">
                                                     </div>
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Salon türü</label>
+                                                        <label class="form-label">Salon Kategorie</label>
                                                         <select class="form-control" name="business_type">
-                                                            <option value="">Salon Türü Seçiniz</option>
+                                                            <option value="">Salon Kategorie auswählen</option>
                                                             @forelse($businessTypes as $type)
                                                                 <option value="{{$type->id}}" @selected($type->id == $business->type_id)>{{$type->name}}</option>
                                                             @empty
@@ -340,22 +339,22 @@
                                                         </select>
                                                     </div>
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Onay Türü</label>
+                                                        <label class="form-label">Bestätigungsart</label>
                                                         <select class="form-control" name="approve_type">
-                                                            <option value="">Onay Türü Seçiniz</option>
+                                                            <option value="">Bestätigungsart Wählen</option>
                                                             <option value="0" @selected($business->approve_type==0)>
-                                                                Anlık Onay
+                                                            Automatische
                                                             </option>
                                                             <option value="1" @selected($business->approve_type==1)>
-                                                                Manuel Onay
+                                                            Handbuch
                                                             </option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Kuruluş Yılı</label>
-                                                        <input type="date" placeholder="Salon Kuruluş Yılı" min="1900"
+                                                        <label class="form-label">Gründungsjahr</label>
+                                                        <input type="date" placeholder="Gründungsjahr" min="1900"
                                                                max="{{Carbon::now()->format('Y-m-d')}}"
                                                                value="{{$business->year}}" class="form-control"
                                                                name="year">
@@ -376,7 +375,7 @@
                                                                class="form-control">
                                                     </div>
                                                     <div class="mb-3 col-md-4">
-                                                        <label>Plz/ Stadtname</label>
+                                                        <label>PLZ /Stadt</label>
                                                         <select class="" id="city_select" name="city" style="border-radius: 18px;">
                                                             <option value="" selected>Stadt wählen</option>
                                                             @if(isset($business->cities))
@@ -392,7 +391,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Address</label>
+                                                        <label class="form-label">Adresse</label>
                                                         <textarea type="text" name="address" placeholder="1234 Main St"
                                                                   class="form-control">{{$business->address}}</textarea>
                                                     </div>
@@ -400,22 +399,21 @@
 
                                                 <div class="row">
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Salon Logo
+                                                        <label class="form-label">Logo
                                                             <image style="width: 60px;height:60px;border-radius: 50%"
                                                                    src="{{asset($business->logo)}}"></image>
                                                         </label>
                                                         <input type="file" name="logo" class="form-control">
                                                     </div>
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Salon Duvar Görseli
+                                                        <label class="form-label">Hintergrundbild
                                                             <image style="width: 60px;height:60px;border-radius: 50%"
                                                                    src="{{asset($business->wallpaper)}}"></image>
                                                         </label>
                                                         <input type="file" name="wallpaper" class="form-control">
                                                     </div>
                                                 </div>
-                                                <button class="btn btn-primary" type="submit">Salon Bilgilerimi
-                                                    Güncelle
+                                                <button class="btn btn-primary" type="submit">Speichern
                                                 </button>
                                             </form>
                                         </div>

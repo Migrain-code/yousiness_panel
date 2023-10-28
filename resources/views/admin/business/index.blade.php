@@ -28,7 +28,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    İşletmeler / İşletme Listesi
+                Geschäftspartner
                 </h2>
             </div>
         </div>
@@ -41,12 +41,12 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    İşletme Listesi
+                Liste
                 </h4>
                 <div>
-                    <a class="btn btn-success" href="{{route('admin.business.export')}}"><i class="fa fa-plus-search"></i> Excele Aktar</a>
+                    <a class="btn btn-success" href="{{route('admin.business.export')}}"><i class="fa fa-plus-search"></i> Excel Download</a>
 
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-search"></i> Filtrele</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-search"></i> Filtern</button>
 
                 </div>
                 <!-- Button trigger modal -->
@@ -107,11 +107,11 @@
                         <thead>
                         <tr>
                             <th>Logo</th>
-                            <th>İşletme Adı</th>
-                            <th>Mobilnummer</th>
-                            <th>Durum</th>
-                            <th>Tanımlı Paket</th>
-                            <th>İşlemler</th>
+                            <th>Salonname</th>
+                            <th>Telefon</th>
+                            <th>Status</th>
+                            <th>Paket</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>

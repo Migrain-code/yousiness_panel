@@ -8,7 +8,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Hizmet Alt Kategorileri / Liste
+                Dinstleistungen Unterkategorien
                 </h2>
             </div>
         </div>
@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Hizmet Alt Kategorileri Listesi
+                Liste
                 </h4>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
@@ -36,7 +36,7 @@
                             <form method="post" action="{{route('admin.serviceSubCategory.store')}}">
                             <div class="modal-body">
                                     @csrf
-                                    <label>Üst Kategori Adı</label>
+                                    <label>Oberkategorie</label>
                                     <select name="category_id" class="form-control mb-2">
                                         <option>Üst Kategori seçiniz</option>
                                         @forelse($categories as $category)
@@ -46,7 +46,7 @@
                                         @endforelse
                                     </select>
                                 <div class="mb-3">
-                                        <label>Kategori Adı</label>
+                                        <label>Unterkategorie</label>
                                         <input type="text" class="form-control input-default " name="name" placeholder="Örneğin(Berber)">
                                     </div>
                             </div>
@@ -65,10 +65,10 @@
                     <table id="example" class="display" style="min-width: 845px">
                         <thead>
                         <tr>
-                            <th>Üst Kategori Adı</th>
-                            <th>Kategori Adı</th>
-                            <th>Sıra</th>
-                            <th>İşlemler</th>
+                            <th>Oberkategorie</th>
+                            <th>Unterkategorie</th>
+                            <th>NR</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -87,7 +87,7 @@
                             @empty
                                 <tr>
                                     <td colspan="3">
-                                        <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                        <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                                     </td>
                                 </tr>
                             @endforelse

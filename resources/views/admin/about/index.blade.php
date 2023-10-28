@@ -28,7 +28,7 @@
 															<rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="currentColor" />
 														</svg>
 													</span>
-                                    <!--end::Svg Icon-->Bölüm 1</a>
+                                    <!--end::Svg Icon-->Bereich 1</a>
                             </li>
                             <!--begin:::Tab item-->
                             <li class="nav-item">
@@ -40,7 +40,7 @@
 														<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="currentColor"></path>
 													</svg>
 													</span>
-                                    <!--end::Svg Icon-->Bölüm 2</a>
+                                    <!--end::Svg Icon-->Bereich 2</a>
                             </li>
 
                         </ul>
@@ -55,7 +55,7 @@
                                     <!--begin::Heading-->
                                     <div class="row my-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Hakkımızda Metni Güncelleme Formu</h2>
+                                            <h2>Bearbeiten</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -64,7 +64,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Başlık</span>
+                                                <span>Überschrift</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki hakkımızda alanı başlık"></i>
                                             </label>
                                             <!--end::Label-->
@@ -83,7 +83,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Hakkımızda Metni</span>
+                                                <span>Text</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki hakkımızda alanı başlık"></i>
                                             </label>
                                             <!--end::Label-->

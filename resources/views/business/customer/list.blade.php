@@ -21,7 +21,7 @@
 							</svg>
 						</span>
                     <div class="calender-picker">
-                        <h6 class="fs-14 mb-0 ms-2 font-w600">Bugün</h6>
+                        <h6 class="fs-14 mb-0 ms-2 font-w600">Heute</h6>
                         <input class="form-control" type="text" readonly="">
                     </div>
                 </div>
@@ -125,8 +125,8 @@
                         <div class="form-group">
                             <label>Cinsiyet</label>
                             <select name="gender" class="form-control">
-                                <option value="0">Erkek</option>
-                                <option value="1">Kadın</option>
+                                <option value="0">Mann</option>
+                                <option value="1">Frau</option>
                             </select>
                         </div>
                         <div class="form-group">

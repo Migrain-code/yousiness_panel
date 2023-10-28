@@ -8,7 +8,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    İşletme Kategorileri / Liste
+                Salon Kategorien
                 </h2>
             </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    İşletme Kategorileri Listesi
+                Liste
                 </h4>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
@@ -66,8 +66,8 @@
                     <table id="example" class="display" style="min-width: 845px">
                         <thead>
                         <tr>
-                            <th>Kategori Adı</th>
-                            <th>İşlemler</th>
+                            <th>Kategorie</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>

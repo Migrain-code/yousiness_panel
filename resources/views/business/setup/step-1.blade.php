@@ -10,8 +10,8 @@
                             <span>1</span>
                         </div>
                         <div class="onboarding-list">
-                            <h6>İşletme Türü</h6>
-                            <p>Size uygun işletme türünüzü seçiniz </p>
+                            <h6>Salon Kategorie</h6>
+                            <p>Wählen Sie Ihre Salonkategorie(n) aus. </p>
                         </div>
                     </a>
                 </li>
@@ -24,7 +24,7 @@
             <div class="onborad-set">
                 <div class="onboarding-title">
                     <h2>İşletme Türü Nedir?<span>*</span></h2>
-                    <h6>Sistem sizi seçtiğiniz türe göre sınıflandırır. Bu yüzden burada seçeceğiniz seçeneğin sizin işletmenize uygun olması sizi müşterilerin daha hızlı bulmasını sağlar.</h6>
+                    <h6>Wir werden ihren Salon in Kategorien einteilen. Deshalb ist es wichtig, dass sie die entsprechende Salon Arten auswählen.</h6>
                 </div>
                 <style>
 
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="onboarding-btn">
-                <a href="#" onclick="$('#step1Form').submit()">Devam</a>
+                <a href="#" onclick="$('#step1Form').submit()">Weitermachen</a>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@
 							</svg>
 						</span>
                     <div class="calender-picker">
-                        <h6 class="fs-14 mb-0 ms-2 font-w600">Bugün</h6>
+                        <h6 class="fs-14 mb-0 ms-2 font-w600">Heute</h6>
                         <input class="form-control" type="text" readonly="">
                     </div>
                 </div>
@@ -34,7 +34,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Paket Satış Listesi</h4>
+                    <h4 class="card-title">Liste</h4>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Paketverkauf</button>
                 </div>
                 <div class="card-body">
@@ -43,16 +43,16 @@
                             <thead>
                             <tr>
                                 <th>Datum</th>
-                                <th>Müşteri Adı</th>
-                                <th>Dienstleistungen</th>
-                                <th>Personel Adı</th>
+                                <th>Kunde</th>
+                                <th>Dienstleistung</th>
+                                <th>Verkäufer</th>
                                 <th>Pakettyp</th>
-                                <th>Adet</th>
-                                <th>Kalan Adet</th>
+                                <th>Anzahl</th>
+                                <th>Bestand</th>
                                 <th>Betrag</th>
-                                <th>Ödenen Tutar</th>
-                                <th>Kalan Tutar</th>
-                                <th>İşlemler</th>
+                                <th>Gezahlter Betrag</th>
+                                <th>Rest</th>
+                                <th>Bearbeiten</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -72,18 +72,18 @@
                                             <div class="basic-dropdown">
                                                 <div class="btn-group dropstart mb-1">
                                                     <button type="button" class="btn btn-primary dropdown-toggle"  data-bs-toggle="dropdown">
-                                                        İşlemler
+                                                    Bearbeiten
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         @if($package->amount != 0)
-                                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-2" onclick="payments('{{$package->id}}')" href="javascript:void(0);">Ödemeler</a>
+                                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-2" onclick="payments('{{$package->id}}')" href="javascript:void(0);">Zahlungen</a>
                                                             <div class="dropdown-divider"></div>
                                                         @endif
                                                         @if($package->total - $package->payed != 0)
-                                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-4" onclick="usages('{{$package->id}}')">Kullanımlar</a>
+                                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-4" onclick="usages('{{$package->id}}')">Rechte ausgeübt</a>
                                                             <div class="dropdown-divider"></div>
                                                         @endif
-                                                        <a class="dropdown-item" href="javascript:void(0);">Düzenle</a>
+                                                        <a class="dropdown-item" href="javascript:void(0);">Bearbeiten</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,7 +103,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Paket Kullanımları</h5>
+                    <h5 class="modal-title">Paketverwendungen</h5>
                     <button type="button" class="btn btn-primary" id="addUsage" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-5" style="position: absolute;right: 55px;"><i class="fa-solid fa-plus-circle me-2"></i>Kullanım Ekle</button>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
@@ -114,9 +114,9 @@
                         <table class="table table-responsive-md" id="myTable2">
                             <thead>
                             <tr>
-                                <th><strong>Personel</strong></th>
-                                <th><strong>Kullanılan Adet</strong></th>
-                                <th><strong>İşlem Tarihi</strong></th>
+                                <th><strong>Verkäufer</strong></th>
+                                <th><strong>Verwendete Menge</strong></th>
+                                <th><strong>Transaktionsdatum</strong></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -134,7 +134,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Kullanım Ekle</h5>
+                    <h5 class="modal-title">Nutzung hinzufügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -143,7 +143,7 @@
                         <div class="mb-3 col-md-6">
                             <label class="form-label">İşlemi Yapan Personel</label>
                             <select name="package_personel_id" id="package_personel_id" class="form-control">
-                                <option>Personel Seçiniz</option>
+                                <option>Mitarbeiter auswählen</option>
                                 @forelse(auth('business')->user()->personel as $personel)
                                     <option value="{{$personel->id}}">{{$personel->name}}</option>
                                 @empty
@@ -151,11 +151,11 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Kullanım Miktarı</label>
+                            <label class="form-label">Verwendeter Betrag</label>
                             <input type="number" class="form-control" min="1" id="package_amount">
                         </div>
                         <div class="col-6">
-                                <label class="form-label">İşlem Tarihi</label>
+                                <label class="form-label">Transaktionsdatum</label>
                                <input type="datetime-local" id="opDate" class="form-control">
                         </div>
                         <div class="col-12 mt-3">
@@ -172,18 +172,18 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Tahsilat Ekle</h5>
+                    <h5 class="modal-title">Zahlung hinzufügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12 my-2">
-                            <label class="form-label">Fiyat</label>
+                            <label class="form-label">Preis</label>
                             <input type="number" class="form-control" id="price">
                         </div>
                         <div class="col-12">
-                            <label class="form-label">Adet <span class="text-warning">Sadece Fiyat Bilgisi Ekleyebilirsiniz</span></label>
+                            <label class="form-label">Anzahl <span class="text-warning">Sadece Fiyat Bilgisi Ekleyebilirsiniz</span></label>
                             <input type="number" class="form-control" id="amount">
                         </div>
                         <div class="col-12 mt-3">
@@ -200,7 +200,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Paket Ödemeleri</h5>
+                    <h5 class="modal-title">Paketzahlungen</h5>
                     <button type="button" class="btn btn-primary" id="addPayment" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-3" style="position: absolute;right: 55px;"><i class="fa-solid fa-plus-circle me-2"></i>Tahsilat Ekle</button>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
@@ -211,9 +211,9 @@
                         <table class="table table-responsive-md" id="myTable">
                             <thead>
                             <tr>
-                                <th><strong>Ödenen Tutar</strong></th>
-                                <th><strong>Adet</strong></th>
-                                <th><strong>Tarih</strong></th>
+                                <th><strong>Betrag</strong></th>
+                                <th><strong>Anzahl</strong></th>
+                                <th><strong>Datum</strong></th>
                             </tr>
                             </thead>
                             <tbody>

@@ -110,7 +110,7 @@
 
         <div class="tpoffcanvas__social">
             <div class="mt-30 mb-30">
-                <a class="tp-btn-yellow-lg circle-effect w-100 btn-mobile-menu-free" href="{{route('business.register')}}">14 Gün Ücretsiz Dene</a>
+                <a class="tp-btn-yellow-lg circle-effect w-100 btn-mobile-menu-free" href="{{route('business.register')}}">Kostenlos Testen</a>
             </div>
             <div class="social-icon text-center">
                 <a href="{{config('settings.twitter')}}"><i class="fab fa-twitter"></i></a>

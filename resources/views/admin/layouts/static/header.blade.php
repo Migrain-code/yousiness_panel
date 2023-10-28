@@ -45,7 +45,7 @@
     <!--********************************** Nav header start ***********************************-->
     <div class="nav-header">
         <a href="{{route('admin.home')}}" class="brand-logo">
-            <img src="{{asset(setting('bussiness_main_white_logo'))}}" style="width: 100%;border-radius: 15px">i
+            <img src="{{asset(setting('bussiness_main_white_logo'))}}" style="width: 100%;border-radius: 15px">
         </a>
         <div class="nav-control">
             <div class="hamburger">
