@@ -20,11 +20,3 @@ Route::get('/get/calender/{businessKey}', [\App\Http\Controllers\Api\CalenderCon
 Route::prefix('city')->group(function (){
     Route::post('search', [CityController::class, 'search']);
 });
-
-Route::prefix('business')->group(function () {
-    Route::prefix('auth')->group(function () {
-        Route::post('login', [AuthController::class, 'login']);
-        Route::post('check-phone', [AuthController::class, 'register']);
-        Route::post('verify', [AuthController::class, 'verify']);
-    });
-});
