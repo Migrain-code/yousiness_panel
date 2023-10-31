@@ -34,9 +34,9 @@ class BusinessCustomerExport implements FromCollection,WithColumnFormatting, Wit
             $customer->custom_email,
             $customer->phone,
             $customer->created_at,
-            $customer->email != "" ? "Kayıtlı" : "Kayıt Olmamış",
+            $customer->email != "" ? "Registriert" : "Unregistriert",
             $customer->businessAppointments(auth('business')->id())->count(),
-            $customer->status == 1 ? "Doğrulanmamış" : "Aktif",
+            $customer->status == 1 ? "Nicht verifiziert" : "Aktiv",
         ];
     }
 

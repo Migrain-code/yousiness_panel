@@ -377,7 +377,7 @@
                                                     <div class="mb-3 col-md-4">
                                                         <label>PLZ /Stadt</label>
                                                         <select class="" id="city_select" name="city" style="border-radius: 18px;">
-                                                            <option value="" selected>Stadt wählen</option>
+                                                            <option value="" selected>Auswählen</option>
                                                             @if(isset($business->cities))
                                                                 <option value="{{$business->cities->id}}" selected>{{$business->cities->post_code. ",".$business->cities->name}}</option>
                                                             @endif

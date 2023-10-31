@@ -53,7 +53,7 @@
                                        <table id="example2" class="display" style="width:100%">
                                            <thead>
                                            <tr>
-                                               <th class="text-center">Paket Adı</th>
+                                               <th class="text-center">Paketname</th>
                                            </tr>
                                            </thead>
                                            <tbody>

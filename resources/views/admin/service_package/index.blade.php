@@ -8,7 +8,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Paket / Liste
+                    Pakete
                 </h2>
             </div>
         </div>
@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Paket Listesi
+                    Liste
                 </h4>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
@@ -29,7 +29,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Paket Ekle</h5>
+                                <h5 class="modal-title">Paket Einfügen</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
@@ -38,17 +38,17 @@
 
                                     @csrf
                                     <div class="mb-3">
-                                        <label>Paket Adı</label>
+                                        <label>Paketname</label>
                                         <input type="text" class="form-control input-default " name="title" placeholder="Örneğin(Randevu Hatırlatma)">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Paket Fiyatı</label>
+                                        <label>Preis</label>
                                         <input type="text" class="form-control input-default " name="price" placeholder="Örneğin(Randevu Hatırlatma)">
                                     </div>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                                 <button type="submit" class="btn btn-primary">Speichern</button>
                             </div>
                             </form>
@@ -62,9 +62,9 @@
                     <table id="example" class="display" style="min-width: 845px">
                         <thead>
                         <tr>
-                            <th>Paket Adı</th>
-                            <th>Paket Fiyatı</th>
-                            <th>İşlemler</th>
+                            <th>Paketname</th>
+                            <th>Preis</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -80,7 +80,7 @@
                             @empty
                                 <tr>
                                     <td colspan="3">
-                                        <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                        <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                                     </td>
                                 </tr>
                             @endforelse

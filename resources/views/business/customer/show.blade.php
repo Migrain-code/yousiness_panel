@@ -32,7 +32,7 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label>Ad Soyad</label>
+                    <label>Name Nachname</label>
                     <input type="text" class="form-control" value="{{$customer->name}}" name="name">
                 </div>
                 <div class="form-group">

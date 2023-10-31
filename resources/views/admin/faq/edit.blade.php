@@ -35,16 +35,16 @@
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
-                            <label>Soru</label>
+                            <label>Frage</label>
                             <input type="text" class="form-control input-default " value="{{$faq->question}} {{old('question')}}" name="question" >
                         </div>
                         <div class="mb-3">
-                            <label>Cevap</label>
+                            <label>Antwort</label>
                             <input type="text" class="form-control input-default " value="{{$faq->answer}} {{old('answer')}}" name="answer" >
                         </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>

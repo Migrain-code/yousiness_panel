@@ -20,9 +20,9 @@
                 <div class="row">
                     <div class="col-xl-9 col-lg-7">
                         <div class="breadcrumb__content">
-                            <h3 class="breadcrumb__title tp-char-animation">Sıkça Sorulan Sorular</h3>
+                            <h3 class="breadcrumb__title tp-char-animation">FAQ</h3>
                             <div class="breadcrumb__list wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".4s">
-                                <span class="child-one"><a href="/">Anasayfa</a></span>
+                                <span class="child-one"><a href="/">Startseite</a></span>
                                 <span class="dvdr"><i class="fal fa-angle-right"></i></span>
                                 <span>S.S.S</span>
                             </div>

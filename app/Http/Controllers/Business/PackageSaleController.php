@@ -100,7 +100,7 @@ class PackageSaleController extends Controller
             'amount' => "Fiyat",
             'total' => "Betrag",
             'personel_id' => "Personel",
-            'package_type' => "Paket Türü",
+            'package_type' => "Art",
         ]);
         $translate_date=Carbon::parse($request->seller_date)->format('Y-m-d');
 

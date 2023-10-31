@@ -27,7 +27,7 @@
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                        <label>Kategori Adı</label>
+                        <label>Kategoriename</label>
                         <input type="text" class="form-control input-default " name="name" value="{{$businessCategory->name}}" placeholder="Örneğin(Berberler)">
                     </div>
                     <div class="mb-3">

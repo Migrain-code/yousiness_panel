@@ -7,7 +7,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                   Reklam Düzenle
+                Werbung Bearbeiten
                 </h2>
             </div>
         </div>
@@ -34,11 +34,11 @@
                         @method('PUT')
                         @csrf
                         <div class="mb-3">
-                            <label>Başlık</label>
+                            <label>Überschrift</label>
                             <input type="text" class="form-control input-default " value="{{$ads->title}} {{old('title')}}" name="title" >
                         </div>
                         <div class="mb-3">
-                            <label>Foto</label>
+                            <label>Bild</label>
                             <input type="file" class="form-control input-default " name="image" >
                         </div>
                         <div class="mb-3">
@@ -46,12 +46,12 @@
                             <img src="{{asset($ads->image)}}" width="100px">
                         </div>
                         <div class="mb-3">
-                            <label>Linki</label>
+                            <label>Link</label>
                             <input type="text" class="form-control input-default " value="{{$ads->link}} {{old('link')}}" name="link" >
                         </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>

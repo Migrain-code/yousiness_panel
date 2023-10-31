@@ -59,7 +59,7 @@
                                     <div class="d-flex align-items-center sidebar-info">
                                         <div>
                                             <h4 class="mb-0">{{auth('business')->user()->name}}</h4>
-                                            <span class="d-block text-end">{{auth('business')->user()->owner ?? "Kurulum Yapılmadı"}}</span>
+                                            <span class="d-block text-end">{{auth('business')->user()->owner ?? "Keine Installation"}}</span>
                                         </div>
                                     </div>
                                     <img src="{{asset(auth('business')->user()->logo)}}" alt="">

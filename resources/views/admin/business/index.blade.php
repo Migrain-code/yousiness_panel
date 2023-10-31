@@ -54,7 +54,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">İşletme Filtrele</h5>
+                                <h5 class="modal-title">Salon/e Filtern</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
@@ -62,17 +62,17 @@
                                 <div class="modal-body">
 
                                     <div class="mb-3">
-                                        <label>İşletme Adı</label>
-                                        <input type="text" class="form-control input-default " name="name" placeholder="Örneğin(Berber)">
+                                        <label>Salonname</label>
+                                        <input type="text" class="form-control input-default " name="name" placeholder="Beisp. (Wimpern)">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Mobilnummer</label>
+                                        <label>Telefon</label>
                                         <input type="text" class="form-control input-default " name="phone" placeholder="">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Plz/ Stadtname</label>
+                                        <label>PLZ / Stadt</label>
                                         <select class="" id="city_select" name="city" style="border-radius: 18px;">
-                                            <option value="" selected>Stadt wählen</option>
+                                            <option value="" selected>Auswählen</option>
                                             @forelse($cities as $city)
                                                 <option value="{{$city->id}}">{{$city->post_code ." ," . $city->name}}</option>
                                             @empty
@@ -81,9 +81,9 @@
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="cateogry_select">Kategori</label> <br>
+                                        <label for="cateogry_select">Kategorie</label> <br>
                                         <select class="" id="cateogry_select" name="category_id" style="border-radius: 18px;width: 100%;">
-                                            <option value="" selected>Kategori Seçiniz</option>
+                                            <option value="" selected>Kategorie wählen</option>
                                             @forelse($categories as $category)
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                             @empty
@@ -93,8 +93,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <a type="button" class="btn btn-danger light" href="{{route('admin.business.index')}}">Filtreleri Temizle</a>
-                                    <button type="submit" class="btn btn-primary">Filtrele</button>
+                                    <a type="button" class="btn btn-danger light" href="{{route('admin.business.index')}}">Filter löschen</a>
+                                    <button type="submit" class="btn btn-primary">Filtern</button>
                                 </div>
                             </form>
                         </div>
@@ -133,18 +133,18 @@
                                         @elseif($business->status==1)
                                             <span class="badge badge-sm light badge-warning">
                                                 <i class="fa fa-circle text-warning me-1"></i>
-                                                Kurulum Yapılmadı
+                                                Keine Installation
 									        </span>
                                         @else
                                             <span class="badge badge-sm light badge-success">
                                                 <i class="fa fa-circle text-success me-1"></i>
-                                                Aktif
+                                                Aktiv
 									        </span>
                                         @endif
                                     </td>
                                     <td>
                                         @if($business->package)
-                                            {{$business->package->name}} /<span class="text-primary"> {{$business->package->type == 0 ? "Aylık" : "Yıllık"}}</span>
+                                            {{$business->package->name}} /<span class="text-primary"> {{$business->package->type == 0 ? "Monat" : "Jahres"}}</span>
                                         @else
                                             Paket Bulunamadı
                                         @endif

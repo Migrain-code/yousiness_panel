@@ -34,12 +34,12 @@
                                     @elseif($business->status==1)
                                         <span class="badge badge-sm light badge-warning">
                                                 <i class="fa fa-circle text-warning me-1"></i>
-                                                Kurulum Yapılmadı
+                                                Keine Installation
 									        </span>
                                     @else
                                         <span class="badge badge-sm light badge-success">
                                                 <i class="fa fa-circle text-success me-1"></i>
-                                                Aktif
+                                                Aktiv
 									        </span>
                                     @endif
                                       <span class="badge badge-sm light badge-warning">
@@ -69,7 +69,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Hizmet Kategorileri Ekle</h5>
+                    <h5 class="modal-title">Dienstleistung Oberkategorien Einfügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
@@ -149,7 +149,7 @@
                                                 <tr>
                                                     <th>Dienstleistungen</th>
                                                     <th>Durum</th>
-                                                    <td>İşlemler</td>
+                                                    <td>Transaktion</td>
                                                 </tr>
 
                                                 </thead>
@@ -161,12 +161,12 @@
                                                                 @if($service->status==0)
                                                                     <span class="badge badge-sm light badge-danger">
                                                                     <i class="fa fa-circle text-danger me-1"></i>
-                                                                        Yayında Değil
+                                                                        Nich Sendung
                                                                     </span>
                                                                 @else
                                                                     <span class="badge badge-sm light badge-success">
                                                                         <i class="fa fa-circle text-success me-1"></i>
-                                                                        Yayında
+                                                                        Auf Sendung
                                                                     </span>
                                                                 @endif
                                                             </td>

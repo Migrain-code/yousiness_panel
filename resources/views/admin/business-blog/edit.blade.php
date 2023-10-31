@@ -8,7 +8,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                   Blog Düzenle
+                   Blog Bearbeiten
                 </h2>
             </div>
         </div>
@@ -35,15 +35,15 @@
                     @csrf
                     @method('PUT')
                         <div class="mb-3">
-                            <label>Başlık</label>
+                            <label>Überschrift</label>
                             <input type="text" class="form-control input-default " value="{{$blog->title}}{{old('title')}}" name="title" >
                         </div>
                         <div class="mb-3">
-                            <label>Foto</label>
+                            <label>Bild</label>
                             <input type="file" class="form-control input-default" name="image" >
                         </div>
                         <div class="mb-3">
-                            <label>İçerik Metni</label>
+                            <label>Beschreibung</label>
                             <textarea class="sm-note" name="description">{!! $blog->description !!}{{old('description')}}</textarea>
                         </div>
                         <div class="mb-3">
@@ -57,7 +57,7 @@
 
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>

@@ -16,7 +16,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Sponsor İşlemleri
+                    Sponsoren
                 </h2>
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Sponsor Listesi
+                Liste
                 </h4>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
@@ -45,7 +45,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content" style="width: 800px">
                             <div class="modal-header">
-                                <h5 class="modal-title">Sponsor Ekle</h5>
+                                <h5 class="modal-title">Sponsor EInfügen</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
@@ -53,20 +53,20 @@
                                 <div class="modal-body">
                                     @csrf
                                     <div class="mb-3">
-                                        <label>Adı</label>
+                                        <label>Name</label>
                                         <input type="text" class="form-control input-default " value="{{old('name')}}" name="name" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>Linki</label>
+                                        <label>Link</label>
                                         <input type="text" class="form-control input-default " value="{{old('link')}}" name="link" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>Görseli / Logosu</label>
+                                        <label>Bild</label>
                                         <input type="file" accept=".png, .jpg, .jpeg" class="form-control input-default " value="{{old('image')}}" name="image" >
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                                     <button type="submit" class="btn btn-primary">Speichern</button>
                                 </div>
                             </form>
@@ -80,9 +80,9 @@
                     <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>Foto</th>
-                            <th>Ad</th>
-                            <th>İşlemler</th>
+                            <th>Bild</th>
+                            <th>Name</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -98,7 +98,7 @@
                         @empty
                             <tr>
                                 <td colspan="5">
-                                    <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                    <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                                 </td>
                             </tr>
                         @endforelse

@@ -16,7 +16,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Paket Ekle
+                    Paket Einfügen
                 </h4>
                 {{--
                     <button class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
@@ -27,11 +27,11 @@
                        @csrf
                        <div class="col-6">
                                <div class="mb-3">
-                                   <label>Paket Adı</label>
+                                   <label>Paketname</label>
                                    <input type="text" class="form-control input-default " name="title" placeholder="Örneğin(Randevu Hatırlatma)">
                                </div>
                                <div class="mb-3">
-                                   <label>Paket Fiyatı</label>
+                                   <label>Preis</label>
                                    <textarea type="text" rows="5" class="form-control input-default " name="price" placeholder="Örneğin(Bu alana gireceğiniz veri işletmelerin fiyatlarını bilmelerini sağlaycaktır)"></textarea>
                                </div>
                                <div class="mb-3 text-center">

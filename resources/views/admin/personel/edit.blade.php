@@ -441,7 +441,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                         <th>Fiyat</th>
                                                         <th>Tarih</th>
                                                         <th>Onay</th>
-                                                        <th>İşlemler</th>
+                                                        <th>Transaktion</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>

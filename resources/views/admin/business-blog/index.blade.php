@@ -48,7 +48,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content" style="width: 800px">
                             <div class="modal-header">
-                                <h5 class="modal-title">Blog Ekle</h5>
+                                <h5 class="modal-title">Blog Hinzufügen</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
@@ -80,7 +80,7 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                                     <button type="submit" class="btn btn-primary">Speichern</button>
                                 </div>
                             </form>
@@ -98,7 +98,7 @@
                             <th>Başlık</th>
                             <th>Bemerkung</th>
                             <th>Durum</th>
-                            <th>İşlemler</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -111,9 +111,9 @@
                                 </td>
                                 <td>
                                     @if($blog->status == 0)
-                                        <span class="badge badge-warning">Yayında Değil</span>
+                                        <span class="badge badge-warning">Nich Sendung</span>
                                     @else
-                                        <span class="badge badge-success">Yayında</span>
+                                        <span class="badge badge-success">Auf Sendung</span>
 
                                     @endif
 
@@ -127,7 +127,7 @@
                         @empty
                             <tr>
                                 <td colspan="5">
-                                    <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                    <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                                 </td>
                             </tr>
                         @endforelse

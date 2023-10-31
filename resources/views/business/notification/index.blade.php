@@ -39,7 +39,7 @@
                                 <th>Bildirim Başlığı</th>
                                 <th>Durumu</th>
                                 <th>Tarih</th>
-                                <th>İşlemler</th>
+                                <th>Transaktion</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -84,7 +84,7 @@
                 showDenyButton: true,
                 showCancelButton: false,
                 confirmButtonText: 'Sil',
-                denyButtonText: `İptal Et`,
+                denyButtonText: `Abbrechen`,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {

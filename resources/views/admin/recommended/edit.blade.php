@@ -44,11 +44,11 @@
 
                         <div class="mb-3">
                             <label>Durum</label>
-                            <input type="checkbox" class="form-check" name="status" @checked($recommendedLink->status == 1)> @if($recommendedLink->status == 1 ) Aktif @else Pasif @endif
+                            <input type="checkbox" class="form-check" name="status" @checked($recommendedLink->status == 1)> @if($recommendedLink->status == 1 ) Aktiv @else Passive @endif
                         </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>

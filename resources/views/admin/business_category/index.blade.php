@@ -30,7 +30,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">İşletme Kategorileri Ekle</h5>
+                                <h5 class="modal-title">Dienstleistung Oberkategorie</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
@@ -39,20 +39,20 @@
                                     @csrf
 
                                     <div class="mb-3">
-                                        <label>Kategori Adı</label>
-                                        <input type="text" class="form-control input-default " name="name" placeholder="Örneğin(Berber)">
+                                        <label>Kategoriename</label>
+                                        <input type="text" class="form-control input-default " name="name" placeholder="Beisp. (Wimpern)">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Kategori Görseli</label>
+                                        <label>Web Bild</label>
                                         <input type="file" class="form-control input-default " name="image" placeholder="">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Kategori Mobil Görseli</label>
+                                        <label>App Bild</label>
                                         <input type="file" class="form-control input-default " name="mobile_image" placeholder="">
                                     </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                                 <button type="submit" class="btn btn-primary">Speichern</button>
                             </div>
                             </form>
@@ -82,7 +82,7 @@
                             @empty
                                 <tr>
                                     <td colspan="3">
-                                        <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                        <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                                     </td>
                                 </tr>
                             @endforelse

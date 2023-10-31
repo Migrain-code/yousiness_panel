@@ -5,7 +5,7 @@
             <li>
                 <a class="has-arrow " href="{{route('admin.home')}}">
                     <i class="material-icons-outlined">home</i>
-                    <span class="nav-text">HOMEPAGE</span>
+                    <span class="nav-text">Startseite</span>
                 </a>
             </li>
             <li>
@@ -49,10 +49,10 @@
                 </a>
                 <ul aria-expanded="false">
                     <li>
-                        <a href="{{route('admin.bussinessPackagePropartieList.index')}}">Özellikler Listesi</a>
+                        <a href="{{route('admin.bussinessPackagePropartieList.index')}}">Inhalte</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.businessPackage.index')}}">Paket Listesi</a>
+                        <a href="{{route('admin.businessPackage.index')}}">Pakete</a>
                     </li>
                 </ul>
             </li>
@@ -81,10 +81,10 @@
                 <ul  @if(request()->routeIs('admin.blog.*')) class="mm-collapse mm-show" aria-expanded="true" @else aria-expanded="false" @endif>
 
                     <li>
-                        <a href="{{route('admin.comment.index')}}">Yorum İşlemleri</a>
+                        <a href="{{route('admin.comment.index')}}">Kommentare</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.sponsor.index')}}">Sponsor İşlemleri</a>
+                        <a href="{{route('admin.sponsor.index')}}">Sponsoren</a>
                     </li>
                 </ul>
             </li>
@@ -97,24 +97,24 @@
                 <ul>
 
                     <li>
-                        <a href="{{route('admin.sponsor.index')}}">Sponsor İşlemleri</a>
+                        <a href="{{route('admin.sponsor.index')}}">Sponsoren</a>
                     </li>
 
                     <li>
-                        <a href="{{route('admin.businessFaq.index')}}">S.S.S İşlemleri</a>
+                        <a href="{{route('admin.businessFaq.index')}}">FAQ</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.propartie.index')}}">Özellikler İşlemleri</a>
+                        <a href="{{route('admin.propartie.index')}}">Besonderheiten</a>
                     </li>
 
                     <li>
-                        <a href="{{route('admin.mainPageSection.index')}}">Anasayfa İşlemleri 1</a>
+                        <a href="{{route('admin.mainPageSection.index')}}">Startseite 1</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.business.mainPage')}}">Anasayfa İşlemleri 2</a>
+                        <a href="{{route('admin.business.mainPage')}}">Startseite 2</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.business.settings')}}">Ayarlar</a>
+                        <a href="{{route('admin.business.settings')}}">Einstellungen</a>
                     </li>
                 </ul>
             </li>
@@ -126,22 +126,22 @@
                 </a>
                 <ul  @if(request()->routeIs('admin.blog.*')) class="mm-collapse mm-show" aria-expanded="true" @else aria-expanded="false" @endif>
                     <li>
-                        <a href="{{route('admin.blog.index')}}">Blog İşlemleri</a>
+                        <a href="{{route('admin.blog.index')}}">Blogs</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.page.index')}}">Sayfa İşlemleri</a>
+                        <a href="{{route('admin.page.index')}}">Rechtliches</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.faq.index')}}">S.S.S İşlemleri</a>
+                        <a href="{{route('admin.faq.index')}}">FAQ</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.forBusiness.index')}}">Hakkımızda İşlemleri</a>
+                        <a href="{{route('admin.forBusiness.index')}}">Über uns</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.ads.index')}}">Reklam İşlemleri</a>
+                        <a href="{{route('admin.ads.index')}}">Werbung</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.user.mainPage')}}">Anasayfa İşlemleri</a>
+                        <a href="{{route('admin.user.mainPage')}}">Startseite</a>
                     </li>
                     <li>
                         <a href="{{route('admin.featuredCategorie.index')}}">Öne Çıkanlar</a>
@@ -150,10 +150,10 @@
                         <a href="{{route('admin.recommendedLink.index')}}">Önerilen Linkler</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.activity.index')}}">Etkinlik İşlemleri</a>
+                        <a href="{{route('admin.activity.index')}}">Events</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.user.settings')}}">Ayarlar</a>
+                        <a href="{{route('admin.user.settings')}}">Einstellungen</a>
                     </li>
                 </ul>
             </li>

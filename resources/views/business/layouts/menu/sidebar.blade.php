@@ -118,7 +118,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li>
-                        <a href="{{route('business.customer.index')}}">Kayıtlı</a>
+                        <a href="{{route('business.customer.index')}}">Registriert</a>
                     </li>
                     <li>
                         <a href="{{route('business.customer.list')}}">Randevulu</a>

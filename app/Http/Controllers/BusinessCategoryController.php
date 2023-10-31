@@ -44,7 +44,7 @@ class BusinessCategoryController extends Controller
             'image' => "required",
             'mobile_image' => "required",
         ], [], [
-            'name' => "Kategori Adı",
+            'name' => "Kategoriename",
             'image' => "Kategori Görseli",
             'mobile_image' => "Kategori mobil görseli"
         ]);

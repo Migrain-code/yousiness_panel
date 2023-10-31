@@ -129,11 +129,11 @@
                                 style="width: 100%;padding: 5px;background: #600ee42e;border-radius: 80px">
                                 <li class="nav-item">
                                     <a class="nav-link active" style="border-radius: 45px"
-                                       href="#solid-rounded-justified-tab-monthly" data-bs-toggle="tab">Aylık</a>
+                                       href="#solid-rounded-justified-tab-monthly" data-bs-toggle="tab">Monat</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" style="border-radius: 45px"
-                                       href="#solid-rounded-justified-tab-yearly" data-bs-toggle="tab">Yıllık</a>
+                                       href="#solid-rounded-justified-tab-yearly" data-bs-toggle="tab">Jahres</a>
                                 </li>
                             </ul>
                         </div>

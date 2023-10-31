@@ -82,12 +82,12 @@
             <div class="row text-center">
                 <div class="col-md-6 mb-2">
                     <a class="d-block w-100" style="color: #000000;font-weight: bold;background-color: #ffce5a;border-radius: 25px;padding: 15px;" href="{{route('business.register')}}">
-                        <span class="white-text"><i class="far fa-user-edit"></i> Kayıt Ol</span>
+                        <span class="white-text"><i class="far fa-user-edit"></i> Registrieren</span>
                     </a>
                 </div>
                 <div class="col-md-6">
                     <a  class="d-block w-100"  style="color: #000229;background-color: white;border-radius: 25px;padding: 15px;" href="{{route('business.login')}}">
-                        <span class="white-text"><i class="far fa-user"></i> Giriş Yap</span>
+                        <span class="white-text"><i class="far fa-user"></i> Einloggen</span>
                     </a>
                 </div>
 
@@ -227,7 +227,7 @@
                         </div>
 
                         <div class="signin-banner-from-box">
-                            <h5 class="signin-banner-from-subtitle">Doğrulama Kodu Gönderilecektir</h5>
+                            <h5 class="signin-banner-from-subtitle">Es wird ein Verifizierungscode gesendet.</h5>
                             <form action="{{route('business.register')}}" method="post">
                                 @csrf
                                 <div class="row">
@@ -276,12 +276,12 @@
                                     </div>
                                 </div>
                                 <div class="signin-banner-from-btn mb-20 text-center">
-                                    <button class="signin-btn " type="submit">Kayıt Ol</button>
+                                    <button class="signin-btn " type="submit">Registrieren</button>
                                 </div>
                             </form>
 
                             <div class="col-12 pt-10 pb-10 text-center">
-                                Zaten Hesabın var mı?<a class="ml-5 text-primary" href="{{route('business.login')}}">Giriş Yap</a>
+                                Zaten Hesabın var mı?<a class="ml-5 text-primary" href="{{route('business.login')}}">Einloggen</a>
                             </div>
                         </div>
                     </div>

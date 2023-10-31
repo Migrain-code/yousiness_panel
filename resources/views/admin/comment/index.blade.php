@@ -16,7 +16,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Yorum İşlemleri
+                    Kommentare
                 </h2>
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Yorum Listesi
+                Liste
                 </h4>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
@@ -45,7 +45,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content" style="width: 800px">
                             <div class="modal-header">
-                                <h5 class="modal-title">Yorum Ekle</h5>
+                                <h5 class="modal-title">Kommentar Einfügen</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
@@ -54,11 +54,11 @@
 
                                     @csrf
                                     <div class="mb-3">
-                                        <label>Yorum Yapan Adı</label>
+                                        <label>Name</label>
                                         <input type="text" class="form-control input-default " value="{{old('name')}}" name="name" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>Yorum Yapan İşletme Adı</label>
+                                        <label>Salonname</label>
                                         <input type="text" class="form-control input-default " value="{{old('business_name')}}" name="business_name" >
                                     </div>
                                     <div class="mb-3">
@@ -66,7 +66,7 @@
                                         <textarea class="form-control" name="description" >{{old('description')}}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label>İşletme Logo</label>
+                                        <label>Salon Logo</label>
                                         <input type="file" class="form-control input-default"  name="image" >
                                     </div>
                                     <div class="mb-3">
@@ -86,7 +86,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                                     <button type="submit" class="btn btn-primary">Speichern</button>
                                 </div>
                             </form>
@@ -100,10 +100,10 @@
                     <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>İsim</th>
-                            <th>İşletme</th>
-                            <th>Durum</th>
-                            <th>İşlemler</th>
+                            <th>Name</th>
+                            <th>Salonname</th>
+                            <th>Status</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -113,9 +113,9 @@
                                 <td>{{$comment->business}}</td>
                                 <td>
                                     @if($comment->status == 0)
-                                        <span class="badge badge-warning">Yayında Değil</span>
+                                        <span class="badge badge-warning">Nich Sendung</span>
                                     @else
-                                        <span class="badge badge-success">Yayında</span>
+                                        <span class="badge badge-success">Auf Sendung</span>
                                     @endif
                                 </td>
                                 <td>
@@ -127,7 +127,7 @@
                         @empty
                             <tr>
                                 <td colspan="5">
-                                    <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                    <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                                 </td>
                             </tr>
                         @endforelse

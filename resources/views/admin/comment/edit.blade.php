@@ -35,11 +35,11 @@
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
-                            <label>Yorum Yapan Adı</label>
+                            <label> Name Nachname</label>
                             <input type="text" class="form-control input-default " value="{{$comment->name}} {{old('name')}}" name="name" >
                         </div>
                         <div class="mb-3">
-                            <label>Yorum Yapan İşletme Adı</label>
+                            <label>Salonname</label>
                             <input type="text" class="form-control input-default " value="{{$comment->business}} {{old('business_name')}}" name="business_name" >
                         </div>
                         <div class="mb-3">
@@ -47,7 +47,7 @@
                             <textarea class="form-control" name="description" >{{$comment->description}} {{old('description')}}</textarea>
                         </div>
                         <div class="mb-3">
-                            <label>İşletme Logo</label>
+                            <label>Salon Logo</label>
                             <input type="file" class="form-control input-default"  name="image" >
                             <img src="{{asset($comment->image)}}" width="100px" class="mt-3">
                         </div>
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>

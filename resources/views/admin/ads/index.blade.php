@@ -16,7 +16,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Reklam İşlemleri
+                    Werbung
                 </h2>
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Reklam Listesi
+                Liste
                 </h4>
                 {{--
                                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
@@ -56,21 +56,21 @@
                                 <div class="modal-body">
                                     @csrf
                                     <div class="mb-3">
-                                        <label>Başlık</label>
+                                        <label>Überschrift</label>
                                         <input type="text" class="form-control input-default " value="{{old('title')}}" name="title" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>Foto</label>
+                                        <label>Bild</label>
                                         <input type="file" class="form-control input-default " value="{{old('image')}}" name="image" >
                                     </div>
 
                                     <div class="mb-3">
-                                        <label>Linki</label>
+                                        <label>Link</label>
                                         <input type="text" class="form-control input-default " value="{{old('link')}}" name="link" >
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                                     <button type="submit" class="btn btn-primary">Speichern</button>
                                 </div>
                             </form>
@@ -84,10 +84,10 @@
                     <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>Foto</th>
-                            <th>Başlık</th>
+                            <th>Bild</th>
+                            <th>Überschrift</th>
                             <th>Link</th>
-                            <th>İşlemler</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -106,7 +106,7 @@
                         @empty
                             <tr>
                                 <td colspan="5">
-                                    <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                    <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                                 </td>
                             </tr>
                         @endforelse

@@ -26,7 +26,7 @@
                 <form method="post" action="{{route('admin.serviceSubCategory.update', $serviceSubCategory->id)}}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <label>Üst Kategori Adı</label>
+                    <label>Üst Kategoriename</label>
                     <select name="category_id" class="form-control mb-2">
                         <option>Üst Kategori seçiniz</option>
                         @forelse($categories as $category)
@@ -36,8 +36,8 @@
                         @endforelse
                     </select>
                     <div class="mb-3">
-                        <label>Kategori Adı</label>
-                        <input type="text" class="form-control input-default " value="{{$serviceSubCategory->name}}" name="name" placeholder="Örneğin(Berber)">
+                        <label>Kategoriename</label>
+                        <input type="text" class="form-control input-default " value="{{$serviceSubCategory->name}}" name="name" placeholder="Beisp. (Wimpern)">
                     </div>
                     <div class="mb-3">
                         <label>Öne Çıkarılan Numara</label>

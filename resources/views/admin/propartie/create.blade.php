@@ -16,7 +16,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Özellik Ekle
+                    Paket Eigenschaft Hinzufügen
                 </h4>
                 {{--
                     <button class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>

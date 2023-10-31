@@ -39,7 +39,7 @@
                     <h4 class="card-title">Müşteriler Listesi</h4>
                     <div class="d-flex">
                         <a href="{{route('business.customer.export.excel')}}" class="btn btn-primary me-2"> <i class="fa fa-arrow-alt-circle-down"></i> Excele Aktar</a>
-                        <a href="#" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" class="btn btn-primary">Müşteri Ekle</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" class="btn btn-primary">Kunden Einfügen</a>
 
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                                 <th>Kayıtlı Mı?</th>
                                 <th>Randevu Sayısı</th>
                                 <th>Durum</th>
-                                <th>İşlemler</th>
+                                <th>Transaktion</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -75,13 +75,13 @@
                                             <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
                                         </td>
                                         <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
-                                        <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                        <td>{{$businessCustomer->email != "" ? "Registriert" : "Unregistriert"}}</td>
                                         <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
                                         <td>
                                             @if($businessCustomer->status==1)
-                                                <span class="badge light badge-success">Aktif</span>
+                                                <span class="badge light badge-success">Aktiv</span>
                                             @else
-                                                <span class="badge light badge-danger">Doğrulanmadı</span>
+                                                <span class="badge light badge-danger">Nicht verifiziert</span>
                                             @endif
                                         </td>
                                         <td>
@@ -103,7 +103,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Müşteri Ekle</h5>
+                    <h5 class="modal-title">Kunden Einfügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -111,7 +111,7 @@
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Ad Soyad</label>
+                            <label>Name Nachname</label>
                             <input type="text" class="form-control" name="name">
                         </div>
                         <div class="form-group">
@@ -119,25 +119,25 @@
                             <input type="number" class="form-control" name="email">
                         </div>
                         <div class="form-group">
-                            <label>E-posta</label>
+                            <label>E-mail</label>
                             <input type="email" class="form-control" name="custom_email">
                         </div>
                         <div class="form-group">
-                            <label>Cinsiyet</label>
+                            <label>Geschlecht</label>
                             <select name="gender" class="form-control">
                                 <option value="0">Mann</option>
                                 <option value="1">Frau</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Şifre</label>
+                            <label>Passwort</label>
                             <input type="text" class="form-control" name="password">
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Kapat</button>
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>
@@ -163,7 +163,7 @@
                 showDenyButton: true,
                 showCancelButton: false,
                 confirmButtonText: 'Sil',
-                denyButtonText: `İptal Et`,
+                denyButtonText: `Abbrechen`,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {

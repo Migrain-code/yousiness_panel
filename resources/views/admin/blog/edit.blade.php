@@ -9,7 +9,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                   Blog Düzenle
+                   Blog Bearbeiten
                 </h2>
             </div>
         </div>
@@ -37,15 +37,15 @@
                         @csrf
                     @method('PUT')
                         <div class="mb-3">
-                            <label>Başlık</label>
+                            <label>Überschrift</label>
                             <input type="text" class="form-control input-default " value="{{$blog->title}}{{old('title')}}" name="title" >
                         </div>
                         <div class="mb-3">
-                            <label>Foto</label>
+                            <label>Bild</label>
                             <input type="file" class="form-control input-default" name="image" >
                         </div>
                         <div class="mb-3">
-                            <label>İçerik Metni</label>
+                            <label>Beschreibung</label>
                             <textarea class="sm-note" name="description">{!! $blog->description !!}{{old('description')}}</textarea>
                         </div>
                         <div class="mb-3">
@@ -59,7 +59,7 @@
 
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
@@ -68,18 +68,18 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h1>Blog Yorumları</h1>
+            <h1>Blog Kommentare</h1>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table id="example" class="display" style="min-width: 845px;width: 100%">
                     <thead>
                     <tr>
-                        <th>Foto</th>
-                        <th>Müşterei Adı</th>
-                        <th>Yorum</th>
-                        <th>Durum</th>
-                        <th>İşlemler</th>
+                        <th>Bild</th>
+                        <th>Kundenname</th>
+                        <th>Kommentar</th>
+                        <th>Status</th>
+                        <th>Transaktion</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -92,9 +92,9 @@
                             </td>
                             <td>
                                 @if($comment->status == 0)
-                                    <span class="badge badge-warning">Yayında Değil</span>
+                                    <span class="badge badge-warning">Nich Sendung</span>
                                 @else
-                                    <span class="badge badge-success">Yayında</span>
+                                    <span class="badge badge-success">Auf Sendung</span>
 
                                 @endif
 
@@ -108,7 +108,7 @@
                     @empty
                         <tr>
                             <td colspan="5">
-                                <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                             </td>
                         </tr>
                     @endforelse

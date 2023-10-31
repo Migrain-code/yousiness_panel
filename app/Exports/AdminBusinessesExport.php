@@ -56,7 +56,7 @@ class AdminBusinessesExport implements FromCollection,WithColumnFormatting, With
     public function headings(): array
     {
         return [
-            'İşletme Adı',
+            'Salonname',
             'İşletme Sahibi',
             'Mobilnummer',
             'E-Mail',

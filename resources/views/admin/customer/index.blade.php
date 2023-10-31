@@ -9,7 +9,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Müşteriler
+                    Kunden
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -35,13 +35,12 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Müşteriler Listesi</h4>
+                    <h4 class="card-title">Liste</h4>
                     <div>
-                        <a href="{{route('admin.customer.export.excel')}}" class="btn btn-primary"> <i class="fa fa-arrow-alt-circle-down"></i> Excele Aktar</a>
+                        <a href="{{route('admin.customer.export.excel')}}" class="btn btn-primary"> <i class="fa fa-arrow-alt-circle-down"></i> Excel Download</a>
 
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Müşteri
-                            Ekle
+                                data-bs-target=".bd-example-modal-lg"><i class="fa-solid fa-plus-circle me-2"></i>Hinzufügen
                         </button>
                     </div>
                 </div>
@@ -52,15 +51,13 @@
                             <tr>
                                 <th></th>
                                 <th>Name Nachname</th>
-                                <th>Mobilnummer</th>
-                                <th>İsim Soyisim</th>
-                                <th>E-posta</th>
+                                <th>E-Mail</th>
                                 <th>Telefon</th>
-                                <th>Kayıt Zamanı</th>
-                                <th>Kayıtlı Mı?</th>
-                                <th>Randevu Sayısı</th>
-                                <th>Durum</th>
-                                <th>İşlemler</th>
+                                <th>Anmeldedatum</th>
+                                <th>Registrierungsstatus</th>
+                                <th>Anzahl der Termine</th>
+                                <th>Status</th>
+                                <th>Transaktion</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -78,13 +75,13 @@
                                         <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
                                     </td>
                                     <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
-                                    <td>{{$businessCustomer->email != "" ? "Kayıtlı" : "Kayıt Olmamış"}}</td>
+                                    <td>{{$businessCustomer->email != "" ? "Registriert" : "Unregistriert"}}</td>
                                     <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
                                     <td>
                                         @if($businessCustomer->status==1)
-                                            <span class="badge light badge-success">Aktif</span>
+                                            <span class="badge light badge-success">Aktiv</span>
                                         @else
-                                            <span class="badge light badge-danger">Doğrulanmadı</span>
+                                            <span class="badge light badge-danger">Nicht verifiziert</span>
                                         @endif
                                     </td>
                                     <td>
@@ -126,7 +123,7 @@
                             <label>E-Mail</label>
                             <input type="email" class="form-control" name="email">
                         <div class="form-group">
-                            <label>Ad Soyad</label>
+                            <label>Name Nachname</label>
                             <input type="text" class="form-control" name="name">
                         </div>
                         <div class="form-group">
@@ -134,7 +131,7 @@
                             <input type="number" class="form-control" name="email">
                         </div>
                         <div class="form-group">
-                            <label>E-posta</label>
+                            <label>E-mail</label>
                             <input type="email" class="form-control" name="custom_email">
                         </div>
                         <div class="form-group">
@@ -177,7 +174,7 @@
                 showDenyButton: true,
                 showCancelButton: false,
                 confirmButtonText: 'Sil',
-                denyButtonText: `İptal Et`,
+                denyButtonText: `Abbrechen`,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {

@@ -38,7 +38,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    Etkinlik İşlemleri
+                Events
                 </h2>
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    Etkinlik Listesi
+                    Liste
                 </h4>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
@@ -67,7 +67,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content" style="width: 800px">
                             <div class="modal-header">
-                                <h5 class="modal-title">Etkinlik Oluştur</h5>
+                                <h5 class="modal-title">Event Hinzufügen</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
@@ -75,16 +75,16 @@
                                 <div class="modal-body">
                                     @csrf
                                     <div class="mb-3">
-                                        <label>Başlık</label>
+                                        <label>Überschrift</label>
                                         <input type="text" class="form-control input-default " value="{{old('title')}}" name="title" >
 
                                     </div>
                                     <div class="mb-3">
-                                        <label>Otel/Yer Adı</label>
+                                        <label>Standort</label>
                                         <input type="text" class="form-control input-default " value="{{old('hotel')}}" name="hotel" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>İletişim Telefon</label>
+                                        <label>Kontakt Telefon</label>
                                         <input type="text" class="form-control input-default " value="{{old('phone')}}" name="phone" >
                                     </div>
                                     <div class="mb-3">
@@ -92,7 +92,7 @@
                                         <input type="text" class="form-control input-default " value="{{old('video')}}" name="video" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>Foto</label>
+                                        <label>Bild</label>
                                         <input type="file"  class="form-control input-default " value="{{old('image')}}" name="image" >
                                     </div>
                                     <div class="mb-3">
@@ -100,19 +100,19 @@
                                         <input type="file" multiple class="form-control input-default " value="" name="sliders[]" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>Galeri</label>
+                                        <label>Galerie</label>
                                         <input type="file" multiple class="form-control input-default " value="" name="galleries[]" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>Başlangıç Zamanı</label>
+                                        <label>Start Datum</label>
                                         <input type="datetime-local" class="form-control input-default " value="{{old('start_date')}}" name="start_date" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>Bitiş Zamanı</label>
+                                        <label>End Datum</label>
                                         <input type="datetime-local" class="form-control input-default " value="{{old('stop_date')}}" name="stop_date" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>İçerik Metni</label>
+                                        <label>Beschreibung</label>
                                         <textarea class="sm-note" name="description" >{{old('description')}}</textarea>
                                     </div>
                                     <div class="mb-3">
@@ -124,9 +124,9 @@
                                         <input type="text" class="form-control input-default " value="{{old('meta_description')}}" name="meta_description" >
                                     </div>
                                     <div class="mb-3">
-                                        <label>Plz/ Stadtname</label>
+                                        <label>PLZ / Stadt</label>
                                         <select class="" id="city_select" name="city" style="border-radius: 18px;">
-                                            <option value="" selected>Stadt wählen</option>
+                                            <option value="" selected>Auswählen</option>
                                             @forelse($cities as $city)
                                                 <option value="{{$city->name}}">{{$city->post_code ." ," . $city->name}}</option>
                                             @empty
@@ -136,7 +136,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                                     <button type="submit" class="btn btn-primary">Speichern</button>
                                 </div>
                             </form>
@@ -150,11 +150,11 @@
                     <table id="example" class="display" style="min-width: 845px;width: 100%">
                         <thead>
                         <tr>
-                            <th>Foto</th>
-                            <th>Başlık</th>
-                            <th>Tarih</th>
-                            <th>Durum</th>
-                            <th>İşlemler</th>
+                            <th>Bild</th>
+                            <th>Überschrift</th>
+                            <th>Datum</th>
+                            <th>Status</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -167,9 +167,9 @@
                                 </td>
                                 <td>
                                     @if($activity->status == 0)
-                                        <span class="badge badge-warning">Yayında Değil</span>
+                                        <span class="badge badge-warning">Nich Sendung</span>
                                     @else
-                                        <span class="badge badge-success">Yayında</span>
+                                        <span class="badge badge-success">Auf Sendung</span>
 
                                     @endif
                                 </td>
@@ -182,7 +182,7 @@
                         @empty
                             <tr>
                                 <td colspan="5">
-                                    <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                    <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                                 </td>
                             </tr>
                         @endforelse

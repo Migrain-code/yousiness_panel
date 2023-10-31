@@ -27,9 +27,9 @@
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                        <label>İşletme Türü</label>
+                        <label>Salonart</label>
                         <select name="type_id" class="form-control mb-2">
-                            <option>İşletme Türü seçiniz</option>
+                            <option>Auswählen</option>
                             @forelse($types as $type)
                                 <option value="{{$type->id}}" @selected($serviceCategory->type_id == $type->id)>{{$type->name}}</option>
                             @empty
@@ -38,7 +38,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label>Kategori Adı</label>
+                        <label>Kategoriename</label>
                         <input type="text" class="form-control input-default " name="name" value="{{$serviceCategory->name}}" placeholder="Örneğin(Randevu Hatırlatma)">
                     </div>
                     <div class="mb-3">

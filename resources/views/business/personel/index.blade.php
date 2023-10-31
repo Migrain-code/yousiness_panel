@@ -329,7 +329,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                showDenyButton: true,
                showCancelButton: false,
                confirmButtonText: 'Sil',
-               denyButtonText: `İptal Et`,
+               denyButtonText: `Abbrechen`,
            }).then((result) => {
                /* Read more about isConfirmed, isDenied below */
                if (result.isConfirmed) {

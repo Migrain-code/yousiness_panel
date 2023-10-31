@@ -37,9 +37,9 @@ class BussinessPackageController extends Controller
             'price'=>"required",
             'type'=>"required",
         ],[], [
-            'name'=>"Paket Adı",
-            'price'=>"Paket Fiyatı",
-            'type'=>"Paket Türü",
+            'name'=>"Paketname",
+            'price'=>"Preis",
+            'type'=>"Art",
         ]);
         $bussinessPackage=new BussinessPackage();
         $bussinessPackage->name=$request->input('name');

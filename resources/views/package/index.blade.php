@@ -33,8 +33,8 @@
                             </div>
                             <nav>
                                 <div class="nav nav-tab tp-price__btn-bg" id="nav-tab" role="tablist">
-                                    <button class="nav-link active monthly" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Aylık</button>
-                                    <button class="nav-link yearly" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" style="margin-left: 34px;">Yıllık</button>
+                                    <button class="nav-link active monthly" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Monat</button>
+                                    <button class="nav-link yearly" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" style="margin-left: 34px;">Jahres</button>
                                     <span class="test"></span>
                                 </div>
                             </nav>

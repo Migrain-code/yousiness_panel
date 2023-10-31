@@ -132,7 +132,7 @@ class AuthController extends Controller
      * <li>code | string | required | Doğrulama Kodu</li>
      * <li>phone | string | required | Kullanıcı Telefon Numarası</li>
      * <li>name | string | required | Kullanıcı Adı</li>
-     * <li>business_name | string | required | İşletme Adı</li>
+     * <li>business_name | string | required | Salonname</li>
      * <li>phone | string | required</li>
      * </ul>
      * Kod doğrulama ve kullanıcı kayıt apisi

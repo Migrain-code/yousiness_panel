@@ -48,7 +48,7 @@
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-12">
-                            <label class="form-label">Cevap</label>
+                            <label class="form-label">Antwort</label>
                             <textarea type="number" class="form-control" rows="7" name="answer">{{$support->answer}}</textarea>
                         </div>
                     </div>

@@ -29,16 +29,16 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Hizmet Alt Kategorileri Ekle</h5>
+                                <h5 class="modal-title">Dienstleistung Unterkategorie EInfügen</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
                             <form method="post" action="{{route('admin.serviceSubCategory.store')}}">
                             <div class="modal-body">
                                     @csrf
-                                    <label>Oberkategorie</label>
+                                    <label>Oberkategoriename</label>
                                     <select name="category_id" class="form-control mb-2">
-                                        <option>Üst Kategori seçiniz</option>
+                                        <option>Auswählen</option>
                                         @forelse($categories as $category)
                                            <option value="{{$category->id}}">{{$category->name}}</option>
                                         @empty
@@ -46,12 +46,12 @@
                                         @endforelse
                                     </select>
                                 <div class="mb-3">
-                                        <label>Unterkategorie</label>
-                                        <input type="text" class="form-control input-default " name="name" placeholder="Örneğin(Berber)">
+                                        <label>Kategoriename</label>
+                                        <input type="text" class="form-control input-default " name="name" placeholder="Beisp. (Maniküre)">
                                     </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                                 <button type="submit" class="btn btn-primary">Speichern</button>
                             </div>
                             </form>

@@ -55,7 +55,7 @@ class ActivityController extends Controller
             'image' => "Foto",
             'start_date' => "Başlangıç Zamanı",
             'stop_date' => "Bitiş Zamanı",
-            'city' => "Plz/ Stadtname",
+            'city' => "PLZ / Stadt",
             'hotel' => "Otel veya Yer Adı",
             'phone' => "Mobilnummer",
             'sliders' => "Slider Görselleri",

@@ -171,7 +171,7 @@
                          style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.3s; animation-name: tpfadeUp;">
                         <div class="tp-price__section-box text-center mb-35">
                             <h2 class="tp-section-title">PAKETE &amp; INHALTE</h2>
-                            <p>Detaylı İncelemek isterseniz özellikler sekmesinden görebilirsiniz.</p>
+                            <p>Wählen Sie das für Sie am besten geeignete Business-Paket</p>
                         </div>
                     </div>
                 </div>
@@ -225,7 +225,7 @@
                                             </div>
                                             <div class="tp-price__title-box">
                                                 <h4 class="tp-price__title-sm">{{$package->name}}</h4>
-                                                <p>{{$package->price==0 ? "Ücretsiz": $package->price ."€ + KDV / Aylık"}}</p>
+                                                <p>{{$package->price==0 ? "Unentgeltlich": $package->price ."€ / Monat"}}</p>
                                             </div>
                                             <div class="tp-price__feature">
                                                 <ul>
@@ -252,8 +252,8 @@
                                                 </ul>
                                             </div>
                                             <div class="tp-price__btn tp-btn-price">
-                                                <span>{{$package->price==0 ? "Ücretsiz": $package->price ."€ + KDV / Yıllık"}}</span>
-                                                <a href="{{route('business.login')}}">Şimdi Satın Al <i
+                                                <span>{{$package->price==0 ? "Unentgeltlich": $package->price ."€ / Jahres"}}</span>
+                                                <a href="{{route('business.login')}}">Jetzt kaufen <i
                                                             class="fal fa-arrow-right"></i></a>
                                             </div>
                                         </div>
@@ -276,7 +276,7 @@
                                             </div>
                                             <div class="tp-price__title-box">
                                                 <h4 class="tp-price__title-sm">{{$package->name}}</h4>
-                                                <p>{{$package->price==0 ? "Ücretsiz": $package->price ."€ + KDV / Yıllık"}}</p>
+                                                <p>{{$package->price==0 ? "Unentgeltlich": $package->price ."€ / Jahres"}}</p>
                                             </div>
                                             <div class="tp-price__feature">
                                                 <ul>
@@ -303,8 +303,8 @@
                                                 </ul>
                                             </div>
                                             <div class="tp-price__btn tp-btn-price">
-                                                <span>{{$package->price==0 ? "Ücretsiz": $package->price ."€ + KDV / Yıllık"}}</span>
-                                                <a href="{{route('business.login')}}">Şimdi Satın Al <i
+                                                <span>{{$package->price==0 ? "Unentgeltlich": $package->price ."€ / Jahres"}}</span>
+                                                <a href="{{route('business.login')}}">Jetzt kaufen <i
                                                             class="fal fa-arrow-right"></i></a>
                                             </div>
                                         </div>
@@ -516,8 +516,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="ab-brand-section-box text-center mb-50">
-                                <h4 class="ab-brand-title">Binlerce İşletme Bizimle Güvende!</h4>
-                                <p>5000+ İşletme Bizimle Yıllardır Çalışmaktadır.</p>
+                                <h4 class="ab-brand-title">Tausende von Unternehmen sind bei uns sicher!</h4>
+                                <p>Über 5000 Unternehmen arbeiten seit Jahren mit uns zusammen.</p>
                             </div>
                         </div>
                     </div>

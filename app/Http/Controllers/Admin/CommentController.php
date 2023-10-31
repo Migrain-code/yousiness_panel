@@ -53,8 +53,8 @@ class CommentController extends Controller
             'business_name'=>"required",
             'description'=>"required"
         ],[],[
-            'name'=>"Yorum Yapan Adı",
-            'business_name'=>"Yorum yapan işletme adı",
+            'name'=>" Name Nachname",
+            'business_name'=>"Salonname",
             'description'=>"Yorum metni",
         ]);
         $comment=new Comment();
@@ -102,8 +102,8 @@ class CommentController extends Controller
             'business_name'=>"required",
             'description'=>"required"
         ],[],[
-            'name'=>"Yorum Yapan Adı",
-            'business_name'=>"Yorum yapan işletme adı",
+            'name'=>" Name Nachname",
+            'business_name'=>"Salonname",
             'description'=>"Yorum metni",
         ]);
         $comment->name=$request->input('name');

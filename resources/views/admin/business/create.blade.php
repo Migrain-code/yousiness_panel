@@ -125,7 +125,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 mb-2">
                                         <div class="mb-3">
-                                            <label class="text-label form-label">İşletme Adı*</label>
+                                            <label class="text-label form-label">Salonname*</label>
                                             <input type="text" name="name" class="form-control input-rounded" placeholder="Ertan Kuaför" >
                                         </div>
                                     </div>
@@ -220,7 +220,7 @@
                                     <div class="col-sm-2 mb-2">
                                         <div class="form-check mb-2">
                                             <input type="checkbox" class="form-check-input" id="check1" name="status[]" checked>
-                                            <label class="form-check-label" for="check1">Aktif</label>
+                                            <label class="form-check-label" for="check1">Aktiv</label>
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-4 mb-2">
@@ -242,7 +242,7 @@
                                     <div class="col-sm-2 mb-2">
                                         <div class="form-check mb-2">
                                             <input type="checkbox" class="form-check-input" id="check1" name="status[]" checked>
-                                            <label class="form-check-label" for="check1">Aktif</label>
+                                            <label class="form-check-label" for="check1">Aktiv</label>
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-4 mb-2">
@@ -264,7 +264,7 @@
                                     <div class="col-sm-2 mb-2">
                                         <div class="form-check mb-2">
                                             <input type="checkbox" class="form-check-input" id="check1" name="status[]" checked>
-                                            <label class="form-check-label" for="check1">Aktif</label>
+                                            <label class="form-check-label" for="check1">Aktiv</label>
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-4 mb-2">
@@ -286,7 +286,7 @@
                                     <div class="col-sm-2 mb-2">
                                         <div class="form-check mb-2">
                                             <input type="checkbox" class="form-check-input" id="check1" name="status[]" checked>
-                                            <label class="form-check-label" for="check1">Aktif</label>
+                                            <label class="form-check-label" for="check1">Aktiv</label>
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-4 mb-2">
@@ -308,7 +308,7 @@
                                     <div class="col-sm-2 mb-2">
                                         <div class="form-check mb-2">
                                             <input type="checkbox" class="form-check-input" id="check1" name="status[]" checked>
-                                            <label class="form-check-label" for="check1">Aktif</label>
+                                            <label class="form-check-label" for="check1">Aktiv</label>
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-4 mb-2">
@@ -330,7 +330,7 @@
                                     <div class="col-sm-2 mb-2">
                                         <div class="form-check mb-2">
                                             <input type="checkbox" class="form-check-input" id="check1" name="status[]" checked>
-                                            <label class="form-check-label" for="check1">Aktif</label>
+                                            <label class="form-check-label" for="check1">Aktiv</label>
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-4 mb-2">
@@ -352,7 +352,7 @@
                                     <div class="col-sm-2 mb-2">
                                         <div class="form-check mb-2">
                                             <input type="checkbox" class="form-check-input" id="check1" name="status[]" checked>
-                                            <label class="form-check-label" for="check1">Aktif</label>
+                                            <label class="form-check-label" for="check1">Aktiv</label>
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-4 mb-2">

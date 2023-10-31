@@ -42,7 +42,7 @@
                 <div class="row">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i> Personal Hinzufügen</button>
-                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenter3"><i class="fa fa-plus-circle"></i> Sponsor Ekle</button>
+                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenter3"><i class="fa fa-plus-circle"></i> Sponsor EInfügen</button>
                         <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2"><i class="fa fa-list"></i> Katılımcı Listesi</button>
                         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter4"><i class="fa fa-list"></i> Sponsor Listesi</button>
 
@@ -106,7 +106,7 @@
 
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
@@ -118,7 +118,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content" style="width: 800px">
                 <div class="modal-header">
-                    <h5 class="modal-title">Sponsor Ekle</h5>
+                    <h5 class="modal-title">Sponsor EInfügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -142,7 +142,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
@@ -173,7 +173,7 @@
                         <input type="hidden" name="activity_id" value="{{$activity->id}}">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
@@ -200,7 +200,7 @@
                         <tr>
                             <th><strong>Personel Adı</strong></th>
                             <th><strong>Durumu</strong></th>
-                            <th><strong>İşlemler</strong></th>
+                            <th><strong>Transaktion</strong></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -252,7 +252,7 @@
                             <th><strong>Foto</strong></th>
                             <th><strong>Link</strong></th>
                             <th><strong>Durumu</strong></th>
-                            <th><strong>İşlemler</strong></th>
+                            <th><strong>Transaktion</strong></th>
                         </tr>
                         </thead>
                         <tbody>

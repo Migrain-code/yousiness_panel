@@ -33,7 +33,7 @@
 														<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="currentColor"></path>
 													</svg>
 													</span>
-                                    <!--end::Svg Icon-->İletişim</a>
+                                    <!--end::Svg Icon-->Kontakt</a>
                             </li>
 
                             <li class="nav-item">
@@ -45,7 +45,7 @@
 															<path d="M12 14C9.2 14 7 11.8 7 9V5C7 4.4 7.4 4 8 4C8.6 4 9 4.4 9 5V9C9 10.7 10.3 12 12 12C13.7 12 15 10.7 15 9V5C15 4.4 15.4 4 16 4C16.6 4 17 4.4 17 5V9C17 11.8 14.8 14 12 14Z" fill="currentColor" />
 														</svg>
 													</span>
-                                    <!--end::Svg Icon-->Seiteneinstellungen</a>
+                                    <!--end::Svg Icon-->Startseite</a>
                             </li>
 
 
@@ -66,7 +66,7 @@
                                     <!--begin::Heading-->
                                     <div class="row mb-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Allgemein</h2>
+                                            <h2>Allgeimeine Einstellungen</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -75,7 +75,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">Site Başlık</span>
+                                                <span class="required">Seiten Überschrift</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the title of the store for SEO."></i>
                                             </label>
                                             <!--end::Label-->
@@ -92,7 +92,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Meta Anahtar Kelimeleri</span>
+                                                <span>Metaschlüssel</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
                                             </label>
                                             <!--end::Label-->
@@ -108,7 +108,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Meta Açıklamaları</span>
+                                                <span>Metabeschreibung</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set keywords for the store separated by a comma."></i>
                                             </label>
                                             <!--end::Label-->
@@ -155,7 +155,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Dikey Menü</span>
+                                                <span>Horizontal/Vertikal</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set default layout style for the store."></i>
                                             </label>
                                             <!--end::Label-->
@@ -179,11 +179,11 @@
                                         <div class="col-md-9 offset-md-3">
                                             <div class="d-flex">
                                                 <!--begin::Button-->
-                                                <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Cancel</button>
+                                                <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Schließen</button>
                                                 <!--end::Button-->
                                                 <!--begin::Button-->
                                                 <button type="submit" class="btn btn-primary">
-                                                    <span class="indicator-label">Save</span>
+                                                    <span class="indicator-label">Speichern</span>
                                                 </button>
                                                 <!--end::Button-->
                                             </div>
@@ -202,7 +202,7 @@
                                     <!--begin::Heading-->
                                     <div class="row mb-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>İletişim Bilgileri</h2>
+                                            <h2>Kontakt Einstellungen</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -211,7 +211,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">Mobilnummer</span>
+                                                <span class="required">Telefon</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Site Adınızı Güncelleyin"></i>
                                             </label>
                                             <!--end::Label-->
@@ -243,7 +243,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">Adres</span>
+                                                <span class="required">Anschrift</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store's full address."></i>
                                             </label>
                                             <!--end::Label-->
@@ -260,7 +260,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span class="required">Map Kodu</span>
+                                                <span class="required">Maps Code</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store's full address."></i>
                                             </label>
                                             <!--end::Label-->
@@ -278,11 +278,11 @@
                                         <div class="col-md-9 offset-md-3">
                                             <div class="d-flex">
                                                 <!--begin::Button-->
-                                                <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Cancel</button>
+                                                <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Schließen</button>
                                                 <!--end::Button-->
                                                 <!--begin::Button-->
                                                 <button type="submit" class="btn btn-primary">
-                                                    <span class="indicator-label">Save</span>
+                                                    <span class="indicator-label">Speichern</span>
                                                 </button>
                                                 <!--end::Button-->
                                             </div>
@@ -300,7 +300,7 @@
                                     <!--begin::Heading-->
                                     <div class="row mb-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Seiteneinstellungen</h2>
+                                            <h2>Startseite Einstellungen</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -309,7 +309,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>Yıl dönümü Mesajı</span>
+                                                <span>Geburtstagsbenschrichtigung</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7"></i>
                                             </label>
                                             <!--end::Label-->
@@ -319,11 +319,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('appy_anniversary_message')=="1") name="appy_anniversary_message" id="category_product_count_yes" checked="checked" />
-                                                    <label class="form-check-label" for="category_product_count_yes">Gönder</label>
+                                                    <label class="form-check-label" for="category_product_count_yes">Senden</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('appy_anniversary_message')=="0") name="appy_anniversary_message" id="category_product_count_no" />
-                                                    <label class="form-check-label" for="category_product_count_no">Gönderme</label>
+                                                    <label class="form-check-label" for="category_product_count_no">Nicht senden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -334,7 +334,7 @@
                                     <!--begin::Heading-->
                                     <div class="row mb-3">
                                         <div class="col-md-9 offset-md-3">
-                                            <h2>Anasayfa Görüntüleme Ayarları</h2>
+                                            <h2>Startseite Anzeige Einstellungen</h2>
                                         </div>
                                     </div>
                                     <!--end::Heading-->
@@ -343,7 +343,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>1. Bölüm</span>
+                                                <span>Bereich 1</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -353,11 +353,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('appy_main_page_section_1')=="1") name="appy_main_page_section_1" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('appy_main_page_section_1')=="0") name="appy_main_page_section_1" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -367,7 +367,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>2. Bölüm</span>
+                                                <span>Bereich 2</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -377,11 +377,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('appy_main_page_section_2')=="1") name="appy_main_page_section_2" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('appy_main_page_section_2')=="0") name="appy_main_page_section_2" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -391,7 +391,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>3. Bölüm</span>
+                                                <span>Bereich 3</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -401,11 +401,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('appy_main_page_section_3')=="1") name="appy_main_page_section_3" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('appy_main_page_section_3')=="0") name="appy_main_page_section_3" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -415,7 +415,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>4. Bölüm</span>
+                                                <span>Bereich 4</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -425,11 +425,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('appy_main_page_section_4')=="1") name="appy_main_page_section_4" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('appy_main_page_section_4')=="0") name="appy_main_page_section_4" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -439,7 +439,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>5. Bölüm</span>
+                                                <span>Bereich 5</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -449,11 +449,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('appy_main_page_section_5')=="1") name="appy_main_page_section_5" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('appy_main_page_section_5')=="0") name="appy_main_page_section_5" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -463,7 +463,7 @@
                                         <div class="col-md-3 text-md-end">
                                             <!--begin::Label-->
                                             <label class="fs-6 fw-semibold form-label mt-3">
-                                                <span>6. Bölüm</span>
+                                                <span>Bereich 6</span>
                                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
                                             </label>
                                             <!--end::Label-->
@@ -473,11 +473,11 @@
                                                 <!--begin::Radio-->
                                                 <div class="form-check form-check-custom form-check-solid me-5">
                                                     <input class="form-check-input" type="radio" value="1" @checked(setting('appy_main_page_section_6')=="1") name="appy_main_page_section_6" id="allow_reviews_yes" checked="checked" />
-                                                    <label class="form-check-label" for="allow_reviews_yes">Göster</label>
+                                                    <label class="form-check-label" for="allow_reviews_yes">Anzeigen</label>
                                                 </div>
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" value="0" @checked(setting('appy_main_page_section_6')=="0") name="appy_main_page_section_6" id="allow_reviews_no" />
-                                                    <label class="form-check-label" for="allow_reviews_no">Gösterme</label>
+                                                    <label class="form-check-label" for="allow_reviews_no">Ausblenden</label>
                                                 </div>
                                                 <!--end::Radio-->
                                             </div>
@@ -492,7 +492,7 @@
 
                                                 <!--begin::Button-->
                                                 <button type="submit" class="btn btn-primary">
-                                                    <span class="indicator-label">Save</span>
+                                                    <span class="indicator-label">Speichern</span>
                                                 </button>
                                                 <!--end::Button-->
                                             </div>

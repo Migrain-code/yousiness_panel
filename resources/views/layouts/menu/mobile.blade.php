@@ -41,12 +41,12 @@
             <div class="d-flex justify-content-center">
                 <div class="col">
                     <a style="color: #000000;font-weight: bold;background-color: #ffce5a;border-radius: 25px;padding: 15px;" href="{{route('business.register')}}">
-                        <span class="white-text"><i class="far fa-user-edit"></i> Kayıt Ol</span>
+                        <span class="white-text"><i class="far fa-user-edit"></i> Registrieren</span>
                     </a>
                 </div>
                 <div class="col">
                     <a style="color: #000229;background-color: white;border-radius: 25px;padding: 15px;" href="{{route('business.login')}}">
-                        <span class="white-text"><i class="far fa-user"></i> Giriş Yap</span>
+                        <span class="white-text"><i class="far fa-user"></i> Einloggen</span>
                     </a>
                 </div>
 

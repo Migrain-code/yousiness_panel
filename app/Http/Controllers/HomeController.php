@@ -68,7 +68,7 @@ class HomeController extends Controller
             'phone'=>"required|min:11"
         ], [], [
             'fullname'=>"İşletme Sahibi",
-            'business_name'=>"İşletme Adı",
+            'business_name'=>"Salonname",
             'phone'=>"Mobilnummer"
         ]);
         $businessInfo=new BusinessInfo();

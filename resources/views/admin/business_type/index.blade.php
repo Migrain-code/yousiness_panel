@@ -8,7 +8,7 @@
         <div class="page-titles style1">
             <div class="d-flex align-items-center">
                 <h2 class="heading">
-                    İşletme Türleri / Liste
+                SALONARTEN
                 </h2>
             </div>
         </div>
@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="heading">
-                    İşletme Türleri Listesi
+                Liste
                 </h4>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></button>
                 <!-- Button trigger modal -->
@@ -29,7 +29,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">İşletme Türleri Ekle</h5>
+                                <h5 class="modal-title">Salon Kategorie Einfügen</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
@@ -37,12 +37,12 @@
                             <div class="modal-body">
                                     @csrf
                                     <div class="mb-3">
-                                        <label>İşletme Tür Adı</label>
-                                        <input type="text" class="form-control input-default " name="name" placeholder="Örneğin(Berber)">
+                                        <label>Salon Kategorie</label>
+                                        <input type="text" class="form-control input-default " name="name" placeholder="Beisp. (Friseure)">
                                     </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                                 <button type="submit" class="btn btn-primary">Speichern</button>
                             </div>
                             </form>
@@ -56,8 +56,8 @@
                     <table id="example" class="display" style="min-width: 845px">
                         <thead>
                         <tr>
-                            <th>Tür Adı</th>
-                            <th>İşlemler</th>
+                            <th>Artname</th>
+                            <th>Transaktion</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -72,7 +72,7 @@
                             @empty
                                 <tr>
                                     <td colspan="3">
-                                        <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                        <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                                     </td>
                                 </tr>
                             @endforelse

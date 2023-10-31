@@ -36,7 +36,7 @@
                 @method('PUT')
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Ad Soyad</label>
+                        <label>Name Nachname</label>
                         <input type="text" class="form-control" value="{{$customer->name}}" name="name">
                     </div>
                     <div class="form-group">
@@ -44,11 +44,11 @@
                         <input type="number" class="form-control" value="{{$customer->email}}" name="email">
                     </div>
                     <div class="form-group">
-                        <label>E-posta</label>
+                        <label>E-Mail</label>
                         <input type="email" class="form-control" value="{{$customer->custom_email}}" name="custom_email">
                     </div>
                     <div class="form-group">
-                        <label>Cinsiyet</label>
+                        <label>Geschlecht</label>
                         <select name="gender" class="form-control">
                             <option value="0" @selected($customer->gender == 0)>Mann</option>
                             <option value="1" @selected($customer->gender == 1)>Frau</option>

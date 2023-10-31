@@ -95,12 +95,12 @@
             <div class="row text-center">
                 <div class="col-md-6 mb-2">
                     <a class="d-block w-100" style="color: #000000;font-weight: bold;background-color: #ffce5a;border-radius: 25px;padding: 15px;" href="{{route('business.register')}}">
-                        <span class="white-text"><i class="far fa-user-edit"></i> Kayıt Ol</span>
+                        <span class="white-text"><i class="far fa-user-edit"></i> Registrieren</span>
                     </a>
                 </div>
                 <div class="col-md-6">
                     <a  class="d-block w-100"  style="color: #000229;background-color: white;border-radius: 25px;padding: 15px;" href="{{route('business.login')}}">
-                        <span class="white-text"><i class="far fa-user"></i> Giriş Yap</span>
+                        <span class="white-text"><i class="far fa-user"></i> Einloggen</span>
                     </a>
                 </div>
 
@@ -216,8 +216,8 @@
                     </div>
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
-                            <h4 class="signin-banner-title tp-char-animation">Yousiness <br>
-                                Sistemine Hoşgeldiniz.</h4>
+                            <h4 class="signin-banner-title tp-char-animation">Yousiness Business<br>
+                            Willkommen auf der Plattform</h4>
                         </div>
                         <div class="signin-banner-img-box position-relative">
                             <div class="signin-banner-img signin-img-1 d-none d-md-block z-index-3">
@@ -242,11 +242,11 @@
                         @include('layouts.component.error')
                         @include('layouts.component.alert')
                         <div class="signin-banner-title-box">
-                            <h4 class="signin-banner-from-title">Yousiness'de Oturum Açın</h4>
+                            <h4 class="signin-banner-from-title">Anmelden bei Yousiness Business</h4>
                         </div>
 
                         <div class="signin-banner-from-box">
-                            <h5 class="signin-banner-from-subtitle">Doğrulama kodu gönderilecektir.</h5>
+                            <h5 class="signin-banner-from-subtitle">Es wird ein Verifizierungscode gesendet..</h5>
                             <form action="{{route('business.login')}}" method="post">
                                 @csrf
                                 <div class="row">
@@ -291,23 +291,23 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="rememberMe" value="" id="flexCheckDefault">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        Beni Hatırla
+                                                        Meine Anmeldedaten speichern
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="postbox__forget text-end">
-                                                <a href="{{route('business.showForgotView')}}">Şifremi Unuttum ?</a>
+                                                <a href="{{route('business.showForgotView')}}">Passwort vergessen ?</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="signin-banner-from-btn mb-20 text-center">
-                                    <button class="signin-btn ">Giriş Yap</button>
+                                    <button class="signin-btn ">Einloggen</button>
                                 </div>
                                 <div class="signin-banner-from-register text-center">
-                                    <a href="{{route('business.register')}}">Hesabınız Yokmu ? <span>Kayıt Ol</span></a>
+                                    <a href="{{route('business.register')}}">Noch kein Account ? <span>Registrieren</span></a>
                                 </div>
                             </form>
 

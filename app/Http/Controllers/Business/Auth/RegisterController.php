@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'conditions' => ['accepted'],
             'contact_info' => ['accepted'],
         ], [], [
-            'name' => 'İşletme Adı',
+            'name' => 'Salonname',
             'email' => 'Telefon Numarası',
             'owner'=>'Salon Sahibi',
             'conditions' => "Şartlar ve koşullar",

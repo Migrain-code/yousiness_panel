@@ -29,7 +29,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Hizmet Kategorileri Ekle</h5>
+                                <h5 class="modal-title">Dienstleistung Oberkategorien Einfügen</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
@@ -39,7 +39,7 @@
                                     <div class="mb-3">
                                         <label>Geschlecht</label>
                                         <select name="type_id" class="form-control mb-2">
-                                            <option>İşletme Türü seçiniz</option>
+                                            <option>Auswählen</option>
                                             @forelse($types as $type)
                                                 <option value="{{$type->id}}">{{$type->name}}</option>
                                             @empty
@@ -49,11 +49,11 @@
                                     </div>
                                     <div class="mb-3">
                                         <label>Kategorie</label>
-                                        <input type="text" class="form-control input-default " name="name" placeholder="Örneğin(Berber)">
+                                        <input type="text" class="form-control input-default " name="name" placeholder="Beisp. (Wimpern)">
                                     </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">İptal Et</button>
+                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
                                 <button type="submit" class="btn btn-primary">Speichern</button>
                             </div>
                             </form>
@@ -87,7 +87,7 @@
                             @empty
                                 <tr>
                                     <td colspan="3">
-                                        <div class="alert alert-warning text-center mx-4 my-2">Kayıt Bulunamadı</div>
+                                        <div class="alert alert-warning text-center mx-4 my-2">Keine Aufzeichnungen gefunden</div>
                                     </td>
                                 </tr>
                             @endforelse

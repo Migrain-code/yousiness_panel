@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keys')">
-    <title>@yield('title', config('settings.bussiness_site_title') .'|'. ' Şifremi Unuttum')</title>
+    <title>@yield('title', config('settings.bussiness_site_title') .'|'. ' Passwort vergessen')</title>
     <style>
         .btn-mobile-menu-free{
             background: #4CAF50 !important;
@@ -81,12 +81,12 @@
             <div class="row text-center">
                 <div class="col-md-6 mb-2">
                     <a class="d-block w-100" style="color: #000000;font-weight: bold;background-color: #ffce5a;border-radius: 25px;padding: 15px;" href="{{route('business.register')}}">
-                        <span class="white-text"><i class="far fa-user-edit"></i> Kayıt Ol</span>
+                        <span class="white-text"><i class="far fa-user-edit"></i> Registrieren</span>
                     </a>
                 </div>
                 <div class="col-md-6">
                     <a  class="d-block w-100"  style="color: #000229;background-color: white;border-radius: 25px;padding: 15px;" href="{{route('business.login')}}">
-                        <span class="white-text"><i class="far fa-user"></i> Giriş Yap</span>
+                        <span class="white-text"><i class="far fa-user"></i> Einloggen</span>
                     </a>
                 </div>
 
@@ -202,8 +202,8 @@
                     </div>
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
-                            <h4 class="signin-banner-title tp-char-animation">Yousiness <br>
-                                Sistemine Hoşgeldiniz.</h4>
+                            <h4 class="signin-banner-title tp-char-animation">Yousiness Business <br>
+                            Willkommen auf der Plattform</h4>
                         </div>
                         <div class="signin-banner-img-box position-relative">
                             <div class="signin-banner-img signin-img-1 d-none d-md-block z-index-3">
@@ -229,11 +229,11 @@
                         @include('layouts.component.error')
 
                         <div class="signin-banner-title-box">
-                            <h4 class="signin-banner-from-title">Yousiness Şifremi Unuttum</h4>
+                            <h4 class="signin-banner-from-title">Yousiness Passwort vergessen</h4>
                         </div>
 
                         <div class="signin-banner-from-box">
-                            <h5 class="signin-banner-from-subtitle">Doğrulama kodu gönderilecektir.</h5>
+                            <h5 class="signin-banner-from-subtitle">Es wird ein Verifizierungscode gesendet..</h5>
                             <form action="{{route('business.forgotPassword')}}" method="post">
                                 @csrf
                                 <div class="row">
