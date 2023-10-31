@@ -27,7 +27,7 @@ class PaymentController extends Controller
             'amount' => $amount,
             'currency' => $currency,
         ]);
-        dd($paymentIntent);
+
         if (!$paymentIntent) {
             return back()->with('response', [
                 'status' => "warning",
