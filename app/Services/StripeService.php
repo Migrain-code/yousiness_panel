@@ -25,6 +25,7 @@ class StripeService
                 'currency' => $currency,
                 'payment_method_types' => ['card'],
             ]);
+            dd($intent);
 
             return $intent;
         } catch (\Exception $e) {
