@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Omnipay\Omnipay;
+use Stripe\PaymentIntent;
 use Stripe\Stripe;
 use Stripe\Customer;
 use Stripe\Charge;
@@ -17,9 +18,15 @@ class PaymentController extends Controller
 {
     public function paymentForm($slug)
     {
-        $amount = 2000; // Ödeme miktarı (örneğin 20.00 dolar)
-        $currency = 'EUR'; // Ödeme para birimi (USD, EUR, vb.)
-        $paymentIntent = StripeService::createPaymentIntent($amount, $currency);
+        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
+
+        $amount = 1000; // Ödeme miktarını ayarlayın (örnekte 10.00 dolar)
+        $currency = 'EUR';
+
+        $paymentIntent = PaymentIntent::create([
+            'amount' => $amount,
+            'currency' => $currency,
+        ]);
         dd($paymentIntent);
         if (!$paymentIntent) {
             return back()->with('response', [
