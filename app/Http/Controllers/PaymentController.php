@@ -81,9 +81,9 @@ class PaymentController extends Controller
         $paymentIntentId = $request->input('paymentIntentId');
         $paymentMethodId = $request->input('paymentMethodId');
 
-        $stripeService = new StripeService();
-        $intent = $stripeService->confirmPaymentIntent($paymentIntentId, $paymentMethodId);
-
+        $intent = PaymentIntent::retrieve($paymentIntentId);
+        $intent->confirm(['payment_method' => $paymentMethodId]);
+        dd($intent);
         if ($intent->status === 'succeeded') {
             // Ödeme başarılı oldu, başarı sayfasına yönlendirin
             return response()->json(['success' => true]);
