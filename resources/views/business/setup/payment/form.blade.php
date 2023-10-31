@@ -191,52 +191,15 @@
 
 
                             <div id="onlinePayment">
-                                <form
-                                        role="form"
-                                        action="{{ route('business.payment.stripePost') }}"
-                                        method="post"
-                                        class="require-validation"
-                                        data-cc-on-file="false"
-                                        data-stripe-publishable-key="pk_test_51NvSDhIHb2EidFuB3LbbZHqZbywNWZbvQNsyDop4mHT1OzxOpax5uotEqlToQKrawEAJMH5OXa4JR1FrE3OBD7cC00KngyS4JA"
-                                        id="payment-form">
-                                    @csrf
+                                <form id="payment-form">
+                                    <div id="card-element"><!-- Stripe.js injects the Card Element --></div>
 
-                                    <div class='form-row row'>
-                                        <div class='col-xs-12 form-group required'>
-                                            <label class='control-label'>Name on Card</label>
-                                            <input class='form-control' size='4' type='text'>
-                                        </div>
-                                    </div>
+                                    <!-- Used to display form errors. -->
+                                    <div id="card-errors" role="alert"></div>
 
-                                    <div class='form-row row'>
-                                        <div class='col-xs-12 form-group required'>
-                                            <label class='control-label'>Card Number</label>
-                                            <input autocomplete='off' class='form-control card-number' size='20' type='text'>
-                                        </div>
-                                    </div>
-
-                                    <div class='form-row row'>
-                                        <div class='col-xs-12 col-md-4 form-group cvc required'>
-                                            <label class='control-label'>CVC</label>
-                                            <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
-                                        </div>
-                                        <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                            <label class='control-label'>Expiration Month</label> <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
-                                        </div>
-                                        <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                            <label class='control-label'>Expiration Year</label>
-                                            <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now (€ {{$package->price}})</button>
-                                        </div>
-                                    </div>
-
+                                    <button id="submit-button">Ödeme Yap</button>
                                 </form>
+                                <script src="https://js.stripe.com/v3/"></script>
                             </div>
                             <div id="noOnlinePayment">
                                 <form method="post" id="step5Form" action="{{--route('business.payment.pay')--}}">
@@ -283,6 +246,54 @@
         });
 
     </script>
+    <script type="text/javascript">
+        var stripe = Stripe('{{ config('services.stripe.key') }}');
+
+        var elements = stripe.elements();
+        var cardElement = elements.create('card');
+
+        cardElement.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            stripe.createPaymentMethod({
+                type: 'card',
+                card: cardElement,
+            }).then(function(result) {
+                if (result.error) {
+                    // Hata durumunda kullanıcıya bildirin
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    // Ödeme işlemini gerçekleştirmek için ödeme intent oluşturun
+                    var paymentIntentId = "{{ $paymentIntent->id }}";
+                    var paymentMethodId = result.paymentMethod.id;
+
+                    // Ödeme işlemini gerçekleştirmek için bir POST isteği yapın
+                    fetch('/paket-odeme/stripe', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        },
+                        body: JSON.stringify({ paymentIntentId: paymentIntentId, paymentMethodId: paymentMethodId }),
+                    }).then(function(response) {
+                        return response.json();
+                    }).then(function(response) {
+                        if (response.success) {
+                            // Ödeme başarılı, kullanıcıyı başarılı sayfasına yönlendirin
+                            alert("ödeme başarılı");
+                        } else {
+                            alert("ödeme başarısız");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
     <script>/*ödeme seçenekleri butonları*/</script>
     <script>
         // Get all radio buttons and their labels
@@ -328,79 +339,6 @@
                 // Add "active" class to the clicked label
                 labels[index].classList.add('active');
             });
-        });
-    </script>
-
-    <script>/*stripe ödeme*/</script>
-
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
-    <script type="text/javascript">
-
-        $(function() {
-
-            /*------------------------------------------
-            --------------------------------------------
-            Stripe Payment Code
-            --------------------------------------------
-            --------------------------------------------*/
-
-            var $form = $("#payment-form");
-
-            $('form.require-validation').bind('submit', function(e) {
-                var $form = $(".require-validation"),
-                    inputSelector = ['input[type=email]', 'input[type=password]',
-                        'input[type=text]', 'input[type=file]',
-                        'textarea'].join(', '),
-                    $inputs = $form.find('.required').find(inputSelector),
-                    $errorMessage = $form.find('div.error'),
-                    valid = true;
-                $errorMessage.addClass('hide');
-
-                $('.has-error').removeClass('has-error');
-                $inputs.each(function(i, el) {
-                    var $input = $(el);
-                    if ($input.val() === '') {
-                        $input.parent().addClass('has-error');
-                        $errorMessage.removeClass('hide');
-                        e.preventDefault();
-                    }
-                });
-
-                if (!$form.data('cc-on-file')) {
-                    e.preventDefault();
-                    Stripe.setPublishableKey($form.data('stripe-publishable-key'));
-                    Stripe.createToken({
-                        number: $('.card-number').val(),
-                        cvc: $('.card-cvc').val(),
-                        exp_month: $('.card-expiry-month').val(),
-                        exp_year: $('.card-expiry-year').val()
-                    }, stripeResponseHandler);
-                }
-
-            });
-
-            /*------------------------------------------
-            --------------------------------------------
-            Stripe Response Handler
-            --------------------------------------------
-            --------------------------------------------*/
-            function stripeResponseHandler(status, response) {
-                if (response.error) {
-                    $('.error')
-                        .removeClass('hide')
-                        .find('.alert')
-                        .text(response.error.message);
-                } else {
-                    /* token contains id, last4, and card type */
-                    var token = response['id'];
-
-                    $form.find('input[type=text]').empty();
-                    $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-                    $form.get(0).submit();
-                }
-            }
-
         });
     </script>
 

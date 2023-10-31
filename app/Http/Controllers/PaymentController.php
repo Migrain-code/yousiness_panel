@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Business;
 use App\Models\BussinessPackage;
 use App\Models\BussinessPackagePaypalSaller;
+use App\Services\StripeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -16,8 +17,19 @@ class PaymentController extends Controller
 {
     public function paymentForm($slug)
     {
+        $amount = 2000; // Ödeme miktarı (örneğin 20.00 dolar)
+        $currency = 'EUR'; // Ödeme para birimi (USD, EUR, vb.)
+        $paymentIntent = StripeService::createPaymentIntent($amount, $currency);
+        dd($paymentIntent);
+        if (!$paymentIntent) {
+            return back()->with('response', [
+                'status' => "warning",
+                'message' => "Ödeme işlemi oluşturmadı"
+            ]);
+            //return redirect()->route('payment.failure')->with('error', 'Ödeme işlemi oluşturulamadı.');
+        }
         $package = BussinessPackage::where('slug', $slug)->first();
-        return view('business.setup.payment.form', compact('package'));
+        return view('business.setup.payment.form', compact('package', 'paymentIntent'));
 
     }
 
@@ -29,7 +41,7 @@ class PaymentController extends Controller
 
     public function stripeForm(Request $request)
     {
-        $amount = 5;//5 eur
+        /*$amount = 5;//5 eur
         $user = auth('business')->user();
         $package = "Test Paketi";
         Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -58,7 +70,8 @@ class PaymentController extends Controller
                     "country" => $user->cities->country->name,
                 ],
             ]
-        ]);
+        ]);*/
+
         Session::flash('success', 'Payment successful!');
         return to_route('business.setup.step5');
     }
