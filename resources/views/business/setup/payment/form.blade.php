@@ -273,7 +273,7 @@
                     var paymentMethodId = result.paymentMethod.id;
 
                     // Ödeme işlemini gerçekleştirmek için bir POST isteği yapın
-                    fetch('/paket-odeme/stripe', {
+                    fetch('/business/paket-odeme/stripe', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
