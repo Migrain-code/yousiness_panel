@@ -78,9 +78,19 @@ class PaymentController extends Controller
                 ],
             ]
         ]);*/
+        $paymentIntentId = $request->input('paymentIntentId');
+        $paymentMethodId = $request->input('paymentMethodId');
 
-        Session::flash('success', 'Payment successful!');
-        return to_route('business.setup.step5');
+        $stripeService = new StripeService();
+        $intent = $stripeService->confirmPaymentIntent($paymentIntentId, $paymentMethodId);
+
+        if ($intent->status === 'succeeded') {
+            // Ödeme başarılı oldu, başarı sayfasına yönlendirin
+            return response()->json(['success' => true]);
+        } else {
+            // Ödeme başarısız oldu, başarısızlık sayfasına yönlendirin
+            return response()->json(['success' => false]);
+        }
     }
 
     /*paypal Methods*/

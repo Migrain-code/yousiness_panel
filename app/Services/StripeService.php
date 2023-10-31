@@ -17,7 +17,7 @@ class StripeService
         $this->stripe = new Stripe();
     }
 
-    public static function createPaymentIntent($amount, $currency)
+    public function createPaymentIntent($amount, $currency)
     {
         try {
             $intent = PaymentIntent::create([
