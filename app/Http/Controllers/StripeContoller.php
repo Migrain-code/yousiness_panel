@@ -42,7 +42,7 @@ class StripeContoller extends Controller
                 'product_info' => $businessPackage->stripe_key, // Ürün veya hizmeti tanımlayan benzersiz bir kimlik
             ],
         ]);
-
+        dd($session);
         $packageOrder = new PackageOrder();
         $packageOrder->stripe_id = $session->created;
         $packageOrder->business_id = $business->id;
