@@ -29,8 +29,8 @@ class PaymentController extends Controller
             'card' => [
                 'number' => '4242424242424242', // Kart numarası
                 'exp_month' => 12, // Son kullanma ayı
-                'exp_year' => 24, // Son kullanma yılı
-                'cvc' => '123', // CVC kodu
+                'exp_year' => 34, // Son kullanma yılı
+                'cvc' => '567', // CVC kodu
             ],
         ]);
 
