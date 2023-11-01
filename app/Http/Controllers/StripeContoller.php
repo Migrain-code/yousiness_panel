@@ -55,6 +55,7 @@ class StripeContoller extends Controller
     public function handleWebhook(Request $request)
     {
         $payload = json_decode($request->getContent());
+        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
 
         if ($payload->type === 'payment_intent.succeeded') {
             $paymentIntentId = $payload->data->object->id; // Payment Intent ID'sini alın
