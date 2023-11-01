@@ -58,7 +58,7 @@ class PaymentController extends Controller
 
     public function stripeForm(Request $request)
     {
-        Stripe::setApiKey('pk_test_51NvSDhIHb2EidFuB3LbbZHqZbywNWZbvQNsyDop4mHT1OzxOpax5uotEqlToQKrawEAJMH5OXa4JR1FrE3OBD7cC00KngyS4JA');
+        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
 
         $productname = "Test Ürünü";
         $totalprice = "15";
