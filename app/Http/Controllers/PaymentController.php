@@ -78,6 +78,8 @@ class PaymentController extends Controller
                 ],
             ]
         ]);*/
+        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
+
         $paymentIntentId = $request->input('paymentIntentId');
         $paymentMethodId = $request->input('paymentMethodId');
 
