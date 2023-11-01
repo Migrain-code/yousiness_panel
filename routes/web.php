@@ -44,7 +44,6 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
             Route::get('/callback', 'paypalCallBack')->name('paypalCallBack');
         });
 
-        Route::post('stripe-webhook', [\App\Http\Controllers\StripeContoller::class, 'handleWebhook']);
         Route::post('stripe/pay', [\App\Http\Controllers\StripeContoller::class, 'stripeForm'])->name('payment.stripePost');
 
         Route::get('/home', [\App\Http\Controllers\Business\HomeController::class, 'index'])->name('home');
