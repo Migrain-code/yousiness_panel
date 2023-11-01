@@ -53,9 +53,9 @@ class StripeContoller extends Controller
 
         if ($payload->type === 'payment_intent.succeeded') {
             $paymentIntentId = $payload->data->object->id; // Payment Intent ID'sini alın
-            $productID = $payload->data->object->lines->data[0]->price->product;
+            $lines = $payload->data->object->lines;
 
-            return $productID;
+            return $lines;
 
             $stripePaymentIntent = PaymentIntent::retrieve($paymentIntentId);
 
