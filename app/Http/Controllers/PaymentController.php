@@ -27,6 +27,7 @@ class PaymentController extends Controller
             'amount' => $amount,
             'currency' => $currency,
             'return_url' => 'https://panel.yousiness.com/business/isletme-kurulum/adim-5',
+            'confirm' => true,
         ]);
 
         if (!$paymentIntent) {
