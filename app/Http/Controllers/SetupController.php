@@ -147,7 +147,6 @@ class SetupController extends Controller
     }
     public function step5(Request $request)
     {
-        $request->dd();
         return view('business.setup.step-5');
     }
 }

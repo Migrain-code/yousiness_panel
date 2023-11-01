@@ -49,6 +49,7 @@ class StripeContoller extends Controller
         $packageOrder->package_id = $businessPackage->id;
         $packageOrder->save();
 
+        \Session::put('test', $businessPackage->id);
         return redirect()->away($session->url);
     }
     public function handleWebhook(Request $request)
