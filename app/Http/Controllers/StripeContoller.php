@@ -26,7 +26,7 @@ class StripeContoller extends Controller
 
         $stripeCustomer = $this->getOrCreateStripeCustomer($business);
 
-        $productname = $businessPackage->name;
+        $productname = $businessPackage->slug;
         $totalprice = $businessPackage->price;
         $two0 = "00";
         $total = "$totalprice$two0";
@@ -38,7 +38,6 @@ class StripeContoller extends Controller
                     'price_data' => [
                         'currency' => 'EUR',
                         'product_data' => [
-                            'id' => $businessPackage->id,
                             "name" => $productname,
                         ],
                         'unit_amount' => $total,
