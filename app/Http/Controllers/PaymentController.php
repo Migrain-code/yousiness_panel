@@ -58,35 +58,74 @@ class PaymentController extends Controller
 
     public function stripeForm(Request $request)
     {
+        $request->validate([
+            'package_id' => "required",
+        ], [], [
+            'package_id' => "Paket Seçimi"
+        ]);
+
+        $businessPackage = BussinessPackage::find($request->input('package_id'));
+        $business = auth('business')->user();
+
         Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
 
-        $productname = "Test Ürünü";
-        $totalprice = "15";
+        $stripeCustomer = $this->getOrCreateStripeCustomer($business);
+
+        $productname = $businessPackage->name;
+        $totalprice = $businessPackage->price;
         $two0 = "00";
         $total = "$totalprice$two0";
 
         $session = \Stripe\Checkout\Session::create([
-            'line_items'  => [
+            'customer' => $stripeCustomer->id,
+            'line_items' => [
                 [
                     'price_data' => [
-                        'currency'     => 'USD',
+                        'currency' => 'EUR',
                         'product_data' => [
                             "name" => $productname,
                         ],
-                        'unit_amount'  => $total,
+                        'unit_amount' => $total,
                     ],
-                    'quantity'   => 1,
+                    'quantity' => 1,
                 ],
-
             ],
-            'mode'        => 'payment',
+            'mode' => 'payment',
             'success_url' => route('business.setup.step5'),
-            'cancel_url'  => route('business.setup.step4'),
+            'cancel_url' => route('business.setup.step4'),
         ]);
 
         return redirect()->away($session->url);
     }
 
+    private function getOrCreateStripeCustomer($business)
+    {
+        if ($business->stripe_customer_id) {
+            // İşletmenin zaten bir Stripe Müşteri ID'si varsa bu müşteriyi al
+            return Customer::retrieve($business->stripe_customer_id);
+        } else {
+            // İşletme için yeni bir Stripe Müşteri oluştur
+            $stripeCustomer = Customer::create([
+                'email' => $business->owner_email, // İşletmenin e-posta adresi
+                'name' => $business->name, // İşletme adı
+                'description' => $business->about, // İşletme ile ilgili açıklama
+                'phone' => $business->phone, // İşletme telefon numarası
+                'address' => [
+                    'line1' => $business->address, // İşletme adresi - Satır 1
+                    'city' => $business->cities->name, // İşletme şehir
+                    'postal_code' => $business->cities->post_code, // İşletme posta kodu
+                    'country' => $business->cities->country->name, // İşletme ülkesi
+                ],
+                // Diğer işletme ile ilgili bilgileri eklemek için gerekli alanları burada kullanabilirsiniz.
+            ]);
+
+            // Stripe Müşteri ID'sini işletme kaydına kaydet
+            $business->stripe_customer_id = $stripeCustomer->id;
+            $business->save();
+
+            return $stripeCustomer;
+        }
+    }
     /*paypal Methods*/
     public function paypalPayment(Request $request)
     {
