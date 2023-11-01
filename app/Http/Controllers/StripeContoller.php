@@ -38,6 +38,7 @@ class StripeContoller extends Controller
                     'price_data' => [
                         'currency' => 'EUR',
                         'product_data' => [
+                            'id' => $businessPackage->id,
                             "name" => $productname,
                         ],
                         'unit_amount' => $total,
@@ -65,11 +66,17 @@ class StripeContoller extends Controller
 
             $stripeCustomer = Customer::retrieve($customerId);
 
+            $metadata = $stripePaymentIntent->metadata;
+            $productInfo = $metadata['product_info'];
+
+            return $productInfo;
+            $business = Business::where('stripe_customer_id', $stripeCustomer->id)->first();
+            $business->package_id = "paket id si gelecek";
+            $business->save();
+
             return $stripeCustomer;
             // İşletme bilgilerini güncelleme işlemlerini burada yapabilirsiniz.
-            $business = Business::find($businessId);
-            $business->package_id = $packageId;
-            $business->save();
+
         }
 
         // Webhook işlemini Stripe'a yanıt verin
