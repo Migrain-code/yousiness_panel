@@ -42,6 +42,9 @@ class StripeContoller extends Controller
             'mode' => 'payment',
             'success_url' => route('business.setup.step5'),
             'cancel_url' => route('business.setup.step4'),
+            'metadata' => [
+                'product_info' => $businessPackage->id, // Ürün veya hizmeti tanımlayan benzersiz bir kimlik
+            ],
         ]);
 
         return redirect()->away($session->url);
@@ -52,12 +55,9 @@ class StripeContoller extends Controller
         Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
 
         if ($payload->type === 'payment_intent.succeeded') {
-            return $payload->data;
             $paymentIntentId = $payload->data->object->id; // Payment Intent ID'sini alın
-            $lines = $payload->data->object->lines;
-
-            return $lines;
-
+            $productInfo = $payload->data->object;
+            return $productInfo;
             $stripePaymentIntent = PaymentIntent::retrieve($paymentIntentId);
 
             $customerId = $stripePaymentIntent->customer;
