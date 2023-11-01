@@ -6,6 +6,7 @@ use App\Models\Business;
 use App\Models\BussinessPackage;
 use Illuminate\Http\Request;
 use Stripe\Customer;
+use Stripe\PaymentIntent;
 use Stripe\Stripe;
 
 class StripeContoller extends Controller
@@ -56,10 +57,14 @@ class StripeContoller extends Controller
         $payload = json_decode($request->getContent());
 
         if ($payload->type === 'payment_intent.succeeded') {
-            dd($payload->data->object->metadata);
-            $businessId = $payload->data->object->metadata->business_id;
-            $packageId = $payload->data->object->metadata->package_id;
+            $paymentIntentId = $payload->data->object->id; // Payment Intent ID'sini alın
 
+            $stripePaymentIntent = PaymentIntent::retrieve($paymentIntentId);
+            $customerId = $stripePaymentIntent->customer;
+
+            $stripeCustomer = Customer::retrieve($customerId);
+
+            return $stripeCustomer;
             // İşletme bilgilerini güncelleme işlemlerini burada yapabilirsiniz.
             $business = Business::find($businessId);
             $business->package_id = $packageId;
