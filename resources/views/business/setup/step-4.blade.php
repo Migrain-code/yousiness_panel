@@ -143,7 +143,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-sm-12 col-md-12">
-                            <form method="post" id="step4Form" action="{{route('business.setup.step4Form')}}">
+                            <form method="post" id="step4Form" action="{{route('business.payment.stripePost')}}">
                                 @csrf
                                 <div class="tab-content mb-3">
                                     <!--Monthly Packages-->
@@ -195,19 +195,18 @@
 
 
                                                                 </ul>
-                                                                <form id="formPay{{$loop->index}}" method="post" action="{{route('business.payment.stripePost')}}">
-                                                                    @csrf
+
                                                                     <div class="form-check-inline visits me-0 w-100">
                                                                         <label class="visit-btns" style="width: 100%">
                                                                             <input type="radio" name="package_id"
                                                                                    class="form-check-input"
                                                                                    value="{{$package->id}}">
                                                                             <span class="visit-rsn" style="">
-                                                                           <a onclick="$('#formPay{{$loop->index}}').submit()">Abone Ol</a>
+                                                                           Abone Ol
                                                                         </span>
                                                                         </label>
                                                                     </div>
-                                                                </form>
+                                                                ,
 
                                                             </div>
                                                         </div>
