@@ -58,21 +58,33 @@ class PaymentController extends Controller
 
     public function stripeForm(Request $request)
     {
-        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
-        $paymentIntentId = $request->input('paymentIntentId');
-        $paymentMethodId = $request->input('paymentMethodId');
+        $productname = "Test Ürünü";
+        $totalprice = "15";
+        $two0 = "00";
+        $total = "$totalprice$two0";
 
-        $intent = PaymentIntent::retrieve($paymentIntentId);
-        $intent->confirm(['payment_method' => $paymentMethodId]);
+        $session = \Stripe\Checkout\Session::create([
+            'line_items'  => [
+                [
+                    'price_data' => [
+                        'currency'     => 'USD',
+                        'product_data' => [
+                            "name" => $productname,
+                        ],
+                        'unit_amount'  => $total,
+                    ],
+                    'quantity'   => 1,
+                ],
 
-        if ($intent->status === 'succeeded') {
-            // Ödeme başarılı oldu, başarı sayfasına yönlendirin veya işlemlerinizi tamamlayın
-            return response()->json(['success' => true]);
-        } else {
-            // Ödeme başarısız oldu, başarısızlık sayfasına yönlendirin veya hata mesajını görüntüleyin
-            return response()->json(['success' => false]);
-        }
+            ],
+            'mode'        => 'payment',
+            'success_url' => route('business.setup.step5'),
+            'cancel_url'  => route('payment.form'),
+        ]);
+
+        return redirect()->away($session->url);
     }
 
 
