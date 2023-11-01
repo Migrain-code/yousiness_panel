@@ -56,6 +56,7 @@ class StripeContoller extends Controller
         $payload = json_decode($request->getContent());
 
         if ($payload->type === 'payment_intent.succeeded') {
+            dd($payload->data->object);
             $businessId = $payload->data->object->metadata->business_id;
             $packageId = $payload->data->object->metadata->package_id;
 
