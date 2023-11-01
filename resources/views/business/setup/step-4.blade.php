@@ -195,16 +195,20 @@
 
 
                                                                 </ul>
-                                                                <div class="form-check-inline visits me-0 w-100">
-                                                                    <label class="visit-btns" style="width: 100%">
-                                                                        <input type="radio" name="package_id"
-                                                                               class="form-check-input"
-                                                                               value="{{$package->id}}">
-                                                                        <span class="visit-rsn" style="">
-                                                                           Abone Ol
+                                                                <form id="formPay{{$loop->index}}" method="post" action="{{route('business.payment.stripePost')}}">
+                                                                    @csrf
+                                                                    <div class="form-check-inline visits me-0 w-100">
+                                                                        <label class="visit-btns" style="width: 100%">
+                                                                            <input type="radio" name="package_id"
+                                                                                   class="form-check-input"
+                                                                                   value="{{$package->id}}">
+                                                                            <span class="visit-rsn" style="">
+                                                                           <a onclick="$('#formPay{{$loop->index}}').submit()">Abone Ol</a>
                                                                         </span>
-                                                                    </label>
-                                                                </div>
+                                                                        </label>
+                                                                    </div>
+                                                                </form>
+
                                                             </div>
                                                         </div>
                                                     </div>
