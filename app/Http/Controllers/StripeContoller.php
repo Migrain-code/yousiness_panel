@@ -52,7 +52,7 @@ class StripeContoller extends Controller
         Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
 
         if ($payload->type === 'payment_intent.succeeded') {
-            return $payload->data->object;
+            return $payload->data;
             $paymentIntentId = $payload->data->object->id; // Payment Intent ID'sini alın
             $lines = $payload->data->object->lines;
 
