@@ -81,7 +81,7 @@ class PaymentController extends Controller
             ],
             'mode'        => 'payment',
             'success_url' => route('business.setup.step5'),
-            'cancel_url'  => route('business.payment.step4'),
+            'cancel_url'  => route('business.setup.step4'),
         ]);
 
         return redirect()->away($session->url);
