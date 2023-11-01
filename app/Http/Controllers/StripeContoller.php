@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Business;
 use App\Models\BussinessPackage;
+use App\Models\PackageOrder;
 use Illuminate\Http\Request;
 use Stripe\Customer;
 use Stripe\PaymentIntent;
@@ -41,7 +42,13 @@ class StripeContoller extends Controller
                 'product_info' => $businessPackage->stripe_key, // Ürün veya hizmeti tanımlayan benzersiz bir kimlik
             ],
         ]);
-        dd($session);
+
+        $packageOrder = new PackageOrder();
+        $packageOrder->stripe_id = $session->created;
+        $packageOrder->business_id = $business->id;
+        $packageOrder->package_id = $businessPackage->id;
+        $packageOrder->save();
+
         return redirect()->away($session->url);
     }
     public function handleWebhook(Request $request)
@@ -51,22 +58,23 @@ class StripeContoller extends Controller
 
         if ($payload->type === 'payment_intent.succeeded') {
             $paymentIntentId = $payload->data->object->id; // Payment Intent ID'sini alın
-            $productInfo = $payload->data->object;
-            return $productInfo;
+            $stripeInfo = $payload->data->object->created;
+
             $stripePaymentIntent = PaymentIntent::retrieve($paymentIntentId);
 
             $customerId = $stripePaymentIntent->customer;
 
             $stripeCustomer = Customer::retrieve($customerId);
 
-            return $productInfo;
+            $packageOrder = PackageOrder::where('stripe_id', $stripeInfo)->first();
+            $packageOrder->status = 1;
+            $packageOrder->save();
+
             $business = Business::where('stripe_customer_id', $stripeCustomer->id)->first();
-            $business->package_id = "paket id si gelecek";
+            $business->package_id = $packageOrder->package_id;
             $business->save();
 
-            return $stripeCustomer;
-            // İşletme bilgilerini güncelleme işlemlerini burada yapabilirsiniz.
-
+            return $payload->data->object;
         }
 
         // Webhook işlemini Stripe'a yanıt verin
