@@ -58,7 +58,7 @@ class PaymentController extends Controller
 
     public function stripeForm(Request $request)
     {
-        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        Stripe::setApiKey(config('stripe.stripe.secret'));
 
         $productname = "Test Ürünü";
         $totalprice = "15";
