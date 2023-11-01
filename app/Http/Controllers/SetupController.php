@@ -7,6 +7,7 @@ use App\Models\BusinessTypeCategory;
 use App\Models\BusinnessType;
 use App\Models\BussinessPackage;
 use App\Models\DayList;
+use App\Models\PackageOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -145,9 +146,15 @@ class SetupController extends Controller
         }
 
     }
-    public function step5(Request $request)
+    public function step5()
     {
-        dd(\Session::get('test'));
+        $packageOrder = \Session::get('package_order');
+        $packageOrder->status = 1;
+        $packageOrder->save();
+
+        $business = auth('business')->user();
+        $business->package_id = $packageOrder->package_id;
+        $business->save();
         return view('business.setup.step-5');
     }
 }
