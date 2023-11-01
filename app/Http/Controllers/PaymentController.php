@@ -23,22 +23,38 @@ class PaymentController extends Controller
         $amount = 1000; // Ödeme miktarını ayarlayın (örnekte 10.00 dolar)
         $currency = 'EUR';
 
-        $paymentIntent = PaymentIntent::create([
-            'amount' => $amount,
-            'currency' => $currency,
-            'return_url' => 'https://panel.yousiness.com/business/isletme-kurulum/adim-5',
-            'confirm' => true,
+        // Kredi kartı bilgilerini alın veya alınan kredi kartı bilgilerini kullanın
+        $paymentMethod = \Stripe\PaymentMethod::create([
+            'type' => 'card',
+            'card' => [
+                'number' => '4242424242424242', // Kart numarası
+                'exp_month' => 12, // Son kullanma ayı
+                'exp_year' => 24, // Son kullanma yılı
+                'cvc' => '123', // CVC kodu
+            ],
         ]);
 
-        if (!$paymentIntent) {
-            return back()->with('response', [
-                'status' => "warning",
-                'message' => "Ödeme işlemi oluşturmadı"
-            ]);
+        // PaymentIntent oluşturun ve payment_method parametresini belirtin
+        $paymentIntent = \Stripe\PaymentIntent::create([
+            'amount' => $amount,
+            'currency' => $currency,
+            'payment_method' => $paymentMethod->id, // Oluşturulan ödeme yöntemi ID'si
+            'confirm' => true, // Ödemenin doğrulanmasını gerektir
+        ]);
+
+        if ($paymentIntent->status === 'succeeded') {
+            // Ödeme başarılı oldu, başarı sayfasına yönlendirin veya işlemlerinizi tamamlayın
+            return response()->json(['success' => true]);
+        } else {
+            // Ödeme başarısız oldu, başarısızlık sayfasına yönlendirin veya hata mesajını görüntüleyin
+            return response()->json(['success' => false]);
         }
+
         $package = BussinessPackage::where('slug', $slug)->first();
+
         return view('business.setup.payment.form', compact('package', 'paymentIntent'));
     }
+
 
     public function stripeForm(Request $request)
     {
@@ -58,6 +74,7 @@ class PaymentController extends Controller
             return response()->json(['success' => false]);
         }
     }
+
 
     /*stripe methods*/
     public function stripe()
