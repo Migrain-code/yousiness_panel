@@ -35,11 +35,28 @@ class PaymentController extends Controller
                 'status' => "warning",
                 'message' => "Ödeme işlemi oluşturmadı"
             ]);
-            //return redirect()->route('payment.failure')->with('error', 'Ödeme işlemi oluşturulamadı.');
         }
         $package = BussinessPackage::where('slug', $slug)->first();
         return view('business.setup.payment.form', compact('package', 'paymentIntent'));
+    }
 
+    public function stripeForm(Request $request)
+    {
+        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
+
+        $paymentIntentId = $request->input('paymentIntentId');
+        $paymentMethodId = $request->input('paymentMethodId');
+
+        $intent = PaymentIntent::retrieve($paymentIntentId);
+        $intent->confirm(['payment_method' => $paymentMethodId]);
+
+        if ($intent->status === 'succeeded') {
+            // Ödeme başarılı oldu, başarı sayfasına yönlendirin veya işlemlerinizi tamamlayın
+            return response()->json(['success' => true]);
+        } else {
+            // Ödeme başarısız oldu, başarısızlık sayfasına yönlendirin veya hata mesajını görüntüleyin
+            return response()->json(['success' => false]);
+        }
     }
 
     /*stripe methods*/
@@ -48,54 +65,7 @@ class PaymentController extends Controller
         return view('business.setup.payment.stripe');
     }
 
-    public function stripeForm(Request $request)
-    {
-        /*$amount = 5;//5 eur
-        $user = auth('business')->user();
-        $package = "Test Paketi";
-        Stripe::setApiKey(env('STRIPE_SECRET'));
-        $customer = Customer::create(array(
-            "address" => [
-                "line1" => $user->address,
-                "postal_code" => $user->cities->post_code,
-                "city" => $user->cities->name,
-                "country" => $user->cities->country->name,
-            ],
-            "email" => $user->owner_email,
-            "name" => $user->owner,
-            "source" => $request->stripeToken
-        ));
-        Charge::create ([
-            "amount" => $amount * 100,
-            "currency" => "EUR",
-            "customer" => $customer->id,
-            "description" => $package,
-            "shipping" => [
-                "name" => $user->name,
-                "address" => [
-                    "line1" => $user->address,
-                    "postal_code" => $user->cities->post_code,
-                    "city" => $user->cities->name,
-                    "country" => $user->cities->country->name,
-                ],
-            ]
-        ]);*/
-        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
 
-        $paymentIntentId = $request->input('paymentIntentId');
-        $paymentMethodId = $request->input('paymentMethodId');
-
-        $intent = PaymentIntent::retrieve($paymentIntentId);
-        $intent->confirm(['payment_method' => $paymentMethodId]);
-        dd($intent);
-        if ($intent->status === 'succeeded') {
-            // Ödeme başarılı oldu, başarı sayfasına yönlendirin
-            return response()->json(['success' => true]);
-        } else {
-            // Ödeme başarısız oldu, başarısızlık sayfasına yönlendirin
-            return response()->json(['success' => false]);
-        }
-    }
 
     /*paypal Methods*/
     public function paypalPayment(Request $request)
