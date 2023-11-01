@@ -26,11 +26,6 @@ class StripeContoller extends Controller
 
         $stripeCustomer = $this->getOrCreateStripeCustomer($business);
 
-        $productname = $businessPackage->slug;
-        $totalprice = $businessPackage->price;
-        $two0 = "00";
-        $total = "$totalprice$two0";
-
         $session = \Stripe\Checkout\Session::create([
             'customer' => $stripeCustomer->id,
             'line_items' => [
@@ -46,7 +41,7 @@ class StripeContoller extends Controller
                 'product_info' => $businessPackage->stripe_key, // Ürün veya hizmeti tanımlayan benzersiz bir kimlik
             ],
         ]);
-
+        dd($session);
         return redirect()->away($session->url);
     }
     public function handleWebhook(Request $request)
