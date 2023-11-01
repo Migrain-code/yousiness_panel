@@ -42,7 +42,6 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
             Route::post('/odeme-yap', 'pay')->name('pay');
             Route::post('/odeme-yap-paypal', 'paypalPayment')->name('payPal');
             Route::get('/callback', 'paypalCallBack')->name('paypalCallBack');
-            Route::get('/stripe', 'stripe')->name('stripe');
             Route::post('/stripe', 'stripeForm')->name('stripePost');
 
         });

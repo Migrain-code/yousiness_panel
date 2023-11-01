@@ -87,15 +87,6 @@ class PaymentController extends Controller
         return redirect()->away($session->url);
     }
 
-
-    /*stripe methods*/
-    public function stripe()
-    {
-        return view('business.setup.payment.stripe');
-    }
-
-
-
     /*paypal Methods*/
     public function paypalPayment(Request $request)
     {
