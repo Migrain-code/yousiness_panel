@@ -61,6 +61,7 @@ class StripeContoller extends Controller
             $paymentIntentId = $payload->data->object->id; // Payment Intent ID'sini alın
 
             $stripePaymentIntent = PaymentIntent::retrieve($paymentIntentId);
+            return $stripePaymentIntent;
             $customerId = $stripePaymentIntent->customer;
 
             $stripeCustomer = Customer::retrieve($customerId);
