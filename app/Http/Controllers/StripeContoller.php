@@ -52,35 +52,7 @@ class StripeContoller extends Controller
         \Session::put('package_order', $packageOrder);
         return redirect()->away($session->url);
     }
-    public function handleWebhook(Request $request)
-    {
-        $payload = json_decode($request->getContent());
-        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
 
-        if ($payload->type === 'payment_intent.succeeded') {
-            $paymentIntentId = $payload->data->object->id; // Payment Intent ID'sini alın
-            $stripeInfo = $payload->data->object->created;
-
-            $stripePaymentIntent = PaymentIntent::retrieve($paymentIntentId);
-
-            $customerId = $stripePaymentIntent->customer;
-
-            $stripeCustomer = Customer::retrieve($customerId);
-            return $payload;
-            $packageOrder = PackageOrder::where('stripe_id', $stripeInfo)->first();
-            $packageOrder->status = 1;
-            $packageOrder->save();
-
-            $business = Business::where('stripe_customer_id', $stripeCustomer->id)->first();
-            $business->package_id = $packageOrder->package_id;
-            $business->save();
-
-            return $payload->data->object;
-        }
-
-        // Webhook işlemini Stripe'a yanıt verin
-        return response()->json(['message' => 'Webhook Received']);
-    }
     private function getOrCreateStripeCustomer($business)
     {
         if ($business->stripe_customer_id) {
@@ -109,4 +81,36 @@ class StripeContoller extends Controller
             return $stripeCustomer;
         }
     }
+
+    /*
+        public function handleWebhook(Request $request)
+    {
+        $payload = json_decode($request->getContent());
+        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
+
+        if ($payload->type === 'payment_intent.succeeded') {
+            $paymentIntentId = $payload->data->object->id; // Payment Intent ID'sini alın
+            $stripeInfo = $payload->data->object->created;
+
+            $stripePaymentIntent = PaymentIntent::retrieve($paymentIntentId);
+
+            $customerId = $stripePaymentIntent->customer;
+
+            $stripeCustomer = Customer::retrieve($customerId);
+
+            $packageOrder = PackageOrder::where('stripe_id', $stripeInfo)->first();
+            $packageOrder->status = 1;
+            $packageOrder->save();
+
+            $business = Business::where('stripe_customer_id', $stripeCustomer->id)->first();
+            $business->package_id = $packageOrder->package_id;
+            $business->save();
+
+            return $payload->data->object;
+        }
+
+        // Webhook işlemini Stripe'a yanıt verin
+        return response()->json(['message' => 'Webhook Received']);
+    }
+    */
 }
