@@ -147,6 +147,7 @@ class SetupController extends Controller
     }
     public function step5(Request $request)
     {
+        dd(\Session::get('test'));
         return view('business.setup.step-5');
     }
 }
