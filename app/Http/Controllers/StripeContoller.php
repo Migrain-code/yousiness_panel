@@ -43,7 +43,7 @@ class StripeContoller extends Controller
             'success_url' => route('business.setup.step5'),
             'cancel_url' => route('business.setup.step4'),
             'metadata' => [
-                'product_info' => $businessPackage->id, // Ürün veya hizmeti tanımlayan benzersiz bir kimlik
+                'product_info' => $businessPackage->stripe_key, // Ürün veya hizmeti tanımlayan benzersiz bir kimlik
             ],
         ]);
 
