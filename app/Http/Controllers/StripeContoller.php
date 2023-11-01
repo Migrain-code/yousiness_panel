@@ -35,13 +35,7 @@ class StripeContoller extends Controller
             'customer' => $stripeCustomer->id,
             'line_items' => [
                 [
-                    'price_data' => [
-                        'currency' => 'EUR',
-                        'product_data' => [
-                            "name" => $productname,
-                        ],
-                        'unit_amount' => $total,
-                    ],
+                    'price' => $businessPackage->stripe_key, // Stripe Dashboard'da oluşturduğunuz ürünün ID'sini buraya ekleyin
                     'quantity' => 1,
                 ],
             ],
@@ -59,15 +53,15 @@ class StripeContoller extends Controller
 
         if ($payload->type === 'payment_intent.succeeded') {
             $paymentIntentId = $payload->data->object->id; // Payment Intent ID'sini alın
+            $productID = $payload->data->object->lines->data[0]->price->product;
+
+            return $productID;
 
             $stripePaymentIntent = PaymentIntent::retrieve($paymentIntentId);
-            return $stripePaymentIntent;
+
             $customerId = $stripePaymentIntent->customer;
 
             $stripeCustomer = Customer::retrieve($customerId);
-
-            $metadata = $stripePaymentIntent->metadata;
-            $productInfo = $metadata['product_info'];
 
             return $productInfo;
             $business = Business::where('stripe_customer_id', $stripeCustomer->id)->first();
