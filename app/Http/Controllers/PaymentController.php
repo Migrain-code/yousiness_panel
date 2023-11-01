@@ -26,7 +26,7 @@ class PaymentController extends Controller
         $paymentIntent = PaymentIntent::create([
             'amount' => $amount,
             'currency' => $currency,
-            'return_url' => route('business.setup.step5'),
+            'return_url' => 'https://panel.yousiness.com/business/isletme-kurulum/adim-5',
         ]);
 
         if (!$paymentIntent) {
