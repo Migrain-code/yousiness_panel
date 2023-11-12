@@ -131,7 +131,7 @@ class StripeContoller extends Controller
 
     public function success()
     {
-        return "Payment Success";
+        return view('success');
     }
 
     public function fail()
