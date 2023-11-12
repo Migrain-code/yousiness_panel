@@ -23,6 +23,7 @@ use App\Models\Slider;
 use App\Models\SocialMedia;
 use App\Models\Sponsor;
 use App\Models\Swiper;
+use App\Services\File;
 use App\Services\NetgsmSMS;
 use App\Services\Sms;
 use Illuminate\Http\Request;
@@ -33,7 +34,6 @@ class HomeController extends Controller
 
     public function index()
     {
-
         $business_categories=BusinessCategory::latest()->get();
         $proparties=Propartie::latest()->take(6)->get();
         $comments=Comment::where('user_statu', 0)->where('status', 1)->latest()->get();
@@ -41,6 +41,7 @@ class HomeController extends Controller
         $yearlyPackages=BussinessPackage::where('type', 1)->get();
         $mainPageSections = MainPageSection::all();
         $sponsors = Sponsor::take(10)->get();
+
         return view('welcome', compact('sponsors','mainPageSections','business_categories', 'comments', 'proparties', 'monthlyPackages', 'yearlyPackages'));
     }
 

@@ -6,6 +6,7 @@ use App\Models\Business;
 use App\Models\BussinessPackage;
 use App\Models\PackageOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Stripe\Customer;
 use Stripe\PaymentIntent;
 use Stripe\Stripe;
@@ -82,6 +83,61 @@ class StripeContoller extends Controller
         }
     }
 
+    public function apiPayment(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'package_id' => 'required',
+        ], [], [
+            'package_id' => 'Paket Seçimi'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
+
+        $businessPackage = BussinessPackage::find($request->input('package_id'));
+        $business = auth('business')->user();
+
+        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
+
+        $stripeCustomer = $this->getOrCreateStripeCustomer($business);
+
+        $session = \Stripe\Checkout\Session::create([
+            'customer' => $stripeCustomer->id,
+            'line_items' => [
+                [
+                    'price' => $businessPackage->stripe_key,
+                    'quantity' => 1,
+                ],
+            ],
+            'mode' => 'payment',
+            'success_url' => route('business.stripe.success'),
+            'cancel_url' => route('business.stripe.fail'),
+            'metadata' => [
+                'product_info' => $businessPackage->stripe_key,
+            ],
+        ]);
+
+        $packageOrder = new PackageOrder();
+        $packageOrder->stripe_id = $session->id;
+        $packageOrder->business_id = $business->id;
+        $packageOrder->package_id = $businessPackage->id;
+        $packageOrder->save();
+
+        \Session::put('package_order', $packageOrder);
+
+        return response()->json(['redirect_url' => $session->url]);
+    }
+
+    public function success()
+    {
+        return "Payment Success";
+    }
+
+    public function fail()
+    {
+        return "Payment Failed";
+    }
     /*
         public function handleWebhook(Request $request)
     {

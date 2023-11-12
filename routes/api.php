@@ -21,4 +21,4 @@ Route::prefix('city')->group(function (){
     Route::post('search', [CityController::class, 'search']);
 });
 
-Route::post('stripe-webhook', [\App\Http\Controllers\StripeContoller::class, 'handleWebhook']);
+Route::post('stripe-payment', [\App\Http\Controllers\StripeContoller::class, 'apiPayment']);

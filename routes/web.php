@@ -25,6 +25,9 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
     Route::get('/sifremi-unuttum', [\App\Http\Controllers\Business\Auth\VerifyController::class, 'showForgotView'])->name('showForgotView');
     Route::post('/sifremi-unuttum', [\App\Http\Controllers\Business\Auth\VerifyController::class, 'forgotPassword'])->name('forgotPassword');
     Route::post('/verify/mobil', [\App\Http\Controllers\Business\Auth\VerifyController::class, 'verify'])->name('verifyPhone');
+    Route::get('/payment/success', [\App\Http\Controllers\StripeContoller::class, 'success'])->name('stripe.success');
+    Route::get('/payment/fail', [\App\Http\Controllers\StripeContoller::class, 'fail'])->name('stripe.fail');
+
     Route::middleware(['auth:business', 'active', 'setup'])->group(function () {
         Route::controller(\App\Http\Controllers\SetupController::class)->prefix('isletme-kurulum')->as('setup.')->group(function (){
             Route::get('/adim-1', 'step1')->name('step1');

@@ -5,7 +5,7 @@ function storage($path): string
     return asset('storage/' . $path);
 }
 function image($path){
-    return env('REMOTE_URL').'/storage/'.$path;
+    return env('REMOTE_URL').$path;
 }
 function main($key){
     return config('main_pages.'. $key);
