@@ -7,6 +7,7 @@ use App\Models\BussinessPackage;
 use App\Models\PackageOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Stripe\Customer;
 use Stripe\PaymentIntent;
 use Stripe\Stripe;
@@ -64,7 +65,7 @@ class StripeContoller extends Controller
             $stripeCustomer = Customer::create([
                 'email' => $business->owner_email, // İşletmenin e-posta adresi
                 'name' => $business->name, // İşletme adı
-                'description' => $business->about, // İşletme ile ilgili açıklama
+                'description' => Str::limit(strip_tags($business->about), 300), // İşletme ile ilgili açıklama
                 'phone' => $business->phone, // İşletme telefon numarası
                 'address' => [
                     'line1' => $business->address, // İşletme adresi - Satır 1
