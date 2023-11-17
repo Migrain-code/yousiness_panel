@@ -2,12 +2,15 @@
     <div class="dlabnav-scroll">
 
         <ul class="metismenu" id="menu">
-            <li>
-                <a class="has-arrow " href="{{route('business.setup.step1')}}">
-                    <i class="material-icons-outlined">settings</i>
-                    <span class="nav-text">Aufstellen </span>
-                </a>
-            </li>
+            @if(auth('customer')->user()->is_setup == 0)
+                <li>
+                    <a class="has-arrow " href="{{route('business.setup.step1')}}">
+                        <i class="material-icons-outlined">settings</i>
+                        <span class="nav-text">Aufstellen </span>
+                    </a>
+                </li>
+            @endif
+
             <li>
                 <a class="has-arrow " href="{{route('business.home')}}">
                     <i class="material-icons-outlined">home</i>
