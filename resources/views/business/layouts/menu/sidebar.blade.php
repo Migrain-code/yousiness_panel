@@ -2,7 +2,7 @@
     <div class="dlabnav-scroll">
 
         <ul class="metismenu" id="menu">
-            @if(auth('customer')->user()->is_setup == 0)
+            @if(auth('business')->user()->is_setup == 0)
                 <li>
                     <a class="has-arrow " href="{{route('business.setup.step1')}}">
                         <i class="material-icons-outlined">settings</i>
