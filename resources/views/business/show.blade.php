@@ -115,6 +115,58 @@
         .single-pricing-white h5 {
             color: #fff;
         }
+        .form-check-inline {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        .visit-btns {
+            color: #272b41;
+            background-color: #fff;
+            width: 80%;
+            margin-bottom: 10px;
+            display: block;
+            outline: unset;
+            cursor: pointer;
+        }
+        .form-check-input:checked[type=checkbox] {
+            background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e);
+        }
+        .visits input.form-check-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            visibility: hidden;
+            margin-left: 0;
+        }
+        .form-check-input:checked {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        .form-check-input {
+            width: 1em;
+            height: 1em;
+            margin-top: 0.25em;
+            vertical-align: top;
+            padding: 10px;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border: 1px solid rgba(0,0,0,.25);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+            padding: 10px;
+        }
+        .visits input:checked ~ .visit-rsn {
+            background-color: #2fcc31;
+            color: #fff;
+            border-radius: 4px;
+            padding: 15px;
+        }
 
     </style>
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
@@ -206,6 +258,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="#about-me" data-bs-toggle="tab" class="nav-link">Arbeitszeiten</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#category_tab" data-bs-toggle="tab" class="nav-link">Unternehmensart</a>
                                 </li>
 
                             </ul>
@@ -417,6 +472,44 @@
                                                 </button>
                                             </form>
                                         </div>
+                                    </div>
+                                </div>
+                                <div id="category_tab" class="tab-pane fade">
+                                    <div class="row border-bottom border-primary">
+                                        <div class="col-12 my-2">
+                                            <span style="font-size: 25px; font-weight: bold">Einstellungen für den Geschäftstyp</span>
+                                            <a type="button" class="mx-2 text-primary" style="max-width: 12px"
+                                               data-bs-container="body" data-bs-toggle="popover"
+                                               data-bs-placement="bottom"
+                                               data-bs-content="Einstellungen für den Geschäftstyp."
+                                               title="" data-bs-original-title="Geschlossene Tage">
+                                                <i class="fa fa-question-circle"></i>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <form action="{{route('business.profile.updateCategory')}}" style="position: relative;" class="my-2 col-lg-6 col-md-8 col-sm-12"
+                                              method="post">
+                                            @csrf
+                                                <!--item-->
+                                                @forelse($business_categories as $category)
+                                                    <div class="col-lg-6">
+                                                        <div class="form-check-inline visits me-0 w-100">
+                                                            <label class="visit-btns" style="width: 100%">
+                                                                <input type="checkbox" name="category[]" class="form-check-input" @checked(in_array($category->id, $selectedCategories))  value="{{$category->id}}">
+                                                                <span class="visit-rsn" style="text-align: left">
+                                                                    <img src="{{asset($category->icon)}}" class="me-2" width="30px" height="30px">
+                                                                    {{$category->name}}
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                @empty
+                                                @endforelse
+                                                <!--/item-->
+                                            <button type="submit" class="btn btn-primary mt-3">Güncelle</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

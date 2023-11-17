@@ -194,7 +194,9 @@ class PersonelController extends Controller
         $unCompletedAppointments = $personel->appointments()->where('status', 0)->get();
         $unPrice = 0;
         foreach($unCompletedAppointments as $row){
-            $unPrice+= $row->service->price;
+            if ($row->service){
+                $unPrice+= $row->service->price;
+            }
         }
 
         $businessServices = $personel->appointments->map(function ($appointment) {

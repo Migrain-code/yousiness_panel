@@ -90,6 +90,7 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
 
         Route::controller(\App\Http\Controllers\Business\BusinessController::class)->prefix('profile')->as('profile.')->group(function () {
             Route::get('/', 'show')->name('show');
+            Route::post('/update-category', 'updateCategory')->name('updateCategory');
             Route::post('/update-general-setting', 'update')->name('updateGeneralSetting');
             Route::post('/update-owner-setting', 'updateOwner')->name('updateOwnerSetting');
             Route::post('/update-work-time', 'updateWorkTime')->name('updateWorkTime');

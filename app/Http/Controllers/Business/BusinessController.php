@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Business;
 
 use App\Http\Controllers\Controller;
 use App\Models\Business;
+use App\Models\BusinessCategory;
 use App\Models\BusinessService;
+use App\Models\BusinessTypeCategory;
 use App\Models\BusinessWorkTime;
 use App\Models\BusinnessType;
 use App\Models\BussinessServicePartition;
@@ -111,7 +113,14 @@ class BusinessController extends Controller
         $business=auth('business')->user();
         //dd($business->workTimes);
         $businessTypes=BusinnessType::all();
-        return view('business.show', compact('business', 'businessTypes', 'dayList'));
+        $business_categories= BusinessCategory::all();
+
+        $selectedCategories = [];
+        foreach (auth('business')->user()->categories as $category){
+            $selectedCategories[] = $category->category_id;
+        }
+
+        return view('business.show', compact('business', 'businessTypes', 'dayList', 'business_categories', 'selectedCategories'));
 
     }
 
@@ -193,6 +202,30 @@ class BusinessController extends Controller
             'status'=>"success",
             'title'=>"Başarılı",
             'message'=>"Hier werden die Tage angezeigt, die nicht zu den Feiertagen Ihrer Mitarbeiter gehören. Sie müssen andere Feiertage als diese Tage für das Personal eingeben.niz Başarılı Bir Şekilde Güncellendi"
+        ]);
+    }
+
+    public function updateCategory(Request $request)
+    {
+        $request->validate([
+            'category'=>"required",
+        ], [], [
+            'category'=>"İşletme Kategorisi/Kategorileri"
+        ]);
+        if (auth('business')->user()->categories->count() > 0){
+            foreach ( auth('business')->user()->categories as $category) {
+                $category->delete();
+            }
+        }
+        foreach ($request->input('category') as $category){
+            $businessCategory = new BusinessTypeCategory();
+            $businessCategory->category_id = $category;
+            $businessCategory->business_id = auth('business')->id();
+            $businessCategory->save();
+        }
+        return back()->with('response', [
+           'status' => "success",
+           'message' => "İşletme Kategorileri Düzenlendi"
         ]);
     }
     /**
