@@ -21,6 +21,9 @@ class SetupMiddleware
             if (auth('business')->user()->is_setup == 0) {
                 // Eğer kullanıcının is_setup değeri 0 ise, setup rotasına yönlendir
                 return redirect()->route('business.setup.step1');
+            } elseif (auth('business')->user()->is_setup == 1) {
+                // Eğer kullanıcının is_setup değeri 1 ise, erişimi engelle
+                return redirect()->route('business.home');
             }
             // Eğer is_setup değeri 0 değilse veya kullanıcı giriş yapmamışsa, normal işleyiş devam etsin
             return $next($request);
