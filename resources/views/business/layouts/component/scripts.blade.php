@@ -13,7 +13,6 @@
 <script src="/panel/assets/js/custom.min.js"></script>
 <script src="/panel/assets/js/dlabnav-init.js"></script>
 <script src="/panel/assets/js/demo.js"></script>
-<script src="/panel/assets/js/styleSwitcher.js"></script>
 <script src="/panel/assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
 <script src="/panel/assets/js/plugins-init/datatables.init.js"></script>
 <script src="https://cdn.datatables.net/rowreorder/1.3.1/js/dataTables.rowReorder.min.js"></script>
