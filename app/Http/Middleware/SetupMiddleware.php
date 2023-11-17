@@ -16,13 +16,17 @@ class SetupMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->routeIs('business.setup.*') || $request->routeIs('business.payment.*')) {
+        if (($request->routeIs('business.setup.*') || $request->routeIs('business.payment.*')) && auth('business')->check()) {
+            // Kullanıcı setup veya payment rotasına gidiyorsa ve giriş yapmışsa
+            if (auth('business')->user()->is_setup == 0) {
+                // Eğer kullanıcının is_setup değeri 0 ise, setup rotasına yönlendir
+                return redirect()->route('business.setup.step1');
+            }
+            // Eğer is_setup değeri 0 değilse veya kullanıcı giriş yapmamışsa, normal işleyiş devam etsin
             return $next($request);
         }
 
-        if (auth('business')->check() && auth('business')->user()->is_setup == 0) {
-            return redirect()->route('business.setup.step1');
-        }
+        // Yukarıdaki koşullar sağlanmazsa, normal işleyiş devam etsin
         return $next($request);
     }
 }
