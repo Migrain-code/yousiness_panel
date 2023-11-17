@@ -154,6 +154,7 @@ class SetupController extends Controller
 
         $business = auth('business')->user();
         $business->package_id = $packageOrder->package_id;
+        $business->is_setup = 1;
         $business->save();
         return view('business.setup.step-5');
     }
