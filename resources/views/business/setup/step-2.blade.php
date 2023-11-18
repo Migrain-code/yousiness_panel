@@ -56,7 +56,7 @@
         <div class="onboarding-content-box content-wrap">
             <div class="onborad-set">
                 <div class="onboarding-title">
-                    <h2>Salon Details angeben?<span>*</span></h2>
+                    <h2>Salon Details angeben<span>*</span></h2>
                     <h6>Es ist sehr wichtig, dass Sie die Informationen in diesem Feld korrekt eingeben.
                     </h6>
                 </div>
@@ -68,9 +68,9 @@
                             <input type="text" class="form-control" value="{{$business->name}}" name="name" style="border-radius: 18px;height: 10px">
                         </div>
                         <div class="form-group col-lg-6">
-                            <label>Salon Türü</label>
+                            <label>Bedienende Geschlecht(e)</label>
                             <select class="form-select" name="business_type" style="border-radius: 18px">
-                                <option value="" selected>Salon Kategorie</option>
+                                <option value="" selected>Geschlecht</option>
                                 @forelse($business_types as $type)
                                     <option value="{{$type->id}}" @selected($business->type_id == $type->id)>{{$type->name}}</option>
                                 @empty
