@@ -156,7 +156,7 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                 <input type="time" class="form-control" name="start_time" value="{{old("start_time")}}" min="{{auth('business')->user()->start_time}}" max="{{auth('business')->user()->end_time}}">
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label"> Pausenanfang
+                                <label class="form-label"> Dienstende
                                     <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Arbeitszeiten Ihrer Mitarbeiter angezeigt.
 Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                         <i class="fa-solid fa-question-circle"></i>
@@ -169,7 +169,7 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label">Pausenanfang <span class="text-warning">(Zorunlu Değil)</span>
+                                <label class="form-label">Pausenanfang <span class="text-warning">(optional)</span>
                                     <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Arbeitszeiten Ihrer Mitarbeiter angezeigt.
 Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                         <i class="fa-solid fa-question-circle"></i>
@@ -179,7 +179,7 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
 
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label"> Pausenende <span class="text-warning">(Zorunlu Değil)</span>
+                                <label class="form-label"> Pausenende <span class="text-warning">(optional)</span>
                                     <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Arbeitszeiten Ihrer Mitarbeiter angezeigt.
 Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                         <i class="fa-solid fa-question-circle"></i>
