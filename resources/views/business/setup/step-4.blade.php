@@ -167,7 +167,7 @@
                                                                      style="min-width: max-content;text-align: center;background-color: #F5F8FA">
                                                                     <h1 class="h6 text-uppercase font-weight-bold mb-4">{{$package->name}}</h1>
                                                                     <h2 class="h1 font-weight-bold">{{$package->price == 0 ?"Ücretiz" : "€". $package->price}}
-                                                                        <span class="text-small font-weight-normal ml-2"> / aylık</span>
+                                                                        <span class="text-small font-weight-normal ml-2"> / monat</span>
                                                                     </h2>
 
                                                                     <div class="custom-separator my-4 mx-auto bg-primary"></div>
@@ -186,7 +186,7 @@
                                                                                 @if($loop->index == 10)
                                                                                     <li>
                                                                                         <button class="show-more-button btn btn-primary"
-                                                                                                type="button">Daha Fazla
+                                                                                                type="button">mehr
                                                                                         </button>
                                                                                     </li>
                                                                                 @endif
@@ -236,7 +236,7 @@
                                                                      style="min-width: max-content;text-align: center;background-color: #F5F8FA">
                                                                     <h1 class="h6 text-uppercase font-weight-bold mb-4">{{$package->name}}</h1>
                                                                     <h2 class="h1 font-weight-bold">{{$package->price == 0 ?"Ücretiz" : "€". $package->price}}
-                                                                        <span class="text-small font-weight-normal ml-2"> / yıllık</span>
+                                                                        <span class="text-small font-weight-normal ml-2"> / jahres</span>
                                                                     </h2>
 
                                                                     <div class="custom-separator my-4 mx-auto bg-primary"></div>
@@ -308,18 +308,18 @@
         // JavaScript kullanarak "Daha Fazla" butonunu tıkladığınızda diğer özellikleri göster
         $('.show-more-button').on("click", function () {
 
-            if (this.innerText == "Daha Fazla") {
+            if (this.innerText == "mehr") {
                 const hiddenProps = document.querySelectorAll(".hidden-props");
                 hiddenProps.forEach(function (hiddenProp) {
                     hiddenProp.style.display = "block";
                 });
-                this.innerText = "Daha Az"; // "Daha Fazla" butonunu gizle
+                this.innerText = "weniger"; // "Daha Fazla" butonunu gizle
             } else {
                 const hiddenProps = document.querySelectorAll(".hidden-props");
                 hiddenProps.forEach(function (hiddenProp) {
                     hiddenProp.style.display = "none";
                 });
-                this.innerText = "Daha Fazla"; // "Daha Fazla" butonunu gizle
+                this.innerText = "mehr"; // "Daha Fazla" butonunu gizle
             }
 
         });
