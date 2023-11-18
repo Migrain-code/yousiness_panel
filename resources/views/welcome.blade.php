@@ -361,6 +361,22 @@
         </div>
 
         @forelse($mainPageSections as $section)
+            @if($loop->index == 1)
+                <div class="tp-cta-area p-4 mb-120 tp-cta-five-bg p-relative app-information-area" id="about_us" data-background=""
+                     style="background-color: rgb(213, 156, 75); background-image: url(&quot;&quot;);">
+
+                    <div class="container-fluid g-0">
+                        <div class="row g-0">
+                            <iframe width="100%"
+                                    height="600px"
+                                    src="https://www.youtube.com/embed/RroDdybvu5s"
+                                    title="Personal Portfolio Website using HTML &amp; CSS"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            @endif
         <div class="tp-cta-area p-4 mb-120 tp-cta-five-bg p-relative app-information-area" id="about_us" data-background=""
              style="background-color: rgb(213, 156, 75); background-image: url(&quot;&quot;);">
 
