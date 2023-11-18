@@ -24,6 +24,10 @@
             background: linear-gradient( 145.27deg, rgba(255, 255, 255, 0.1) 15.55%, rgba(255, 255, 255, 0) 86.81% );
             content: "";
         }
+        .tp-testimonial-five-content {
+            padding: 40px 60px 50px 60px;
+            height: 250px;
+        }
     </style>
 @endsection
 @section('content')
