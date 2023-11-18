@@ -40,8 +40,8 @@
                                 <a href="{{config('settings.speed_facebook_url')}}"><i class="fab fa-facebook-f"></i></a>
                                 <a href="{{config('settings.speed_twitter_url')}}"><i class="fab fa-twitter"></i></a>
                                 <a href="{{config('settings.speed_instagram_url')}}"><i class="fab fa-instagram"></i></a>
-                                <a href="{{config('settings.speed_youtube_url')}}"><i class="fab fa-youtube"></i></a>
-                                <a href="{{config('settings.speed_tiktok_url')}}"><i class="fab fa-tiktok"></i></a>
+                                <a href="{{config('settings.speed_youtube_url')}}" class="mt-2"><i class="fab fa-youtube"></i></a>
+                                <a href="{{config('settings.speed_tiktok_url')}}" class="mt-2"><i class="fab fa-tiktok"></i></a>
                             </div>
 
                         </div>
