@@ -66,7 +66,7 @@
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-12">
-                            <label class="form-label"> Hizmet Adı
+                            <label class="form-label"> Dienstleistungen
                                 <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
                                     <i class="fa-solid fa-question-circle"></i>
                                 </button>
@@ -78,22 +78,19 @@
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="form-label"> İşlem Süresi
+                            <label class="form-label"> Arbeitszeit
                                 <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
                                     <i class="fa-solid fa-question-circle"></i>
                                 </button>
                             </label>
                             <select name="time" class="form-control">
-                                <option value="10" @selected($businessService->time == 10)>10</option>
-                                <option value="20" @selected($businessService->time == 20)>20</option>
-                                <option value="30" @selected($businessService->time == 30)>30</option>
-                                <option value="40" @selected($businessService->time == 40)>40</option>
-                                <option value="50" @selected($businessService->time == 50)>50</option>
-                                <option value="60" @selected($businessService->time == 60)>60</option>
+                                @for($i = 5; $i <= 120; $i+=5)
+                                    <option value="{{$i}}" @selected($businessService->time == $i)>{{$i}} min</option>
+                                @endfor
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label"> İşlem Ücreti
+                            <label class="form-label"> Preis
                                 <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
                                     <i class="fa-solid fa-question-circle"></i>
                                 </button>
@@ -105,7 +102,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <button type="submit" class="btn btn-primary">Güncelle</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </form>
             </div>

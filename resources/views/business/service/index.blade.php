@@ -150,12 +150,9 @@
                                     </button>
                                 </label>
                                 <select name="time" class="form-control">
-                                    <option value="10">10</option>
-                                    <option value="20">20</option>
-                                    <option value="30">30</option>
-                                    <option value="40">40</option>
-                                    <option value="50">50</option>
-                                    <option value="60">60</option>
+                                    @for($i = 5; $i <= 120; $i+=5)
+                                        <option value="{{$i}}" @selected(old("range") == $i)>{{$i}} min.</option>
+                                    @endfor
                                 </select>
                             </div>
                             <div class="col-md-6">

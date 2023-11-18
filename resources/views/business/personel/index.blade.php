@@ -257,7 +257,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                 <select name="range" class="form-control">
                                     <option value="">Zeit Auswählen</option>
                                     @for($i = 5; $i <= 120; $i+=5)
-                                        <option value="{{$i}}" @selected(old("range") == $i)>{{$i}} Dakika</option>
+                                        <option value="{{$i}}" @selected(old("range") == $i)>{{$i}} min.</option>
                                     @endfor
                                 </select>
                             </div>
