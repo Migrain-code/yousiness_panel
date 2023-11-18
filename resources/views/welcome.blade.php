@@ -34,7 +34,7 @@
             background-color: #d59c4b;
             border-radius: 50%;
             position: absolute;
-            top: 1%;
+            top: 2%;
             left: 0%;
             transition: 0.3s;
             z-index: -1;
