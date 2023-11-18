@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-6 pb-30  wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
                         <div class="tp-footer__widget footer-widget-3 footer-col-3-2">
-                            <h4 class="tp-footer__widget-title">Für Unternehmen</h4>
+                            <h4 class="tp-footer__widget-title"></h4>
                             <div class="tp-footer__content">
                                 <ul>
                                     <li><a href="{{route('business.login')}}">Anmelden</a>
@@ -36,7 +36,7 @@
                     <div class="col-xl-2 col-lg-2 col-md-6 pb-30  wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
                         <div class="tp-footer__widget footer-widget-3 footer-col-3-3">
                             <div class="tp-footer__social-3">
-                                <h4>Sosya medya</h4>
+                                <h4></h4>
                                 <a href="{{config('settings.facebook')}}"><i class="fab fa-facebook-f"></i></a>
                                 <a href="{{config('settings.twitter')}}"><i class="fab fa-twitter"></i></a>
                                 <a href="{{config('settings.instagram')}}"><i class="fab fa-instagram"></i></a>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6 pb-30  wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
                         <div class="tp-footer__widget footer-widget-3 footer-widget-5 footer-col-3-4">
-                            <h4 class="tp-footer__widget-title">Kommunikation</h4>
+                            <h4 class="tp-footer__widget-title"></h4>
                             <div class="tp-footer__input mb-35 p-relative">
                                 <div class="tp-footer__content">
                                     <ul>
