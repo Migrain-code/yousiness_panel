@@ -216,7 +216,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                     </button>
                                 </label>
                                 <select name="rate" class="form-control">
-                                    <option value="">Lohnart Auswählen</option>
+                                    <option value="1" selected>Lohnart Auswählen</option>
                                     @forelse($rates as $row)
                                         <option value="{{$row->id}}" @selected(old("rate") == $row->id)>{{$row->rate == 0 ? "Angesteller". " %". $row->rate : "% ".$row->rate}}</option>
                                     @empty
