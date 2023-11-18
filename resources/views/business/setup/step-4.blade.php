@@ -60,7 +60,7 @@
 @section('content')
     @include('layouts.component.error')
     <div class="row">
-        <div class="col-lg-4 col-md-12">
+        <div class="col-lg-12 col-md-12">
             <div class="on-board-wizard">
                 <ul>
                     <li>
