@@ -28,6 +28,17 @@
             padding: 40px 60px 50px 60px;
             height: 250px;
         }
+        .tp-feature-five-shape-color {
+            height: 100%;
+            width: 100%;
+            background-color: #d59c4b;
+            border-radius: 50%;
+            position: absolute;
+            top: 1%;
+            left: 0%;
+            transition: 0.3s;
+            z-index: -1;
+        }
     </style>
 @endsection
 @section('content')
