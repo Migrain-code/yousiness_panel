@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         customButtons: {
             customPrev: {
-                text: '\u2190',
+                text: 'vorherige',
                 click: function () {
                     calendar.prev();
                 }
             },
             customNext: {
-                text: '\u2192',
+                text: 'nächste',
                 click: function () {
                     calendar.next();
                 }
