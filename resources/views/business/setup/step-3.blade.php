@@ -48,7 +48,7 @@
                         </div>
                         <div class="onboarding-list">
                             <h6>Adresse</h6>
-                            <p>Hallenadresse/Standortinformationen</p>
+                            <p>Salon Adresse/Standortinformationen</p>
                         </div>
                     </a>
                 </li>
@@ -61,8 +61,8 @@
         <div class="onboarding-content-box content-wrap">
             <div class="onborad-set">
                 <div class="onboarding-title">
-                    <h2>Hallenadresse informationen?<span>*</span></h2>
-                    <h6>Alle 3 Arten von Adressinformationen sind erforderlich, damit Kunden Ihren Salon im System und im Alltag problemlos finden können.
+                    <h2>Salon Adresse?<span>*</span></h2>
+                    <h6>Adressinformationen sind erforderlich, damit Kunden Ihren Salon im System und im Alltag problemlos finden können.
                     </h6>
                 </div>
                 <div class="onboarding-content">
