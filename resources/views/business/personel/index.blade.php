@@ -209,7 +209,7 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                     <input type="hidden" name="gender" value="{{auth('business')->user()->type_id}}">
                             @endif
                             <div class="mb-3 col-md-6">
-                                <label class="form-label"> Lohnart
+                                <label class="form-label"> Lohnart <span class="text-warning">(optional)</span>
                                     <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier können Sie festlegen, wie Ihr Unternehmen mit den Mitarbeitern zusammenarbeitet, und den
 Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktionen zugewiesen wird." title="Personalanteil">
                                         <i class="fa-solid fa-question-circle"></i>
