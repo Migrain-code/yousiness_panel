@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         customButtons: {
             customPrev: {
-                text: 'Ehemalig',
+                text: '<i class="fa fa-arrow-alt-circle-left">',
                 click: function () {
                     calendar.prev();
                 }
