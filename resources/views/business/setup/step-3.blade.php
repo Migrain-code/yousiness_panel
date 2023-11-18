@@ -61,7 +61,7 @@
         <div class="onboarding-content-box content-wrap">
             <div class="onborad-set">
                 <div class="onboarding-title">
-                    <h2>Salon Adresse?<span>*</span></h2>
+                    <h2>Salon Adresse<span>*</span></h2>
                     <h6>Adressinformationen sind erforderlich, damit Kunden Ihren Salon im System und im Alltag problemlos finden können.
                     </h6>
                 </div>
