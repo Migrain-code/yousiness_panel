@@ -86,6 +86,9 @@
                     <li>
                         <a href="{{route('admin.sponsor.index')}}">Sponsoren</a>
                     </li>
+                    <li>
+                        <a href="{{route('admin.page.index')}}">Rechtliches</a>
+                    </li>
                 </ul>
             </li>
             <li @if(request()->routeIs('admin.blog.*')) class="mm-active"  @endif >
@@ -128,9 +131,7 @@
                     <li>
                         <a href="{{route('admin.blog.index')}}">Blogs</a>
                     </li>
-                    <li>
-                        <a href="{{route('admin.page.index')}}">Rechtliches</a>
-                    </li>
+
                     <li>
                         <a href="{{route('admin.faq.index')}}">FAQ</a>
                     </li>
