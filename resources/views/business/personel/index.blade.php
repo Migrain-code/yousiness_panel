@@ -256,12 +256,9 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                 </label>
                                 <select name="range" class="form-control">
                                     <option value="">Zeit Auswählen</option>
-                                    <option value="5" @selected(old("range") == "5")>5 Dakika</option>
-                                    <option value="10" @selected(old("range") == "10")>10 Dakika</option>
-                                    <option value="20" @selected(old("range") == "20")>20 Dakika</option>
-                                    <option value="30" @selected(old("range") == "30")>30 Dakika</option>
-                                    <option value="40" @selected(old("range") == "40")>40 Dakika</option>
-                                    <option value="45" @selected(old("range") == "45")>45 Dakika</option>
+                                    @for($i = 5; $i <= 120; $i+=5)
+                                        <option value="{{$i}}" @selected(old("range") == $i)>{{$i}} Dakika</option>
+                                    @endfor
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
