@@ -37,10 +37,11 @@
                         <div class="tp-footer__widget footer-widget-3 footer-col-3-3">
                             <div class="tp-footer__social-3">
                                 <h4></h4>
-                                <a href="{{config('settings.facebook')}}"><i class="fab fa-facebook-f"></i></a>
-                                <a href="{{config('settings.twitter')}}"><i class="fab fa-twitter"></i></a>
-                                <a href="{{config('settings.instagram')}}"><i class="fab fa-instagram"></i></a>
-
+                                <a href="{{config('settings.speed_facebook_url')}}"><i class="fab fa-facebook-f"></i></a>
+                                <a href="{{config('settings.speed_twitter_url')}}"><i class="fab fa-twitter"></i></a>
+                                <a href="{{config('settings.speed_instagram_url')}}"><i class="fab fa-instagram"></i></a>
+                                <a href="{{config('settings.speed_youtube_url')}}"><i class="fab fa-youtube"></i></a>
+                                <a href="{{config('settings.speed_tiktok_url')}}"><i class="fab fa-tiktok"></i></a>
                             </div>
 
                         </div>
@@ -51,9 +52,9 @@
                             <div class="tp-footer__input mb-35 p-relative">
                                 <div class="tp-footer__content">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-map-pin pe-2"></i>{{setting('speed_contact_address')}}</a></li>
-                                        <li><a href="#"><i class="fa fa-phone pe-2"></i>{{setting('speed_contact_phone')}}</a></li>
-                                        <li><a href="#"><i class="fa fa-envelope pe-2"></i>{{setting('speed_contact_email')}}</a></li>
+                                        <li><a href="https://maps.app.goo.gl/QPGuVsV5GANAaKGs6"><i class="fa fa-map-pin pe-2"></i>{{setting('speed_contact_address')}}</a></li>
+                                        <li><a href="tel:{{setting('speed_contact_phone')}}"><i class="fa fa-phone pe-2"></i>{{setting('speed_contact_phone')}}</a></li>
+                                        <li><a href="mailto:{{setting('speed_contact_email')}}"><i class="fa fa-envelope pe-2"></i>{{setting('speed_contact_email')}}</a></li>
                                     </ul>
                                 </div>
 
