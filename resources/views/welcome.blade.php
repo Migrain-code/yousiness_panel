@@ -14,6 +14,16 @@
             margin-bottom: 0;
             color: #000000 !important;
         }
+        .tp-fun-fact-item h4::after {
+            position: absolute;
+            top: -23px;
+            left: -22px;
+            height: 100px;
+            width: 296px;
+            border-radius: 50%;
+            background: linear-gradient( 145.27deg, rgba(255, 255, 255, 0.1) 15.55%, rgba(255, 255, 255, 0) 86.81% );
+            content: "";
+        }
     </style>
 @endsection
 @section('content')
