@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             },
             customNext: {
-                text: 'Nächste',
+                text: '\u2192',
                 click: function () {
                     calendar.next();
                 }
