@@ -53,7 +53,7 @@
         <!---Left Panel----->
         <div class="left-panel mt-2 mb-3">
             <div class="onboarding-logo text-center">
-                <h1 style="color: white">Unternehmensgründung</h1>
+                <h1 style="color: white">Account erstellen</h1>
             </div>
             <div class="onboard-img">
                 <img src="/business/setup/assets/img/onboard-img/onb-slide-img.png" class="img-fluid" alt="">
