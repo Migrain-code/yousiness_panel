@@ -111,7 +111,6 @@ class PersonelController extends Controller
             'gender' => "required",
             'rate' => "required",
             'services' => "required",
-            'image' => "required",
         ], [], [
             'email' => "E-Mail",
             'phone' => "Mobilnummer",
@@ -121,7 +120,6 @@ class PersonelController extends Controller
             'gender' => "Geschlecht",
             'rate' => "Çalışma Payı",
             'services' => "Dienstleistung",
-            'image' => "Foto"
         ]);
         $personel = new Personel();
         $personel->business_id = auth('business')->id();
@@ -140,7 +138,9 @@ class PersonelController extends Controller
         $personel->rate = $request->rate;
         $personel->range = $request->range;
         $personel->description = $request->description;
-        $personel->image = 'storage/' . $request->file('image')->store('personalImage');
+        if ($request->hasFile('image')){
+            $personel->image = 'storage/' . $request->file('image')->store('personalImage');
+        }
         if ($personel->save()) {
             if (in_array('all', $request->services)) {
                 $findBusinessService = auth('business')->user()->services;
