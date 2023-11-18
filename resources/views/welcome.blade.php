@@ -6,6 +6,14 @@
             font-size: 35px;
             line-height: 24px;
         }
+        .tp-fun-fact-item p {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0;
+            color: #000000 !important;
+        }
     </style>
 @endsection
 @section('content')
@@ -105,19 +113,19 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mb-60 tp-counter-br">
-                        <div class="tp-fun-fact-item bg-color-1 tp-fun-fact-space-1 d-flex align-items-center">
+                        <div class="tp-fun-fact-item bg-color-1 tp-fun-fact-space-1 align-items-center">
                             <h4>{{main('business_section_3_box_1_title')}}<span>+</span></h4> <br>
                             <p>{{main('business_section_3_box_1_description')}}</p>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mb-60 tp-counter-br">
-                        <div class="tp-fun-fact-item bg-color-2 tp-fun-fact-space-2 d-flex align-items-center">
+                        <div class="tp-fun-fact-item bg-color-2 tp-fun-fact-space-2 align-items-center">
                             <h4>{{main('business_section_3_box_2_title')}}<span>+</span></h4><br>
                             <p>{{main('business_section_3_box_2_description')}}</p>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mb-60 tp-counter-br">
-                        <div class="tp-fun-fact-item bg-color-3 tp-fun-fact-space-3 d-flex align-items-center">
+                        <div class="tp-fun-fact-item bg-color-3 tp-fun-fact-space-3 align-items-center">
                             <h4>{{main('business_section_3_box_3_title')}}<span>+</span></h4><br>
                             <p>{{main('business_section_3_box_3_description')}}</p>
                         </div>
