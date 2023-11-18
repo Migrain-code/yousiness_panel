@@ -237,7 +237,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                 </label>
                                 <select name="services[]" multiple id="service" class="form-control">
                                     @forelse(auth('business')->user()->services as $service)
-                                        <option value="{{$service->id}}">{{$service->subCategory->name. "(".$service->gender->name.")"}}</option>
+                                        <option value="{{$service->id}}">{{$service->subCategory->name. " (".$service->gender->name.")"}}</option>
                                     @empty
                                     @endforelse
                                     @if(auth('business')->user()->services->count() > 2)
