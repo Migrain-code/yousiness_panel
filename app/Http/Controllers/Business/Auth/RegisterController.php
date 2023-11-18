@@ -71,10 +71,10 @@ class RegisterController extends Controller
             'contact_info' => ['accepted'],
         ], [], [
             'name' => 'Salonname',
-            'email' => 'Telefon Numarası',
-            'owner'=>'Salon Sahibi',
-            'conditions' => "Şartlar ve koşullar",
-            'contact_info' => "İletişim izinleri",
+            'email' => 'Telefonnummer',
+            'owner'=>'Salonbesitzer',
+            'conditions' => "Geschäftsbedingungen",
+            'contact_info' => "Kommunikationsberechtigungen",
         ]);
     }
 

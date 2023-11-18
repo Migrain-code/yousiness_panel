@@ -165,18 +165,18 @@
                     <div class="header-bottom__main-menu header-bottom__main-menu-4 header-bottom__main-menu-inner">
                         <nav id="mobile-menu-2">
 
-                                <ul>
+                            <ul>
                                 <li>
-                                    <a href="{{route('welcome')}}.html">Anasayfa</a>
+                                    <a href="{{route('welcome')}}">Startseite</a>
                                 </li>
-                                <li><a href="{{route('propartie.index')}}">Özellikler</a></li>
+                                <li><a href="{{route('welcome')}}">Merkmale</a></li>
                                 <li>
-                                    <a href="{{route('blog.index')}}">Blog</a>
+                                    <a href="{{route('welcome')}}">Blog</a>
                                 </li>
-                                <li><a href="{{route('packages')}}">Paketlerimiz</a></li>
-                                <li><a href="{{route('faq')}}"><i class="fa fa-headphones me-1"></i>Destek</a></li>
+                                <li><a href="{{route('welcome')}}">Unsere Pakete</a></li>
+                                <li><a href="{{route('welcome')}}"><i class="fa fa-headphones me-1"></i>Unterstützung</a></li>
 
-                                <li><a href="{{route('contact')}}">İletişim</a></li>
+                                <li><a href="{{route('welcome')}}">Kommunikation</a></li>
                             </ul>
 
                         </nav>
@@ -185,7 +185,7 @@
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-8 col-6">
                     <div class="header-bottom__right d-flex align-items-center justify-content-end">
                         <div class="header-bottom__action header-bottom__action-4">
-                            <a class="d-none d-lg-inline-block header-bottom__action-2 border-none" href="register.html">
+                            <a class="d-none d-lg-inline-block header-bottom__action-2 border-none" href="#">
                                 <span></span>
                             </a>
                         </div>

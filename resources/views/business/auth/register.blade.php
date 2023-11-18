@@ -151,19 +151,19 @@
                     <div class="header-bottom__main-menu header-bottom__main-menu-4 header-bottom__main-menu-inner">
                         <nav id="mobile-menu-2">
 
-                                <ul>
-                                    <li>
-                                        <a href="{{route('welcome')}}.html">Anasayfa</a>
-                                    </li>
-                                    <li><a href="{{route('propartie.index')}}">Özellikler</a></li>
-                                    <li>
-                                        <a href="{{route('blog.index')}}">Blog</a>
-                                    </li>
-                                    <li><a href="{{route('packages')}}">Paketlerimiz</a></li>
-                                    <li><a href="{{route('faq')}}"><i class="fa fa-headphones me-1"></i>Destek</a></li>
-    
-                                    <li><a href="{{route('contact')}}">İletişim</a></li>
-                                </ul>
+                            <ul>
+                                <li>
+                                    <a href="{{route('welcome')}}">Startseite</a>
+                                </li>
+                                <li><a href="{{route('welcome')}}">Merkmale</a></li>
+                                <li>
+                                    <a href="{{route('welcome')}}">Blog</a>
+                                </li>
+                                <li><a href="{{route('welcome')}}">Unsere Pakete</a></li>
+                                <li><a href="{{route('welcome')}}"><i class="fa fa-headphones me-1"></i>Unterstützung</a></li>
+
+                                <li><a href="{{route('welcome')}}">Kommunikation</a></li>
+                            </ul>
 
                         </nav>
                     </div>
@@ -201,7 +201,7 @@
                     </div>
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
-                            <h4 class="signin-banner-title tp-char-animation"> Yousiness'e sizde katılın.</h4>
+                            <h4 class="signin-banner-title tp-char-animation"> Treten Sie Yousiness bei.</h4>
                         </div>
                         <div class="signin-banner-img-box position-relative">
                             <div class="signin-banner-img signin-img-1 d-none d-md-block z-index-3">
@@ -223,7 +223,7 @@
                     <div class="signin-banner-from-wrap">
                         @include('layouts.component.error')
                         <div class="signin-banner-title-box">
-                            <h4 class="signin-banner-from-title">Ücretsiz Hesap Oluştur</h4>
+                            <h4 class="signin-banner-from-title">Erstelle einen kostenlosen Account</h4>
                         </div>
 
                         <div class="signin-banner-from-box">
@@ -234,13 +234,13 @@
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
                                             <input type="text" class="inputText" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" name="name" required>
-                                            <span class="floating-label">Salon Adı</span>
+                                            <span class="floating-label">Hallenname</span>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
                                             <input type="text" class="inputText" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" name="owner" required>
-                                            <span class="floating-label">Salon Sahibi</span>
+                                            <span class="floating-label">Name des Salonbesitzers</span>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -257,7 +257,7 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="1" name="conditions" id="flexCheckDefault" style="padding: 9px;margin-top: 0px !important;">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        <a href="#" class="text-primary">Üyelik koşulları</a> ve <a href="#" class="text-primary">Aydınlatma metnini</a> okudum, kabul ediyorum.
+                                                        <a href="#" class="text-primary">Bedingungen für die Mitgliedschaft</a> Und <a href="#" class="text-primary">Informationstext</a> Ich lese, ich akzeptiere.
                                                     </label>
                                                 </div>
                                             </div>
@@ -267,7 +267,7 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="contact_info" value="1" id="flexCheckDefault" style="padding: 9px;margin-top: 0px !important;">
                                                     <label class="form-check-label" for="flexCheckDefault" style="line-height: 1.3em">
-                                                        Yousiness tarafından ürün ve hizmetlerinin tanıtımı için tarafımla iletişime geçilmesini kabul ediyorum.
+                                                        Ich bin damit einverstanden, von Yousiness kontaktiert zu werden, um für seine Produkte und Dienstleistungen zu werben.
                                                     </label>
                                                 </div>
                                             </div>
