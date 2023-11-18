@@ -109,7 +109,7 @@
                            <a href="{{route('business.appointment.index')}}">
                                <div class="widget-stat card">
                                    <div class="card-body rounded bg-success p-4">
-                                       <h1 class="text-white"><i class="fa fa-calendar-check"></i> TERMINE</h1>
+                                       <h1 class="text-white" style="font-size: 18px;"><i class="fa fa-calendar-check"></i> TERMINE</h1>
                                    </div>
                                </div>
                            </a>
@@ -118,7 +118,7 @@
                            <a href="{{route('business.customer.index')}}">
                                <div class="widget-stat card">
                                    <div class="card-body rounded bg-secondary p-4">
-                                       <h1 class="text-white"><i class="fa fa-user-circle"></i> KUNDEN</h1>
+                                       <h1 class="text-white" style="font-size: 18px;"><i class="fa fa-user-circle"></i> KUNDEN</h1>
                                    </div>
                                </div>
                            </a>
@@ -127,7 +127,7 @@
                           <a href="{{route('business.personel.index')}}">
                               <div class="widget-stat card">
                                   <div class="card-body rounded bg-warning p-4">
-                                      <h1 class="text-white"><i class="fa fa-person"></i> MITARBEITER</h1>
+                                      <h1 class="text-white" style="font-size: 18px;"><i class="fa fa-person"></i> MITARBEITER</h1>
                                   </div>
                               </div>
                           </a>
@@ -136,7 +136,7 @@
                           <a href="{{route('business.businessService.index')}}">
                               <div class="widget-stat card">
                                   <div class="card-body rounded bg-primary p-4">
-                                      <h1 class="text-white"><i class="fa fa-gear"></i> DIENSTLEISTUNGEN</h1>
+                                      <h1 class="text-white" style="font-size: 18px;"><i class="fa fa-gear"></i> DIENSTLEISTUNGEN</h1>
                                   </div>
                               </div>
                           </a>
@@ -145,7 +145,7 @@
                           <a href="{{route('business.product.index')}}">
                               <div class="widget-stat card">
                                   <div class="card-body rounded bg-black p-4">
-                                      <h1 class="text-white"><i class="fa fa-table"></i> PRODUKTE</h1>
+                                      <h1 class="text-white" style="font-size: 18px;"><i class="fa fa-table"></i> PRODUKTE</h1>
                                   </div>
                               </div>
                           </a>
@@ -154,7 +154,7 @@
                            <a href="{{route('business.gallery.index')}}">
                                <div class="widget-stat card">
                                    <div class="card-body rounded bg-info p-4">
-                                       <h1 class="text-white"><i class="fa fa-table"></i> GALERIE</h1>
+                                       <h1 class="text-white" style="font-size: 18px;"><i class="fa fa-table"></i> GALERIE</h1>
                                    </div>
                                </div>
                            </a>
