@@ -77,7 +77,7 @@
                                             <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
                                             </svg>
-                                            <h4>Vollendet</h4>
+                                            <h4>Erledigt</h4>
                                         </div>
                                         <div  class="chart-num">
                                             <h2>{{authUser()->appointments()->where('status', 7)->count()}}</h2>
@@ -133,7 +133,7 @@
                                             <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
                                             </svg>
-                                            <h4>Ödemesi Alınmamış</h4>
+                                            <h4>in Bearbeitung</h4>
                                         </div>
                                         <div  class="chart-num">
                                             <h2>{{authUser()->appointments()->where('status', 5)->count()}}</h2>
