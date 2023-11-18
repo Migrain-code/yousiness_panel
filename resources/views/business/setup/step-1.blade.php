@@ -23,7 +23,7 @@
         <div class="onboarding-content-box content-wrap">
             <div class="onborad-set">
                 <div class="onboarding-title">
-                    <h2>İşletme Türü Nedir?<span>*</span></h2>
+                    <h2>Was ist Salon Kategorien?<span>*</span></h2>
                     <h6>Wir werden ihren Salon in Kategorien einteilen. Deshalb ist es wichtig, dass sie die entsprechende Salon Arten auswählen.</h6>
                 </div>
                 <style>
