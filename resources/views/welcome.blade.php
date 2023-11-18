@@ -1,6 +1,12 @@
 @extends('layouts.master')
 @section('styles')
-
+    <style>
+        .tp-fun-fact-title {
+            font-weight: 800;
+            font-size: 35px;
+            line-height: 24px;
+        }
+    </style>
 @endsection
 @section('content')
     <main class="fix">
@@ -100,19 +106,19 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mb-60 tp-counter-br">
                         <div class="tp-fun-fact-item bg-color-1 tp-fun-fact-space-1 d-flex align-items-center">
-                            <h4>{{main('business_section_3_box_1_title')}}<span>+</span></h4>
+                            <h4>{{main('business_section_3_box_1_title')}}<span>+</span></h4> <br>
                             <p>{{main('business_section_3_box_1_description')}}</p>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mb-60 tp-counter-br">
                         <div class="tp-fun-fact-item bg-color-2 tp-fun-fact-space-2 d-flex align-items-center">
-                            <h4>{{main('business_section_3_box_2_title')}}<span>+</span></h4>
+                            <h4>{{main('business_section_3_box_2_title')}}<span>+</span></h4><br>
                             <p>{{main('business_section_3_box_2_description')}}</p>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mb-60 tp-counter-br">
                         <div class="tp-fun-fact-item bg-color-3 tp-fun-fact-space-3 d-flex align-items-center">
-                            <h4>{{main('business_section_3_box_3_title')}}<span>+</span></h4>
+                            <h4>{{main('business_section_3_box_3_title')}}<span>+</span></h4><br>
                             <p>{{main('business_section_3_box_3_description')}}</p>
                         </div>
                     </div>
