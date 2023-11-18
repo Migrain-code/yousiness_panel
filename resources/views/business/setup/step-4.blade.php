@@ -54,7 +54,12 @@
             margin-bottom: 0px;
 
         }
-
+        .on-board-wizard ul {
+             list-style: none;
+             padding: 0px;
+             display: flex;
+             margin: 5px;
+         }
     </style>
 @endsection
 @section('content')
@@ -63,7 +68,7 @@
         <div class="col-lg-12 col-md-12">
             <div class="on-board-wizard">
                 <ul>
-                    <li>
+                    <li style="padding: 5px">
                         <a href="#">
                             <div class="onboarding-progress active">
                                 <span><i class="fa fa-check-circle"></i></span>
@@ -75,7 +80,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    <li style="padding: 5px">
                         <a href="#">
                             <div class="onboarding-progress active">
                                 <span><i class="fa fa-check-circle"></i></span>
@@ -87,7 +92,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    <li style="padding: 5px">
                         <a href="{{route('business.setup.step3')}}">
                             <div class="onboarding-progress active">
                                 <span><i class="fa fa-check-circle"></i></span>
@@ -99,7 +104,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    <li style="padding: 5px">
                         <a href="{{route('business.setup.step4')}}">
                             <div class="onboarding-progress">
                                 <span>4</span>
