@@ -59,60 +59,6 @@
 @endsection
 @section('content')
     @include('layouts.component.error')
-    <div class="col-lg-4 col-md-12">
-        <div class="on-board-wizard">
-            <ul>
-                <li>
-                    <a href="#">
-                        <div class="onboarding-progress active">
-                            <span><i class="fa fa-check-circle"></i></span>
-                        </div>
-                        <div class="onboarding-list">
-                            <h6>Salon Kategorie</h6>
-                            <p>Wählen Sie Ihre Salonkategorie(n) aus. </p>
-                        </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <div class="onboarding-progress active">
-                            <span><i class="fa fa-check-circle"></i></span>
-                        </div>
-                        <div class="onboarding-list">
-                            <h6>Salon Details angeben</h6>
-                            <p>Fügen Sie Ihre Salondetails hinzu.</p>
-                        </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{route('business.setup.step3')}}">
-                        <div class="onboarding-progress active">
-                            <span><i class="fa fa-check-circle"></i></span>
-                        </div>
-                        <div class="onboarding-list">
-                            <h6>Adresse</h6>
-                            <p>Hallenadresse/Standortinformationen</p>
-                        </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{route('business.setup.step4')}}">
-                        <div class="onboarding-progress">
-                            <span>4</span>
-                        </div>
-                        <div class="onboarding-list">
-                            <h6>Bezahlvorgang</h6>
-                            <p>Wählen Sie Servicepaket.</p>
-                        </div>
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
     <div class="col-lg-8 col-md-12">
         <div class="onboarding-content-box content-wrap">
             <div class="onborad-set">
@@ -274,7 +220,60 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-4 col-md-12">
+        <div class="on-board-wizard">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="onboarding-progress active">
+                            <span><i class="fa fa-check-circle"></i></span>
+                        </div>
+                        <div class="onboarding-list">
+                            <h6>Salon Kategorie</h6>
+                            <p>Wählen Sie Ihre Salonkategorie(n) aus. </p>
+                        </div>
+                    </a>
+                </li>
 
+                <li>
+                    <a href="#">
+                        <div class="onboarding-progress active">
+                            <span><i class="fa fa-check-circle"></i></span>
+                        </div>
+                        <div class="onboarding-list">
+                            <h6>Salon Details angeben</h6>
+                            <p>Fügen Sie Ihre Salondetails hinzu.</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('business.setup.step3')}}">
+                        <div class="onboarding-progress active">
+                            <span><i class="fa fa-check-circle"></i></span>
+                        </div>
+                        <div class="onboarding-list">
+                            <h6>Adresse</h6>
+                            <p>Salon Adresse/Standortinformationen</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('business.setup.step4')}}">
+                        <div class="onboarding-progress">
+                            <span>4</span>
+                        </div>
+                        <div class="onboarding-list">
+                            <h6>Paketauswahl</h6>
+                            <p>Wählen Sie Servicepaket.</p>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
 @endsection
 @section('scripts')
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
