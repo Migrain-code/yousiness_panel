@@ -211,7 +211,7 @@
                                                                                    class="form-check-input"
                                                                                    value="{{$package->id}}">
                                                                             <span class="visit-rsn" style="">
-                                                                           Abone Ol
+                                                                           Abonnieren
                                                                         </span>
                                                                         </label>
                                                                     </div>
