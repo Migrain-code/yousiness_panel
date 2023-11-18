@@ -537,38 +537,40 @@
                 </div>
             </div>
         </div>
-
-        <div class="ab-brand-area">
-            <div class="container">
-                <div class="ab-brand-border-bottom pb-90">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="ab-brand-section-box text-center mb-50">
-                                <h4 class="ab-brand-title">Tausende von Unternehmen sind bei uns sicher!</h4>
-                                <p>Über 5000 Unternehmen arbeiten seit Jahren mit uns zusammen.</p>
+        @if($sponsors->count() > 0)
+            <div class="ab-brand-area">
+                <div class="container">
+                    <div class="ab-brand-border-bottom pb-90">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="ab-brand-section-box text-center mb-50">
+                                    <h4 class="ab-brand-title">Tausende von Unternehmen sind bei uns sicher!</h4>
+                                    <p>Über 5000 Unternehmen arbeiten seit Jahren mit uns zusammen.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-xl-10">
-                            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 justify-content-center">
-                                @forelse($sponsors as $sponsor)
-                                    <div class="col">
-                                        <div class="ab-brand-item mb-25">
-                                            <a href="{{$sponsor->link}}" target="_blank">
-                                                <img src="{{asset($sponsor->image)}}" alt="">
-                                            </a>
+                        <div class="row justify-content-center">
+                            <div class="col-xl-10">
+                                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 justify-content-center">
+                                    @forelse($sponsors as $sponsor)
+                                        <div class="col">
+                                            <div class="ab-brand-item mb-25">
+                                                <a href="{{$sponsor->link}}" target="_blank">
+                                                    <img src="{{asset($sponsor->image)}}" alt="">
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                @empty
-                                @endforelse
+                                    @empty
+                                    @endforelse
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+        @endif
         <!-- tp-testimonial-area-start -->
         <div class="tp-testimonial-area pt-130 pb-130 mb-55 fix" data-background="" style="background-color: #d59c4b;">
             <div class="container">
