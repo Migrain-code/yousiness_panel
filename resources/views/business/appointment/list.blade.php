@@ -17,7 +17,7 @@
                 <div class="col-xl-12">
                     <div class="page-titles">
                         <div class="d-flex align-items-center">
-                            <h2 class="heading"> Randevular </h2>
+                            <h2 class="heading"> Terminliste </h2>
                         </div>
 
                     </div>
