@@ -520,7 +520,7 @@
                     <div class="col-12">
                         <div class="journey-section-box">
                             <h5 class="inner-section-subtitle pb-10"></h5>
-                            <h3 class="ab-brand-title pb-0 mb-0">{{setting('appy_site_title')}} 'da neler var?</h3>
+                            <h3 class="ab-brand-title pb-0 mb-0">Was gibt es in{{setting('appy_site_title')}}?</h3>
                         </div>
                     </div>
                 </div>
