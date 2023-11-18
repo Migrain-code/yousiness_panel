@@ -193,7 +193,7 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                         <div class="row">
                             @if(auth('business')->user()->type_id == 3)
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label"> Geschlecht von Kunde
+                                    <label class="form-label"> Bedienende Geschlecht
                                         <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Geschlechter angezeigt, die Ihre Mitarbeiter bedienen. Sie können das gewünschte Geschlecht aus dieser Geschlechtsauswahl auswählen." title="Geschlechtsspezifische Einstellungen">
                                             <i class="fa-solid fa-question-circle"></i>
                                         </button>
@@ -237,7 +237,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                 </label>
                                 <select name="services[]" multiple id="service" class="form-control">
                                     @forelse(auth('business')->user()->services as $service)
-                                        <option value="{{$service->id}}">{{$service->subCategory->name}}</option>
+                                        <option value="{{$service->id}}">{{$service->subCategory->name. "(".$service->gender->name.")"}}</option>
                                     @empty
                                     @endforelse
                                     @if(auth('business')->user()->services->count() > 2)
