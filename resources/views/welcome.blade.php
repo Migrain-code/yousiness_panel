@@ -487,11 +487,15 @@
                         <div class="tp-sales-feature">
                             <div class="d-flex justify-content-start">
                                 <div class="col-lg-4 col-md-6 col-sm-12 me-4">
-                                    <img src="/business/assets/img/cta/apple_store_logo.svg" width="200" height="80"
+                                    <a href="{{setting('speed_app_store')}}">
+                                        <img src="/business/assets/img/cta/apple_store_logo.svg" width="200" height="80">
+                                    </a>
                                          class="">
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <img src="/business/assets/img/cta/google_play_logo.svg" width="200" height="80">
+                                    <a href="{{setting('speed_google_play')}}">
+                                        <img src="/business/assets/img/cta/google_play_logo.svg" width="200" height="80">
+                                    </a>
                                 </div>
 
                             </div>
