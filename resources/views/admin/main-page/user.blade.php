@@ -139,6 +139,24 @@
                                         </div>
                                     </div>
                                     <!--begin::Input group-->
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span>Main Page video</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="İşletmeler için sayfasındaki hakkımızda alanı başlık"></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="d-flex mt-3">
+                                                <!--begin::Radio-->
+                                                <input type="text" class="form-control form-control-solid" name="speed_main_page_video" value="{{$sections["speed_main_page_video"] ?? ""}}" />
+
+                                                <!--end::Radio-->
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-12 mt-3">
                                             <!--begin::Button-->

@@ -370,8 +370,8 @@
                             <iframe width="100%"
                                     style="border-radius: 25px"
                                     height="600px"
-                                    src="https://www.youtube.com/embed/RroDdybvu5s"
-                                    title="Personal Portfolio Website using HTML &amp; CSS"
+                                    src="{{setting('speed_main_page_video')}}"
+                                    title="Main Page Video"
                                     frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
@@ -479,9 +479,9 @@
                         <div class="tp-sales-section-box pb-20">
                             <h3 class="tp-section-title-3 pb-15 ">{{main("business_section_1_box_3_title")}}</h3>
                             <p class="tp-title-anim" style="perspective: 300px;">
-                            <div style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform-origin: 285px 14px; transform: translate3d(0px, 0px, 0px); opacity: 1;">
-                                {{main("business_section_1_box_3_description")}}
-                            </div>
+                                <div style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform-origin: 285px 14px; transform: translate3d(0px, 0px, 0px); opacity: 1;">
+                                    {{main("business_section_1_box_3_description")}}
+                                </div>
                             </p>
                         </div>
                         <div class="tp-sales-feature">
