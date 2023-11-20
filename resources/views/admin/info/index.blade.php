@@ -88,6 +88,7 @@
                             <th>Salonname</th>
                             <th>Telefon</th>
                             <th>Status</th>
+                            <th>Created At</th>
                             <th>Transaktion</th>
                         </tr>
                         </thead>
@@ -106,6 +107,7 @@
                                         <span class="badge badge-success">Arandı</span>
                                     @endif
                                 </td>
+                                <td>{{$info->created_at->format('d.m.Y H:i')}}</td>
                                 <td>
                                     <button type="button" class="btn btn-warning" onclick="statusAction('{{$info->id}}')"><i class="fa fa-check-circle"></i></button>
                                     <button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.businessInfo.destroy', $info->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>
