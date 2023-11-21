@@ -78,6 +78,9 @@ class AppServiceProvider extends ServiceProvider
             $main_pages[$item->name] = $item->value;
         }
         \Config::set('main_pages', $main_pages);
+
+        $pages = Page::whereIn('id', [1,2])->get();
+        View::share('pages', $pages);
         Paginator::useBootstrapFour();
     }
 }

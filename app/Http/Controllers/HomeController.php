@@ -45,6 +45,12 @@ class HomeController extends Controller
         return view('welcome', compact('sponsors','mainPageSections','business_categories', 'comments', 'proparties', 'monthlyPackages', 'yearlyPackages'));
     }
 
+    public function pageDetail($slug)
+    {
+        $page = Page::where('slug', $slug)->firstOrFail();
+        return view('page.detail', compact('page'));
+    }
+
     public function proparties()
     {
         $proparties=Propartie::latest()->get();

@@ -73,8 +73,10 @@
                             <span>{{config('settings.bussiness_site_title')}} 2023-{{now()->year}}. | Deutschland</span>
                         </div>
                         <div class="footer-copyright-links">
-                            <a href="#">Rechliches</a>
-                            <a href="#">Impressum</a>
+                            @foreach($pages as $page)
+                                <a href="{{route('page.detail', $page->slug)}}">{{$page->title}}</a>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
