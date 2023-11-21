@@ -183,7 +183,9 @@
                         console.log("Returned place contains no geometry");
                         return;
                     }
-
+                    const latitude = place.geometry.location.lat();
+                    const longitude = place.geometry.location.lng();
+                    reverseGeocode(latitude, longitude);
                     marker = new google.maps.Marker({
                         map: map,
                         title: place.name,
