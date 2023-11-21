@@ -37,6 +37,10 @@
                 <div class="card-header">
                     <h4 class="card-title">Liste</h4>
                     <div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target=".bd-example-modal-lg-2"><i class="fa-solid fa-ring me-2"></i>Bildirim
+                        </button>
+
                         <a href="{{route('admin.customer.export.excel')}}" class="btn btn-primary"> <i class="fa fa-arrow-alt-circle-down"></i> Excel Download</a>
 
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -154,8 +158,48 @@
             </div>
         </div>
     </div>
+
+
 @endsection
 @section('scripts')
+    <div class="modal fade bd-example-modal-lg-2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bildirim Gönder</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <form method="post" action="{{route('admin.customer.sendNotify')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label>Content</label>
+                            <textarea class="form-control" rows="7" name="description"> </textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Customer</label>
+                            <select class="form-control" multiple name="device_id[]">
+                                <option value="all" selected>Tümü</option>
+                                @foreach($devices as $device)
+                                    <option value="{{$device->id}}">{{$device->customer->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
+                            <button type="submit" class="btn btn-primary">Speichern</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function () {

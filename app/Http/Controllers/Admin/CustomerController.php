@@ -6,6 +6,8 @@ use App\Exports\BusinessCustomerExport;
 use App\Http\Controllers\Controller;
 use App\Models\BusinessCustomer;
 use App\Models\Customer;
+use App\Models\CustomerNotificationMobile;
+use App\Models\Device;
 use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -21,10 +23,33 @@ class CustomerController extends Controller
     public function index()
     {
         $allCustomer=Customer::all();
+        $devices = Device::all();
 
-        return view('admin.customer.index', compact( 'allCustomer'));
+        return view('admin.customer.index', compact( 'allCustomer', 'devices'));
     }
 
+    public function sendNotify(Request $request)
+    {
+        if (in_array('all', $request->device_id)){
+            $devices = Device::all();
+        }
+        else{
+            $devices = Device::whereIn('id', $request->device_id)->get();
+        }
+        foreach ($devices as $device){
+            if ($device->customer->permissions->is_notification == 1){
+                $notification = new CustomerNotificationMobile();
+                $notification->customer_id = $device->customer_id;
+                $notification->title = $request->input('name');
+                $notification->content = $request->input('description');
+                $notification->save();
+            }
+        }
+        return back()->with('response', [
+            'status' => "success",
+            'message' => "Bildirimler Gönderildi",
+        ]);
+    }
     /**
      * Store a newly created resource in storage.
      *

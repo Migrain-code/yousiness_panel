@@ -88,7 +88,6 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
         Route::resource('businessComment', \App\Http\Controllers\BusinessCommentController::class);
         Route::get('customer/export/excel', [\App\Http\Controllers\Business\CustomerController::class, 'export'])->name('customer.export.excel');
         Route::get('appointment/export/excel', [\App\Http\Controllers\Business\AppointmentController::class, 'export'])->name('appointment.export.excel');
-
         Route::controller(\App\Http\Controllers\Business\BusinessController::class)->prefix('profile')->as('profile.')->group(function () {
             Route::get('/', 'show')->name('show');
             Route::post('/update-category', 'updateCategory')->name('updateCategory');
@@ -106,6 +105,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::middleware('cookieAccess')->group(function(){});
     Route::middleware('auth:admin')->group(function () {
         Route::get('/home', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
+        Route::post('customer/notification/send', [\App\Http\Controllers\Admin\CustomerController::class, 'sendNotify'])->name('customer.sendNotify');
         Route::resource('featuredCategorie', \App\Http\Controllers\Admin\FeaturedCategorieController::class);
         Route::resource('recommendedLink', \App\Http\Controllers\RecommendedLinkController::class);
         Route::resource('page', \App\Http\Controllers\Admin\PageController::class);
