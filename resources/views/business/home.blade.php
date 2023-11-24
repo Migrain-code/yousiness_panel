@@ -61,7 +61,7 @@
                                 <div class="chart-num">
                                     <h2 class="font-w600 mb-0">{{auth('business')->user()->customers->count()}}</h2>
                                     <p>
-                                        Gesamt Kunden Anzahl
+                                        Kunden Anzahl
                                     </p>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                                 <div class="chart-num">
                                     <h2 class="font-w600 mb-0">{{auth('business')->user()->personel->count()}}</h2>
                                     <p>
-                                        Gesamt Mitarbetier
+                                        Mitarbetier
                                     </p>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                                 <div class="chart-num">
                                     <h2 class="font-w600 mb-0">{{$earning}} €</h2>
                                     <p>
-                                        Gesamt Gewinn
+                                        Gesamt Termine
                                     </p>
                                 </div>
                             </div>
