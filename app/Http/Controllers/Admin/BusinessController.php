@@ -71,20 +71,21 @@ class BusinessController extends Controller
         }
 
         foreach ($businesses as $business) {
-            if ($business->permissions){
+            $notification = new BusinessNotification();
+            $notification->business_id = $business->id;
+            $notification->title = $request->input('title');
+            $notification->link = Str::slug($request->input('title'));
+            $notification->message = $request->input('description');
+            $notification->save();
+            /*if ($business->permissions){
                 if ($business->permissions->is_notification == 1) {
-                    $notification = new BusinessNotification();
-                    $notification->business_id = $business->id;
-                    $notification->title = $request->input('title');
-                    $notification->link = Str::slug($request->input('title'));
-                    $notification->message = $request->input('description');
-                    $notification->save();
+
 
                     if ($business->device){
-                        /*push notification buraya gelecek*/
+                        //push notification buraya gelecek
                     }
                 }
-            }
+            }*/
         }
         return back()->with('response', [
             'status' => "success",
