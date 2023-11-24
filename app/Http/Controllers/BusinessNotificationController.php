@@ -103,7 +103,7 @@ class BusinessNotificationController extends Controller
         if ($businessNotification->delete()){
             return response()->json([
                'status' => "success",
-               'message' => "Bildirim Silindi"
+               'message' => "Benachrichtigung gelöscht"
             ]);
         }
     }

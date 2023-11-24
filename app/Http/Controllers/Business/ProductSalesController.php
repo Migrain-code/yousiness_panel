@@ -18,10 +18,10 @@ class ProductSalesController extends Controller
     public function index()
     {
         $payment_types = [
-            'Nakit Ödeme',
-            'Banka/Kredi Kartı',
-            'EFT/Havale',
-            'Diğer',
+            'Barzahlung',
+            'Lastschrift/Kreditkarte',
+            'EFT/Geldtransfer',
+            'Andere',
         ];
         $customers = Customer::all();
         return view('business.sales.index', compact('customers', 'payment_types'));
@@ -58,7 +58,7 @@ class ProductSalesController extends Controller
             $productFind->save();
             return to_route('business.productSale.index')->with('response', [
                 'status' => "success",
-                'message' => "Satış Yapma İşlemi Kayıt Edildi"
+                'message' => "Die Verkaufstransaktion wurde aufgezeichnet"
             ]);
         }
     }
@@ -88,10 +88,10 @@ class ProductSalesController extends Controller
     public function edit(ProductSales $productSale)
     {
         $payment_types = [
-            'Nakit Ödeme',
-            'Banka/Kredi Kartı',
-            'EFT/Havale',
-            'Diğer',
+            'Barzahlung',
+            'Lastschrift/Kreditkarte',
+            'EFT/Geldtransfer',
+            'Andere',
         ];
         $customers = Customer::all();
         return view('business.sales.edit', compact('productSale', 'payment_types', 'customers'));
@@ -116,7 +116,7 @@ class ProductSalesController extends Controller
         if ($productSale->save()) {
             return to_route('business.productSale.index')->with('response', [
                 'status' => "success",
-                'message' => "Satış Yapma İşlemi Güncellendi"
+                'message' => "Verkaufsprozess aktualisiert"
             ]);
         }
     }
@@ -132,7 +132,7 @@ class ProductSalesController extends Controller
         if ($productSale->delete()){
             return response()->json([
                 'status'=>"success",
-                'message'=>"Satış İşlemi Silindi"
+                'message'=>"Verkaufstransaktion gelöscht"
             ]);
         }
     }

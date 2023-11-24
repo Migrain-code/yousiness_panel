@@ -19,7 +19,7 @@ class BlogCommentController extends Controller
         if ($comment->save()) {
             return response()->json([
                 'status' => 'success',
-                'message' => $comment->status == 1 ? "Yorum Yayına Alındı" : "Yorum yayından kaldırıldı",
+                'message' => $comment->status == 1 ? "Kommentar veröffentlicht" : "Kommentar aus der Veröffentlichung entfernt",
             ]);
         }
     }
@@ -37,7 +37,7 @@ class BlogCommentController extends Controller
         if ($comment->save()) {
             return to_route('admin.blog.edit', $comment->blog_id)->with('response', [
                 'status' => "success",
-                'message' => "Yorum Güncellendi"
+                'message' => "Kommentar aktualisiert"
             ]);
         }
 
@@ -50,7 +50,7 @@ class BlogCommentController extends Controller
         if ($comment->delete()) {
             return response()->json([
                 'status' => "success",
-                'message' => "Yorum Silindi"
+                'message' => "Kommentar gelöscht"
             ]);
         }
     }

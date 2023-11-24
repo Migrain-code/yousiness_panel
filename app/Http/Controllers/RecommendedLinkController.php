@@ -33,12 +33,12 @@ class RecommendedLinkController extends Controller
         if ($recommendedLink->save()){
             return to_route('admin.recommendedLink.index')->with('response', [
                 'status' => "success",
-                'message' => 'Önerilen Link Eklendi'
+                'message' => 'Empfohlener Link hinzugefügt'
             ]);
         }
         return to_route('admin.recommendedLink.index')->with('response', [
             'status' => "error",
-            'message' => 'Sistemsel Bir Hata Oluştu'
+            'message' => 'Es ist ein Systemfehler aufgetreten'
         ]);
     }
 
@@ -79,12 +79,12 @@ class RecommendedLinkController extends Controller
         if ($recommendedLink->save()){
             return to_route('admin.recommendedLink.index')->with('response', [
                 'status' => "success",
-                'message' => 'Önerilen Link Güncellendi'
+                'message' => 'Empfohlener Link aktualisiert'
             ]);
         }
         return to_route('admin.recommendedLink.index')->with('response', [
             'status' => "error",
-            'message' => 'Sistemsel Bir Hata Oluştu'
+            'message' => 'Es ist ein Systemfehler aufgetreten'
         ]);
     }
 

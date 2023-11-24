@@ -22,7 +22,7 @@ class PackageSaleController extends Controller
     {
         $package_types=[
             'Seans',
-            'Dakika'
+            'Minute'
         ];
         $customers = Customer::all();
 
@@ -58,7 +58,7 @@ class PackageSaleController extends Controller
             }
         }
         else{
-            $message="Kullanım Eklerken pakete tanımlı olan kullanım miktarından daha büyük bir değer giremezsiniz. Paketin Maximum Kullanım Miktarı : ".$findPackage->amount;
+            $message="Beim Hinzufügen der Nutzung können Sie keinen Wert eingeben, der größer ist als die im Paket definierte Nutzungsmenge. Maximale Nutzungsmenge des Pakets: ".$findPackage->amount;
             return response()->json([
                 'status'=>"warning",
                 'message'=>$message
@@ -97,9 +97,9 @@ class PackageSaleController extends Controller
         ], [], [
             'customer_id'=> "Kunde",
             'service_id' => "Dienstleistung",
-            'amount' => "Fiyat",
+            'amount' => "Preis",
             'total' => "Betrag",
-            'personel_id' => "Personel",
+            'personel_id' => "Mitarbeiter",
             'package_type' => "Art",
         ]);
         $translate_date=Carbon::parse($request->seller_date)->format('Y-m-d');
@@ -116,7 +116,7 @@ class PackageSaleController extends Controller
         if ($packageSale->save()) {
             return to_route('business.packageSale.index')->with('response', [
                 'status' => "success",
-                'message' => "Satış Yapma İşlemi Eklendi"
+                'message' => "Verkaufsprozess hinzugefügt"
             ]);
         }
     }

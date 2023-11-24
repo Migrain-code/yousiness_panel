@@ -50,8 +50,8 @@ class BusinessGalleryController extends Controller
         }
         return to_route('business.gallery.index')->with('response', [
             'status'=>"success",
-            'title'=>"Başarılı",
-            'message'=>"Fotoğraf Galeriye Eklendi"
+            'title'=>"Erfolgreich",
+            'message'=>"Foto zur Galerie hinzugefügt"
         ]);
     }
 

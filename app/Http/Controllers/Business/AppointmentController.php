@@ -54,7 +54,7 @@ class AppointmentController extends Controller
         if ($findAppointment->save()) {
             return to_route('business.appointment.index')->with('response', [
                 'status' => "success",
-                'message' => "Randevu İptal Edildi."
+                'message' => "Ihr Termin wurde abgesagt."
             ]);
         }
     }
@@ -63,11 +63,11 @@ class AppointmentController extends Controller
     {
         $findAppointment = Appointment::find($id);
         $findAppointment->status = 1;
-        $findAppointment->customer->sendSms($findAppointment->business->name. ' İşletmesine '. $findAppointment->start_time .' Tarihindeki Radevunuz Onaylandı');
+        $findAppointment->customer->sendSms("Ihr Termin zum ".$findAppointment->business->name." am ". $findAppointment->date." wurde bestätigt.");
         if ($findAppointment->save()) {
             return to_route('business.appointment.index')->with('response', [
                 'status' => "success",
-                'message' => "Randevu Onaylandı."
+                'message' => "Termin bestätigt."
             ]);
         }
     }
@@ -105,7 +105,7 @@ class AppointmentController extends Controller
             $appointment->save();
             return to_route('business.appointment.index')->with('response', [
                 'status' => "success",
-                'message' => "Randvu Oluşturuldu."
+                'message' => "Termin erstellt."
             ]);
         }
 

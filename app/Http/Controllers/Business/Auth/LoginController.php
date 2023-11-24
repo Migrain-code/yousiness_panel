@@ -53,7 +53,7 @@ class LoginController extends Controller
             $this->username() => 'required|string',
             'password' => 'required|string',
         ], [], [
-            'phone' => 'Telefonnummer',
+            'phone' => 'Mobilennummer',
             'password' => 'Passwort'
         ]);
     }

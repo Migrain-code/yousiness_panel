@@ -44,7 +44,7 @@ class MainPageSectionController extends Controller
         if ($mainPageSection->save()) {
             return to_route('admin.mainPageSection.index')->with('response', [
                 'status' => "success",
-                'message' => "Yeni bölüm anasayfaya eklendi",
+                'message' => "Neuer Abschnitt zur Startseite hinzugefügt",
             ]);
         }
     }
@@ -88,7 +88,7 @@ class MainPageSectionController extends Controller
         if ($mainPageSection->save()) {
             return to_route('admin.mainPageSection.index')->with('response', [
                 'status' => "success",
-                'message' => "bölüm güncellendi",
+                'message' => "Abschnitt aktualisiert",
             ]);
         }
     }

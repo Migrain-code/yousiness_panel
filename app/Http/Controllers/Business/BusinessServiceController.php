@@ -70,10 +70,10 @@ class BusinessServiceController extends Controller
             'time' => "required",
             'price' => "required",
         ], [], [
-            'category' => "Hizmet Kategorisi",
-            'sub_category' => "Hizmet Türü",
-            'time' => "Hizmet Süresi",
-            'price' => "Hizmet Fiyatı",
+            'category' => "Servicekategorie",
+            'sub_category' => "Servicetyp",
+            'time' => "Servicedauer",
+            'price' => "Servicepreis",
         ]);
         if ($request->gender == "all"){
             $serviceSubCategory = ServiceSubCategory::find($request->input('sub_category'));
@@ -98,8 +98,8 @@ class BusinessServiceController extends Controller
 
             return to_route('business.businessService.index')->with('response', [
                 'status' => "success",
-                'title' => "Başarılı",
-                'message' => "Hizmet Eklendi. Aşağıdaki Listede Görebilirsiniz"
+                'title' => "Erfolgreich",
+                'message' => "Dienst hinzugefügt. Sie können es in der Liste unten sehen"
             ]);
 
         }
@@ -114,8 +114,8 @@ class BusinessServiceController extends Controller
             if ($businessService->save()) {
                 return to_route('business.businessService.index')->with('response', [
                     'status' => "success",
-                    'title' => "Başarılı",
-                    'message' => "Hizmet Eklendi. Aşağıdaki Listede Görebilirsiniz"
+                    'title' => "Erfolgreich",
+                    'message' => "Dienst hinzugefügt. Sie können es in der Liste unten sehen"
                 ]);
             }
         }
@@ -161,8 +161,8 @@ class BusinessServiceController extends Controller
         if ($businessService->save()) {
             return to_route('business.businessService.index')->with('response', [
                 'status' => "success",
-                'title' => "Başarılı",
-                'message' => "Hizmet Güncellendi. Aşağıdaki Listede Görebilirsiniz"
+                'title' => "Erfolgreich",
+                'message' => "Dienst aktualisiert. Sie können es in der Liste unten sehen"
             ]);
         }
     }
@@ -179,7 +179,7 @@ class BusinessServiceController extends Controller
         if ($businessService->delete()){
             return response()->json([
                 'status' => "success",
-                'message' => "Hizmet Silindi",
+                'message' => "Dienst gelöscht",
             ]);
         }
     }

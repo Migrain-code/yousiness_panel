@@ -100,7 +100,7 @@ class SupportController extends Controller
         if ($support->delete()){
             return response()->json([
                'status' => "success",
-               'message' => "Destek Talebiniz Silindi",
+               'message' => "Ihre Supportanfrage wurde gelöscht",
             ]);
         }
     }

@@ -59,8 +59,8 @@ class PersonelController extends Controller
         if ($personelNotification->save()) {
             return back()->with('response', [
                 'status' => "success",
-                'title' => "Başarılı",
-                'message' => "Bildirim Personele İletildi"
+                'title' => "Erfolgreich",
+                'message' => "Benachrichtigung an Mitarbeiter gesendet"
             ]);
         }
     }
@@ -114,11 +114,11 @@ class PersonelController extends Controller
         ], [], [
             'email' => "E-Mail",
             'phone' => "Mobilnummer",
-            'name' => "İsim",
+            'name' => "Name",
             'password' => "Passwort",
             'off_day' => "Freier Tag",
             'gender' => "Geschlecht",
-            'rate' => "Çalışma Payı",
+            'rate' => "Arbeitsanteil",
             'services' => "Dienstleistung",
         ]);
         $personel = new Personel();
@@ -160,8 +160,8 @@ class PersonelController extends Controller
             }
             return to_route('business.personel.index')->with('response', [
                 'status' => "success",
-                'title' => "Başarılı",
-                'message' => "Personel Eklendi"
+                'title' => "Erfolgreich",
+                'message' => "Personal hinzugefügt"
             ]);
         }
     }
@@ -285,12 +285,12 @@ class PersonelController extends Controller
             Sms::send($customer->phone, $request->input('content'));
             return back()->with('response', [
                 'status' => "success",
-                'message' => "Müşteriye Mesaj Gönderildi"
+                'message' => "Nachricht an den Kunden gesendet"
             ]);
         } else {
             return back()->with('response', [
                 'status' => "danger",
-                'message' => "Müşteri Kaydı Bulunamadı"
+                'message' => "Kundendatensatz nicht gefunden"
             ]);
         }
 
@@ -303,12 +303,12 @@ class PersonelController extends Controller
             /*mail kodu buraya gelecek*/
             return back()->with('response', [
                 'status' => "success",
-                'message' => "Müşteriye Mail. Gönderildi.Fakat Mail servisi eklenmediği gelen kutunuza bir mail gelmeyecek."
+                'message' => "E-Mail an den Kunden. Es wurde gesendet. Da der Mail-Dienst jedoch nicht hinzugefügt wurde, erhalten Sie keine E-Mail in Ihrem Posteingang.."
             ]);
         } else {
             return back()->with('response', [
                 'status' => "danger",
-                'message' => "Müşteri Kaydı Bulunamadı"
+                'message' => "Kundendatensatz nicht gefunden"
             ]);
         }
     }
@@ -364,8 +364,8 @@ class PersonelController extends Controller
             }
             return to_route('business.personel.index')->with('response', [
                 'status' => "success",
-                'title' => "Başarılı",
-                'message' => "Personel Bilgileri Güncellendi"
+                'title' => "Erfolgreich",
+                'message' => "Personalinformationen aktualisiert"
             ]);
         }
     }

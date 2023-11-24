@@ -18,7 +18,7 @@ class PaymentController extends Controller
 {
     public function paymentForm($slug)
     {
-        Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
+        /*Stripe::setApiKey('sk_test_51NvSDhIHb2EidFuBWjFrNdghtNgToZOLbvopsjlNHfeiyNqw3hcZVNJo96iLJJXFhnJizZ5UXxVn8gLA7Kj268bI00vqpbTIOx');
 
         $amount = 1000; // Ödeme miktarını ayarlayın (örnekte 10.00 dolar)
         $currency = 'EUR';
@@ -52,7 +52,7 @@ class PaymentController extends Controller
 
         $package = BussinessPackage::where('slug', $slug)->first();
 
-        return view('business.setup.payment.form', compact('package', 'paymentIntent'));
+        return view('business.setup.payment.form', compact('package', 'paymentIntent'));*/
     }
 
 

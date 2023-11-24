@@ -47,7 +47,7 @@ class ProductController extends Controller
         if ($product->save()){
             return to_route('business.product.index')->with('response', [
                 'status'=>"success",
-                'message'=>"Ürün Başarılı Bir Şekilde Eklendi"
+                'message'=>"Produkt erfolgreich hinzugefügt"
             ]);
         }
     }
@@ -78,7 +78,7 @@ class ProductController extends Controller
         if ($product->save()){
             return to_route('business.product.store')->with('response', [
                 'status'=>"success",
-                'message'=>"Ürün Başarılı Bir Şekilde Güncellendi"
+                'message'=>"Produkt erfolgreich aktualisiert"
             ]);
         }
     }

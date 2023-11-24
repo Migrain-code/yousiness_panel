@@ -32,7 +32,7 @@ class SetupController extends Controller
         $request->validate([
             'category'=>"required",
         ], [], [
-            'category'=>"İşletme Kategorisi/Kategorileri"
+            'category'=>"Geschäftskategorie"
         ]);
         if (auth('business')->user()->categories->count() > 0){
             foreach ( auth('business')->user()->categories as $category) {
@@ -67,13 +67,13 @@ class SetupController extends Controller
             'start_time'=>'required',
             'end_time'=>'required',
         ],[],[
-            'name'=>'İşletme Adınız',
-            'business_type'=>'İşletme Tipi',
-            'phone'=>'İşletme Telefonu',
-            'city'=>'Şehir',
-            'offDay'=>'Kapalı olduğu gün',
-            'start_time'=>'Açılış Saati',
-            'end_time'=>'Kapanış Saati',
+            'name'=>'Ihr Firmenname',
+            'business_type'=>'Unternehmensart',
+            'phone'=>'Geschäftstelefon',
+            'city'=>'Stadt',
+            'offDay'=>'Ruhetag',
+            'start_time'=>'Öffnungszeit',
+            'end_time'=>'Geschäftsschluss',
         ]);
         $business=auth('business')->user();
 
@@ -104,9 +104,9 @@ class SetupController extends Controller
             'address' => "required",
             'embed' => "required"
         ],[],[
-            'address' => "İşletme Adresi",
-            'embed' => "İşletme Harita Kodu",
-            'latitude' => "Konum seçme"
+            'address' => "Geschäftsadresse",
+            'embed' => "Geschäftskartencode",
+            'latitude' => "Wählen Sie einen Standort"
         ]);
         $business=auth('business')->user();
         $business->address=$request->input('address');
@@ -128,7 +128,7 @@ class SetupController extends Controller
         $request->validate([
             'package_id'=>'required',
         ],[],[
-            'package_id'=>'Paket Seçim İşlemi',
+            'package_id'=>'Paketauswahlprozess',
         ]);
         $package =BussinessPackage::find($request->input('package_id'));
         session()->put('packet_id', $package->id);

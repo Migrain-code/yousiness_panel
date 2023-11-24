@@ -19,7 +19,7 @@ class StripeContoller extends Controller
         $request->validate([
             'package_id' => "required",
         ], [], [
-            'package_id' => "Paket Seçimi"
+            'package_id' => "Paketauswahl"
         ]);
 
         $businessPackage = BussinessPackage::find($request->input('package_id'));

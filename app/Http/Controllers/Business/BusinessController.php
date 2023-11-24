@@ -76,7 +76,7 @@ class BusinessController extends Controller
             return to_route('panel.business.index')->with('response', [
                 'status'=>"success",
                 'title'=>"Başarılı",
-                'message'=>"İşletme Başarılı Bir Şekilde Eklendi"
+                'message'=>"Geschäft erfolgreich hinzugefügt"
             ]);
         }
     }
@@ -96,8 +96,8 @@ class BusinessController extends Controller
             $partititon->save();
             return to_route('panel.business.edit', $request->input('business_id'))->with('response', [
                 'status'=>"success",
-                'title'=>"Başarılı",
-                'message'=>"Hizmet Başarılı Bir Şekilde Eklendi"
+                'title'=>"Erfolgreich",
+                'message'=>"Dienst erfolgreich hinzugefügt"
             ]);
         }
     }
@@ -167,8 +167,8 @@ class BusinessController extends Controller
          if ($business->save()){
              return to_route('business.profile.show')->with('response', [
                  'status'=>"success",
-                 'title'=>"Başarılı",
-                 'message'=>"Bilgileriniz Başarılı Bir Şekilde Güncellendi"
+                 'title'=>"Erfolgreich",
+                 'message'=>"Ihre Informationen wurden erfolgreich aktualisiert"
              ]);
          }
     }
@@ -185,8 +185,8 @@ class BusinessController extends Controller
         if ($business->save()){
             return to_route('business.profile.show')->with('response', [
                 'status'=>"success",
-                'title'=>"Başarılı",
-                'message'=>"Bilgileriniz Başarılı Bir Şekilde Güncellendi"
+                'title'=>"Erfolgreich",
+                'message'=>"Ihre Informationen wurden erfolgreich aktualisiert"
             ]);
         }
     }
@@ -210,7 +210,7 @@ class BusinessController extends Controller
         $request->validate([
             'category'=>"required",
         ], [], [
-            'category'=>"İşletme Kategorisi/Kategorileri"
+            'category'=>"Geschäftskategorien"
         ]);
         if (auth('business')->user()->categories->count() > 0){
             foreach ( auth('business')->user()->categories as $category) {
@@ -225,7 +225,7 @@ class BusinessController extends Controller
         }
         return back()->with('response', [
            'status' => "success",
-           'message' => "İşletme Kategorileri Düzenlendi"
+           'message' => "Unternehmenskategorien bearbeitet"
         ]);
     }
     /**

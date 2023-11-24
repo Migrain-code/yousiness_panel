@@ -92,7 +92,7 @@ class BusinessNoteController extends Controller
         if ($businessNote->delete()){
             return response()->json([
                'status'=>'success',
-               'message'=>"Silindi"
+               'message'=>"Gelöscht"
             ]);
         }
     }

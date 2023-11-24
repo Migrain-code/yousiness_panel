@@ -68,11 +68,11 @@ class CustomerController extends Controller
            'password'=>"required|string|min:8",
            'gender'=>"required|string"
         ], [], [
-            'name'=> "Müşteri Adı",
-            'email'=> "Telefon Numarası",
-            'custom_email'=> "E-posta Adresi",
-            'password'=> "Şifre",
-            'gender'=> "Cinsiyet",
+            'name'=> "Name",
+            'email'=> "Mobilnummer",
+            'custom_email'=> "E-Mail-Adresse",
+            'password'=> "Passwort",
+            'gender'=> "Geschlecht",
 
         ]);
         $customer=new Customer();
@@ -90,7 +90,7 @@ class CustomerController extends Controller
             $businessCustomer->save();
             return to_route('business.customer.index')->with('response', [
                 'status'=>"success",
-                'message'=>"Müşteri Eklendi. Artık bu müşteriler için işlem yapabilirsiniz."
+                'message'=>"Kunde hinzugefügt. Für diese Kunden können Sie jetzt aktiv werden."
             ]);
         }
 
@@ -154,7 +154,7 @@ class CustomerController extends Controller
             if ($customer->save()){
                 return to_route('business.customer.index')->with('response', [
                     'status'=>"success",
-                    'message'=>"Müşteri Bilgileri Güncellendi"
+                    'message'=>"Kundeninformationen aktualisiert"
                 ]);
             }
         }
@@ -163,7 +163,7 @@ class CustomerController extends Controller
             if ($findCustomer){
                 return to_route('business.customer.edit', $customer->id)->with('response', [
                     'status'=>"danger",
-                    'message'=>"Bu telefon numarası ile kayıtlı kullanıcı bulunmakta lütfen başka bir telefon numarası deneyin."
+                    'message'=>"Es sind Benutzer mit dieser Telefonnummer registriert. Bitte versuchen Sie es mit einer anderen Telefonnummer."
                 ]);
             }
             else{
@@ -180,7 +180,7 @@ class CustomerController extends Controller
                 if ($customer->save()){
                     return to_route('business.customer.index')->with('response', [
                         'status'=>"success",
-                        'message'=>"Müşteri Bilgileri Güncellendi"
+                        'message'=>"Kundeninformationen aktualisiert"
                     ]);
                 }
             }
@@ -200,7 +200,7 @@ class CustomerController extends Controller
         if ($customer->delete()){
             return \response()->json([
                'status' => "success",
-               'messsage' => "Müşteri Silindi"
+               'messsage' => "Kunde gelöscht"
             ]);
         }
     }

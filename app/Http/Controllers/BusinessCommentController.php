@@ -75,7 +75,7 @@ class BusinessCommentController extends Controller
 
         return to_route('business.businessComment.index')->with('response', [
            'status' => "success",
-           'message' => "Yorum Güncellendi"
+           'message' => "Kommentar aktualisiert"
         ]);
 
     }

@@ -45,8 +45,8 @@ class BusinessCategoryController extends Controller
             'mobile_image' => "required",
         ], [], [
             'name' => "Kategoriename",
-            'image' => "Kategori Görseli",
-            'mobile_image' => "Kategori mobil görseli"
+            'image' => "Kategoriebild",
+            'mobile_image' => "Kategorie mobiles Bild"
         ]);
         $businessCategory = new BusinessCategory();
         $businessCategory->name = $request->input('name');
@@ -56,7 +56,7 @@ class BusinessCategoryController extends Controller
         if ($businessCategory->save()){
             return to_route('admin.businessCategory.index')->with('response', [
                 'status' => "success",
-                'message' => "Kategori Eklendi",
+                'message' => "Kategorie hinzugefügt",
             ]);
         }
     }
@@ -103,7 +103,7 @@ class BusinessCategoryController extends Controller
         if ($businessCategory->save()){
             return to_route('admin.businessCategory.index')->with('response', [
                 'status' => "success",
-                'message' => "Kategori Eklendi",
+                'message' => "Kategorie hinzugefügt",
             ]);
         }
     }
@@ -120,7 +120,7 @@ class BusinessCategoryController extends Controller
         if ($businessCategory->delete()){
             return \response()->json([
                'status' => "success",
-               'message'=> "Kategori silindi"
+               'message'=> "Kategorie gelöscht"
             ]);
         }
     }

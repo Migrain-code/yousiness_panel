@@ -33,17 +33,17 @@ class VerifyController extends Controller
             $user->save();
 
             $phone=str_replace(array('(', ')', '-', ' '), '', $user->email);
-            Sms::send($phone,config('settings.bussiness_site_title'). "Sistemine giriş için şifreniz ".$generatePassword);
+            Sms::send($phone, "Ihr Passwort für die Anmeldung bei ".config('settings.appy_site_title')." lautet :". $generatePassword);
 
             return to_route('business.login')->with('response', [
                 'status'=>"success",
-                'message'=>"Telefon Numaranız doğrulandı. Sisteme giriş için şifreniz gönderildi."
+                'message'=>"Ihre Mobilnummer Überprüfung war erfolgreich.Für die Anmeldung in das System wurde Ihnen Ihr Passwort zugesendet."
             ]);
         }
         else{
             return to_route('business.verify')->with('response', [
                 'status'=>"danger",
-                'message'=>"Doğrulama Kodu Hatalı."
+                'message'=>"Verifizierungscode ist fehlerhaft."
             ]);
         }
 
@@ -59,13 +59,13 @@ class VerifyController extends Controller
         $request->validate([
             'email'=>"required",
         ], [], [
-            'email'=>"Telefon Numarası"
+            'email'=>"MobileNummer"
         ]);
         $business=Business::whereEmail($request->email)->first();
         if (!$business){
             return to_route('business.showForgotView')->with('response', [
                'status'=>"error",
-               'message'=>"Bu telefon numarası sistemde kayıtlı değil",
+               'message'=>"Mobilnummer nicht im System registriert."
             ]);
         }
         else{
@@ -79,7 +79,7 @@ class VerifyController extends Controller
             $business->save();
             return to_route('business.login')->with('response', [
                 'status'=>"success",
-                'message'=>"Yeni şifreniz sms olarak gönderildi. Gelen şifreyi girerek sistemi kullanmaya devam edebilirsiniz",
+                'message'=>"Ihr neues Passwort wurde als SMS versendet.",
             ]);
 
         }

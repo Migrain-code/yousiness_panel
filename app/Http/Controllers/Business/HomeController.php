@@ -49,7 +49,7 @@ class HomeController extends Controller
         if ($business->save()){
             return to_route('business.home')->with('response', [
                 'status'=>"success",
-                'message'=>"Şifreniz Güncellendi"
+                'message'=>"Dein Passwort wurde aktualisiert"
             ]);
         }
     }

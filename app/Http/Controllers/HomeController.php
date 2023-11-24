@@ -74,7 +74,7 @@ class HomeController extends Controller
             'business_name'=>"required|min:3",
             'phone'=>"required|min:11"
         ], [], [
-            'fullname'=>"İşletme Sahibi",
+            'fullname'=>"Geschäftsinhaber",
             'business_name'=>"Salonname",
             'phone'=>"Mobilnummer"
         ]);
@@ -85,7 +85,7 @@ class HomeController extends Controller
         if ($businessInfo->save()){
             return back()->with('response', [
                 'status'=>"success",
-                'message'=>"Talebiniz Gönderildi Size en kısa zamanda arayacağız"
+                'message'=>"Ihre Anfrage wurde gesendet. Wir rufen Sie schnellstmöglich zurück."
             ]);
         }
     }
@@ -161,7 +161,7 @@ class HomeController extends Controller
         if ($businessContact->save()){
             return back()->with('response', [
                 'status'=>"success",
-                'message'=>"İletişim mesajınız başarılı bir şekilde tarafımıza iletildi. En kısa sürede dönüş yapacağız."
+                'message'=>"Ihre Kontaktnachricht wurde erfolgreich an uns übermittelt. Wir werden so schnell wie möglich zurückkommen."
             ]);
         }
     }
