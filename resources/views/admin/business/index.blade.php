@@ -45,7 +45,9 @@
                 </h4>
                 <div>
                     <a class="btn btn-success" href="{{route('admin.business.export')}}"><i class="fa fa-plus-search"></i> Excel Download</a>
-
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target=".bd-example-modal-lg-2"><i class="fa-solid fa-ring me-2"></i>Bildirim
+                    </button>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus-search"></i> Filtern</button>
 
                 </div>
@@ -60,7 +62,6 @@
                             </div>
                             <form method="get" action="{{route('admin.business.index')}}">
                                 <div class="modal-body">
-
                                     <div class="mb-3">
                                         <label>Salonname</label>
                                         <input type="text" class="form-control input-default " name="name" placeholder="Beisp. (Wimpern)">
@@ -176,6 +177,44 @@
     </div>
 @endsection
 @section('scripts')
+    <div class="modal fade bd-example-modal-lg-2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bildirim Gönder</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <form method="post" action="{{route('admin.business.sendNotify')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label>Content</label>
+                            <textarea class="form-control" rows="7" name="description"> </textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Customer</label>
+                            <select class="form-control" multiple name="businesses[]">
+                                <option value="all" selected>Tümü</option>
+                                @foreach($businesses as $business)
+                                    <option value="{{$business->id}}">{{$business->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Schließen</button>
+                            <button type="submit" class="btn btn-primary">Speichern</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="/admin/assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="/admin/assets/js/plugins-init/datatables.init.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

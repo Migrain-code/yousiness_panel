@@ -8,6 +8,7 @@ use App\Models\BusinessCustomer;
 use App\Models\Customer;
 use App\Models\CustomerNotificationMobile;
 use App\Models\Device;
+use Google\Service\Monitoring\Custom;
 use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -22,27 +23,29 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $allCustomer=Customer::all();
-        $devices = Device::all();
-
-        return view('admin.customer.index', compact( 'allCustomer', 'devices'));
+        $allCustomer = Customer::all();
+        return view('admin.customer.index', compact('allCustomer'));
     }
 
     public function sendNotify(Request $request)
     {
-        if (in_array('all', $request->device_id)){
-            $devices = Device::all();
+        if (in_array('all', $request->customers)) {
+            $customers = Customer::whereNotNull('email')->get();
+        } else {
+            $customers = Customer::whereNotNull('email')->whereIn('id', $request->customers)->get();
         }
-        else{
-            $devices = Device::whereIn('id', $request->device_id)->get();
-        }
-        foreach ($devices as $device){
-            if ($device->customer->permissions->is_notification == 1){
+
+        foreach ($customers as $customer) {
+            if ($customer->permissions->is_notification == 1) {
                 $notification = new CustomerNotificationMobile();
-                $notification->customer_id = $device->customer_id;
-                $notification->title = $request->input('name');
+                $notification->customer_id = $customer->id;
+                $notification->title = $request->input('title');
                 $notification->content = $request->input('description');
                 $notification->save();
+
+                if ($customer->device){
+                    /*push notification buraya gelecek*/
+                }
             }
         }
         return back()->with('response', [
@@ -50,6 +53,7 @@ class CustomerController extends Controller
             'message' => "Bildirimler Gönderildi",
         ]);
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -59,36 +63,37 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>"required|string|min:3",
-            'email'=>"required|string|min:11|unique:customers",
-            'custom_email'=>"required|string|min:8",
-            'password'=>"required|string|min:8",
-            'gender'=>"required|string"
+            'name' => "required|string|min:3",
+            'email' => "required|string|min:11|unique:customers",
+            'custom_email' => "required|string|min:8",
+            'password' => "required|string|min:8",
+            'gender' => "required|string"
         ], [], [
-            'name'=> "Müşteri Adı",
-            'email'=> "Telefon Numarası",
-            'custom_email'=> "E-posta Adresi",
-            'password'=> "Şifre",
-            'gender'=> "Cinsiyet",
+            'name' => "Müşteri Adı",
+            'email' => "Telefon Numarası",
+            'custom_email' => "E-posta Adresi",
+            'password' => "Şifre",
+            'gender' => "Cinsiyet",
 
         ]);
-        $customer=new Customer();
-        $customer->name=$request->input('name');
-        $customer->email=$request->input('email');
-        $customer->phone=$request->input('email');
-        $customer->custom_email=$request->input('custom_email');
-        $customer->password= Hash::make($request->input('password'));
-        $customer->gender=$request->input('gender');
-        $customer->status=1;
-        if ($customer->save()){
+        $customer = new Customer();
+        $customer->name = $request->input('name');
+        $customer->email = $request->input('email');
+        $customer->phone = $request->input('email');
+        $customer->custom_email = $request->input('custom_email');
+        $customer->password = Hash::make($request->input('password'));
+        $customer->gender = $request->input('gender');
+        $customer->status = 1;
+        if ($customer->save()) {
             return to_route('admin.customer.index')->with('response', [
-                'status'=>"success",
-                'message'=>"Müşteri Eklendi. Artık bu müşteriler için işlem yapabilirsiniz."
+                'status' => "success",
+                'message' => "Müşteri Eklendi. Artık bu müşteriler için işlem yapabilirsiniz."
             ]);
         }
 
 
     }
+
     public function export()
     {
         $bCustomers = Customer::all();
@@ -96,11 +101,12 @@ class CustomerController extends Controller
         return Excel::download(new BusinessCustomerExport($bCustomers), 'kundenliste.xlsx');
 
     }
+
     public function delete($id)
     {
-        if (BusinessCustomer::find($id)->delete()){
+        if (BusinessCustomer::find($id)->delete()) {
             return response()->json([
-                'status'=>"success"
+                'status' => "success"
             ]);
         }
     }
@@ -126,56 +132,52 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
         $request->validate([
-            'name'=>"required|string|min:3",
-            'custom_email'=>"required|string|min:8",
-            'gender'=>"required|string"
+            'name' => "required|string|min:3",
+            'custom_email' => "required|string|min:8",
+            'gender' => "required|string"
         ], [], [
-            'name'=> "Müşteri Adı",
-            'custom_email'=> "E-posta Adresi",
-            'gender'=> "Cinsiyet",
+            'name' => "Müşteri Adı",
+            'custom_email' => "E-posta Adresi",
+            'gender' => "Cinsiyet",
 
         ]);
-        if ($request->email == $customer->email){
-            $customer->name=$request->input('name');
-            $customer->email=$request->input('email');
-            $customer->phone=$request->input('email');
-            $customer->custom_email=$request->input('custom_email');
-            if ($request->has('password'))
-            {
-                $customer->password= Hash::make($request->input('password'));
+        if ($request->email == $customer->email) {
+            $customer->name = $request->input('name');
+            $customer->email = $request->input('email');
+            $customer->phone = $request->input('email');
+            $customer->custom_email = $request->input('custom_email');
+            if ($request->has('password')) {
+                $customer->password = Hash::make($request->input('password'));
             }
-            $customer->gender=$request->input('gender');
-            $customer->status=1;
-            if ($customer->save()){
+            $customer->gender = $request->input('gender');
+            $customer->status = 1;
+            if ($customer->save()) {
                 return to_route('admin.customer.index')->with('response', [
-                    'status'=>"success",
-                    'message'=>"Müşteri Bilgileri Güncellendi"
+                    'status' => "success",
+                    'message' => "Müşteri Bilgileri Güncellendi"
                 ]);
             }
-        }
-        else{
+        } else {
             $findCustomer = Customer::where('email', $request->email)->first();
-            if ($findCustomer){
+            if ($findCustomer) {
                 return to_route('admin.customer.edit', $customer->id)->with('response', [
-                    'status'=>"danger",
-                    'message'=>"Bu telefon numarası ile kayıtlı kullanıcı bulunmakta lütfen başka bir telefon numarası deneyin."
+                    'status' => "danger",
+                    'message' => "Bu telefon numarası ile kayıtlı kullanıcı bulunmakta lütfen başka bir telefon numarası deneyin."
                 ]);
-            }
-            else{
-                $customer->name=$request->input('name');
-                $customer->email=$request->input('email');
-                $customer->phone=$request->input('email');
-                $customer->custom_email=$request->input('custom_email');
-                if ($request->has('password'))
-                {
-                    $customer->password= Hash::make($request->input('password'));
+            } else {
+                $customer->name = $request->input('name');
+                $customer->email = $request->input('email');
+                $customer->phone = $request->input('email');
+                $customer->custom_email = $request->input('custom_email');
+                if ($request->has('password')) {
+                    $customer->password = Hash::make($request->input('password'));
                 }
-                $customer->gender=$request->input('gender');
-                $customer->status=1;
-                if ($customer->save()){
+                $customer->gender = $request->input('gender');
+                $customer->status = 1;
+                if ($customer->save()) {
                     return to_route('admin.customer.index')->with('response', [
-                        'status'=>"success",
-                        'message'=>"Müşteri Bilgileri Güncellendi"
+                        'status' => "success",
+                        'message' => "Müşteri Bilgileri Güncellendi"
                     ]);
                 }
             }
@@ -191,7 +193,7 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         BusinessCustomer::where('customer_id', $customer->id)->delete();
-        if ($customer->delete()){
+        if ($customer->delete()) {
             return response()->json([
                 'status' => "success",
                 'message' => "Müşteri Kaydı Silindi"

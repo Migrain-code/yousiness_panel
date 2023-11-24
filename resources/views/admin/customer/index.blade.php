@@ -175,7 +175,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Title</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="title">
                         </div>
                         <div class="form-group">
                             <label>Content</label>
@@ -183,10 +183,10 @@
                         </div>
                         <div class="form-group">
                             <label>Customer</label>
-                            <select class="form-control" multiple name="device_id[]">
+                            <select class="form-control" multiple name="customers[]">
                                 <option value="all" selected>Tümü</option>
-                                @foreach($devices as $device)
-                                    <option value="{{$device->id}}">{{$device->customer->name}}</option>
+                                @foreach($allCustomer as $customer)
+                                    <option value="{{$customer->id}}">{{$customer->name}}</option>
                                 @endforeach
                             </select>
                         </div>

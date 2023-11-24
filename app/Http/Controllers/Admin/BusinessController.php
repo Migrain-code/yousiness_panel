@@ -6,15 +6,18 @@ use App\Exports\AdminBusinessesExport;
 use App\Http\Controllers\Controller;
 use App\Models\Business;
 use App\Models\BusinessCategory;
+use App\Models\BusinessNotification;
 use App\Models\BusinessService;
 use App\Models\BusinessWorkTime;
 use App\Models\BusinnessType;
 use App\Models\BussinessServicePartition;
+use App\Models\Device;
 use App\Models\ServiceCategory;
 use App\Models\ServicePackage;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 
 class BusinessController extends Controller
@@ -26,9 +29,6 @@ class BusinessController extends Controller
      */
     public function index(Request $request)
     {
-        /*$q->whereHas('allLicences', function ($licence) use ($request) {
-                    $licence->where('branch_id', $request->input('amp;branch_id'));
-                });*/
         $businesses = Business::query()
             ->orderBy('name','ASC')
             ->when($request->filled('name'), function ($q) use ($request) {
@@ -58,9 +58,39 @@ class BusinessController extends Controller
 
 
         $categories = BusinessCategory::all();
+
         return view('admin.business.index', compact('businesses', 'categories'));
     }
 
+    public function sendNotify(Request $request)
+    {
+        if (in_array('all', $request->businesses)) {
+            $businesses = Business::all();
+        } else {
+            $businesses = Business::whereIn('id', $request->businesses)->get();
+        }
+
+        foreach ($businesses as $business) {
+            if ($business->permissions){
+                if ($business->permissions->is_notification == 1) {
+                    $notification = new BusinessNotification();
+                    $notification->business_id = $business->id;
+                    $notification->title = $request->input('title');
+                    $notification->link = Str::slug($request->input('title'));
+                    $notification->message = $request->input('description');
+                    $notification->save();
+
+                    if ($business->device){
+                        /*push notification buraya gelecek*/
+                    }
+                }
+            }
+        }
+        return back()->with('response', [
+            'status' => "success",
+            'message' => "Bildirimler Gönderildi",
+        ]);
+    }
     public function export()
     {
         $businesses = Business::all();

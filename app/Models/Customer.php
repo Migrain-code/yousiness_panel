@@ -47,4 +47,9 @@ class Customer extends Authenticatable
     {
         return $this->hasOne(CustomerNotificationPermission::class ,'customer_id', 'id');
     }
+
+    public function device()
+    {
+        return $this->hasOne(Device::class, 'customer_id', 'id')->where('user_type', 0);
+    }
 }
