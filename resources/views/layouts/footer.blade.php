@@ -70,11 +70,18 @@
                 <div class="row justify-between">
                     <div class="col-lg-12 d-flex justify-content-between">
                         <div class="tp-copyright__text tp-copyright__text-3 text-center">
-                            <span>{{config('settings.bussiness_site_title')}} 2023-{{now()->year}}. | Deutschland</span>
+                            <span>{{config('settings.bussiness_site_title')}} 2023-{{now()->year}}.Yousiness | Deutschland</span>
                         </div>
                         <div class="footer-copyright-links">
                             @foreach($pages as $page)
-                                <a href="{{route('page.detail', $page->slug)}}">{{$page->title}}</a>
+                                <a href="{{route('page.detail', $page->slug)}}">
+                                    @if($page->id == 7)
+                                        {{substr($page->title, 0, 3)}}
+                                    @else
+                                        {{$page->title}}
+                                    @endif
+
+                                </a>
                             @endforeach
 
                         </div>
