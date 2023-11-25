@@ -121,7 +121,10 @@
                                 <td>
                                     <a class="btn btn-primary" style="margin-right: 0px;" href="{{route('admin.page.edit', $page->id)}}"><i class="fa fa-edit"></i></a>
                                     <button type="button" class="btn btn-warning" onclick="statusAction('{{$page->id}}')"><i class="fa fa-check-circle"></i></button>
+                                    {{--
                                     <button type="button" class="btn btn-danger" onclick="deleteAction('{{route('admin.page.destroy', $page->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></button>
+
+                                    --}}
                                 </td>
                             </tr>
                         @empty

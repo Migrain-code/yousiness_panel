@@ -79,7 +79,7 @@ class AppServiceProvider extends ServiceProvider
         }
         \Config::set('main_pages', $main_pages);
 
-        $pages = Page::whereIn('id', [1,2])->get();
+        $pages = Page::whereIn('id', [1,2, 7])->get();
         View::share('pages', $pages);
         Paginator::useBootstrapFour();
     }
