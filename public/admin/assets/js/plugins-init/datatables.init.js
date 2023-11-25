@@ -42,18 +42,14 @@ let dataSet = [];
         createdRow: function ( row, data, index ) {
             $(row).addClass('selected')
         },
-		columnDefs: [
-			{ orderable: false, targets: 0 }
-		],
+		"ordering": false,
         "scrollY":        "42vh",
         "scrollCollapse": true,
         "paging":         false
     });
 	var table3 = $('#example3').DataTable( {
 		"paging": true,
-		columnDefs: [
-			{ orderable: false, targets: 0 }
-		],
+		"ordering": false,
 		language: {
 			paginate: {
 				next: '<i class="fa-solid fa-angle-right"></i>',
@@ -66,6 +62,7 @@ let dataSet = [];
     table2.on('click', 'tbody tr', function() {
         var $row = table2.row(this).nodes().to$();
         var hasClass = $row.hasClass('selected');
+
         if (hasClass) {
             $row.removeClass('selected')
         } else {
