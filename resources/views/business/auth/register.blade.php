@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keys')">
-    <title>@yield('title', config('settings.appy_site_title') .' | '. 'İşletme Kayıt')</title>
+    <title>@yield('title', config('settings.appy_site_title') .' | '. 'Geschäftsanmeldung')</title>
     <style>
         .btn-mobile-menu-free{
             background: #4CAF50 !important;
@@ -281,7 +281,7 @@
                             </form>
 
                             <div class="col-12 pt-10 pb-10 text-center">
-                                Zaten Hesabın var mı?<a class="ml-5 text-primary" href="{{route('business.login')}}">Einloggen</a>
+                            Haben Sie bereits ein Konto?<a class="ml-5 text-primary" href="{{route('business.login')}}">Einloggen</a>
                             </div>
                         </div>
                     </div>
