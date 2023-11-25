@@ -51,6 +51,9 @@ let dataSet = [];
     });
 	var table3 = $('#example3').DataTable( {
 		"paging": true,
+		columnDefs: [
+			{ orderable: false, targets: 0 }
+		],
 		language: {
 			paginate: {
 				next: '<i class="fa-solid fa-angle-right"></i>',
