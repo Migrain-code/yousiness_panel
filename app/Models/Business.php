@@ -124,6 +124,10 @@ class Business extends Authenticatable
         return $this->hasMany(BusinessNotification::class, 'business_id', 'id')->latest();
     }
 
+    public function campaigns()
+    {
+        return $this->hasMany(Campaign::class, 'business_id', 'id')->latest();
+    }
     public function permissions()
     {
         return $this->hasOne(BusinessNotificationPermission::class, 'business_id', 'id')->latest();

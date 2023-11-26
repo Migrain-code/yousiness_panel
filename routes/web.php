@@ -53,6 +53,7 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
         Route::get('/home', [\App\Http\Controllers\Business\HomeController::class, 'index'])->name('home');
         Route::post('/update-password', [\App\Http\Controllers\Business\HomeController::class,'resetPassword'])->name('resetPassword');
         Route::resource('gallery', \App\Http\Controllers\Business\BusinessGalleryController::class)->names('gallery');
+        Route::resource('campaign', \App\Http\Controllers\CampaignController::class)->names('campaign');
         Route::resource('productSale', \App\Http\Controllers\Business\ProductSalesController::class);
         Route::post('product-price', [\App\Http\Controllers\Business\ProductSalesController::class, 'productPrice'])->name('product.price');
         Route::resource('packageSale', \App\Http\Controllers\Business\PackageSaleController::class);

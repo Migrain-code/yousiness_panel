@@ -35,9 +35,13 @@
                     <li>
                         <a href="{{route('business.gallery.index')}}">Galerie</a>
                     </li>
-
                 </ul>
-
+            </li>
+            <li>
+                <a class="has-arrow " href="{{route('business.campaign.index')}}">
+                    <i class="material-icons-outlined">campaign</i>
+                    <span class="nav-text">Kampagnen</span>
+                </a>
             </li>
             <li>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
