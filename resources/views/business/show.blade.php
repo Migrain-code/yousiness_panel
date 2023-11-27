@@ -260,7 +260,7 @@
                                     <a href="#about-me" data-bs-toggle="tab" class="nav-link">Arbeitszeiten</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#category_tab" data-bs-toggle="tab" class="nav-link">Unternehmensart</a>
+                                    <a href="#category_tab" data-bs-toggle="tab" class="nav-link">SALONARTEN</a>
                                 </li>
 
                             </ul>
@@ -271,17 +271,17 @@
                                         <div class="my-post-content pt-3">
                                             <div class="row">
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">Yetkili Ad Soyad</label>
+                                                    <label class="form-label">Name Nachname</label>
                                                     <input type="text" value="{{$business->owner}}" placeholder=""
                                                            name="owner" class="form-control">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label">E-Mail</label>
                                                     <input type="email" value="{{$business->owner_email}}"
-                                                           placeholder="Email" name="owner_email" class="form-control">
+                                                           placeholder="E-mail" name="owner_email" class="form-control">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">Mobilnummer <span class="text-warning">(Girişte Kullanılan Telefon)</span>
+                                                    <label class="form-label">Mobilnummer <span class="text-warning">(bei der Registrierung vewendete Mobilnummer)</span>
                                                     </label>
                                                     <input type="text" id="phone_1" value="{{$business->email}}"
                                                            placeholder="Mobilnummer" name="email" class="form-control">
@@ -293,8 +293,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <button type="submit" class="btn btn-primary">Yetkili Ayarlarını
-                                                    Güncelle
+                                                <button type="submit" class="btn btn-primary">Aktualisieren
                                                 </button>
                                             </div>
                                         </div>
@@ -303,7 +302,7 @@
                                 <div id="about-me" class="tab-pane fade">
                                     <div class="row border-bottom border-primary">
                                         <div class="col-12 my-2">
-                                            <span style="font-size: 25px; font-weight: bold">Salon Çalışma Saatleri</span>
+                                            <span style="font-size: 25px; font-weight: bold">ÖFFNUNGSZEITEN</span>
                                             <a type="button" class="mx-2 text-primary" style="max-width: 12px"
                                                data-bs-container="body" data-bs-toggle="popover"
                                                data-bs-placement="bottom"
@@ -319,7 +318,7 @@
                                               method="post">
                                             @csrf
                                             <div class="form-group my-2">
-                                                <label for="day">Kapalı Olduğu Gün:</label>
+                                                <label for="day">Ruhetag:</label>
                                                 <select id="day" name="day" class="form-control">
                                                     @foreach($dayList as $list)
                                                         <option value="{{$list->id}}" @selected($business->off_day == $list->id)>{{$list->name}}</option>
@@ -327,16 +326,16 @@
                                                 </select>
                                             </div>
                                             <div class="form-group my-2">
-                                                <label for="opening-time">Açılış saati:</label>
+                                                <label for="opening-time">Öffnungszeit:</label>
                                                 <input type="time" id="opening-time" class="form-control"
                                                        name="start_time" value="{{$business->start_time}}" required>
                                             </div>
                                             <div class="form-group my-2">
-                                                <label for="opening-time">Kapanış saati:</label>
+                                                <label for="opening-time">SchlieBzeit:</label>
                                                 <input type="time" id="opening-time" class="form-control"
                                                        name="end_time" value="{{$business->end_time}}" required>
                                             </div>
-                                            <button type="submit" class="btn btn-primary mt-3">Güncelle</button>
+                                            <button type="submit" class="btn btn-primary mt-3">Aktualisieren</button>
                                         </form>
                                     </div>
                                 </div>
@@ -398,10 +397,10 @@
                                                         <select class="form-control" name="approve_type">
                                                             <option value="">Bestätigungsart Wählen</option>
                                                             <option value="0" @selected($business->approve_type==0)>
-                                                            Automatische
+                                                            Automatisch
                                                             </option>
                                                             <option value="1" @selected($business->approve_type==1)>
-                                                            Handbuch
+                                                            Manuell
                                                             </option>
                                                         </select>
                                                     </div>
@@ -416,7 +415,7 @@
                                                     </div>
 
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Salon Telefon</label>
+                                                        <label class="form-label">Mobile Nummer</label>
                                                         <input type="text" placeholder="Salon Telefon"
                                                                value="{{$business->phone}}" class="form-control"
                                                                name="b_phone">
@@ -424,7 +423,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Salon E-Mail</label>
+                                                        <label class="form-label">E-Mail</label>
                                                         <input type="email" name="b_email"
                                                                value="{{$business->business_email}}" placeholder="Email"
                                                                class="form-control">
@@ -468,7 +467,7 @@
                                                         <input type="file" name="wallpaper" class="form-control">
                                                     </div>
                                                 </div>
-                                                <button class="btn btn-primary" type="submit">Speichern
+                                                <button class="btn btn-primary" type="submit">Aktualisieren
                                                 </button>
                                             </form>
                                         </div>
@@ -477,12 +476,12 @@
                                 <div id="category_tab" class="tab-pane fade">
                                     <div class="row border-bottom border-primary">
                                         <div class="col-12 my-2">
-                                            <span style="font-size: 25px; font-weight: bold">Einstellungen für den Geschäftstyp</span>
+                                            <span style="font-size: 25px; font-weight: bold">KTUALISIERUNG DER SALONARTEN</span>
                                             <a type="button" class="mx-2 text-primary" style="max-width: 12px"
                                                data-bs-container="body" data-bs-toggle="popover"
                                                data-bs-placement="bottom"
-                                               data-bs-content="Einstellungen für den Geschäftstyp."
-                                               title="" data-bs-original-title="Geschlossene Tage">
+                                               data-bs-content="Bitte wâhlen Sie die betreffenden Salonarten aus."
+                                               title="" data-bs-original-title="Salon Arten">
                                                 <i class="fa fa-question-circle"></i>
                                             </a>
                                         </div>
@@ -495,7 +494,7 @@
                                                 <!--item-->
                                                 @forelse($business_categories as $category)
                                                     <div class="col-lg-6">
-                                                        <div class="form-check-inline visits me-0 w-100">
+                                                        <div class="form-check-inline visits me-0 my-2 w-100">
                                                             <label class="visit-btns" style="width: 100%">
                                                                 <input type="checkbox" name="category[]" class="form-check-input" @checked(in_array($category->id, $selectedCategories))  value="{{$category->id}}">
                                                                 <span class="visit-rsn" style="text-align: left">
@@ -508,7 +507,7 @@
                                                 @empty
                                                 @endforelse
                                                 <!--/item-->
-                                            <button type="submit" class="btn btn-primary mt-3">Güncelle</button>
+                                            <button type="submit" class="btn btn-primary mt-3">Aktualisieren</button>
                                         </form>
                                     </div>
                                 </div>

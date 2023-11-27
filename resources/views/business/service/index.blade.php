@@ -121,7 +121,14 @@
                         <div class="row">
                             <div class="mb-3 col-md-12">
                                 <label class="form-label"> Kategorie
-                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Kategorie Bemerkung">
+                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body"
+                                            data-bs-toggle="popover"
+                                            data-bs-placement="right"
+                                            data-bs-content="Bitte wâhlen Sie hier Ihre dienstleistungs Oberkategorie aus.
+                                            Wenn Sie kein Geschlecht der Kunde ausgewâhlt
+                                            haben,wird „Es konnte nichts gefunden werden”
+                                            an ezeigt."
+                                            title="Kategorie">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
@@ -133,7 +140,15 @@
                         <div class="row">
                             <div class="mb-3 col-md-12">
                                 <label class="form-label"> Dienstleistungen
-                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Dienstleistungen Açıkmala">
+                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body"
+                                            data-bs-toggle="popover"
+                                            data-bs-placement="right"
+                                            data-bs-content="Bitte wâhlen Sie hier Ihre
+                                            dienstleistungs Unterkategorie aus.
+                                            Wenn Sie Oberkategoerie ausgewâhlt
+                                            haben,wird „Es konnte nichts
+                                            gefunden werden angezeigt."
+                                            title="Dienstleistungen Bemerkung">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
@@ -196,13 +211,13 @@
                     },
                     success:function (data){
                         if(data.length > 0) {
-                            $("#category").append('<option value="">Hizmet Tipi Seçiniz</option>')
+                            $("#category").append('<option value="">Dienstleistung Oberkategorie auswâhlen</option>')
                             $.each(data, function (index) {
                                 $("#category").append('<option value="' + data[index].id + '">' + data[index].name + '</option>')
                             });
                         }
                         else{
-                            $("#category").append('<option>Bulunamadı</option>')
+                            $("#category").append('<option>Es konnte nichts gefunden werden</option>')
                         }
                         $('#category').selectpicker('refresh');
                     }
@@ -226,13 +241,13 @@
                     },
                     success:function (data){
                         if(data.length > 0) {
-                            $("#category").append('<option value="">Hizmet Tipi Seçiniz</option>')
+                            $("#category").append('<option value="">Dienstleistung Oberkategorie auswâhlen</option>')
                             $.each(data, function (index) {
                                 $("#category").append('<option value="' + data[index].id + '">' + data[index].name + '</option>')
                             });
                         }
                         else{
-                            $("#category").append('<option>Bulunamadı</option>')
+                            $("#category").append('<option>Es konnte nichts gefunden werden</option>')
                         }
                         $('#category').selectpicker('refresh');
                     }
@@ -253,13 +268,13 @@
                 },
                 success:function (data){
                     if(data.length > 0) {
-                        $("#sub_category").append('<option value="">Hizmet Adı Seçiniz</option>')
+                        $("#sub_category").append('<option value="">Dienstleistung Unterkategorie auswâhlen</option>')
                         $.each(data, function (index) {
                             $("#sub_category").append('<option value="' + data[index].id + '">' + data[index].name + '</option>')
                         });
                     }
                     else{
-                        $("#sub_category").append('<option>Bulunamadı</option>')
+                        $("#sub_category").append('<option>Es konnte nichts gefunden werden</option>')
                     }
                     $('#sub_category').selectpicker('refresh');
                 }

@@ -31,18 +31,18 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Liste</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#campaign-modal"><i class="fa-solid fa-plus-circle me-2"></i>Anfrage erstellen</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#campaign-modal"><i class="fa-solid fa-plus-circle me-2"></i>Aktion erstellen</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example3" class="display" style="min-width: 845px">
                             <thead>
                                 <tr>
-                                    <th>Başlık</th>
+                                    <th>TITEL</th>
                                     <th>Code</th>
-                                    <th>Discount</th>
-                                    <th>End Time</th>
-                                    <th>Action</th>
+                                    <th>Rabatt</th>
+                                    <th>Endzeit</th>
+                                    <th>Transaktion</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,7 +72,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Kampanya Tanımla</h5>
+                    <h5 class="modal-title">AKTION ERSTELLEN</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -80,27 +80,27 @@
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Title</label>
+                            <label>TITEL</label>
                             <input type="text" class="form-control" name="title" value="{{old("title")}}">
                         </div>
                         <div class="form-group">
-                            <label>Code</label>
+                            <label>Code eingeben</label>
                             <input type="text" class="form-control" name="code" value="{{old("code")}}">
                         </div>
                         <div class="form-group">
-                            <label>Discount (%)</label>
+                            <label>Rabatt in (%)</label>
                             <input type="number" class="form-control" name="discount" value="{{old("discount")}}">
                         </div>
                         <div class="form-group">
-                            <label>Start Time</label>
+                            <label>Startzeit</label>
                             <input type="datetime-local" min="{{ date('Y-m-d\TH:i', strtotime(now())) }}" class="form-control" name="start_time" value="{{old("start_time")}}">
                         </div>
                         <div class="form-group">
-                            <label>End Time</label>
+                            <label>Endzeit</label>
                             <input type="datetime-local" min="{{ date('Y-m-d\TH:i', strtotime(now())) }}" class="form-control" name="end_time" value="{{old("end_time")}}">
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
+                            <label>Beschreibung</label>
                             <textarea type="text" class="form-control" name="description" rows="8">{{old("description")}}</textarea>
                         </div>
                     </div>
@@ -122,11 +122,11 @@
         function onDelete(product_url, index){
             var table = $('#example3').DataTable();
             Swal.fire({
-                title: 'Talebi Silmek istediğinize eminmisiniz?',
+                title: 'Sind Sie sicher, dass Sie die Kampagne löschen wollen??',
                 icon: 'info',
                 showDenyButton: true,
                 showCancelButton: false,
-                confirmButtonText: 'Sil',
+                confirmButtonText: 'Ja',
                 denyButtonText: `Abbrechen`,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
@@ -146,10 +146,10 @@
                                     .remove()
                                     .draw();
                                 Swal.fire({
-                                    text: "Ürün Silindi!.",
+                                    text: "Kampagne Gelöscht!.",
                                     icon: "success",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Tamam!",
+                                    confirmButtonText: "OK!",
                                     customClass: {
                                         confirmButton: "btn btn-primary",
                                     }
@@ -159,7 +159,7 @@
                         }
                     })
                 } else if (result.isDenied) {
-                    Swal.fire('İşlem İptal Edildi', '', 'info')
+                    Swal.fire('Abgebrochen', '', 'info')
                 }
             })
         }

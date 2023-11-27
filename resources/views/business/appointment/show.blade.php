@@ -56,29 +56,29 @@
                                     <div class="card card-bx profile-card author-profile m-b30">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                Randevu Özeti
+                                                Zusammenfassung des Termins
                                             </div>
                                         </div>
                                         <div class="card-body">
                                             <div class="p-3" style="text-align: left;font-size: 16px;line-height: 2.8em">
                                                 <ul>
-                                                    <li class="border-top border-primary"><b>Tarih :</b> {{\Illuminate\Support\Carbon::parse($appointment->date)->format('d.m.Y')}}</li>
+                                                    <li class="border-top border-primary"><b>Datum :</b> {{\Illuminate\Support\Carbon::parse($appointment->date)->format('d.m.Y')}}</li>
 
-                                                    <li class="border-top border-primary"><b>Ödenecek Tutar :</b> <span class="text-success">{{$appointment->calculateTotal($appointment->services)}} €</span> </li>
+                                                    <li class="border-top border-primary"><b>Zu zahlender Betrag :</b> <span class="text-success">{{$appointment->calculateTotal($appointment->services)}} €</span> </li>
                                                     <li class="border-top border-primary">
-                                                        <b>Durumu : {!! $appointment->status('html') !!}</b>
+                                                        <b>Status : {!! $appointment->status('html') !!}</b>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="info-list border-top border-primary">
                                                 @if($appointment->status==5)
-                                                    <a class="btn btn-primary my-2">Ödeme Al</a>
+                                                    <a class="btn btn-primary my-2">Bezahlung erhalten</a>
                                                 @endif
                                                 @if($appointment->status==6)
-                                                    <a class="btn btn-primary my-2">Ödeme Onayla</a>
+                                                    <a class="btn btn-primary my-2">Bestätige Zahlung</a>
                                                 @endif
                                                 @if($appointment->status==7)
-                                                    <span class="alert alert-warning">Randevu Tamamlandı. İşlem yapmazsınız</span>
+                                                    <span class="alert alert-warning">Randevu Tamamlandı.</span>
                                                 @endif
                                             </div>
 
@@ -96,17 +96,17 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">
-                                Yapılacak İşlemler
+                                Durchzuführende Dienstleistungen
                             </div>
                         </div>
                         <div class="card-body">
                             <table class="table table-responsive">
                                 <thead>
                                 <tr>
-                                    <th>Personel</th>
+                                    <th>Mitarbeiter</th>
                                     <th>Dienstleistung</th>
-                                    <th>Başlangıç Saati</th>
-                                    <th>Bitiş Saati</th>
+                                    <th>Anfangszeit</th>
+                                    <th>Endzeit</th>
                                 </tr>
                                 </thead>
                                 <tbody style="font-size: 16px">

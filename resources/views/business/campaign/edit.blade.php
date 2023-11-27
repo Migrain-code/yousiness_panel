@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Kampanya {{$campaign->title}}
+                        Atkion Bearbeiten {{$campaign->title}}
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -29,34 +29,34 @@
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Kampanya Düzenle</div>
+                <div class="card-title">AKTION Bearbeiten</div>
             </div>
             <div class="card-body">
                 <form method="post" action="{{route('business.campaign.update', $campaign->id)}}">
                     @csrf
                     @method('PUT')
                         <div class="form-group">
-                            <label>Title</label>
+                            <label>TITEL</label>
                             <input type="text" class="form-control" name="title" value="{{old("title") ?? $campaign->title}}">
                         </div>
                         <div class="form-group">
-                            <label>Code</label>
+                            <label>Code eingeben</label>
                             <input type="text" class="form-control" name="code" value="{{old("code") ?? $campaign->code}}">
                         </div>
                         <div class="form-group">
-                            <label>Discount (%)</label>
+                            <label>Rabatt in (%)</label>
                             <input type="number" class="form-control" name="discount" value="{{old("discount") ?? $campaign->discount}}">
                         </div>
                         <div class="form-group">
-                            <label>Start Time</label>
+                            <label>Startzeit</label>
                             <input type="datetime-local" min="{{ date('Y-m-d\TH:i', strtotime(now())) }}" class="form-control" name="start_time" value="{{old("start_time") ?? $campaign->start_time}}">
                         </div>
                         <div class="form-group">
-                            <label>End Time</label>
+                            <label>Endzeit</label>
                             <input type="datetime-local" min="{{ date('Y-m-d\TH:i', strtotime(now())) }}" class="form-control" name="end_time" value="{{old("end_time") ?? $campaign->end_date}}">
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
+                            <label>Beschreibung</label>
                             <textarea type="text" class="form-control" name="description" rows="8">{{old("description") ?? $campaign->description}}</textarea>
                         </div>
                     <div class="modal-footer">
