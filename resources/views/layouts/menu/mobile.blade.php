@@ -32,26 +32,28 @@
             <button class="close-btn"><i class="fal fa-times"></i></button>
         </div>
         <div class="tpoffcanvas__logo text-center">
-            <a href="index.html">
+            <a href="#">
                <!-- <img src="/business/assets/img/logo/logo-white.svg" alt="">-->
             </a>
         </div>
         <div class="mobile-menu"></div>
         <div class="tpoffcanvas__instagram text-center">
-            <div class="d-flex justify-content-center">
-                <div class="col">
-                    <a style="color: #000000;font-weight: bold;background-color: #ffce5a;border-radius: 25px;padding: 15px;" href="{{route('business.register')}}">
-                        <span class="white-text"><i class="far fa-user-edit"></i> Registrieren</span>
-                    </a>
-                </div>
-                <div class="col">
-                    <a style="color: #000229;background-color: white;border-radius: 25px;padding: 15px;" href="{{route('business.login')}}">
-                        <span class="white-text"><i class="far fa-user"></i> Einloggen</span>
-                    </a>
-                </div>
+
+                <div class="row text-center">
+                    <div class="col-md-6 mb-2">
+                        <a class="d-block w-100" style="color: #000000;font-weight: bold;background-color: #ffce5a;border-radius: 25px;padding: 15px;" href="{{route('business.register')}}">
+                            <span class="white-text"><i class="far fa-user-edit"></i> Registrieren</span>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a  class="d-block w-100"  style="color: #000229;background-color: white;border-radius: 25px;padding: 15px;" href="{{route('business.login')}}">
+                            <span class="white-text"><i class="far fa-user"></i> Einloggen</span>
+                        </a>
+                    </div>
 
 
-            </div>
+                </div>
+
             <div class="mt-40">
 
             </div>
