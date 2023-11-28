@@ -91,10 +91,11 @@
                 <a class="tp-btn-yellow-lg circle-effect w-100 btn-mobile-menu-free" href="{{route('business.register')}}">Kostenlos Testen</a>
             </div>
             <div class="social-icon text-center">
-                <a href="{{config('settings.twitter')}}"><i class="fab fa-twitter"></i></a>
-                <a href="{{config('settings.instagram')}}"><i class="fab fa-instagram"></i></a>
-                <a href="{{config('settings.facebook')}}"><i class="fab fa-facebook-square"></i></a>
-
+                <a href="{{config('settings.speed_facebook_url')}}"><i class="fab fa-facebook-f"></i></a>
+                <a href="{{config('settings.speed_twitter_url')}}"><i class="fab fa-twitter"></i></a>
+                <a href="{{config('settings.speed_instagram_url')}}"><i class="fab fa-instagram"></i></a>
+                <a href="{{config('settings.speed_youtube_url')}}" class="mt-2"><i class="fab fa-youtube"></i></a>
+                <a href="{{config('settings.speed_tiktok_url')}}" class="mt-2"><i class="fab fa-tiktok"></i></a>
             </div>
 
         </div>
