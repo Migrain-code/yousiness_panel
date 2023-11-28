@@ -20,7 +20,7 @@ class FeaturedCategorieController extends Controller
     {
         $featuredCategories = FeaturedCategorie::all();
         $categories = BusinessCategory::select('id', 'name', 'slug', 'meta_keys', 'meta_description')->get();
-        $cities = City::select('id', 'name', 'slug')->get();
+        $cities = City::select('id', 'name', 'slug', 'post_code')->take(50)->get();
 
         return view('admin.featured_category.index', compact('featuredCategories', 'categories', 'cities'));
     }
@@ -33,7 +33,6 @@ class FeaturedCategorieController extends Controller
      */
     public function store(Request $request)
     {
-
         $featuredCategorie = new FeaturedCategorie();
         $featuredCategorie->category_id = $request->category_id;
         $featuredCategorie->meta_title = $request->meta_title;
@@ -67,12 +66,12 @@ class FeaturedCategorieController extends Controller
     public function edit(FeaturedCategorie $featuredCategorie)
     {
         $categories = BusinessCategory::select('id', 'name', 'slug', 'meta_keys', 'meta_description')->get();
-        $cityIds=[];
+        /* $cityIds=[];
         foreach ($featuredCategorie->cities as $city){
             $cityIds[]= $city->id;
-        }
+        }*/
 
-        return view('admin.featured_category.edit', compact('categories', 'cityIds', 'featuredCategorie'));
+        return view('admin.featured_category.edit', compact('categories', 'featuredCategorie'));
     }
 
     /**

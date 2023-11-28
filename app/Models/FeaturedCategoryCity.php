@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class FeaturedCategoryCity extends Model
 {
     use HasFactory;
+
+    public function city()
+    {
+        return $this->hasOne(City::class, 'id', 'city_id');
+    }
 }

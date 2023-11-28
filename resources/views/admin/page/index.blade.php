@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('links')
     <link href="/admin/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
     <style>
         @media (min-width: 576px) {
             .modal-dialog {
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label>Beschreibung</label>
-                                        <textarea class="sm-note" name="description" >{{old('description')}}</textarea>
+                                        <textarea class="sm-note" name="description" id="page-description">{{old('description')}}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label>Meta Key</label>
@@ -148,13 +148,7 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('.sm-note').summernote();
-        });
-    </script>
     <script>
         function statusAction(id){
             $.ajax({
@@ -240,5 +234,9 @@
             });
 
         }
+    </script>
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('page-description');
     </script>
 @endsection

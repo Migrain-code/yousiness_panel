@@ -91,7 +91,7 @@
                                    <i class="fa fa-chart-pie" style="font-size: 25px; color: deeppink"></i>
                                 </div>
                                 <div class="chart-num">
-                                    <h2 class="font-w600 mb-0">{{$earning}} €</h2>
+                                    <h2 class="font-w600 mb-0">{{$totalAppointments}}</h2>
                                     <p>
                                         Gesamt Termine
                                     </p>

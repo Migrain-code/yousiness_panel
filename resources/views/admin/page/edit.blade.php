@@ -1,6 +1,5 @@
 @extends('admin.layouts.master')
 @section('links')
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
 @endsection
 @section('content')
@@ -45,7 +44,7 @@
                         </div>
                         <div class="mb-3">
                             <label>İçerik Metni</label>
-                            <textarea class="sm-note" name="description">{!! $page->description !!}{{old('description')}}</textarea>
+                            <textarea class="sm-note" name="description" id="page-description">{!! $page->description !!}{{old('description')}}</textarea>
                         </div>
                         <div class="mb-3">
                             <label>Meta Key</label>
@@ -67,13 +66,9 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     <script>
-        $(document).ready(function() {
-            $('.sm-note').summernote({
-                height:200
-            });
-        });
+        CKEDITOR.replace('page-description');
+
     </script>
 @endsection

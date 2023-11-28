@@ -12,6 +12,7 @@ use App\Models\MaingPage;
 use App\Models\Page;
 use App\Models\ServiceCategory;
 use App\Models\Setting;
+use App\Models\Support;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cookie;
@@ -62,6 +63,8 @@ class AppServiceProvider extends ServiceProvider
         $globalData = [
             'pages' => Page::where('status', 1)->take(5)->latest()->get(),
             'infos'=>BusinessInfo::where('status', 0)->get(),
+            'supports'=>Support::where('status', 0)->count(),
+
         ];
 
         \View::share('globalData', $globalData);

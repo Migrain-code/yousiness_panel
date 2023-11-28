@@ -170,6 +170,7 @@
                 <a class="has-arrow " href="{{route('admin.support.index')}}">
                     <i class="material-icons-outlined">help</i>
                     <span class="nav-text">Support Anfragen</span>
+                    <span class="badge badge-danger" style="border-radius: 50%">{{$globalData["supports"]}}</span>
                 </a>
             </li>
 

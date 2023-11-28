@@ -103,7 +103,7 @@
                                     .remove()
                                     .draw();
                                 Swal.fire({
-                                    text: "Ürün Silindi!.",
+                                    text: "Talep Silindi!.",
                                     icon: "success",
                                     buttonsStyling: false,
                                     confirmButtonText: "Tamam!",

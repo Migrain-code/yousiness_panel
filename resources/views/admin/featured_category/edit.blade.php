@@ -1,6 +1,7 @@
 @extends('admin.layouts.master')
 @section('links')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
 
 @endsection
 @section('content')
@@ -52,9 +53,9 @@
                         </div>
                         <div class="mb-3">
                             <label>Şehir Seçiniz</label>
-                            <select class="form-control input-default " multiple name="city_ids[]">
-                                @foreach($cities as $city)
-                                    <option value="{{$city->id}}" @selected(in_array($city->id, $cityIds))>{{$city->name}}</option>
+                            <select multiple name="city_ids[]" id="city_ids">
+                                @foreach($featuredCategorie->cities as $city)
+                                    <option value="{{$city->city->id}}" selected>{{$city->city->post_code.",".$city->city->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -81,5 +82,39 @@
                 height:200
             });
         });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+
+    <script>
+        var mySelect = new TomSelect("#city_ids", {
+            remoteUrl: '/api/city/search',
+            remoteSearch: true,
+            create: false,
+            highlight: false,
+            load: function(query, callback) {
+                $.ajax({
+                    url: '/api/city/search', // Sunucu tarafındaki arama API'sinin URL'si
+                    method: 'POST',
+                    data: { q: query }, // Arama sorgusu
+                    dataType: 'json', // Beklenen veri tipi
+                    success: function(data) {
+
+                        var results = data.cities.map(function(item) {
+                            console.log('item', item.name);
+                            return {
+                                value: item.id,
+                                text: item.post_code + "," + item.name,
+                            };
+                        });
+
+                        callback(results);
+                    },
+                    error: function() {
+                        console.error("Bei der Suche ist ein Fehler aufgetreten.");
+                    }
+                });
+            }
+        });
+
     </script>
 @endsection

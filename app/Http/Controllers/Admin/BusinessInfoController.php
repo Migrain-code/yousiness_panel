@@ -46,6 +46,7 @@ class BusinessInfoController extends Controller
         if ($info->save()){
             return response()->json([
                 'status'=>"success",
+                'status_code' => $info->status,
                 'message'=>$message
             ]);
         }
