@@ -2,7 +2,12 @@
 @section('title', $page->title)
 @section('meta_description', $page->meta_description)
 @section('styles')
-
+    <style>
+        .about-banner {
+            background-color: #d59c4b !important;
+            height: 540px;
+        }
+    </style>
 @endsection
 @section('content')
     <main style="background-color: #eeeef5">
