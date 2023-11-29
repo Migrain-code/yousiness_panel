@@ -16,7 +16,7 @@ class SupportController extends Controller
      */
     public function index()
     {
-        $supports = Support::latest()->get();
+        $supports = Support::orderBy('status')->latest()->get();
         return view('admin.support.index', compact('supports'));
     }
 

@@ -1,6 +1,193 @@
+@php use Illuminate\Support\Carbon; @endphp
 @extends('admin.layouts.master')
 @section('links')
+    <link href="/admin/assets/vendor/jquery-smartwizard/dist/css/smart_wizard.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="/admin/assets/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/admin/assets/vendor/clockpicker/css/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/admin/assets/vendor/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css"/>
+    <link href="/admin/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 
+    <style>
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        .single-pricing {
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 5px;
+            position: relative;
+            border: 1px solid #eee;
+            box-shadow: 0 10px 40px -10px rgba(0, 64, 128, .09);
+            transition: 0.3s;
+            height: 500px;
+            max-height: 500px;
+            overflow: auto;
+        }
+
+        @media only screen and (max-width: 480px) {
+            .single-pricing {
+                margin-bottom: 30px;
+            }
+        }
+
+        .single-pricing:hover {
+            box-shadow: 0px 60px 60px rgba(0, 0, 0, 0.1);
+            transform: translate(0, -10px);
+        }
+
+        .price-label {
+            color: #fff;
+            background: #ffaa17;
+            font-size: 16px;
+            width: 100px;
+            margin-bottom: 15px;
+            display: block;
+            -webkit-clip-path: polygon(100% 0%, 90% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0%);
+            clip-path: polygon(100% 0%, 90% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0%);
+            margin-left: -20px;
+            position: absolute;
+        }
+
+        .price-head h2 {
+            font-weight: 600;
+            margin-bottom: 0px;
+            text-transform: capitalize;
+            font-size: 26px;
+        }
+
+        .price-head span {
+            display: inline-block;
+            background: #ffaa17;
+            width: 6px;
+            height: 6px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-weight: 500;
+            font-size: 50px;
+            margin-bottom: 0px;
+        }
+
+        .single-pricing {
+        }
+
+        .single-pricing h5 {
+            font-size: 14px;
+            margin-bottom: 0px;
+            text-transform: uppercase;
+        }
+
+        .single-pricing ul {
+            list-style: none;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        .single-pricing ul li {
+            line-height: 35px;
+        }
+
+        .single-pricing-white {
+            background: #232434
+        }
+
+        .single-pricing-white ul li {
+            color: #fff;
+        }
+
+        .single-pricing-white h2 {
+            color: #fff;
+        }
+
+        .single-pricing-white h1 {
+            color: #fff;
+        }
+
+        .single-pricing-white h5 {
+            color: #fff;
+        }
+        .form-check-inline {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        .visit-btns {
+            color: #272b41;
+            background-color: #fff;
+            width: 80%;
+            margin-bottom: 10px;
+            display: block;
+            outline: unset;
+            cursor: pointer;
+        }
+        .form-check-input:checked[type=checkbox] {
+            background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e);
+        }
+        .visits input.form-check-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            visibility: hidden;
+            margin-left: 0;
+        }
+        .form-check-input:checked {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        .form-check-input {
+            width: 1em;
+            height: 1em;
+            margin-top: 0.25em;
+            vertical-align: top;
+            padding: 10px;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border: 1px solid rgba(0,0,0,.25);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+            padding: 10px;
+        }
+        .visits input:checked ~ .visit-rsn {
+            background-color: #2fcc31;
+            color: #fff;
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+    <style>
+        .ts-control {
+            border: 1px solid #d0d0d0;
+            padding: 8px 8px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            box-shadow: none;
+            border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            height: 40px;
+
+        }
+
+    </style>
 @endsection
 @section('content')
     <div class="row">
@@ -11,52 +198,36 @@
                 </div>
             </div>
         </div>
-        @include('admin.layouts.component.alert')
         <div class="col-lg-12">
             <div class="profile card card-body px-3 pt-3 pb-0">
                 <div class="profile-head">
                     <div class="photo-content">
-                        <div class="cover-photo rounded" style="background: url({{asset($business->wallpaper)}});"></div>
+                        <div class="cover-photo rounded"
+                             style="background: url({{asset($business->wallpaper)}});"></div>
                     </div>
                     <div class="profile-info">
                         <div class="profile-photo">
-                            <a class="test-popup-link" href="{{asset($business->logo)}}"><img src="{{asset($business->logo)}}" class="img-fluid rounded-circle" alt=""></a>
+                            <a class="test-popup-link" href="{{asset($business->logo)}}"><img
+                                        src="{{asset($business->logo)}}" class="img-fluid rounded-circle" alt=""></a>
                         </div>
                         <div class="profile-details">
                             <div class="profile-name px-3 pt-2">
-                                <h4 class="text-primary mb-0">{{$business->name}}</h4>
-                                <p>
-                                    @if($business->status==0)
-                                        <span class="badge badge-sm light badge-danger">
-                                                <i class="fa fa-circle text-danger me-1"></i>
-                                                Bloklandı
-									        </span>
-                                    @elseif($business->status==1)
-                                        <span class="badge badge-sm light badge-warning">
-                                                <i class="fa fa-circle text-warning me-1"></i>
-                                                Keine Installation
-									        </span>
-                                    @else
-                                        <span class="badge badge-sm light badge-success">
-                                                <i class="fa fa-circle text-success me-1"></i>
-                                                Aktiv
-									        </span>
-                                    @endif
-                                      <span class="badge badge-sm light badge-warning">
-                                                <i class="fa fa-circle text-warning me-1"></i>
-                                                 {{$business->type->name}}
-                                     </span>
-                                </p>
+                                <h2 class="text-primary mb-0">{{$business->name}}</h2>
                             </div>
-
                             <div class="dropdown ms-auto">
                                 <div class="btn sharp btn-primary tp-btn" data-bs-toggle="dropdown">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24"></rect>
+                                            <circle fill="#000000" cx="12" cy="5" r="2"></circle>
+                                            <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                            <circle fill="#000000" cx="12" cy="19" r="2"></circle>
+                                        </g>
+                                    </svg>
                                 </div>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li class="dropdown-item"><a href="javascript:void(0)"><i class="fa fa-users text-primary me-2"></i> Personal Hinzufügen</a></li>
-                                    <li class="dropdown-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa fa-plus text-primary me-2"></i> Dienstleistungen Hinzufügen</a></li>
-                                    <li class="dropdown-item"><a href="javascript:void(0)"><i class="fa fa-ban text-primary me-2"></i> Engelle</a></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -65,66 +236,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="exampleModalCenter">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Dienstleistung Oberkategorien Einfügen</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal">
-                    </button>
-                </div>
-                <form method="post" action="{{route('admin.business.addService')}}">
-                    <div class="modal-body">
-                        @csrf
-                        <div class="mb-3">
-                            <label>Hizmet Verileceği Cinsiyet</label>
-                            <select name="type" class="form-control">
-                                @if($business->type->id==3)
-                                    <option value="">Tür Seçiniz</option>
-                                    <option value="1">Frau</option>
-                                    <option value="2">Mann</option>
-                                    <option value="3">Beides</option>
-                                @elseif($business->type->id==1)
-                                    <option value="1" selected>Frau</option>
-                                @elseif($business->type->id==2)
-                                    <option value="2" selected>Mann</option>
-                                @endif
-                            </select>
-                        </div>
-                        <input type="hidden" name="business_id" value="{{$business->id}}">
-                        <div class="mb-3">
-                            <label>Hizmet Kategorisi</label>
-                            <select name="service_category" id="serviceCategory" class="form-control mb-2">
-                                <option>Hizmet Kategorisi seçiniz</option>
-                                @forelse($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                @empty
-
-                                @endforelse
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label>Hizmet Alt Kategorisi</label>
-                            <select name="service_sub_category" id="serviceSubCategory" class="form-control mb-2">
-                                <option>Hizmet Kategorisi seçiniz</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label>Fiyatı</label>
-                            <input type="text" class="form-control mb-2" name="price">
-                        </div>
-                        <div class="mb-3">
-                            <label>Arbeitszeit</label>
-                            <input type="time" class="form-control mb-2" name="time">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Abbrechen</button>
-                        <button type="submit" class="btn btn-primary">Speichern</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="row my-2">
+        @include('business.layouts.component.alert')
     </div>
     <div class="row">
         <div class="col-xl-12">
@@ -133,209 +246,339 @@
                     <div class="profile-tab">
                         <div class="custom-tab-1">
                             <ul class="nav nav-tabs">
-                                <li class="nav-item"><a href="#my-posts" data-bs-toggle="tab" class="nav-link active show">Dienstleistungen</a>
+                                <li class="nav-item">
+                                    <a href="#profile-settings" data-bs-toggle="tab" class="nav-link active show">Allgemein</a>
                                 </li>
-                                <li class="nav-item"><a href="#about-me" data-bs-toggle="tab" class="nav-link">About Me</a>
+                                <li class="nav-item">
+                                    <a href="#my-owner" data-bs-toggle="tab" class="nav-link">Kompetenz</a>
                                 </li>
-                                <li class="nav-item"><a href="#profile-settings" data-bs-toggle="tab" class="nav-link">Setting</a>
+                                <li class="nav-item">
+                                    <a href="#about-me" data-bs-toggle="tab" class="nav-link">Arbeitszeiten</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="#category_tab" data-bs-toggle="tab" class="nav-link">SALONARTEN</a>
+                                </li>
+                               {{--
+                                 <li class="nav-item">
+                                    <a href="#mitarbeiter_tab" data-bs-toggle="tab" class="nav-link">Mitarbeiter</a>
+                                </li>
+                               --}}
                             </ul>
                             <div class="tab-content">
-                                <div id="my-posts" class="tab-pane fade active show">
-                                    <div class="my-post-content pt-3">
-                                        <div class="table-responsive">
-                                            <table id="example2" class="display" style="width:100%">
-                                                <thead>
-                                                <tr>
-                                                    <th>Dienstleistungen</th>
-                                                    <th>Durum</th>
-                                                    <td>Transaktion</td>
-                                                </tr>
+                                <div id="my-owner" class="tab-pane fade">
+                                    <form method="post" action="{{route('admin.profile.updateOwnerSetting')}}">
+                                        @csrf
+                                        <input type="hidden" name="business_id" value="{{$business->id}}">
 
-                                                </thead>
-                                                <tbody>
-                                                    @forelse($business->services as $service)
-                                                        <tr>
-                                                            <td style="max-width: 135px">{{$service->subCategory->name}}</td>
-                                                            <td>
-                                                                @if($service->status==0)
-                                                                    <span class="badge badge-sm light badge-danger">
-                                                                    <i class="fa fa-circle text-danger me-1"></i>
-                                                                        Nich Sendung
-                                                                    </span>
-                                                                @else
-                                                                    <span class="badge badge-sm light badge-success">
-                                                                        <i class="fa fa-circle text-success me-1"></i>
-                                                                        Auf Sendung
-                                                                    </span>
-                                                                @endif
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex">
-                                                                    <a href="#{{--route('admin.business.edit', $business->id)--}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                                                    <a href="javascript:void(0)" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    @empty
-
-                                                    @endforelse
-                                                </tbody>
-
-                                            </table>
+                                        <div class="my-post-content pt-3">
+                                            <div class="row">
+                                                <div class="mb-3 col-md-6">
+                                                    <label class="form-label">Name Nachname</label>
+                                                    <input type="text" value="{{$business->owner}}" placeholder=""
+                                                           name="owner" class="form-control">
+                                                </div>
+                                                <div class="mb-3 col-md-6">
+                                                    <label class="form-label">E-Mail</label>
+                                                    <input type="email" value="{{$business->owner_email}}"
+                                                           placeholder="E-mail" name="owner_email" class="form-control">
+                                                </div>
+                                                <div class="mb-3 col-md-6">
+                                                    <label class="form-label">Mobilnummer <span class="text-warning">(bei der Registrierung vewendete Mobilnummer)</span>
+                                                    </label>
+                                                    <input type="text" id="phone_1" value="{{$business->email}}"
+                                                           placeholder="Mobilnummer" name="email" class="form-control">
+                                                </div>
+                                                <div class="mb-3 col-md-6">
+                                                    <label class="form-label">Passwort</label>
+                                                    <input type="password" name="password" placeholder="Passwort"
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <button type="submit" class="btn btn-primary">Aktualisieren
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                                 <div id="about-me" class="tab-pane fade">
-                                    <div class="profile-about-me">
-                                        <div class="pt-4 border-bottom-1 pb-3">
-                                            <h5 class="text-primary">About Me</h5>
-                                            <p class="mb-2">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence was created for the bliss of souls like mine.I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
-                                            <p>A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+                                    <div class="row border-bottom border-primary">
+                                        <div class="col-12 my-2">
+                                            <span style="font-size: 25px; font-weight: bold">ÖFFNUNGSZEITEN</span>
+                                            <a type="button" class="mx-2 text-primary" style="max-width: 12px"
+                                               data-bs-container="body" data-bs-toggle="popover"
+                                               data-bs-placement="bottom"
+                                               data-bs-content="Wählen Sie die Tage aus, an denen Ihr Salon nicht arbeitet."
+                                               title="" data-bs-original-title="Geschlossene Tage">
+                                                <i class="fa fa-question-circle"></i>
+                                            </a>
                                         </div>
+
                                     </div>
-                                    <div class="profile-skills mb-5">
-                                        <h5 class="text-primary mb-2">Skills</h5>
-                                        <a href="javascript:void(0);" class="btn btn-primary light btn-xs mb-1">Admin</a>
-                                        <a href="javascript:void(0);" class="btn btn-primary light btn-xs mb-1">Dashboard</a>
-                                        <a href="javascript:void(0);" class="btn btn-primary light btn-xs mb-1">Photoshop</a>
-                                        <a href="javascript:void(0);" class="btn btn-primary light btn-xs mb-1">Bootstrap</a>
-                                        <a href="javascript:void(0);" class="btn btn-primary light btn-xs mb-1">Responsive</a>
-                                        <a href="javascript:void(0);" class="btn btn-primary light btn-xs mb-1">Crypto</a>
-                                    </div>
-                                    <div class="profile-lang  mb-5">
-                                        <h5 class="text-primary mb-2">Language</h5>
-                                        <a href="javascript:void(0);" class="text-muted pe-3 f-s-16"><i class="flag-icon flag-icon-us"></i> English</a>
-                                        <a href="javascript:void(0);" class="text-muted pe-3 f-s-16"><i class="flag-icon flag-icon-fr"></i> French</a>
-                                        <a href="javascript:void(0);" class="text-muted pe-3 f-s-16"><i class="flag-icon flag-icon-bd"></i> Bangla</a>
-                                    </div>
-                                    <div class="profile-personal-info">
-                                        <h5 class="text-primary mb-4">Personal Information</h5>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h5 class="f-w-500">Name <span class="pull-end">:</span>
-                                                </h5>
+                                    <div class="row">
+                                        <form action="{{route('admin.profile.updateWorkTime')}}" class="my-2 col-lg-6 col-md-8 col-sm-12"
+                                              method="post">
+                                            @csrf
+                                            <input type="hidden" name="business_id" value="{{$business->id}}">
+
+                                            <div class="form-group my-2">
+                                                <label for="day">Ruhetag:</label>
+                                                <select id="day" name="day" class="form-control">
+                                                    @foreach($dayList as $list)
+                                                        <option value="{{$list->id}}" @selected($business->off_day == $list->id)>{{$list->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                            <div class="col-sm-9 col-7"><span>Mitchell C.Shay</span>
+                                            <div class="form-group my-2">
+                                                <label for="opening-time">Öffnungszeit:</label>
+                                                <input type="time" id="opening-time" class="form-control"
+                                                       name="start_time" value="{{$business->start_time}}" required>
                                             </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h5 class="f-w-500">Email <span class="pull-end">:</span>
-                                                </h5>
+                                            <div class="form-group my-2">
+                                                <label for="opening-time">SchlieBzeit:</label>
+                                                <input type="time" id="opening-time" class="form-control"
+                                                       name="end_time" value="{{$business->end_time}}" required>
                                             </div>
-                                            <div class="col-sm-9 col-7"><span>example@examplel.com</span>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h5 class="f-w-500">Availability <span class="pull-end">:</span></h5>
-                                            </div>
-                                            <div class="col-sm-9 col-7"><span>Full Time (Free Lancer)</span>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h5 class="f-w-500">Age <span class="pull-end">:</span>
-                                                </h5>
-                                            </div>
-                                            <div class="col-sm-9 col-7"><span>27</span>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h5 class="f-w-500">Location <span class="pull-end">:</span></h5>
-                                            </div>
-                                            <div class="col-sm-9 col-7"><span>Rosemont Avenue Melbourne,
-                                                Florida
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h5 class="f-w-500">Year Experience <span class="pull-end">:</span></h5>
-                                            </div>
-                                            <div class="col-sm-9 col-7"><span>07 Year Experiences</span>
-                                            </div>
-                                        </div>
+                                            <button type="submit" class="btn btn-primary mt-3">Aktualisieren</button>
+                                        </form>
                                     </div>
                                 </div>
-                                <div id="profile-settings" class="tab-pane fade">
+                                <div id="profile-settings" class="tab-pane fade active show">
                                     <div class="pt-3">
                                         <div class="settings-form">
-                                            <h5 class="text-primary">Account Setting</h5>
-                                            <form>
+                                            <form method="post"
+                                                  action="{{route('admin.profile.updateGeneralSetting')}}"
+                                                  enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="business_id" value="{{$business->id}}">
                                                 <div class="row">
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Email</label>
-                                                        <input type="email" placeholder="Email" class="form-control">
+                                                        <label class="form-label">Salonname</label>
+                                                        <input type="text" placeholder="Salon Adı"
+                                                               value="{{$business->name}}" class="form-control"
+                                                               name="business_name">
                                                     </div>
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Password</label>
-                                                        <input type="password" placeholder="Password" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Address</label>
-                                                    <input type="text" placeholder="1234 Main St" class="form-control">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Address 2</label>
-                                                    <input type="text" placeholder="Apartment, studio, or floor" class="form-control">
-                                                </div>
-                                                <div class="row">
-                                                    <div class="mb-3 col-md-6">
-                                                        <label class="form-label">City</label>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <div class="mb-3 col-md-4">
-                                                        <label class="form-label">State</label>
-                                                        <select class="form-control default-select wide" id="inputState">
-                                                            <option selected="">Choose...</option>
-                                                            <option>Option 1</option>
-                                                            <option>Option 2</option>
-                                                            <option>Option 3</option>
+                                                        <label class="form-label">Salon Kategorie</label>
+                                                        <select class="form-control" name="business_type">
+                                                            <option value="">Salon Kategorie auswählen</option>
+                                                            @forelse($businessTypes as $type)
+                                                                <option value="{{$type->id}}" @selected($type->id == $business->type_id)>{{$type->name}}</option>
+                                                            @empty
+                                                            @endforelse
                                                         </select>
                                                     </div>
-                                                    <div class="mb-3 col-md-2">
-                                                        <label class="form-label">Zip</label>
-                                                        <input type="text" class="form-control">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label">Dauer der Dienstleistung</label>
+                                                        <select class="form-control" name="minute">
+                                                            <option value="">Süre Seçiniz</option>
+                                                            <option value="5" @selected($business->appoinment_range=="5")>
+                                                                5 Minute
+                                                            </option>
+                                                            <option value="10" @selected($business->appoinment_range=="10")>
+                                                                10 Minute
+                                                            </option>
+                                                            <option value="15" @selected($business->appoinment_range=="15")>
+                                                                15 Minute
+                                                            </option>
+                                                            <option value="30" @selected($business->appoinment_range=="30")>
+                                                                30 Minute
+                                                            </option>
+                                                            <option value="40" @selected($business->appoinment_range=="40")>
+                                                                40 Minute
+                                                            </option>
+                                                            <option value="45" @selected($business->appoinment_range=="45")>
+                                                                45 Minute
+                                                            </option>
+                                                            <option value="60" @selected($business->appoinment_range=="60")>
+                                                                60 Minute
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label">Bestätigungsart</label>
+                                                        <select class="form-control" name="approve_type">
+                                                            <option value="">Bestätigungsart Wählen</option>
+                                                            <option value="0" @selected($business->approve_type==0)>
+                                                                Automatisch
+                                                            </option>
+                                                            <option value="1" @selected($business->approve_type==1)>
+                                                                Manuell
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <div class="form-check custom-checkbox">
-                                                        <input type="checkbox" class="form-check-input" id="gridCheck">
-                                                        <label class="form-check-label form-label" for="gridCheck"> Check me out</label>
+                                                <div class="row">
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label">Gründungsjahr</label>
+                                                        <input type="date" placeholder="Gründungsjahr" min="1900"
+                                                               max="{{Carbon::now()->format('Y-m-d')}}"
+                                                               value="{{$business->year}}" class="form-control"
+                                                               name="year">
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label">Mobile Nummer</label>
+                                                        <input type="text" placeholder="Salon Telefon"
+                                                               value="{{$business->phone}}" class="form-control"
+                                                               name="b_phone">
                                                     </div>
                                                 </div>
-                                                <button class="btn btn-primary" type="submit">Sign
-                                                    in</button>
+                                                <div class="row">
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label">E-Mail</label>
+                                                        <input type="email" name="b_email"
+                                                               value="{{$business->business_email}}" placeholder="Email"
+                                                               class="form-control">
+                                                    </div>
+                                                    <div class="mb-3 col-md-4">
+                                                        <label>PLZ /Stadt</label>
+                                                        <select class="" id="city_select" name="city" style="border-radius: 18px;">
+                                                            <option value="" selected>Auswählen</option>
+                                                            @if(isset($business->cities))
+                                                                <option value="{{$business->cities->id}}" selected>{{$business->cities->post_code. ",".$business->cities->name}}</option>
+                                                            @endif
+                                                            @forelse($cities as $city)
+                                                                <option value="{{$city->id}}">{{$city->post_code ." ," . $city->name}}</option>
+                                                            @empty
+
+                                                            @endforelse
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Adresse</label>
+                                                        <textarea type="text" name="address" placeholder="1234 Main St"
+                                                                  class="form-control">{{$business->address}}</textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label">Logo
+                                                            <image style="width: 60px;height:60px;border-radius: 50%"
+                                                                   src="{{asset($business->logo)}}"></image>
+                                                        </label>
+                                                        <input type="file" name="logo" class="form-control">
+                                                    </div>
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label">Hintergrundbild
+                                                            <image style="width: 60px;height:60px;border-radius: 50%"
+                                                                   src="{{asset($business->wallpaper)}}"></image>
+                                                        </label>
+                                                        <input type="file" name="wallpaper" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary" type="submit">Aktualisieren
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
+                                <div id="category_tab" class="tab-pane fade">
+                                    <div class="row border-bottom border-primary">
+                                        <div class="col-12 my-2">
+                                            <span style="font-size: 25px; font-weight: bold">KTUALISIERUNG DER SALONARTEN</span>
+                                            <a type="button" class="mx-2 text-primary" style="max-width: 12px"
+                                               data-bs-container="body" data-bs-toggle="popover"
+                                               data-bs-placement="bottom"
+                                               data-bs-content="Bitte wâhlen Sie die betreffenden Salonarten aus."
+                                               title="" data-bs-original-title="Salon Arten">
+                                                <i class="fa fa-question-circle"></i>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <form action="{{route('admin.profile.updateCategory')}}" style="position: relative;" class="my-2 col-lg-6 col-md-8 col-sm-12"
+                                              method="post">
+                                            <input type="hidden" name="business_id" value="{{$business->id}}">
+                                            @csrf
+                                            <!--item-->
+                                            @forelse($business_categories as $category)
+                                                <div class="col-lg-6">
+                                                    <div class="form-check-inline visits me-0 my-2 w-100">
+                                                        <label class="visit-btns" style="width: 100%">
+                                                            <input type="checkbox" name="category[]" class="form-check-input" @checked(in_array($category->id, $selectedCategories))  value="{{$category->id}}">
+                                                            <span class="visit-rsn" style="text-align: left">
+                                                                    <img src="{{asset($category->icon)}}" class="me-2" width="30px" height="30px">
+                                                                    {{$category->name}}
+                                                                </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            @empty
+                                            @endforelse
+                                            <!--/item-->
+                                            <button type="submit" class="btn btn-primary mt-3">Aktualisieren</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                {{--
+                                    <div id="mitarbeiter_tab" class="tab-pane fade">
+                                    <div class="row border-bottom border-primary">
+                                        <div class="col-12 my-2">
+                                            <span style="font-size: 25px; font-weight: bold">Mitarbeiter</span>
+                                            <a type="button" class="mx-2 text-primary" style="max-width: 12px"
+                                               data-bs-container="body" data-bs-toggle="popover"
+                                               data-bs-placement="bottom"
+                                               data-bs-content="Bitte wâhlen Sie die betreffenden Salonarten aus."
+                                               title="" data-bs-original-title="Salon Arten">
+                                                <i class="fa fa-question-circle"></i>
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+                                    <!--item-->
+                                    <div class="table-responsive">
+                                        <table id="example3" class="display mb-3" style="min-width: 845px">
+                                            <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th>MobileNummer</th>
+                                                <th>Start Time</th>
+                                                <th>End Time</th>
+                                                <th>Transaktion</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @forelse($business->personel as $personel)
+                                                <tr>
+                                                    <td>
+                                                        <img class="rounded-circle" width="35" src="{{asset($personel->logo)}}" alt="">
+                                                    </td>
+                                                    <td>{{$personel->name}}</td>
+                                                    <td>
+                                                        <a href="tel:{{$personel->phone}}"><strong>{{$personel->phone}}</strong></a>
+                                                    </td>
+                                                    <td>{{$personel->start_time}}</td>
+                                                    <td>{{$personel->end_time}}</td>
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            <a href="{{route('admin.personel.edit', $personel->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+                                            @empty
+                                            @endforelse
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                                --}}
+
                             </div>
                         </div>
                         <!-- Modal -->
-                        <div class="modal fade" id="replyModal">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Post Reply</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form>
-                                            <textarea class="form-control" rows="4">Message</textarea>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Reply</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -347,18 +590,53 @@
     <script src="/admin/assets/js/plugins-init/clock-picker-init.js"></script>
     <script src="/admin/assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="/admin/assets/js/plugins-init/datatables.init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+
     <script>
-        $(document).ready(function(){
+        var mySelect = new TomSelect("#city_select", {
+            remoteUrl: '/api/city/search',
+            remoteSearch: true,
+            create: false,
+            highlight: false,
+            load: function(query, callback) {
+                $.ajax({
+                    url: '/api/city/search', // Sunucu tarafındaki arama API'sinin URL'si
+                    method: 'POST',
+                    data: { q: query }, // Arama sorgusu
+                    dataType: 'json', // Beklenen veri tipi
+                    success: function(data) {
+
+                        var results = data.cities.map(function(item) {
+                            console.log('item', item.name);
+                            return {
+                                value: item.id,
+                                text: item.post_code + "," + item.name,
+                            };
+                        });
+
+                        callback(results);
+                    },
+                    error: function() {
+                        console.error("Arama sırasında bir hata oluştu.");
+                    }
+                });
+            }
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
             $('#smartwizard').smartWizard();
         });
     </script>
+
     <script>
         $('#serviceCategory').change(function () {
             let id = $(this).val();
             $('#serviceSubCategory').find('option').remove();
 
             $.ajax({
-                    url: '{{route('admin.subCategory')}}',
+                    url: '{{route('business.subCategory')}}',
                     type: 'POST',
                     data: {
                         '_token': '{{csrf_token()}}',
@@ -377,4 +655,12 @@
             )
         })
     </script>
+
+    <script>
+        $('.work-status').change(function () {
+            let id = $(this).attr('work_id');
+            //alert(id);
+        })
+    </script>
+
 @endsection

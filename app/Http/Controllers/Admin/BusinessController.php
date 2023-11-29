@@ -8,9 +8,11 @@ use App\Models\Business;
 use App\Models\BusinessCategory;
 use App\Models\BusinessNotification;
 use App\Models\BusinessService;
+use App\Models\BusinessTypeCategory;
 use App\Models\BusinessWorkTime;
 use App\Models\BusinnessType;
 use App\Models\BussinessServicePartition;
+use App\Models\DayList;
 use App\Models\Device;
 use App\Models\ServiceCategory;
 use App\Models\ServicePackage;
@@ -173,11 +175,18 @@ class BusinessController extends Controller
      */
     public function edit(Business $business)
     {
-        $categories=$business->type->categories;
-        if ($business->type->id == 3){
-            $categories=ServiceCategory::all();
+        $dayList=DayList::all();
+
+        //dd($business->workTimes);
+        $businessTypes=BusinnessType::all();
+        $business_categories= BusinessCategory::all();
+
+        $selectedCategories = [];
+        foreach ($business->categories as $category){
+            $selectedCategories[] = $category->category_id;
         }
-        return view('admin.business.edit', compact('business', 'categories'));
+
+        return view('admin.business.edit', compact('business', 'businessTypes', 'dayList', 'business_categories', 'selectedCategories'));
     }
 
     /**
@@ -187,9 +196,32 @@ class BusinessController extends Controller
      * @param Business $business
      * @return Response
      */
-    public function update(Request $request, Business $business)
+    public function update(Request $request)
     {
-        //
+        $business= Business::find($request->input('business_id'));
+        $business->name=$request->business_name;
+        $business->type_id=$request->business_type;
+        $business->appoinment_range=$request->minute;
+        $business->approve_type=$request->approve_type;
+        $business->year=$request->year;
+        $business->phone=$request->b_phone;
+        $business->business_email=$request->b_email;
+        $business->city=$request->city;
+        $business->address=$request->address;
+        if ($request->hasFile('logo')){
+            $business->logo='storage/'. $request->file('logo')->store('business_logo');
+        }
+        if ($request->hasFile('wallpaper')){
+            $business->wallpaper='storage/'. $request->file('wallpaper')->store('business_wallpaper');
+        }
+
+        if ($business->save()){
+            return back()->with('response', [
+                'status'=>"success",
+                'title'=>"Erfolgreich",
+                'message'=>"Ihre Informationen wurden erfolgreich aktualisiert"
+            ]);
+        }
     }
 
     /**
@@ -206,4 +238,73 @@ class BusinessController extends Controller
             ]);
         }
     }
+
+    public function updateOwner(Request $request)
+    {
+        $business= Business::find($request->input('business_id'));
+        $business->owner=$request->owner;
+        if ($business->email == $request->email){
+            $business->email=$request->email;
+        }
+        else{
+            $businessFind = Business::where('email', $request->email)->first();
+            if($businessFind){
+                return back()->with('response', [
+                    'status'=>"danger",
+                    'title'=>"Error",
+                    'message'=>"Es ist bereits ein Benutzer mit dieser Mobilnummer registriert"
+                ]);
+            }
+        }
+        $business->owner_email=$request->input('owner_email');
+        $business->phone=$request->phone;
+        $business->password=Hash::make($request->input('password'));
+        if ($business->save()){
+            return back()->with('response', [
+                'status'=>"success",
+                'title'=>"Erfolgreich",
+                'message'=>"Ihre Informationen wurden erfolgreich aktualisiert"
+            ]);
+        }
+    }
+    public function updateWorkTime(Request $request)
+    {
+        $business= Business::find($request->input('business_id'));
+        $business->off_day = $request->input('day');
+        $business->start_time = $request->input('start_time');
+        $business->end_time = $request->input('end_time');
+        $business->save();
+        return back()->with('response', [
+            'status'=>"success",
+            'title'=>"success",
+            'message'=>"Hier werden die Tage angezeigt, die nicht zu den Feiertagen Ihrer Mitarbeiter gehören. Sie müssen andere Feiertage als diese Tage für das Personal eingeben.niz Başarılı Bir Şekilde Güncellendi"
+        ]);
+    }
+
+    public function updateCategory(Request $request)
+    {
+        $request->validate([
+            'category'=>"required",
+        ], [], [
+            'category'=>"Geschäftskategorien"
+        ]);
+        $business= Business::find($request->input('business_id'));
+
+        if ($business->categories->count() > 0){
+            foreach ($business->categories as $category) {
+                $category->delete();
+            }
+        }
+        foreach ($request->input('category') as $category){
+            $businessCategory = new BusinessTypeCategory();
+            $businessCategory->category_id = $category;
+            $businessCategory->business_id = $business->id;
+            $businessCategory->save();
+        }
+        return back()->with('response', [
+            'status' => "success",
+            'message' => "Unternehmenskategorien bearbeitet"
+        ]);
+    }
+
 }

@@ -49,9 +49,9 @@
                                         <td>{{$support->subject}}</td>
                                         <td>
                                             @if($support->status == 0)
-                                                <span class="badge light badge-info">Weitergeleitet</span>
+                                                <span class="badge light badge-danger"><strong>nicht geantwortet</strong></span>
                                             @else
-                                                <span class="badge light badge-success">Antwortete</span>
+                                                <span class="badge light badge-success">beantwortet</span>
                                             @endif
                                         </td>
                                         <td>{{$support->created_at->format('d.m.Y')}}</td>

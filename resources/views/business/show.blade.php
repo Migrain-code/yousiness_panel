@@ -370,25 +370,25 @@
                                                         <select class="form-control" name="minute">
                                                             <option value="">Süre Seçiniz</option>
                                                             <option value="5" @selected($business->appoinment_range=="5")>
-                                                                5 Dakika
+                                                                5 Minute
                                                             </option>
                                                             <option value="10" @selected($business->appoinment_range=="10")>
-                                                                10 Dakika
+                                                                10 Minute
                                                             </option>
                                                             <option value="15" @selected($business->appoinment_range=="15")>
-                                                                15 Dakika
+                                                                15 Minute
                                                             </option>
                                                             <option value="30" @selected($business->appoinment_range=="30")>
-                                                                30 Dakika
+                                                                30 Minute
                                                             </option>
                                                             <option value="40" @selected($business->appoinment_range=="40")>
-                                                                40 Dakika
+                                                                40 Minute
                                                             </option>
                                                             <option value="45" @selected($business->appoinment_range=="45")>
-                                                                45 Dakika
+                                                                45 Minute
                                                             </option>
                                                             <option value="60" @selected($business->appoinment_range=="60")>
-                                                                60 Dakika
+                                                                60 Minute
                                                             </option>
                                                         </select>
                                                     </div>

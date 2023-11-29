@@ -102,9 +102,9 @@
                                 </td>
                                 <td>
                                     @if($info->status == 0)
-                                        <span class="badge badge-danger" data-status="{{$info->id}}">Aranmadı</span>
+                                        <span class="badge badge-danger" data-status="{{$info->id}}">wird Kontaktiert</span>
                                     @else
-                                        <span class="badge badge-success" data-status="{{$info->id}}">Arandı</span>
+                                        <span class="badge badge-success" data-status="{{$info->id}}">Kontaktiert</span>
                                     @endif
                                 </td>
                                 <td>{{$info->created_at->format('d.m.Y H:i')}}</td>
@@ -156,9 +156,9 @@
                     if(res.status=="success"){
                         var badgeElement = $('[data-status="' + id + '"]');
                         if (res.status_code == 1) {
-                            badgeElement.removeClass('badge-danger').addClass('badge-success').text('Arandı');
+                            badgeElement.removeClass('badge-danger').addClass('badge-success').text('Kontaktiert');
                         } else {
-                            badgeElement.removeClass('badge-success').addClass('badge-danger').text('Aranmadı');
+                            badgeElement.removeClass('badge-success').addClass('badge-danger').text('wird Kontaktiert');
                         }
                         Swal.fire({
                             text: res.message,

@@ -160,6 +160,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::post('city', [\App\Http\Controllers\Admin\HomeController::class, 'district'])->name('city');
         Route::post('subCategory', [\App\Http\Controllers\Admin\HomeController::class, 'subCategory'])->name('subCategory');
 
+        Route::controller(\App\Http\Controllers\Admin\BusinessController::class)->prefix('profile')->as('profile.')->group(function () {
+            Route::post('/update-category', 'updateCategory')->name('updateCategory');
+            Route::post('/update-general-setting', 'update')->name('updateGeneralSetting');
+            Route::post('/update-owner-setting', 'updateOwner')->name('updateOwnerSetting');
+            Route::post('/update-work-time', 'updateWorkTime')->name('updateWorkTime');
+        });
+
         /*Ajax Post Url end*/
         Route::get('/update-category', [\App\Http\Controllers\Admin\SettingController::class, 'uCategory']);
         Route::get('/business-settings', [\App\Http\Controllers\Admin\SettingController::class, 'businessEdit'])->name('business.settings');
