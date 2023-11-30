@@ -25643,7 +25643,10 @@ table.dataTable.no-footer {
     text-align: left; } }
 
 td.sorting_1 img {
-  height: 2.188rem;
+    height: 50px;
+    width:50px;
+    border-radius: 10px;
+    object-fit: cover;
   object-fit: cover; }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
