@@ -64,6 +64,8 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
         Route::get('termin/listView', [\App\Http\Controllers\Business\AppointmentController::class, 'listView'])->name('appointment.list');
         Route::get('appointment/reject/{id}', [\App\Http\Controllers\Business\AppointmentController::class, 'reject'])->name('appointment.reject');
         Route::get('appointment/accept/{id}', [\App\Http\Controllers\Business\AppointmentController::class, 'accept'])->name('appointment.accept');
+        Route::get('appointment/complete/{id}', [\App\Http\Controllers\Business\AppointmentController::class, 'complete'])->name('appointment.accept');
+
         Route::resource('businessNote', \App\Http\Controllers\Business\BusinessNoteController::class);
         Route::post('personelService', [\App\Http\Controllers\Business\AppointmentController::class, 'personel'])->name('personelService');
         Route::post('businessCustomer/{id}', [\App\Http\Controllers\Business\CustomerController::class, 'delete'])->name('customer.delete');

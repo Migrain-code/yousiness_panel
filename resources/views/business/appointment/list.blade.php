@@ -222,14 +222,12 @@
                                                                             <a class="dropdown-item"
                                                                                href="{{route('business.appointment.accept', $appointment->id)}}">Termin bestätigen</a>
                                                                         @endif
-                                                                        @if($appointment->status== 3)
-                                                                            <a class="dropdown-item" href="javascript:void(0);">Vollständiger Termin</a>
-                                                                        @endif
 
-
-                                                                        @if($appointment->status == 5)
+                                                                        @if($appointment->status == 3)
                                                                             <div class="dropdown-divider"></div>
-                                                                            <a class="dropdown-item" href="javascript:void(0);">Bestätige Zahlung</a>
+                                                                            <a class="dropdown-item" href="{{route('business.appointment.complete', $appointment->id)}}">
+                                                                                Tamamla
+                                                                            </a>
                                                                         @endif
                                                                     </div>
                                                                 </div>

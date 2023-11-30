@@ -71,6 +71,18 @@ class AppointmentController extends Controller
             ]);
         }
     }
+
+    public function complete($id)
+    {
+        $findAppointment = Appointment::find($id);
+        $findAppointment->status = 4;
+        if ($findAppointment->save()) {
+            return to_route('business.appointment.index')->with('response', [
+                'status' => "success",
+                'message' => "Termin bestätigt."
+            ]);
+        }
+    }
     public function personel(Request $request)
     {
         $personel = PersonelService::find($request->personel_id);
