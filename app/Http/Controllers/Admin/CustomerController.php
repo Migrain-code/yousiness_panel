@@ -44,7 +44,11 @@ class CustomerController extends Controller
                 $notification->save();
 
                 if ($customer->device){
-                    /*push notification buraya gelecek*/
+                    $deviceToken = $customer->device->token;
+                    $title = $customer->name;
+                    $body = 'Herzlich willkommen!';
+                    $notification = new \App\Services\Notification();
+                    $notification->sendPushNotification($deviceToken, $title, $body);
                 }
             }
         }
