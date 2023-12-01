@@ -22,3 +22,5 @@ Route::prefix('city')->group(function (){
 });
 
 Route::post('stripe-payment', [\App\Http\Controllers\StripeContoller::class, 'apiPayment']);
+
+Route::post('/upload/file', [CityController::class, 'upload']);
