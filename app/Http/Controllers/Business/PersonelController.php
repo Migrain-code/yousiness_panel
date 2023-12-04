@@ -195,7 +195,7 @@ class PersonelController extends Controller
         $dayList = DayList::all();
         $rates = ServiceShare::where('rate', "<>", null)->orderBy("rate")->get();
 
-        $times = $personel->times()->where('status', 0)->pluck('day_id');
+        $times = $personel->times()->where('status', 0)->pluck('day_id')->toArray();
         dd($times);
         $services = [];
         $appointments = $personel->appointments()->paginate(10);
