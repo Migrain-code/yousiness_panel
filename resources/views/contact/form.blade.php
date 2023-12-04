@@ -4,7 +4,7 @@
             <div class="col-xl-5 col-lg-6">
                 <div class="contact-form-left">
                     <div class="contact-form-section-box pb-80">
-                        <h5 class="inner-section-subtitle">HızlıAppy</h5>
+                        <h5 class="inner-section-subtitle">{{}}</h5>
                         <h4 class="tp-section-title pb-10">Sizden Haber<br> Almak
                               <span>
                                  <img src="/business/assets/img/send-image.svg" style="width: 40px;height: 40px">
@@ -14,10 +14,11 @@
                     </div>
                     <div class="contact-form-social-box p-relative">
                         <div class="contact-form-social-item">
-                            <a href="{{config('settings.facebook')}}"><i class="fab fa-facebook-f"></i></a>
-                            <a href="{{config('settings.twitter')}}"><i class="fab fa-twitter"></i></a>
-
-                            <a href="{{config('settings.instagram')}}"><i class="fab fa-instagram"></i></a>
+                            <a href="{{config('settings.speed_facebook_url')}}"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{config('settings.speed_twitter_url')}}"><i class="fab fa-twitter"></i></a>
+                            <a href="{{config('settings.speed_instagram_url')}}"><i class="fab fa-instagram"></i></a>
+                            <a href="{{config('settings.speed_youtube_url')}}" class="mt-2"><i class="fab fa-youtube"></i></a>
+                            <a href="{{config('settings.speed_tiktok_url')}}" class="mt-2"><i class="fab fa-tiktok"></i></a>
                         </div>
                         <div class="contact-form-section-img">
                             <img src="assets/img/contact/contact-icon-sm-4.png" alt="">
@@ -36,7 +37,7 @@
                             </ul>
                         @endif
                         @if(session('response'))
-                            <input type="hidden" id="alert" value="success" message="Mesajınız tarafımıza iletildi en kısa sürede dönüş sağlayacağız.">
+                            <input type="hidden" id="alert" value="success" message="Ihre Nachricht wurde gesendet.">
                         @endif
                         <form action="{{route('contact.sendMessage')}}" method="post" class="box">
                             @csrf
@@ -44,43 +45,36 @@
                                 <div class="col-12">
                                     <div class="postbox__comment-input mb-30">
                                         <input type="text" name="fullName" class="inputText" required>
-                                        <span class="floating-label">Ad-Soyad</span>
+                                        <span class="floating-label">Name Nachname</span>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="postbox__comment-input mb-30">
                                         <input type="text" name="email" class="inputText" required>
-                                        <span class="floating-label">E-Posta Adresiniz</span>
+                                        <span class="floating-label">E-Mail</span>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="postbox__comment-input mb-35">
                                         <input type="text" name="phone" id="phone" class="inputText" required>
-                                        <span class="floating-label">Telefon Numaranız</span>
+                                        <span class="floating-label">Mobilnummer</span>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="postbox__select mb-30">
-                                        <select name="subject">
-                                            <option value="">Lütfen Konu Seçiniz</option>
-                                            <option value="Konu">Konu</option>
-                                            <option value="Bilgi">Bilgi</option>
-                                            <option value="Öneri">Öneri</option>
-                                            <option value="Şikayet">Şikayet</option>
-                                            <option value="Reklam">Reklam</option>
-
-                                        </select>
+                                    <div class="postbox__comment-input mb-35">
+                                        <input type="text" name="subject" class="inputText" required>
+                                        <span class="floating-label">Betreff Nachricht</span>
                                     </div>
                                 </div>
                                 <div class="col-xxl-12">
                                     <div class="postbox__comment-input mb-30">
                                         <textarea class="textareaText" name="message" required></textarea>
-                                        <span class="floating-label-2">Mesajınız</span>
+                                        <span class="floating-label-2">Nachricht</span>
                                     </div>
                                 </div>
                                 <div class="col-xxl-12">
                                     <div class="postbox__btn-box">
-                                        <button class="submit-btn w-100" type="submit">Mesajımı Gönder</button>
+                                        <button class="submit-btn w-100" type="submit">Submit</button>
                                     </div>
                                 </div>
                             </div>

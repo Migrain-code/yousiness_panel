@@ -161,7 +161,7 @@ class HomeController extends Controller
         if ($businessContact->save()){
             return back()->with('response', [
                 'status'=>"success",
-                'message'=>"Ihre Kontaktnachricht wurde erfolgreich an uns übermittelt. Wir werden so schnell wie möglich zurückkommen."
+                'message'=>"Ihre Nachricht wurde gesendet."
             ]);
         }
     }

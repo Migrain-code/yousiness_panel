@@ -22,7 +22,7 @@
 
                                 <li><a href="#proparties">Besonderheiten</a></li>
 
-                                <li><a href="{{route('contact')}}">Kontakt</a></li>
+                                <li><a href="#contactForm">Kontakt</a></li>
 
                             </ul>
 

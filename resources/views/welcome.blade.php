@@ -669,6 +669,12 @@
         </div>
         <!-- tp-testimonial-area-end -->
 
+        <div class="tp-sales-area tp-sales-space" id="contactForm" style="padding-top: 90px;">
+            <div class="container">
+                @include('contact.form')
+            </div>
+        </div>
+
         @include('layouts.component.free-register')
         <!-- tp-cta-area-end -->
 

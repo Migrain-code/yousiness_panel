@@ -9,7 +9,7 @@ Route::controller(\App\Http\Controllers\HomeController::class)->group(function (
     Route::get('/paketler', 'packages')->name('packages');
     Route::get('/destek', 'faq')->name('faq');
     Route::get('/iletisim', 'contact')->name('contact');
-    Route::post('/iletisim', 'sendMessage')->name('contact.sendMessage');
+    Route::post('/kontakt', 'sendMessage')->name('contact.sendMessage');
     Route::get('/bloglar', 'blogs')->name('blog.index');
     Route::get('/blog/detay/{slug}', 'blogDetail')->name('blog.detail');
     Route::get('/ozellikler', 'proparties')->name('propartie.index');
