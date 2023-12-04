@@ -196,6 +196,7 @@ class PersonelController extends Controller
         $rates = ServiceShare::where('rate', "<>", null)->orderBy("rate")->get();
 
         $times = $personel->times()->where('status', 0)->pluck('day_id');
+        dd($times);
         $services = [];
         $appointments = $personel->appointments()->paginate(10);
 
