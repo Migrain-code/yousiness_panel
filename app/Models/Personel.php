@@ -41,4 +41,9 @@ class Personel extends Model
     {
         return $this->hasMany(ProductSales::class, 'personel_id', 'id');
     }
+
+    public function times()
+    {
+        return $this->hasMany(PersonalTimes::class, 'personel_id', 'id');
+    }
 }

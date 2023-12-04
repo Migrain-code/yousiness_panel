@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BusinessService;
 use App\Models\Customer;
 use App\Models\DayList;
+use App\Models\PersonalTimes;
 use App\Models\Personel;
 use App\Models\PersonelNotification;
 use App\Models\PersonelService;
@@ -27,7 +28,6 @@ class PersonelController extends Controller
 
     public function index()
     {
-
         $rates = ServiceShare::where('rate', "<>", null)->orderBy("rate")->get();
         $dayList = DayList::orderBy("id")->get();
         return view('business.personel.index', compact('rates', 'dayList'));
@@ -129,7 +129,7 @@ class PersonelController extends Controller
         $personel->password = Hash::make($request->password);
         $personel->phone = $request->phone;
         $personel->accept = $request->accept;
-        $personel->rest_day = $request->off_day;
+        $personel->rest_day = 0;
         $personel->start_time = $request->start_time;
         $personel->end_time = $request->end_time;
         $personel->food_start = $request->food_start_time;
@@ -142,6 +142,13 @@ class PersonelController extends Controller
             $personel->image = 'storage/' . $request->file('image')->store('personalImage');
         }
         if ($personel->save()) {
+            foreach (DayList::all() as $day){
+                $time = new PersonalTimes();
+                $time->day_id = $day->id;
+                $time->personel_id = $personel;
+                $time->status = in_array($day->id, $request->off_day) ? 0 : 1;
+                $time->save();
+            }
             if (in_array('all', $request->services)) {
                 $findBusinessService = auth('business')->user()->services;
                 foreach ($findBusinessService as $service) {
@@ -331,7 +338,7 @@ class PersonelController extends Controller
         }
         $personel->phone = $request->phone;
         $personel->accept = $request->accept;
-        $personel->rest_day = $request->off_day;
+        $personel->rest_day = 0;
         $personel->start_time = $request->start_time;
         $personel->end_time = $request->end_time;
         $personel->food_start = $request->food_start_time;
@@ -345,6 +352,13 @@ class PersonelController extends Controller
         }
 
         if ($personel->save()) {
+            foreach (DayList::all() as $day){
+                $time = new PersonalTimes();
+                $time->day_id = $day->id;
+                $time->personel_id = $personel;
+                $time->status = in_array($day->id, $request->off_day) ? 0 : 1;
+                $time->save();
+            }
             PersonelService::where('personel_id', $personel->id)->delete();
             if (in_array('all', $request->services)) {
                 $findBusinessService = auth('business')->user()->services;
