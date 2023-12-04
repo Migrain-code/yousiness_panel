@@ -145,7 +145,7 @@ class PersonelController extends Controller
             foreach (DayList::all() as $day){
                 $time = new PersonalTimes();
                 $time->day_id = $day->id;
-                $time->personel_id = $personel;
+                $time->personel_id = $personel->id;
                 $time->status = in_array($day->id, $request->off_day) ? 0 : 1;
                 $time->save();
             }
@@ -355,7 +355,7 @@ class PersonelController extends Controller
             foreach (DayList::all() as $day){
                 $time = new PersonalTimes();
                 $time->day_id = $day->id;
-                $time->personel_id = $personel;
+                $time->personel_id = $personel->id;
                 $time->status = in_array($day->id, $request->off_day) ? 0 : 1;
                 $time->save();
             }
