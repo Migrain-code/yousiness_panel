@@ -161,7 +161,7 @@
                                                         </button></label>
                                                     <select name="off_day[]" multiple class="form-control">
                                                         @forelse($dayList as $list)
-                                                            <option value="{{$list->id}}" @disabled(auth('business')->user()->off_day == $list->id)>{{$list->name}}</option>
+                                                            <option value="{{$list->id}}" @selected(in_array($list->id, $times))>{{$list->name}}</option>
                                                         @empty
 
                                                         @endforelse

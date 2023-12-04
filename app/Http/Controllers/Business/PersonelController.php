@@ -195,6 +195,7 @@ class PersonelController extends Controller
         $dayList = DayList::all();
         $rates = ServiceShare::where('rate', "<>", null)->orderBy("rate")->get();
 
+        $times = $personel->times()->where('status', 0)->pluck('day_id');
         $services = [];
         $appointments = $personel->appointments()->paginate(10);
 
@@ -266,7 +267,7 @@ class PersonelController extends Controller
 
         $monthData = json_encode($monthlyAppointmentCounts);
 
-        return view('business.personel.edit', compact('monthData','personel', 'dayList', 'rates', 'services', 'appointments', 'totalPrice', 'totalTime', 'packageSales', 'productSales', 'allTotal', 'theYearTotal', 'theMonthTotal', 'unPrice'));
+        return view('business.personel.edit', compact('times','monthData','personel', 'dayList', 'rates', 'services', 'appointments', 'totalPrice', 'totalTime', 'packageSales', 'productSales', 'allTotal', 'theYearTotal', 'theMonthTotal', 'unPrice'));
     }
 
     function appointmentTotalPrice($businessServices)
