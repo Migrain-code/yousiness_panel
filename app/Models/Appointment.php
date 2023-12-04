@@ -32,8 +32,8 @@ class Appointment extends Model
             'code' => 'primary'
         ],
         4 => [
-            'html' => '<span class="badge badge-outline-success fw-bolder px-2 py-2">Tamamlandı</span>',
-            'text' => 'Tamamlandı',
+            'html' => '<span class="badge badge-outline-success fw-bolder px-2 py-2">Abgeschlossen</span>',
+            'text' => 'Abgeschlossen',
             'code' => 'success'
         ],
         5 => [
