@@ -20,10 +20,9 @@
                                 </li>
                                 <li><a href="#packets">Pakete</a></li>
 
-                                <li>
-                                    <a href="#proparties">Über uns</a></li>
+                                <li><a href="#proparties">Besonderheiten</a></li>
 
-                                <li><a href="#contact">Kontakt</a></li>
+                                <li><a href="{{route('contact')}}">Kontakt</a></li>
 
                             </ul>
 

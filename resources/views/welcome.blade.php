@@ -161,7 +161,7 @@
         <!-- tp-fun-fact-area-end -->
 
         <!-- tp-service-area-start -->
-        <div class="tp-service-area tp-services-five-item-bg-color p-relative fix" id="propraties">
+        <div class="tp-service-area tp-services-five-item-bg-color p-relative fix" id="proparties">
             <div class="container">
                 <div class="row g-0">
                     @forelse($proparties as $propartie)
