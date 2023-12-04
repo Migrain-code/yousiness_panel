@@ -4,7 +4,7 @@
             <div class="col-xl-5 col-lg-6">
                 <div class="contact-form-left">
                     <div class="contact-form-section-box pb-80">
-                        <h5 class="inner-section-subtitle">{{}}</h5>
+                        <h5 class="inner-section-subtitle">Kontakt</h5>
                         <h4 class="tp-section-title pb-10">Sizden Haber<br> Almak
                               <span>
                                  <img src="/business/assets/img/send-image.svg" style="width: 40px;height: 40px">
