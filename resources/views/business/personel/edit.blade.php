@@ -159,7 +159,7 @@
                                                         <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Tage angezeigt, die nicht zu den Feiertagen Ihrer Mitarbeiter gehören. Sie müssen andere Feiertage als diese Tage für das Personal eingeben." title="Feiertag">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button></label>
-                                                    <select name="off_day" multiple class="form-control">
+                                                    <select name="off_day[]" multiple class="form-control">
                                                         @forelse($dayList as $list)
                                                             <option value="{{$list->id}}" @disabled(auth('business')->user()->off_day == $list->id)>{{$list->name}}</option>
                                                         @empty

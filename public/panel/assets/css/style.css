@@ -29221,9 +29221,12 @@ div#example5_wrapper .form-check-input {
     margin-right: auto;
     margin-bottom: 20px;
     display: inline-block; }
-    .author-profile .author-media img {
-      width: 130px;
-      border-radius: 100%; }
+.author-profile .author-media img {
+    width: 130px;
+    max-height: 130px;
+    max-width: 150px;
+    border-radius: 100%;
+}
   .author-profile .author-info .title {
     font-size: 15px;
     font-weight: 500;
