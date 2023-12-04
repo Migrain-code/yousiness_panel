@@ -46,6 +46,10 @@
                                         <input type="text" class="form-control input-default " name="price" placeholder="">
                                     </div>
                                     <div class="mb-3">
+                                        <label>Stripe Key</label>
+                                        <input type="text" class="form-control input-default " name="stripe_key" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
                                         <label>Pakettyp</label>
                                         <select type="text" class="form-control input-default " name="type">
                                             <option value="0">Monat</option>

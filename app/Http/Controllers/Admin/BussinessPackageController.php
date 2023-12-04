@@ -36,16 +36,19 @@ class BussinessPackageController extends Controller
             'name'=>"required",
             'price'=>"required",
             'type'=>"required",
+            'stripe_key' => "required",
         ],[], [
             'name'=>"Paketname",
             'price'=>"Preis",
             'type'=>"Art",
+            'stripe_key' => "Stripe KEY",
         ]);
         $bussinessPackage=new BussinessPackage();
         $bussinessPackage->name=$request->input('name');
         $bussinessPackage->slug=Str::slug($request->input('name'));
         $bussinessPackage->type=$request->input('type');
         $bussinessPackage->price=$request->input('price');
+        $bussinessPackage->stripe_key = $request->input('stripe_key');
         if ($bussinessPackage->save()){
             return to_route('admin.businessPackage.index')->with('response', [
                 'status'=>"success",
@@ -72,11 +75,23 @@ class BussinessPackageController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name'=>"required",
+            'price'=>"required",
+            'type'=>"required",
+            'stripe_key' => "required",
+        ],[], [
+            'name'=>"Paketname",
+            'price'=>"Preis",
+            'type'=>"Art",
+            'stripe_key' => "Stripe KEY",
+        ]);
         $bussinessPackage=BussinessPackage::find($id);
 
         $bussinessPackage->name=$request->input('name');
         $bussinessPackage->type=$request->input('type');
         $bussinessPackage->price=$request->input('price');
+        $bussinessPackage->stripe_key = $request->input('stripe_key');
 
         if ($bussinessPackage->save()){
             BussinessPackagePropartie::where('package_id', $bussinessPackage->id)->delete();
