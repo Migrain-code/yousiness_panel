@@ -192,6 +192,16 @@ class PersonelController extends Controller
      */
     public function edit(Personel $personel)
     {
+
+        foreach (Personel::all() as $personla){
+            foreach (DayList::all() as $day){
+                $time = new PersonalTimes();
+                $time->day_id = $day->id;
+                $time->personel_id = $personla->id;
+                $time->status = 1;
+                $time->save();
+            }
+        }
         $dayList = DayList::all();
         $rates = ServiceShare::where('rate', "<>", null)->orderBy("rate")->get();
 
