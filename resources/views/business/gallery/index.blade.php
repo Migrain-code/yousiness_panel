@@ -100,7 +100,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                      "Fotogalerie
+                        FOTOGALERIE
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -135,7 +135,8 @@
 
                         @empty
                             <div class="alert alert-warning">
-                                İşletme Galerinizde hiç görsel bulunamadı eklemek için <a href="#" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Tıklayınız</a>
+                                Keine Bilder in Ihrer Salon-Galerie gefunden.
+                                <a href="#" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Zum Hinzufügen klicken</a>
                             </div>
                         @endforelse
                     </div>
