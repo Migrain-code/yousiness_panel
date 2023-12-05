@@ -77,7 +77,7 @@
                                 <div class="chart-num">
                                     <h2 class="font-w600 mb-0">{{auth('business')->user()->personel->count()}}</h2>
                                     <p>
-                                        Mitarbetier
+                                        Mitarbeiter
                                     </p>
                                 </div>
                             </div>
