@@ -39,7 +39,7 @@ class CampaignController extends Controller
         if (auth('business')->user()->customers->count() > 0){
             return back()->with('response', [
                'status' => "warning",
-               'message' => "Müşterilerinize kampanya tanımlayabilirsiniz. Ancak müşteri sayınız 0 olduğu için kampanya oluşturamazsınız."
+               'message' => "Sie können Kampagnen für Ihre Kunden definieren. Sie können jedoch keine Kampagne erstellen, weil die Anzahl Ihrer Kunden 0 ist."
             ]);
         }
         $request->validate([
@@ -68,13 +68,10 @@ class CampaignController extends Controller
             }
             return back()->with('response', [
                'status' => "success",
-               'message' => "Kampanya Oluşturuldu",
+               'message' => "Kampagne erfolgreich hinzugefügt.",
             ]);
         }
-        return back()->with('response', [
-            'status' => "danger",
-            'message' => "Hata Kampanya Oluşturulamadı",
-        ]);
+        return back();
     }
 
     /**
