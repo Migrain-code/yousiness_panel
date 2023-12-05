@@ -360,6 +360,9 @@
     function getNumber() {
         return iti.getNumber();
     }
+    $(function (){
+        iti.setCountry("de");
+    });
 </script>
 
 
