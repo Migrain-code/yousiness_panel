@@ -13,8 +13,8 @@ Route::controller(\App\Http\Controllers\HomeController::class)->group(function (
     Route::get('/bloglar', 'blogs')->name('blog.index');
     Route::get('/blog/detay/{slug}', 'blogDetail')->name('blog.detail');
     Route::get('/ozellikler', 'proparties')->name('propartie.index');
-    Route::get('ozellikler/detay/{slug}', 'propartie')->name('propartie.detail');
-    Route::get('sayfa/{slug}', 'pageDetail')->name('page.detail');
+    Route::get('besonderheiten/detail/{slug}', 'propartie')->name('propartie.detail');
+    Route::get('seite/{slug}', 'pageDetail')->name('page.detail');
 });
 Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
     Route::get('/login', [\App\Http\Controllers\Business\Auth\LoginController::class, 'showLoginForm'])->name('login');
