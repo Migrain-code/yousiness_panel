@@ -60,7 +60,7 @@
                                     <tr>
                                         <td>{{$package->seller_date->format('d.m.Y h:i:s')}}</td>
                                         <td>{{$package->customer->name}}</td>
-                                        <td>{{$package->service->subCategory->name . "(".$package->service?->gender->name.")"}}</td>
+                                        <td>{{isset($package->service) && isset($package->service->subCategory) ? $package->service->subCategory->name . "(".$package->service->gender->name.")" : "löschen "}}</td>
                                         <td>{{$package->personel->name}}</td>
                                         <td>{{$package_types[$package->type]}}</td>
                                         <td>{{$package->amount}}</td>
