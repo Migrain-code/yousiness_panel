@@ -299,13 +299,13 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                success:function (data){
 
                    if(data.length > 0){
-                       $("#service").append('<option value="all"> Tüm Hizmetler </option>')
+                       $("#service").append('<option value="all"> Aile Dienştleistungen </option>')
                        $.each(data, function (index) {
                            $("#service").append('<option value="' + data[index].id + '">' +data[index].sub_category.name  + '(' +data[index].gender.name +')'+ '</option>')
                        });
                    }
                    else{
-                       $("#service").append('<option >Hizmet Bulunamadı Eklemek için Hizmetler Menüsüne Gidin</option>')
+                       $("#service").append('<option >Gewünschte Dienstleistung konnte nicht gefunden werden. </option>')
                    }
                    $("#service").selectpicker("refresh");
                }
