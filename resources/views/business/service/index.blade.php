@@ -60,7 +60,7 @@
                                         <td>{{$service->gender->name}}</td>
                                         <td>{{$service->categorys->name}}</td>
                                         <td>{{$service->subCategory->name}}</td>
-                                        <td>{{$service->time}} DK</td>
+                                        <td>{{$service->time}} min.</td>
                                         <td>{{$service->price}} &#x20AC;
                                         </td>
                                         {{--
