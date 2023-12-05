@@ -26787,6 +26787,7 @@ body > * {
   font-size: 1.375rem;
   font-weight: 600;
   line-height: 1.5;
+  text-transform: uppercase;
   margin: 7.5px 0; }
 
 .heading-lg {
