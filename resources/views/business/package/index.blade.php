@@ -153,7 +153,7 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Verwendete AnzahVMenge</label>
+                            <label class="form-label">Verwendete Anzahl / Menge</label>
                             <input type="number" class="form-control" min="1" id="package_amount">
                         </div>
                         <div class="col-6">
