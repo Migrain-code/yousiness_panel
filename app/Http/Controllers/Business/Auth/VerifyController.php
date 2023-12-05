@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Business\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\BasicMail;
 use App\Models\Business;
+use App\Models\SmsConfirmation;
 use App\Providers\RouteServiceProvider;
 use App\Services\Sms;
 use Illuminate\Http\Request;
@@ -23,8 +24,9 @@ class VerifyController extends Controller
             'verification_code' => ['required', 'numeric', 'digits:6'],
         ]);
 
-        $user = Business::where('verification_code', $request->input('verification_code'))->first();
-        if ($user){
+        $code = SmsConfirmation::where("code", $request->code)->where('action','BUSINESS-REGISTER')->first();
+        if ($code){
+            $user = Business::where('email', $code->phone)->first();
             $generatePassword=rand(100000, 999999);
             $user->password=Hash::make($generatePassword);
             $user->verification_code=null;
@@ -65,21 +67,22 @@ class VerifyController extends Controller
         if (!$business){
             return to_route('business.showForgotView')->with('response', [
                'status'=>"error",
-               'message'=>"Überprüfung der Benutzerinformationen fehlgeschlagen.."
+               'message'=>"Es ist bereits ein Benutzer mit dieser Mobilnummer registriert."
             ]);
         }
         else{
-            $generatePassword=rand(1000000, 9999999);
+            $generatePassword=rand(100000, 999999);
 
             $phone=str_replace(array('(', ')', '-', ' '), '', $business->email);
-            Sms::send($phone,"Ihr Passwort für die Anmeldung bei ".config('settings.appy_site_title')." lautet ". $generatePassword);
+
+            Sms::send($phone, "Ihr Passwort für die Anmeldung bei ".config('settings.appy_site_title')." lautet ".$generatePassword);
 
             $business->password=Hash::make($generatePassword);
             $business->password_status=1;
             $business->save();
             return to_route('business.login')->with('response', [
                 'status'=>"success",
-                'message'=>"Ihr Passwort für die Anmeldung bei ".config('settings.appy_site_title')." wurde an Sie gesendet.",
+                'message'=>"Ihre Mobilnummer Überprüfung war erfolgreich. Für die Anmeldung in das System wurde Ihnen Ihr Passwort zugesendet.",
             ]);
 
         }
