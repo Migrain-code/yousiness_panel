@@ -124,7 +124,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Zahlungsart auswâhlen</label>
                                 <select name="payment_type" class="form-control">
-                                    <option>Ödeme Yöntemi Seçiniz</option>
+                                    <option>Zahlungsart auswâhlen</option>
                                     @forelse($payment_types as $payment)
                                         <option value="{{$loop->index}}">{{$payment}}</option>
                                     @empty
