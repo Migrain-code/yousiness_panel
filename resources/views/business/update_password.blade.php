@@ -1,5 +1,5 @@
 @extends('business.layouts.master')
-@section('title', 'İşletme | Anasayfa')
+@section('title', 'Business')
 @section('content')
     <div class="row">
         <div class="col-xl-12">

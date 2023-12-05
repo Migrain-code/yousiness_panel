@@ -24,7 +24,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end of-visible">
                             <div class="dropdown-header">
-                                <h4 class="title mb-0">Bildirimler</h4>
+                                <h4 class="title mb-0">Nachrichten</h4>
                                 <a href="javascript:void(0);" class="d-none"><i class="flaticon-381-settings-6"></i></a>
                             </div>
                             <div id="DZ_W_Notification1" class="widget-media dlab-scroll p-3" style="height:380px;">
@@ -44,11 +44,11 @@
                                             </a>
                                         </li>
                                     @empty
-                                        <div class="alert alert-primary">Bildirim Bulunamadı</div>
+                                        <div class="alert alert-primary">Nachrichten nicht gefunden</div>
                                     @endforelse
                                 </ul>
                             </div>
-                            <a class="all-notification" href="{{route('business.businessNotification.index')}}">Tüm Bildirimler <i class="ti-arrow-end"></i></a>
+                            <a class="all-notification" href="{{route('business.businessNotification.index')}}">Aile Nachrichten <i class="ti-arrow-end"></i></a>
                         </div>
                     </li>
 

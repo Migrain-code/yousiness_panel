@@ -56,7 +56,7 @@
                                     <div class="card card-bx profile-card author-profile m-b30">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                Zusammenfassung des Termins
+                                                Termin Detail
                                             </div>
                                         </div>
                                         <div class="card-body">

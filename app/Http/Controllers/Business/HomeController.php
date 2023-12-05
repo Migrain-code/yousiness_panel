@@ -50,7 +50,7 @@ class HomeController extends Controller
         if ($business->save()){
             return to_route('business.home')->with('response', [
                 'status'=>"success",
-                'message'=>"Dein Passwort wurde aktualisiert"
+                'message'=>"Ihr Passwort wurde aktualisiert"
             ]);
         }
     }

@@ -194,7 +194,7 @@
         <div class="col-lg-12">
             <div class="page-titles">
                 <div class="d-flex align-items-center">
-                    <h2 class="heading">Salon Profil</h2>
+                    <h2 class="heading">SALON DETAILS</h2>
                 </div>
             </div>
         </div>

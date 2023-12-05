@@ -243,7 +243,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                     @empty
                                     @endforelse
                                     @if(auth('business')->user()->services->count() > 2)
-                                        <option value="all">Tümü (Hizmetlerin hepsini tanımla)</option>
+                                        <option value="all">Aile Dienstleistungen</option>
                                     @endif
                                 </select>
                             </div>

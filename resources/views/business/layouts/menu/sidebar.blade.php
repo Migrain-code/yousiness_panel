@@ -30,7 +30,7 @@
                         <a href="{{route('business.businessService.index')}}">Dienstleistungen</a>
                     </li>
                     <li>
-                        <a href="{{route('business.personel.index')}}">Mitarbeiterr</a>
+                        <a href="{{route('business.personel.index')}}">Mitarbeiter</a>
                     </li>
                     <li>
                         <a href="{{route('business.gallery.index')}}">Galerie</a>
@@ -70,27 +70,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-                    <i class="material-icons-outlined">cloud_download</i>
-                    <span class="nav-text">Berichte</span>
-                </a>
-                <ul aria-expanded="false">
-                   {{--
-                    <li>
-                        <a href="{{route('panel.business.index')}}">Kasa Raporu</a>
-                    </li>
-                    <li>
-                        <a href="{{route('panel.business.create')}}">Satış Raporu</a>
-                    </li>
-                    <li>
-                        <a href="{{route('panel.business.create')}}">Ürün Raporu</a>
-                    </li>
-                    <li>
-                        <a href="{{route('panel.business.create')}}">Paket Satış Raporu</a>
-                    </li>--}}
-                </ul>
-            </li>
+
             <li>
                 <a class="has-arrow " href="{{route('business.businessService.index')}}">
                     <i class="material-icons-outlined">list</i>

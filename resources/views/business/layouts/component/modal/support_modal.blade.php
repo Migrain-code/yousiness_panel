@@ -23,9 +23,11 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                   {{--
+                     <div class="row">
                         <div class="alert alert-warning">Möchten Sie einen  <a href="#" class="text-warning fw-bold text-decoration-underline"> Blick auf unsere Erklärvideo </a> oder  <a href="#" class="text-warning fw-bold text-decoration-underline">FAQ werfen, </a> bevor Sie eine Anfrage senden?</div>
                     </div>
+                   --}}
 
                     {{--End Modal Body--}}
                 </div>
