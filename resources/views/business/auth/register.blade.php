@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keys')">
-    <title>@yield('title', config('settings.appy_site_title') .' | '. 'Geschäftsanmeldung')</title>
+    <title>@yield('title', config('settings.appy_site_title') .' | '. 'SALON REGISTRIERUNG')</title>
     <style>
         .btn-mobile-menu-free{
             background: #4CAF50 !important;
@@ -34,6 +34,24 @@
                 transform: scale(0.95);
                 box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
             }
+        }
+        .signin-banner-from-subtitle::before {
+            content: "";
+            height: 0px;
+            width: 105px;
+            background-color: #e5e5e5;
+            display: inline-block;
+            transform: translateY(-4px);
+            margin-right: 18px;
+        }
+        .signin-banner-from-subtitle::after {
+            content: "";
+            height: 0px;
+            width: 105px;
+            background-color: #e5e5e5;
+            display: inline-block;
+            transform: translateY(-4px);
+            margin-left: 18px;
         }
         .iti {
             width: 100%;
@@ -203,7 +221,8 @@
                     </div>
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
-                            <h4 class="signin-banner-title tp-char-animation"> Treten Sie Yousiness bei.</h4>
+                            <h4 class="signin-banner-title tp-char-animation"> Wilkommen zu dem besten Termin
+                                Management für ihr Salon.</h4>
                         </div>
                         <div class="signin-banner-img-box position-relative">
                             <div class="signin-banner-img signin-img-1 d-none d-md-block z-index-3">
@@ -225,7 +244,7 @@
                     <div class="signin-banner-from-wrap">
                         @include('layouts.component.error')
                         <div class="signin-banner-title-box">
-                            <h4 class="signin-banner-from-title">Geschäftsanmeldung</h4>
+                            <h4 class="signin-banner-from-title">SALON REGISTRIERUNG</h4>
                         </div>
 
                         <div class="signin-banner-from-box">
@@ -236,7 +255,7 @@
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
                                             <input type="text" class="inputText" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" name="name" required>
-                                            <span class="floating-label">Hallenname</span>
+                                            <span class="floating-label">Salonname</span>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -259,7 +278,9 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="1" name="conditions" id="flexCheckDefault" style="padding: 9px;margin-top: 0px !important;">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        <a href="#" class="text-primary">Bedingungen für die Mitgliedschaft</a> Und <a href="#" class="text-primary">Informationstext</a> Ich lese, ich akzeptiere.
+                                                        <a href="#" class="text-primary"> Mit der Resgistrierung stimme ich den
+                                                            Allgemeine Geschâftsbedingungen von
+                                                            Yousiness zu. </a>
                                                     </label>
                                                 </div>
                                             </div>
@@ -269,7 +290,13 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="contact_info" value="1" id="flexCheckDefault" style="padding: 9px;margin-top: 0px !important;">
                                                     <label class="form-check-label" for="flexCheckDefault" style="line-height: 1.3em">
-                                                        Ich bin damit einverstanden, von Yousiness kontaktiert zu werden, um für seine Produkte und Dienstleistungen zu werben.
+                                                        Klicke hier, wenn Sie von Yousiness Neuigkeiten über aktüelle
+                                                        Angebote und Beauty-News per E-MaiI erhalten möchten.
+                                                        Ihre Einwilligung können Sie jederzeit mit Wirkung für die Zukunft
+                                                        widerrufen.
+                                                        Klicken Sie hierzu auf den Link am Ende der jeweiligen E-MaiI.
+                                                        Weitere Informationen tinden Sie in unseren
+                                                        Datenschutzbestimmungen.
                                                     </label>
                                                 </div>
                                             </div>
