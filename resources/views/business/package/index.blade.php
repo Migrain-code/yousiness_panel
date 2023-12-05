@@ -183,7 +183,7 @@
                             <input type="number" class="form-control" id="price">
                         </div>
                         <div class="col-12">
-                            <label class="form-label">Anzahl <span class="text-warning">Sie können nur Preisangaben hinzufügen</span></label>
+                            <label class="form-label">Anzahl</label>
                             <input type="number" class="form-control" id="amount">
                         </div>
                         <div class="col-12 mt-3">
