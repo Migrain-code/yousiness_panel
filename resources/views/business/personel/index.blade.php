@@ -299,7 +299,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                success:function (data){
 
                    if(data.length > 0){
-                       $("#service").append('<option value="all"> Aile Dienştleistungen </option>')
+                       $("#service").append('<option value="all"> Aile Dienstleistungen </option>')
                        $.each(data, function (index) {
                            $("#service").append('<option value="' + data[index].id + '">' +data[index].sub_category.name  + '(' +data[index].gender.name +')'+ '</option>')
                        });

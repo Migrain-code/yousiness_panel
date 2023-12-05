@@ -261,7 +261,7 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                                         @empty
                                                         @endforelse
                                                         @if(auth('business')->user()->services->count() > 2)
-                                                            <option value="all">Tümü (Hizmetlerin hepsini tanımla)</option>
+                                                            <option value="all">Aile Dienstleistungen</option>
                                                         @endif
                                                     </select>
                                                 </div>
