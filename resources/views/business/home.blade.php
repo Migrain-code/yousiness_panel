@@ -197,15 +197,7 @@
                                         </ul>
                                         <div class="dz-media"><img src="{{image($appointment->customer->image)}}" alt=""></div>
                                     </div>
-                                    @if(\Illuminate\Support\Carbon::parse($appointment->start_time)->diffInMinutes(\Illuminate\Support\Carbon::now()) < 30)
-                                        <div class="side" style="background-color: #b3303d;"></div>
-                                    @elseif(\Illuminate\Support\Carbon::parse($appointment->start_time)->diffInMinutes(\Illuminate\Support\Carbon::now()) < 60)
-                                        <div class="side" style="background-color: #FFD125;"></div>
-                                    @elseif(\Illuminate\Support\Carbon::parse($appointment->start_time)->diffInMinutes(\Illuminate\Support\Carbon::now()) < 120)
-                                        <div class="side" style="background-color: #d59c4b;"></div>
-                                    @else
-                                        <div class="side" style="background-color: #1EBA62;"></div>
-                                    @endif
+
                                 </div>
                             </div>
                         </div>
