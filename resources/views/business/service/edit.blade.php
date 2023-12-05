@@ -55,7 +55,14 @@
                     <div class="row">
                         <div class="mb-3 col-md-12">
                             <label class="form-label"> Kategorie
-                                <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
+                                <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body"
+                                        data-bs-toggle="popover"
+                                        data-bs-placement="right"
+                                        data-bs-content="Bitte wâhlen Sie hier Ihre dienstleistungs Oberkategorie aus.
+                                            Wenn Sie kein Geschlecht der Kunde ausgewâhlt
+                                            haben,wird „Es konnte nichts gefunden werden”
+                                            an ezeigt."
+                                        title="Kategorie">
                                     <i class="fa-solid fa-question-circle"></i>
                                 </button>
                             </label>
@@ -67,7 +74,15 @@
                     <div class="row">
                         <div class="mb-3 col-md-12">
                             <label class="form-label"> Dienstleistungen
-                                <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
+                                <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body"
+                                        data-bs-toggle="popover"
+                                        data-bs-placement="right"
+                                        data-bs-content="Bitte wâhlen Sie hier Ihre
+                                            dienstleistungs Unterkategorie aus.
+                                            Wenn Sie Oberkategoerie ausgewâhlt
+                                            haben,wird „Es konnte nichts
+                                            gefunden werden angezeigt."
+                                        title="Dienstleistungen Bemerkung">
                                     <i class="fa-solid fa-question-circle"></i>
                                 </button>
                             </label>
@@ -79,9 +94,6 @@
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label class="form-label"> Arbeitszeit
-                                <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
-                                    <i class="fa-solid fa-question-circle"></i>
-                                </button>
                             </label>
                             <select name="time" class="form-control">
                                 @for($i = 5; $i <= 120; $i+=5)
@@ -91,9 +103,6 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label"> Preis
-                                <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
-                                    <i class="fa-solid fa-question-circle"></i>
-                                </button>
                             </label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">&#x20AC;</span>
