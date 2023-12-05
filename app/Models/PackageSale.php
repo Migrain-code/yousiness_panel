@@ -25,7 +25,7 @@ class PackageSale extends Model
     public function personel()
     {
         return $this->hasOne(Personel::class,'id', 'personel_id')->withDefault([
-            'name' => "Silnmiş Müşteri"
+            'name' => "Mitarbeiter"
         ]);
     }
     public function service()
