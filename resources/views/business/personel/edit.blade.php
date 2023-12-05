@@ -337,25 +337,19 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                                     <div class="dropdown-menu dropdown-menu-end" style="">
                                                                         @if($appointment->status != 8)
                                                                             <a class="dropdown-item"
-                                                                               href="{{route('business.appointment.reject', $appointment->id)}}">İptal
+                                                                               href="{{route('business.appointment.reject', $appointment->id)}}">Reject
                                                                                 Et</a>
                                                                         @endif
                                                                         @if($appointment->status == 0)
                                                                             <a class="dropdown-item"
-                                                                               href="{{route('business.appointment.accept', $appointment->id)}}">Randevuyu
-                                                                                Onayla</a>
+                                                                               href="{{route('business.appointment.accept', $appointment->id)}}">Accept
+                                                                                </a>
                                                                         @endif
                                                                         @if($appointment->status== 3)
-                                                                            <a class="dropdown-item" href="javascript:void(0);">Randevuyu
-                                                                                Tamamla</a>
+                                                                            <a class="dropdown-item" href="javascript:void(0);">Complete</a>
                                                                         @endif
 
 
-                                                                        @if($appointment->status == 5)
-                                                                            <div class="dropdown-divider"></div>
-                                                                            <a class="dropdown-item" href="javascript:void(0);">Ödemeyi
-                                                                                Onayla</a>
-                                                                        @endif
                                                                         <a class="dropdown-item btn btn-primary text-white" href="{{route('business.appointment.show', $appointment->id)}}"><i class="la la-info-circle"></i> Detay</a>
                                                                     </div>
                                                                 </div>
