@@ -14,7 +14,7 @@
                 <line x1="9" y1="9" x2="15" y2="15"></line>
             </svg>
         @endif
-        <strong style="font-size: 15px">{{session('response.title')}}!</strong> <span style="font-size: 15px; font-weight: 600">
+        <strong style="font-size: 15px">{{session('response.title')}}</strong> <span style="font-size: 15px; font-weight: 600">
                 {{session('response.message')}}
 
             </span>
