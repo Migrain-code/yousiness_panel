@@ -21,12 +21,11 @@ class HomeController extends Controller
 
             $earning=0;
 
-            $todayAppointments= Appointment::where('business_id',auth('business')->id())
+            $todayAppointments = Appointment::where('business_id', auth('business')->id())
                 ->where('status', 1)
-                ->whereRaw("STR_TO_DATE(date, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
-                ->orderByRaw("STR_TO_DATE(date, '%d.%m.%Y')")
+                ->where('date', Carbon::now()->format('Y-m-d'))
+                ->latest()
                 ->get();
-
             $appointments = auth('business')->user()->appointments()->where('status', 7)->get();
             $totalAppointments = auth('business')->user()->appointments()->count();
             foreach ($appointments as $row){
