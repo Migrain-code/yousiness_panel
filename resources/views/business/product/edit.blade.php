@@ -28,7 +28,7 @@
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Prodükt Bearbeiten</div>
+                <div class="card-title">Produkt Bearbeiten</div>
             </div>
             <div class="card-body">
                 <form method="post" action="{{route('business.product.update', $product->id)}}">
