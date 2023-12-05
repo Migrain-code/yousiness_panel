@@ -65,21 +65,21 @@ class VerifyController extends Controller
         if (!$business){
             return to_route('business.showForgotView')->with('response', [
                'status'=>"error",
-               'message'=>"Mobilnummer nicht im System registriert."
+               'message'=>"Überprüfung der Benutzerinformationen fehlgeschlagen.."
             ]);
         }
         else{
             $generatePassword=rand(1000000, 9999999);
 
             $phone=str_replace(array('(', ')', '-', ' '), '', $business->email);
-            Sms::send($phone,config('settings.bussiness_site_title'). " Sistemine giriş için yeni şifreniz ".$generatePassword." olarak güncellendi. Panelinize girerek şifrenizi size uygun bir şifre ile değiştirebilirsiniz.");
+            Sms::send($phone,"Ihr Passwort für die Anmeldung bei ".config('settings.appy_site_title')." lautet ". $generatePassword);
 
             $business->password=Hash::make($generatePassword);
             $business->password_status=1;
             $business->save();
             return to_route('business.login')->with('response', [
                 'status'=>"success",
-                'message'=>"Ihr neues Passwort wurde als SMS versendet.",
+                'message'=>"Ihr Passwort für die Anmeldung bei ".config('settings.appy_site_title')." wurde an Sie gesendet.",
             ]);
 
         }

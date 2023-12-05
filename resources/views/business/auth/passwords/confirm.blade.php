@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keys')">
-    <title>@yield('title', config('settings.bussiness_site_title') .'|'. ' Passwort vergessen')</title>
+    <title>@yield('title', config('settings.appy_site_title') .'|'. ' Passwort vergessen')</title>
     <style>
         .btn-mobile-menu-free{
             background: #4CAF50 !important;

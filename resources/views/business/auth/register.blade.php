@@ -225,7 +225,7 @@
                     <div class="signin-banner-from-wrap">
                         @include('layouts.component.error')
                         <div class="signin-banner-title-box">
-                            <h4 class="signin-banner-from-title">Erstelle einen kostenlosen Account</h4>
+                            <h4 class="signin-banner-from-title">Geschäftsanmeldung</h4>
                         </div>
 
                         <div class="signin-banner-from-box">

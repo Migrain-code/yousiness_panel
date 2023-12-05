@@ -23,7 +23,7 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
     Route::post('/register', [\App\Http\Controllers\Business\Auth\RegisterController::class, 'register']);
     Route::get('/verify-phone', [\App\Http\Controllers\Business\Auth\VerifyController::class, 'index'])->name('verify');
     Route::get('/logout', [\App\Http\Controllers\Business\Auth\LoginController::class, 'logout'])->name('logout');
-    Route::get('/sifremi-unuttum', [\App\Http\Controllers\Business\Auth\VerifyController::class, 'showForgotView'])->name('showForgotView');
+    Route::get('/passwort-vergessen', [\App\Http\Controllers\Business\Auth\VerifyController::class, 'showForgotView'])->name('showForgotView');
     Route::post('/sifremi-unuttum', [\App\Http\Controllers\Business\Auth\VerifyController::class, 'forgotPassword'])->name('forgotPassword');
     Route::post('/verify/mobil', [\App\Http\Controllers\Business\Auth\VerifyController::class, 'verify'])->name('verifyPhone');
     Route::get('/payment/success', [\App\Http\Controllers\StripeContoller::class, 'success'])->name('stripe.success');
