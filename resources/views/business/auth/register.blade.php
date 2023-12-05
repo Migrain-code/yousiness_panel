@@ -35,9 +35,15 @@
                 box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
             }
         }
+
+        .iti {
+            width: 100%;
+            position: relative;
+            display: inline-block;
+        }
         .signin-banner-from-subtitle::before {
             content: "";
-            height: 0px;
+            height: 0px !important;
             width: 105px;
             background-color: #e5e5e5;
             display: inline-block;
@@ -46,17 +52,12 @@
         }
         .signin-banner-from-subtitle::after {
             content: "";
-            height: 0px;
+            height: 0px !important;
             width: 105px;
             background-color: #e5e5e5;
             display: inline-block;
             transform: translateY(-4px);
             margin-left: 18px;
-        }
-        .iti {
-            width: 100%;
-            position: relative;
-            display: inline-block;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
