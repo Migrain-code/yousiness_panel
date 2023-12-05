@@ -179,19 +179,9 @@
                 <div class="card-body">
                     <div class="row">
                     @forelse($todayAppointments as $appointment)
-                        <div class="col-md-6 col-xl-4" start-time="{{\Illuminate\Support\Carbon::parse($appointment->start_time)->format('H:i')}}" ap_id="{{$appointment->id}}">
+                        <div class="col-md-6 col-xl-4">
                             <div class="card box-2">
-                                <div class="flow mt-2"
-                                    @if(\Illuminate\Support\Carbon::parse($appointment->start_time)->diffInMinutes(\Illuminate\Support\Carbon::now()) < 30)
-                                       style="border: 1px solid rgba(179, 48, 61, 0.40)"
-                                    @elseif(\Illuminate\Support\Carbon::parse($appointment->start_time)->diffInMinutes(\Illuminate\Support\Carbon::now()) < 60)
-                                         style="border: 1px solid rgba(255, 239, 37, 0.40)"
-                                    @elseif(\Illuminate\Support\Carbon::parse($appointment->start_time)->diffInMinutes(\Illuminate\Support\Carbon::now()) < 120)
-                                         style="border: 1px solid rgba(1, 163, 255, 0.40)"
-                                    @else
-                                        style="border: 1px solid rgba(30, 186, 98, 0.40)"
-                                    @endif
-                                >
+                                <div class="flow mt-2">
                                     <h4>{{$appointment->customer->name}}</h4>
                                     <p>{!! $appointment->status("html") !!}</p>
                                     <div class="dz-info">
@@ -228,7 +218,8 @@
     </div>
 @endsection
 @section('scripts')
-    <script>
+   {{--
+     <script>
         function clearPastAppointments() {
             var now = new Date();
             var currentHour = now.getHours();
@@ -249,4 +240,5 @@
             setInterval(clearPastAppointments, 60000);
         });
     </script>
+   --}}
 @endsection

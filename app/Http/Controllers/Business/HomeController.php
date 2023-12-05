@@ -26,7 +26,7 @@ class HomeController extends Controller
                 ->where('date', Carbon::now()->format('Y-m-d'))
                 ->latest()
                 ->get();
-            dd($todayAppointments);
+
             $appointments = auth('business')->user()->appointments()->where('status', 7)->get();
             $totalAppointments = auth('business')->user()->appointments()->count();
             foreach ($appointments as $row){
