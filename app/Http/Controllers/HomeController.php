@@ -85,7 +85,7 @@ class HomeController extends Controller
         if ($businessInfo->save()){
             return back()->with('response', [
                 'status'=>"success",
-                'message'=>"Ihre Anfrage wurde gesendet. Wir rufen Sie schnellstmöglich zurück."
+                'message'=>"Ihre Anfrage wurde versendet. Wir werden uns so schnell wie möglich bei Ihnen melden.."
             ]);
         }
     }
