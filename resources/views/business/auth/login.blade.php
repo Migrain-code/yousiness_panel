@@ -19,6 +19,24 @@
         .btn-mobile-menu-free:hover{
             color: black !important;
         }
+        .signin-banner-from-subtitle::before {
+            content: "";
+            height: 0px;
+            width: 105px;
+            background-color: #e5e5e5;
+            display: inline-block;
+            transform: translateY(-4px);
+            margin-right: 18px;
+        }
+        .signin-banner-from-subtitle::after {
+            content: "";
+            height: 0px;
+            width: 105px;
+            background-color: #e5e5e5;
+            display: inline-block;
+            transform: translateY(-4px);
+            margin-left: 18px;
+        }
         @keyframes pulseBtn {
             0% {
                 transform: scale(0.95);
@@ -218,7 +236,9 @@
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
                             <h4 class="signin-banner-title tp-char-animation">Yousiness Business<br>
-                            Willkommen auf der Plattform</h4>
+                                Wilkommen zu dem besten Termin
+                                Management für ihr Salon
+                            </h4>
                         </div>
                         <div class="signin-banner-img-box position-relative">
                             <div class="signin-banner-img signin-img-1 d-none d-md-block z-index-3">
@@ -243,11 +263,11 @@
                         @include('layouts.component.error')
                         @include('layouts.component.alert')
                         <div class="signin-banner-title-box">
-                            <h4 class="signin-banner-from-title">Anmelden bei Yousiness Business</h4>
+                            <h4 class="signin-banner-from-title">Anmelden bei Yousiness (Business)</h4>
                         </div>
 
                         <div class="signin-banner-from-box">
-                            <h5 class="signin-banner-from-subtitle">Es wird ein Verifizierungscode gesendet..</h5>
+                            <h5 class="signin-banner-from-subtitle">Es wird ein Verifizierungscode gesendet</h5>
                             <form action="{{route('business.login')}}" method="post">
                                 @csrf
                                 <div class="row">
@@ -292,7 +312,9 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="rememberMe" value="" id="flexCheckDefault">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        Meine Anmeldedaten speichern
+                                                        Mit der Resgistrierung stimme ich den
+                                                        Allgemeine Geschâftsbedingungen von
+                                                        Yousiness zu.
                                                     </label>
                                                 </div>
                                             </div>
