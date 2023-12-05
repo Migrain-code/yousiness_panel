@@ -9,7 +9,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Paket Satış
+                        Paketverkauf
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -141,7 +141,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">İşlemi Yapan Personel</label>
+                            <label class="form-label">Verköufer</label>
                             <select name="package_personel_id" id="package_personel_id" class="form-control">
                                 <option>Mitarbeiter auswählen</option>
                                 @forelse(auth('business')->user()->personel as $personel)

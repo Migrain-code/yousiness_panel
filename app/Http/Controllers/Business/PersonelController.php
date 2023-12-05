@@ -167,8 +167,8 @@ class PersonelController extends Controller
             }
             return to_route('business.personel.index')->with('response', [
                 'status' => "success",
-                'title' => "Erfolgreich",
-                'message' => "Personal hinzugefügt"
+                'title' => "Mitarbeiter",
+                'message' => "erfolgreich hinzugefügt"
             ]);
         }
     }
@@ -381,8 +381,8 @@ class PersonelController extends Controller
             }
             return to_route('business.personel.index')->with('response', [
                 'status' => "success",
-                'title' => "Erfolgreich",
-                'message' => "Personalinformationen aktualisiert"
+                'title' => "Mitarbeiter",
+                'message' => "erfolgreich hinzugefügt !"
             ]);
         }
     }

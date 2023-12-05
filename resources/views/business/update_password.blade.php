@@ -8,7 +8,7 @@
                     <div class="page-titles style1">
                         <div class="d-flex align-items-center">
                             <h2 class="heading">
-                                Yeni Şifrenizi Belirleyin
+                                Setzen Sie ihr neues Passwort
                             </h2>
                         </div>
                         <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -34,11 +34,11 @@
                             <form method="post" action="{{route('business.resetPassword')}}" id="resetForm" class="col-lg-6 col-sm-12">
                                @csrf
                                 <div class="form-group mt-2">
-                                    <label for="">Yeni Şifreniz</label>
+                                    <label for="">Neues Passwort</label>
                                     <input type="password" name="password" class="form-control">
                                 </div>
                                 <div class="form-group mt-2">
-                                    <label for="">Yeni Şifreniz Tekrar</label>
+                                    <label for="">Neues Passwort bestâtigen</label>
                                     <input type="password" name="password_confirmation" class="form-control">
                                 </div>
                             </form>

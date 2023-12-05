@@ -238,7 +238,7 @@
                                             @empty
                                                 <tr>
                                                     <td colspan="4">
-                                                        <div class="alert alert-warning"> Termindatensatz nicht gefunden </div>
+                                                        <div class="alert alert-warning"> Keine Termine gefunden </div>
                                                     </td>
                                                 </tr>
                                             @endforelse

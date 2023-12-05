@@ -64,7 +64,7 @@ class CustomerController extends Controller
         $request->validate([
            'name'=>"required|string|min:3",
            'email'=>"required|string|min:11|unique:customers",
-           'custom_email'=>"required|string|min:8",
+           'custom_email'=>"required|string|min:6",
            'password'=>"required|string|min:8",
            'gender'=>"required|string"
         ], [], [

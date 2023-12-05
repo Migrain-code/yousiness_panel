@@ -2,7 +2,7 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Uyarılar</h4>
+                <h4 class="card-title">Warnung</h4>
             </div>
             <div class="card-body">
                 <div class="alert alert-warning" style="margin-top: 30px;">

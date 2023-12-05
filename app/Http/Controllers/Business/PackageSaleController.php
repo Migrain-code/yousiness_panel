@@ -116,7 +116,7 @@ class PackageSaleController extends Controller
         if ($packageSale->save()) {
             return to_route('business.packageSale.index')->with('response', [
                 'status' => "success",
-                'message' => "Verkaufsprozess hinzugefügt"
+                'message' => "Paketverkauf hinzugefügt"
             ]);
         }
     }
