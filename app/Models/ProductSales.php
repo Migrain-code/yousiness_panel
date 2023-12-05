@@ -13,19 +13,21 @@ class ProductSales extends Model
     public function customer()
     {
         return $this->hasOne(Customer::class,'id', 'customer_id')->withDefault([
-            'name' => "Silinmiş Müşteri",
-            'image' => "Silinmiş Müşteri",
-            'custom_email' => "Silinmiş Müşteri",
-            'phone' => "Silinmiş Müşteri",
+            'name' => "Kunden",
+            'image' => "Kunden",
+            'custom_email' => "Kunden",
+            'phone' => "Kunden",
             'created_at' => Carbon::now(),
-            'email' => "Silinmiş Müşteri",
-            'status' => "Silinmiş Müşteri",
+            'email' => "Kunden",
+            'status' => "Kunden",
         ]);
     }
 
     public function personel()
     {
-        return $this->hasOne(Personel::class,'id', 'personel_id');
+        return $this->hasOne(Personel::class,'id', 'personel_id')->withDefault([
+            'name' => "Mitarbeiter"
+        ]);
     }
     public function product()
     {
