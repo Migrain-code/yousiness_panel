@@ -64,6 +64,13 @@
                                         </td>
                                     </tr>
                                @empty
+                                   <tr style="font-size:18px;font-weight: bold">
+                                       <td colspan="5">
+                                           <span class="text-warning mx-2 my-2 w-100">
+                                               Noch keine Kommentare für Ihren Salon
+                                           </span>
+                                       </td>
+                                   </tr>
                                @endforelse
                             </tbody>
                         </table>

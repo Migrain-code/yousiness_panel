@@ -9,7 +9,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Paketverkauf
+                        PAKET VERKAUF
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -65,9 +65,9 @@
                                         <td>{{$package_types[$package->type]}}</td>
                                         <td>{{$package->amount}}</td>
                                         <td>{{$package->amount - $package->usages()->sum('amount')}}</td>
-                                        <td>{{$package->total}} &#8378;</td>
-                                        <td>{{$package->payeds()->sum('price')}}</td>
-                                        <td>{{$package->total - $package->payeds()->sum('price')}}</td>
+                                        <td>{{$package->total}} €</td>
+                                        <td>{{$package->payeds()->sum('price')}} €</td>
+                                        <td>{{$package->total - $package->payeds()->sum('price')}} €</td>
                                         <td>
                                             <div class="basic-dropdown">
                                                 <div class="btn-group dropstart mb-1">
@@ -458,10 +458,10 @@
                 dataType: "JSON",
                 success: function (data) {
                     Swal.fire({
-                        text: "Tahsilat Eklendi!.",
+                        text: "Zahlung Hinzugefügt!.",
                         icon: "success",
                         buttonsStyling: false,
-                        confirmButtonText: "Tamam!",
+                        confirmButtonText: "Ok!",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }

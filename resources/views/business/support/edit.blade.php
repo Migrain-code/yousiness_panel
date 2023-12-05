@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Talep {{$support->subject}}
+                        Support {{$support->subject}}
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -28,18 +28,18 @@
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Talep Detayı</div>
+                <div class="card-title">Support Detail</div>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="mb-3 col-md-12">
-                        <label class="form-label">Konu</label>
+                        <label class="form-label">Thema</label>
                         <input type="text" class="form-control" name="subject" readonly value="{{$support->subject}}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-12">
-                        <label class="form-label">İçerik</label>
+                        <label class="form-label">Inhalt</label>
                         <textarea type="number" class="form-control" rows="7" readonly name="content">{{$support->content}}</textarea>
                     </div>
                 </div>
