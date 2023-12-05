@@ -312,9 +312,7 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="rememberMe" value="" id="flexCheckDefault">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        Mit der Resgistrierung stimme ich den
-                                                        Allgemeine Geschâftsbedingungen von
-                                                        Yousiness zu.
+                                                        Erinnern Sie sich an mich
                                                     </label>
                                                 </div>
                                             </div>
