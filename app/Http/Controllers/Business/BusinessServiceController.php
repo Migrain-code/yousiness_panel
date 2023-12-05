@@ -98,8 +98,8 @@ class BusinessServiceController extends Controller
 
             return to_route('business.businessService.index')->with('response', [
                 'status' => "success",
-                'title' => "Erfolgreich",
-                'message' => "Dienst hinzugefügt. Sie können es in der Liste unten sehen"
+                'title' => "",
+                'message' => "Dienstleistung/en erfolgreich hinzugefügt."
             ]);
 
         }

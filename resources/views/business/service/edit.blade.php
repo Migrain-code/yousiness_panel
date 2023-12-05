@@ -28,7 +28,7 @@
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Aktualisieren</div>
+                <div class="card-title">Bearbeiten</div>
             </div>
             <div class="card-body">
                 <form method="post" action="{{route('business.businessService.update', $businessService->id)}}">

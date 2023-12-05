@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Customer 1 {{$customer->name}}
+                        KUNDEN BEARBEITEN {{$customer->name}}
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -29,7 +29,7 @@
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Müşteri Detayı</div>
+                <div class="card-title">Kunden Detail</div>
             </div>
             <form method="post" action="{{route('business.customer.update', $customer->id)}}">
                 @csrf
@@ -40,15 +40,15 @@
                         <input type="text" class="form-control" value="{{$customer->name}}" name="name">
                     </div>
                     <div class="form-group">
-                        <label>Telefon</label>
+                        <label>Mobilenummer</label>
                         <input type="number" class="form-control" value="{{$customer->email}}" name="email">
                     </div>
                     <div class="form-group">
-                        <label>E-posta</label>
+                        <label>E-mail</label>
                         <input type="email" class="form-control" value="{{$customer->custom_email}}" name="custom_email">
                     </div>
                     <div class="form-group">
-                        <label>Cinsiyet</label>
+                        <label>Geschlecht</label>
                         <select name="gender" class="form-control">
                             <option value="0" @selected($customer->gender == 0)>Mann</option>
                             <option value="1" @selected($customer->gender == 1)>Frau</option>
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Şifre</label>
+                        <label>Passwort</label>
                         <input type="text" class="form-control" value="" name="password">
                     </div>
                     @if($customer->permissions)
@@ -70,7 +70,7 @@
                     @endif
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                    <button type="submit" class="btn btn-primary">Speichern</button>
                 </div>
             </form>
         </div>
