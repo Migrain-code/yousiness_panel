@@ -29,7 +29,7 @@ Route::group(['prefix' => 'business', 'as' => 'business.'], function () {
     Route::get('/payment/success', [\App\Http\Controllers\StripeContoller::class, 'success'])->name('stripe.success');
     Route::get('/payment/fail', [\App\Http\Controllers\StripeContoller::class, 'fail'])->name('stripe.fail');
 
-    Route::middleware(['auth:business', 'active', 'setup'])->group(function () {
+    Route::middleware(['auth:business', 'setup'])->group(function () {
         Route::controller(\App\Http\Controllers\SetupController::class)->prefix('isletme-kurulum')->as('setup.')->group(function (){
             Route::get('/adim-1', 'step1')->name('step1');
             Route::post('/adim-1', 'step1Form')->name('step1Form');
