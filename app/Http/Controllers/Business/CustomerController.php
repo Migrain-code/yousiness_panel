@@ -90,7 +90,7 @@ class CustomerController extends Controller
             $businessCustomer->save();
             return to_route('business.customer.index')->with('response', [
                 'status'=>"success",
-                'message'=>"Kunde hinzugefügt. Für diese Kunden können Sie jetzt aktiv werden."
+                'message'=>"Kunde hinzugefügt. Sie können nun Transaktionen für diesen Kunden durchführen."
             ]);
         }
 
@@ -163,7 +163,7 @@ class CustomerController extends Controller
             if ($findCustomer){
                 return to_route('business.customer.edit', $customer->id)->with('response', [
                     'status'=>"danger",
-                    'message'=>"Es sind Benutzer mit dieser Telefonnummer registriert. Bitte versuchen Sie es mit einer anderen Telefonnummer."
+                    'message'=>"Es ist bereits ein Benutzer mit dieser Mobilnummer registriert."
                 ]);
             }
             else{
