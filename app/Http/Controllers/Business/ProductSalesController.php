@@ -20,7 +20,7 @@ class ProductSalesController extends Controller
         $payment_types = [
             'Barzahlung',
             'Lastschrift/Kreditkarte',
-            'EFT/Geldtransfer',
+            'Überweisung',
             'Andere',
         ];
         $customers = Customer::all();
@@ -90,7 +90,7 @@ class ProductSalesController extends Controller
         $payment_types = [
             'Barzahlung',
             'Lastschrift/Kreditkarte',
-            'EFT/Geldtransfer',
+            'Überweisung',
             'Andere',
         ];
         $customers = Customer::all();

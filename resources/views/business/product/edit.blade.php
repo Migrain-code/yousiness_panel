@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Ürün {{$product->name}}
+                        PRODUKT {{$product->name}}
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -28,7 +28,7 @@
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Ürün Güncelle</div>
+                <div class="card-title">Prodükt Bearbeiten</div>
             </div>
             <div class="card-body">
                 <form method="post" action="{{route('business.product.update', $product->id)}}">

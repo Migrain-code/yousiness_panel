@@ -50,7 +50,7 @@
                                     <tr>
                                         <td>{{$campaign->title}}</td>
                                         <td>{{$campaign->code}}</td>
-                                        <td>{{$campaign->discount}}</td>
+                                        <td>{{$campaign->discount}} %</td>
                                         <td>{{\Illuminate\Support\Carbon::parse($campaign->end_date)->format('d.m.Y H:i')}}</td>
                                         <td>
                                             <div class="d-flex">
