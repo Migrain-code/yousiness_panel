@@ -262,7 +262,7 @@
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
                                             <input type="text" class="inputText" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" name="owner" required>
-                                            <span class="floating-label">Name des Salonbesitzers</span>
+                                            <span class="floating-label">Inhaber/in Name Nachname</span>
                                         </div>
                                     </div>
                                     <div class="col-12">
