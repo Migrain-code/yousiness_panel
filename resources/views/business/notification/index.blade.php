@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Bildirimler
+                        NACHRICHTEN
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
@@ -29,16 +29,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Bildirim Listesi</h4>
+                    <h4 class="card-title">Liste</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example3" class="display" style="min-width: 845px">
                             <thead>
                             <tr>
-                                <th>Bildirim Başlığı</th>
-                                <th>Durumu</th>
-                                <th>Tarih</th>
+                                <th>Nachricht</th>
+                                <th>Status</th>
+                                <th>Datum</th>
                                 <th>Transaktion</th>
                             </tr>
                             </thead>
@@ -48,9 +48,9 @@
                                         <td>{{$notification->title}}</td>
                                         <td>
                                             @if($notification->is_status == 1)
-                                                <span class="badge badge-success">Okundu</span>
+                                                <span class="badge badge-success">gelesen</span>
                                             @else
-                                                <span class="badge badge-warning">Okunmadı</span>
+                                                <span class="badge badge-warning">nicht gelesen</span>
                                             @endif
                                         </td>
                                         <td>{{$notification->created_at->format('d.m.Y H:i:s')}}</td>

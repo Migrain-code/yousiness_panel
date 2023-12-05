@@ -21,7 +21,9 @@ class BusinessService extends Model
 
     public function subCategory()
     {
-        return $this->hasOne(ServiceSubCategory::class, 'id', 'sub_category');
+        return $this->hasOne(ServiceSubCategory::class, 'id', 'sub_category')->withDefault([
+            'name' => "Not found",
+        ]);
     }
 
     public function business()

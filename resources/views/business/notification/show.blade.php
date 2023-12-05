@@ -4,7 +4,7 @@
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Bildirim Detayı</div>
+                <div class="card-title">NACHRICHTEN DETAIL</div>
             </div>
             <div class="card-body">
                 <h1>{{$businessNotification->title}}</h1>

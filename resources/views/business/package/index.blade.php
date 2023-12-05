@@ -60,7 +60,7 @@
                                     <tr>
                                         <td>{{$package->seller_date->format('d.m.Y h:i:s')}}</td>
                                         <td>{{$package->customer->name}}</td>
-                                        <td>{{$package->service->subCategory->name . "(".$package->service->gender->name.")"}}</td>
+                                        <td>{{$package->service->subCategory->name . "(".$package->service?->gender->name.")"}}</td>
                                         <td>{{$package->personel->name}}</td>
                                         <td>{{$package_types[$package->type]}}</td>
                                         <td>{{$package->amount}}</td>
@@ -104,7 +104,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Paketverwendungen</h5>
-                    <button type="button" class="btn btn-primary" id="addUsage" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-5" style="position: absolute;right: 55px;"><i class="fa-solid fa-plus-circle me-2"></i>Kullanım Ekle</button>
+                    <button type="button" class="btn btn-primary" id="addUsage" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-5" style="position: absolute;right: 55px;"><i class="fa-solid fa-plus-circle me-2"></i>Nutzung hinzufügen</button>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -141,7 +141,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Verköufer</label>
+                            <label class="form-label">Dienstleistende Mitarbeiter/in</label>
                             <select name="package_personel_id" id="package_personel_id" class="form-control">
                                 <option>Mitarbeiter auswählen</option>
                                 @forelse(auth('business')->user()->personel as $personel)
@@ -151,7 +151,7 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Verwendeter Betrag</label>
+                            <label class="form-label">Verwendete AnzahVMenge</label>
                             <input type="number" class="form-control" min="1" id="package_amount">
                         </div>
                         <div class="col-6">
@@ -183,7 +183,7 @@
                             <input type="number" class="form-control" id="price">
                         </div>
                         <div class="col-12">
-                            <label class="form-label">Anzahl <span class="text-warning">Sadece Fiyat Bilgisi Ekleyebilirsiniz</span></label>
+                            <label class="form-label">Anzahl <span class="text-warning">Sie können nur Preisangaben hinzufügen</span></label>
                             <input type="number" class="form-control" id="amount">
                         </div>
                         <div class="col-12 mt-3">
@@ -201,7 +201,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Paketzahlungen</h5>
-                    <button type="button" class="btn btn-primary" id="addPayment" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-3" style="position: absolute;right: 55px;"><i class="fa-solid fa-plus-circle me-2"></i>Tahsilat Ekle</button>
+                    <button type="button" class="btn btn-primary" id="addPayment" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-3" style="position: absolute;right: 55px;"><i class="fa-solid fa-plus-circle me-2"></i>Zahlung Hinzufügen</button>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -356,7 +356,7 @@
                         });
                     }
                     else{
-                        output += '<tr style="font-size:18px;font-weight: bold"><td colspan="2"> <span class="text-warning mx-2 my-2 w-100">Bu işleme ait kullanım kaydı bulunamadı! </span> </td></tr>';
+                        output += '<tr style="font-size:18px;font-weight: bold"><td colspan="2"> <span class="text-warning mx-2 my-2 w-100">Es wurde kein Verwendungsnachweis für diese Transaktion gefunden! </span> </td></tr>';
                     }
                     // after finish creating html structure, append the output
                     // into the table
@@ -383,10 +383,10 @@
                 success: function (res) {
                     if(res.status=="success"){
                         Swal.fire({
-                            text: "Kullanım Eklendi!.",
+                            text: "Nutzung hinzugefügt!.",
                             icon: "success",
                             buttonsStyling: false,
-                            confirmButtonText: "Tamam!",
+                            confirmButtonText: "Ok!",
                             customClass: {
                                 confirmButton: "btn btn-primary",
                             }
@@ -395,11 +395,11 @@
                     }
                     if(res.status=="warning"){
                         Swal.fire({
-                            title:"Uyarı!",
+                            title:"Warnung!",
                             text: res.message,
                             icon: "warning",
                             buttonsStyling: false,
-                            confirmButtonText: "Tamam. Hadi Düzeltelim !",
+                            confirmButtonText: "OK !",
                             customClass: {
                                 confirmButton: "btn btn-primary",
                             }
@@ -433,7 +433,7 @@
                         });
                     }
                     else{
-                        output += '<tr style="font-size:18px;font-weight: bold"><td colspan="2"> <span class="text-warning mx-2 my-2 w-100">Bu işleme ait tahsilat kaydı bulunamadı! </span> </td></tr>';
+                        output += '<tr style="font-size:18px;font-weight: bold"><td colspan="2"> <span class="text-warning mx-2 my-2 w-100">Kein Zahlung für diese Dienstleistung gefunden! </span> </td></tr>';
                     }
                     // after finish creating html structure, append the output
                     // into the table
