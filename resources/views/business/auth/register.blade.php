@@ -221,7 +221,7 @@
                         <img src="assets/img/login/login-shape-1.png" alt="">
                     </div>
                     <div class="signin-banner-left-wrap">
-                        <div class="signin-banner-title-box mb-100">
+                        <div class="signin-banner-title-box mb-100 text-center">
                             <h4 class="signin-banner-title tp-char-animation"> Wilkommen zu dem besten Termin
                                 Management für ihr Salon.</h4>
                         </div>
