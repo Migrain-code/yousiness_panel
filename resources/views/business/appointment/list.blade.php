@@ -226,7 +226,7 @@
                                                                         @if($appointment->status == 3)
                                                                             <div class="dropdown-divider"></div>
                                                                             <a class="dropdown-item" href="{{route('business.appointment.complete', $appointment->id)}}">
-                                                                                Tamamla
+                                                                                Abgeschlossen
                                                                             </a>
                                                                         @endif
                                                                     </div>

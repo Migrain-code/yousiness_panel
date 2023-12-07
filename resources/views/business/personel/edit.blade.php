@@ -330,16 +330,15 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                                     <div class="dropdown-menu dropdown-menu-end" style="">
                                                                         @if($appointment->status != 8)
                                                                             <a class="dropdown-item"
-                                                                               href="{{route('business.appointment.reject', $appointment->id)}}">Reject
-                                                                                Et</a>
+                                                                               href="{{route('business.appointment.reject', $appointment->appointment->id)}}">Storniert</a>
                                                                         @endif
                                                                         @if($appointment->status == 0)
                                                                             <a class="dropdown-item"
-                                                                               href="{{route('business.appointment.accept', $appointment->id)}}">Accept
+                                                                               href="{{route('business.appointment.accept', $appointment->appointment->id)}}">Termin bestätigen
                                                                                 </a>
                                                                         @endif
                                                                         @if($appointment->status== 3)
-                                                                            <a class="dropdown-item" href="javascript:void(0);">Complete</a>
+                                                                            <a class="dropdown-item" href="{{route('business.appointment.complete', $appointment->id)}}">Abgeschlossen</a>
                                                                         @endif
 
 
