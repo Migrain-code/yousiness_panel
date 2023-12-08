@@ -23,7 +23,8 @@ class ProductSalesController extends Controller
             'Überweisung',
             'Andere',
         ];
-        $customers = Customer::all();
+        $customerId = auth('business')->user()->customers()->pluck('customer_id');
+        $customers = Customer::whereIn('id', $customerId)->get();
         return view('business.sales.index', compact('customers', 'payment_types'));
     }
 
@@ -93,7 +94,8 @@ class ProductSalesController extends Controller
             'Überweisung',
             'Andere',
         ];
-        $customers = Customer::all();
+        $customerId = auth('business')->user()->customers()->pluck('customer_id');
+        $customers = Customer::whereIn('id', $customerId)->get();
         return view('business.sales.edit', compact('productSale', 'payment_types', 'customers'));
     }
 
