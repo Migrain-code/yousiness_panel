@@ -19,24 +19,6 @@
         .btn-mobile-menu-free:hover{
             color: black !important;
         }
-        .signin-banner-from-subtitle::before {
-            content: "";
-            height: 0px;
-            width: 105px;
-            background-color: #e5e5e5;
-            display: inline-block;
-            transform: translateY(-4px);
-            margin-right: 18px;
-        }
-        .signin-banner-from-subtitle::after {
-            content: "";
-            height: 0px;
-            width: 105px;
-            background-color: #e5e5e5;
-            display: inline-block;
-            transform: translateY(-4px);
-            margin-left: 18px;
-        }
         @keyframes pulseBtn {
             0% {
                 transform: scale(0.95);
@@ -57,6 +39,24 @@
             width: 100%;
             position: relative;
             display: inline-block;
+        }
+        .signin-banner-from-subtitle::before {
+            content: "";
+            height: 0px !important;
+            width: 105px;
+            background-color: #e5e5e5;
+            display: inline-block;
+            transform: translateY(-4px);
+            margin-right: 18px;
+        }
+        .signin-banner-from-subtitle::after {
+            content: "";
+            height: 0px !important;
+            width: 105px;
+            background-color: #e5e5e5;
+            display: inline-block;
+            transform: translateY(-4px);
+            margin-left: 18px;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
@@ -188,14 +188,12 @@
                                 <li>
                                     <a href="{{route('welcome')}}">Startseite</a>
                                 </li>
-                                <li><a href="{{route('welcome')}}">Merkmale</a></li>
+                                <li><a href="{{route('welcome')}}">Pakete</a></li>
                                 <li>
-                                    <a href="{{route('welcome')}}">Blog</a>
+                                    <a href="{{route('welcome')}}">Besonderheiten</a>
                                 </li>
-                                <li><a href="{{route('welcome')}}">Unsere Pakete</a></li>
-                                <li><a href="{{route('welcome')}}"><i class="fa fa-headphones me-1"></i>Unterstützung</a></li>
-
-                                <li><a href="{{route('welcome')}}">Kommunikation</a></li>
+                                <li><a href="{{route('welcome')}}">Kontakt</a></li>
+                               
                             </ul>
 
                         </nav>
@@ -235,7 +233,7 @@
                     </div>
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
-                            <h4 class="signin-banner-title tp-char-animation">Yousiness Business<br>
+                            <h4 class="signin-banner-title tp-char-animation">
                                 Wilkommen zu dem besten Termin
                                 Management für ihr Salon
                             </h4>

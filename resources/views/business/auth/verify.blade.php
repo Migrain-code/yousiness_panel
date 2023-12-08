@@ -147,14 +147,12 @@
                                 <li>
                                     <a href="{{route('welcome')}}">Startseite</a>
                                 </li>
-                                <li><a href="{{route('welcome')}}">Merkmale</a></li>
+                                <li><a href="{{route('welcome')}}">Pakete</a></li>
                                 <li>
-                                    <a href="{{route('welcome')}}">Blog</a>
+                                    <a href="{{route('welcome')}}">Besonderheiten</a>
                                 </li>
-                                <li><a href="{{route('welcome')}}">Unsere Pakete</a></li>
-                                <li><a href="{{route('welcome')}}"><i class="fa fa-headphones me-1"></i>Unterstützung</a></li>
+                                <li><a href="{{route('welcome')}}">Kontakt</a></li>
 
-                                <li><a href="{{route('welcome')}}">Kommunikation</a></li>
                             </ul>
                         </nav>
                     </div>

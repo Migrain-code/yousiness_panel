@@ -217,7 +217,9 @@
                                                                     </button>
                                                                     <div class="dropdown-menu">
                                                                         <a class="dropdown-item" href="{{route('business.appointment.show', $appointment->id)}}">Detail</a>
-                                                                        <a class="dropdown-item" href="{{route('business.appointment.reject', $appointment->id)}}">Stornieren</a>
+                                                                        @if($appointment->status != 8)
+                                                                            <a class="dropdown-item" href="{{route('business.appointment.reject', $appointment->id)}}">Stornieren</a>
+                                                                        @endif
                                                                         @if($appointment->status == 0)
                                                                             <a class="dropdown-item"
                                                                                href="{{route('business.appointment.accept', $appointment->id)}}">Termin bestätigen</a>

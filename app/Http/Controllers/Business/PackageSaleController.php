@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Business;
 
 use App\Http\Controllers\Controller;
+use App\Models\BusinessCustomer;
 use App\Models\Customer;
 use App\Models\PackagePayment;
 use App\Models\PackageSale;
@@ -24,8 +25,8 @@ class PackageSaleController extends Controller
             'Seans',
             'Minute'
         ];
-        $customers = Customer::all();
-
+        $customerId = auth('business')->user()->customers()->pluck('customer_id');
+        $customers = Customer::whereIn('id', $customerId)->get();
         return view('business.package.index', compact('package_types', 'customers'));
     }
 

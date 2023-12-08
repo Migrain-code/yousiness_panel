@@ -330,7 +330,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                                     <div class="dropdown-menu dropdown-menu-end" style="">
                                                                         @if($appointment->status != 8)
                                                                             <a class="dropdown-item"
-                                                                               href="{{route('business.appointment.reject', $appointment->appointment->id)}}">Storniert</a>
+                                                                               href="{{route('business.appointment.reject', $appointment->appointment->id)}}">Stornieren</a>
                                                                         @endif
                                                                         @if($appointment->status == 0)
                                                                             <a class="dropdown-item"
