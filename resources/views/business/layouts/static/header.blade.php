@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" style="overscroll-behavior: none !important; scroll-behavior: inherit !important;">
 
 
-<!-- Mirrored from finlab.dexignlab.com/codeigniter/demo/empty_page by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Dec 2022 10:01:58 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +21,7 @@
 
     @include('business.layouts.component.links')
 </head>
-<body>
+<body style="height: 10734px; overscroll-behavior: none !important; scroll-behavior: inherit !important; overflow: visible;">
 
 <!--*******************
     Preloader start
