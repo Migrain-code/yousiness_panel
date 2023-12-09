@@ -369,27 +369,9 @@
                                                         <label class="form-label">Dauer der Dienstleistung</label>
                                                         <select class="form-control" name="minute">
                                                             <option value="">Zeit Auswdhlen</option>
-                                                            <option value="5" @selected($business->appoinment_range=="5")>
-                                                                5 Minute
-                                                            </option>
-                                                            <option value="10" @selected($business->appoinment_range=="10")>
-                                                                10 Minute
-                                                            </option>
-                                                            <option value="15" @selected($business->appoinment_range=="15")>
-                                                                15 Minute
-                                                            </option>
-                                                            <option value="30" @selected($business->appoinment_range=="30")>
-                                                                30 Minute
-                                                            </option>
-                                                            <option value="40" @selected($business->appoinment_range=="40")>
-                                                                40 Minute
-                                                            </option>
-                                                            <option value="45" @selected($business->appoinment_range=="45")>
-                                                                45 Minute
-                                                            </option>
-                                                            <option value="60" @selected($business->appoinment_range=="60")>
-                                                                60 Minute
-                                                            </option>
+                                                            @for($i = 5; $i <= 120; $i+=5)
+                                                                <option value="{{$i}}" @selected($business->appoinment_range==$i)>{{$i}} min.</option>
+                                                            @endfor
                                                         </select>
                                                     </div>
                                                     <div class="mb-3 col-md-6">

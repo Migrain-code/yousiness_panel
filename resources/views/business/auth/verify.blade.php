@@ -144,15 +144,16 @@
                     <div class="header-bottom__main-menu header-bottom__main-menu-4 header-bottom__main-menu-inner">
                         <nav id="mobile-menu-2">
                             <ul>
-                                <li>
-                                    <a href="{{route('welcome')}}">Startseite</a>
-                                </li>
-                                <li><a href="{{route('welcome')}}">Pakete</a></li>
-                                <li>
-                                    <a href="{{route('welcome')}}">Besonderheiten</a>
-                                </li>
-                                <li><a href="{{route('welcome')}}">Kontakt</a></li>
-
+                                <ul>
+                                    <li>
+                                        <a href="/">Startseite</a>
+                                    </li>
+                                    <li><a href="/#packets">Pakete</a></li>
+                                    <li>
+                                        <a href="/#proparties">Besonderheiten</a>
+                                    </li>
+                                    <li><a href="/contactForm">Kontakt</a></li>
+                                </ul>
                             </ul>
                         </nav>
                     </div>
