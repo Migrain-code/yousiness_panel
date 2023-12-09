@@ -368,7 +368,7 @@
                                                     <div class="mb-3 col-md-6">
                                                         <label class="form-label">Dauer der Dienstleistung</label>
                                                         <select class="form-control" name="minute">
-                                                            <option value="">Süre Seçiniz</option>
+                                                            <option value="">Zeit Auswdhlen</option>
                                                             <option value="5" @selected($business->appoinment_range=="5")>
                                                                 5 Minute
                                                             </option>
