@@ -21,7 +21,7 @@
                             <a href="{{config('settings.speed_tiktok_url')}}" class="mt-2"><i class="fab fa-tiktok"></i></a>
                         </div>
                         <div class="contact-form-section-img">
-                            <img src="assets/img/contact/contact-icon-sm-4.png" alt="">
+                            <img src="/business/assets/img/contact/contact-icon-sm-4.png" alt="">
                         </div>
                     </div>
                 </div>

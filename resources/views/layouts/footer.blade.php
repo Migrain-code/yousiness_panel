@@ -97,7 +97,35 @@
     </div>
 </div>
 @include('layouts.component.scripts')
+        <script>
+            window.onload = function() {
+                // URL'den fragment (hash) al
+                var hash = window.location.hash;
 
+                // Eğer hash #packets ise
+                if (hash === "#packets") {
+                    // İlgili ID'ye yönlendir
+                    var element1 = document.getElementById("packets");
+                    if (element1) {
+                        element1.scrollIntoView();
+                    }
+                }
+                if (hash === "#proparties") {
+                    // İlgili ID'ye yönlendir
+                    var element2 = document.getElementById("proparties");
+                    if (element2) {
+                        element2.scrollIntoView();
+                    }
+                }
+                if (hash === "#contactForm") {
+                    // İlgili ID'ye yönlendir
+                    var element3 = document.getElementById("contactForm");
+                    if (element3) {
+                        element3.scrollIntoView();
+                    }
+                }
+            };
+        </script>
 </body>
 
 </html>
