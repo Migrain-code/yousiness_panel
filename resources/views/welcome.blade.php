@@ -127,7 +127,7 @@
         <!-- tp-hero-area-end -->
 
         <!-- tp-fun-fact-area-start -->
-        <div class="tp-fun-fact-area tp-fun-fact-2 pt-100 pb-60">
+        <div class="tp-fun-fact-area tp-fun-fact-2 pt-100 pb-60" id="proparties">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -161,7 +161,7 @@
         <!-- tp-fun-fact-area-end -->
 
         <!-- tp-service-area-start -->
-        <div class="tp-service-area tp-services-five-item-bg-color p-relative fix" id="proparties">
+        <div class="tp-service-area tp-services-five-item-bg-color p-relative fix">
             <div class="container">
                 <div class="row g-0">
                     @forelse($proparties as $propartie)
