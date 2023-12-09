@@ -33,5 +33,3 @@
 @include('layouts.menu.top')
 <div class="mouseCursor cursor-inner"><a  href="#"><i class="fas fa-play"></i></a></div>
 <div class="mouseCursor cursor-outer"></div>
-<div id="smooth-wrapper">
-    <div id="smooth-content">
