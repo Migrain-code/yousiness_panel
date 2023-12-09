@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" style="overscroll-behavior: none !important; scroll-behavior: inherit !important;">
+<html lang="tr">
 
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -21,7 +21,7 @@
 
     @include('business.layouts.component.links')
 </head>
-<body style="height: 10734px; overscroll-behavior: none !important; scroll-behavior: inherit !important; overflow: visible;">
+<body>
 
 <!--*******************
     Preloader start
