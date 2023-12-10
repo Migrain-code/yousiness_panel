@@ -63,10 +63,11 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $email = clearPhone($request->input('email'));
-        dd($email);
+
         $user = Business::where('email', $email)->first();
 
         if ($user && Hash::check($request->input('password'), $user->password)) {
+            dd("authed");
             Auth::loginUsingId($user->id);
             return to_route('business.home');
         } else {
