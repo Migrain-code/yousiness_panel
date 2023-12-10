@@ -67,7 +67,7 @@ class LoginController extends Controller
         $user = Business::where('email', $email)->first();
 
         if ($user && Hash::check($request->input('password'), $user->password)) {
-            Auth::guard('business')->loginUsingId($user->id, true);
+            Auth::guard('business')->loginUsingId($user->id);
             return to_route('business.home');
         } else {
             return to_route('business.login')->with('response', [
