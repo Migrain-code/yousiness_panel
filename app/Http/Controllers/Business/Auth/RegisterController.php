@@ -82,13 +82,13 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param array $data
-     * @return Model|Promoter
+     * @return Model|Business
      */
     protected function create(array $data)
     {
         $generateCode=rand(100000, 999999);
 
-        $phone=str_replace(array('(', ')', '-', ' '), '', $data["email"]);
+        $phone=clearPhone($data["email"]);
         $smsConfirmation = new SmsConfirmation();
         $smsConfirmation->phone = $phone;
         $smsConfirmation->action = "BUSINESS-REGISTER";
@@ -101,7 +101,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'slug' => Str::slug($data['name']),
             'owner' => $data['owner'],
-            'email' => $data['email'],
+            'email' => $phone,
             'status'=>1,
             'password' => Hash::make(Str::random(8)),
             'package_id'=>1,

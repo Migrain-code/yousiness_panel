@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Business\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Business;
+use App\Models\Customer;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -57,7 +60,22 @@ class LoginController extends Controller
             'password' => 'Passwort'
         ]);
     }
+    public function login(Request $request)
+    {
+        $email = clearPhone($request->input('email'));
 
+        $user = Business::where('email', $email)->first();
+
+        if ($user && Hash::check($request->input('password'), $user->password)) {
+            Auth::loginUsingId($user->id);
+            return to_route('business.home');
+        } else {
+            return to_route('business.login')->with('response', [
+                'status' => "danger",
+                'message' => "Ihre Mobilnummer oder Ihr Passwort ist falsch"
+            ]);
+        }
+    }
     public function logout(Request $request)
     {
         $this->guard()->logout();

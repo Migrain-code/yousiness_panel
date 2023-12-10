@@ -25,3 +25,19 @@ function authUser(){
         return auth('admin')->user();
     }
 }
+function clearPhone($phoneNumber){
+    // Özel karakterleri temizle
+    $phoneNumber = preg_replace('/[^0-9]/', '', $phoneNumber);
+
+    // Başındaki + işaretini ve ülke kodunu kontrol et
+    if (substr($phoneNumber, 0, 1) == '+') {
+        $phoneNumber = substr($phoneNumber, 1); // Başındaki + işaretini kaldır
+    } elseif (substr($phoneNumber, 0, 2) == '00') {
+        $phoneNumber = substr($phoneNumber, 2); // Başındaki 00'yi kaldır
+    }
+    $phoneNumber = str_replace(' ', '', $phoneNumber);
+    // Başındaki sıfırları kaldır
+    $phoneNumber = ltrim($phoneNumber, '0');
+
+    return $phoneNumber;
+}

@@ -34,7 +34,7 @@ class VerifyController extends Controller
             $user->verify_phone=1;
             $user->save();
 
-            $phone=str_replace(array('(', ')', '-', ' '), '', $user->email);
+            $phone=$user->email;
             Sms::send($phone, "Ihr Passwort für die Anmeldung bei ".config('settings.appy_site_title')." lautet :". $generatePassword);
 
             return to_route('business.login')->with('response', [
@@ -63,7 +63,7 @@ class VerifyController extends Controller
         ], [], [
             'email'=>"MobileNummer"
         ]);
-        $business=Business::whereEmail($request->email)->first();
+        $business=Business::where('email',clearPhone($request->email))->first();
         if (!$business){
             return to_route('business.showForgotView')->with('response', [
                'status'=>"error",
@@ -73,7 +73,7 @@ class VerifyController extends Controller
         else{
             $generatePassword=rand(100000, 999999);
 
-            $phone=str_replace(array('(', ')', '-', ' '), '', $business->email);
+            $phone=$business->email;
 
             Sms::send($phone, "Ihr Passwort für die Anmeldung bei ".config('settings.appy_site_title')." lautet ".$generatePassword);
 
