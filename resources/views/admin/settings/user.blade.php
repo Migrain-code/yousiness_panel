@@ -198,6 +198,20 @@
                                             <textarea rows="5" class="form-control form-control-solid" name="speed_footer_about">{{setting('speed_footer_about')}}</textarea>
                                         </div>
                                     </div>
+                                    <div class="row fv-row mb-3">
+                                        <div class="col-md-3 text-md-end">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span>Faq Video Link</span>
+                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
+                                            </label>
+                                            <!--end::Label-->
+                                        </div>
+                                        <div class="col-md-9">
+                                            <!--begin::Input-->
+                                            <input type="text" class="form-control form-control-solid" name="speed_faq_video_link" value="{{setting('speed_faq_video_link')}}" />
+                                        </div>
+                                    </div>
                                     <!--end::Input group-->
                                     <!--begin::Action buttons-->
                                     <div class="row py-5">
