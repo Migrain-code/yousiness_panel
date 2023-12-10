@@ -480,8 +480,8 @@ var Finlab = function(){
    }
 
    var handleSupport = function(){
-		var support = '<script id="DZScript" src="../../../dzassets.s3.amazonaws.com/w3-global8bb6.js?btn_dir=right"></script>';
-		jQuery('body').append(support);
+		/*var support = '<script id="DZScript" src="../../../dzassets.s3.amazonaws.com/w3-global8bb6.js?btn_dir=right"></script>';
+		jQuery('body').append(support);*/
 	}
 	   
 
