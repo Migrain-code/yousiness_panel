@@ -23,8 +23,7 @@ class VerifyController extends Controller
         $request->validate([
             'verification_code' => ['required', 'numeric', 'digits:6'],
         ]);
-        $request->dd();
-        $code = SmsConfirmation::where("code", $request->code)->where('action','BUSINESS-REGISTER')->first();
+        $code = SmsConfirmation::where("code", $request->verification_code)->where('action','BUSINESS-REGISTER')->first();
         if ($code){
             $user = Business::where('email', $code->phone)->first();
             $generatePassword=rand(100000, 999999);
