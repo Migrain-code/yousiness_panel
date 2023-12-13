@@ -78,7 +78,7 @@
                             </select>
                         </div>
                         <div class="form-group col-lg-6">
-                            <label>Salon Telefon</label>
+                            <label>Salon Mobilnummer</label>
                             <input type="text" class="form-control" name="phone" value="{{$business->phone}}" style="border-radius: 18px;height: 10px">
                         </div>
                         <div class="form-group col-lg-12">

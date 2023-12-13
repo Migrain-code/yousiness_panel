@@ -276,16 +276,11 @@
                                                            name="owner" class="form-control">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">E-Mail</label>
-                                                    <input type="email" value="{{$business->owner_email}}"
-                                                           placeholder="E-mail" name="owner_email" class="form-control">
+                                                    <label class="form-label">E-Mail  <span class="text-warning">(bei der Registrierung vewendete E-mail)</span></label>
+                                                    <input type="email" value="{{$business->email}}"
+                                                           placeholder="E-mail" name="email" class="form-control">
                                                 </div>
-                                                <div class="mb-3 col-md-6">
-                                                    <label class="form-label">Mobilnummer <span class="text-warning">(bei der Registrierung vewendete Mobilnummer)</span>
-                                                    </label>
-                                                    <input type="text" id="phone_1" value="{{$business->email}}"
-                                                           placeholder="Mobilnummer" name="email" class="form-control">
-                                                </div>
+
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label">Passwort</label>
                                                     <input type="password" name="password" placeholder="Passwort"
@@ -398,7 +393,7 @@
 
                                                     <div class="mb-3 col-md-6">
                                                         <label class="form-label">Mobile Nummer</label>
-                                                        <input type="text" placeholder="Salon Telefon"
+                                                        <input type="text" placeholder="Mobile Nummer"
                                                                value="{{$business->phone}}" class="form-control"
                                                                name="b_phone">
                                                     </div>

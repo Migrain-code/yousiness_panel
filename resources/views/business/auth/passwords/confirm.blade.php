@@ -40,6 +40,24 @@
             position: relative;
             display: inline-block;
         }
+        .signin-banner-from-subtitle::before {
+            content: "";
+            height: 0px !important;
+            width: 105px;
+            background-color: #e5e5e5;
+            display: inline-block;
+            transform: translateY(-4px);
+            margin-right: 18px;
+        }
+        .signin-banner-from-subtitle::after {
+            content: "";
+            height: 0px !important;
+            width: 105px;
+            background-color: #e5e5e5;
+            display: inline-block;
+            transform: translateY(-4px);
+            margin-left: 18px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
@@ -221,8 +239,8 @@
                 <div class="signin-banner-from d-flex justify-content-center align-items-center">
 
                     <div class="signin-banner-from-wrap">
-                        @include('layouts.component.alert')
                         @include('layouts.component.error')
+                        @include('layouts.component.alert')
 
                         <div class="signin-banner-title-box">
                             <h4 class="signin-banner-from-title">Yousiness Passwort vergessen</h4>
@@ -235,15 +253,15 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
-                                            <input type="text" name="email" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" id="phone" value="{{old('email')}}"  class="inputText" required>
-
+                                            <input type="text" name="email" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" value="{{old('email')}}"  class="inputText" required>
+                                            <span class="floating-label">E-mail</span>
                                         </div>
                                     </div>
 
                                 </div>
 
                                 <div class="signin-banner-from-btn mb-20 text-center">
-                                    <button class="signin-btn ">Gönder</button>
+                                    <button class="signin-btn ">Schicken</button>
                                 </div>
 
                             </form>
@@ -263,35 +281,6 @@
 
 <!-- JS here -->
 @include('layouts.component.scripts')
-
-<script>
-    const input = document.querySelector("#phone");
-    const iti = window.intlTelInput(input, {
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
-            updatePlaceholder(selectedCountryPlaceholder);
-            return selectedCountryPlaceholder;
-        },
-    });
-
-    // Örnek olarak: Numarayı uluslararası formatta alma
-    function getNumber() {
-        return iti.getNumber();
-    }
-    $(function (){
-        iti.setCountry("de");
-    });
-    input.addEventListener('countrychange', function () {
-        $("#phone").val("");
-    });
-
-    function updatePlaceholder(originalData) {
-        let mask = "";
-        mask = originalData.replace(/[0-9]/g, "9");
-
-        $("#phone").inputmask({"mask": mask});
-    }
-</script>
 
 
 </body>

@@ -56,15 +56,13 @@ class LoginController extends Controller
             $this->username() => 'required|string',
             'password' => 'required|string',
         ], [], [
-            'phone' => 'Mobilennummer',
+            'phone' => 'E-mail',
             'password' => 'Passwort'
         ]);
     }
     public function login(Request $request)
     {
-        $email = clearPhone($request->input('email'));
-
-        $user = Business::where('email', $email)->first();
+        $user = Business::where('email', $request->input('email'))->first();
 
         if ($user && Hash::check($request->input('password'), $user->password)) {
             Auth::guard('business')->loginUsingId($user->id);

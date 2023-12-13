@@ -19,6 +19,24 @@
         .btn-mobile-menu-free:hover{
             color: black !important;
         }
+        .signin-banner-from-subtitle::before {
+            content: "";
+            height: 0px !important;
+            width: 105px;
+            background-color: #e5e5e5;
+            display: inline-block;
+            transform: translateY(-4px);
+            margin-right: 18px;
+        }
+        .signin-banner-from-subtitle::after {
+            content: "";
+            height: 0px !important;
+            width: 105px;
+            background-color: #e5e5e5;
+            display: inline-block;
+            transform: translateY(-4px);
+            margin-left: 18px;
+        }
         @keyframes pulseBtn {
             0% {
                 transform: scale(0.95);
@@ -218,8 +236,8 @@
                         @include('layouts.component.alert')
                         @include('layouts.component.error')
 
-                        <div class="signin-banner-title-box">
-                            <h4 class="signin-banner-from-title">Yousiness Numara Doğrulama</h4>
+                        <div class="signin-banner-title-box" style="text-align: center;margin-left: 28px;">
+                            <h4 class="signin-banner-from-title" >E-mail Bestätigung</h4>
                         </div>
 
                         <div class="signin-banner-from-box">
@@ -230,14 +248,14 @@
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
                                             <input type="text" name="verification_code" id="verification_code" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" value="{{old('email')}}"  class="inputText" required>
-                                            <span class="floating-label">Doğrulama Kodunuz</span>
+                                            <span class="floating-label">Bestätigungscode</span>
                                         </div>
                                     </div>
 
                                 </div>
 
                                 <div class="signin-banner-from-btn mb-20 text-center">
-                                    <button class="signin-btn ">Gönder</button>
+                                    <button class="signin-btn ">Schicken</button>
                                 </div>
 
                             </form>

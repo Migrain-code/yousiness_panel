@@ -192,7 +192,7 @@
                                 <li>
                                     <a href="/#proparties">Besonderheiten</a>
                                 </li>
-                                <li><a href="/contactForm">Kontakt</a></li>
+                                <li><a href="/#contactForm">Kontakt</a></li>
                             </ul>
 
                         </nav>
@@ -270,8 +270,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
-                                            <input type="text" name="email" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" id="phone" value="{{old('email')}}"  class="inputText" required>
-
+                                            <input type="text" name="email" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" placeholder="E-mail" value="{{old('email')}}"  class="inputText" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -345,34 +344,6 @@
 <!-- JS here -->
 @include('layouts.component.scripts')
 
-<script>
-    const input = document.querySelector("#phone");
-    const iti = window.intlTelInput(input, {
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
-            updatePlaceholder(selectedCountryPlaceholder);
-            return selectedCountryPlaceholder;
-        },
-    });
-
-    // Örnek olarak: Numarayı uluslararası formatta alma
-    function getNumber() {
-        return iti.getNumber();
-    }
-    $(function (){
-        iti.setCountry("de");
-    });
-    input.addEventListener('countrychange', function () {
-        $("#phone").val("");
-    });
-
-    function updatePlaceholder(originalData) {
-        let mask = "";
-        mask = originalData.replace(/[0-9]/g, "9");
-
-        $("#phone").inputmask({"mask": mask});
-    }
-</script>
 
 </body>
 

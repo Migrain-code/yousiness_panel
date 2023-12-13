@@ -264,8 +264,8 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
-                                            <input type="text" class="inputText" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" name="email" id="phone" required>
-
+                                            <input type="text" class="inputText" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" name="email" required>
+                                            <span class="floating-label">E-mail</span>
                                         </div>
                                     </div>
                                 </div>
@@ -324,36 +324,6 @@
 
 <!-- JS here -->
 @include('layouts.component.scripts')
-<script>
-    const input = document.querySelector("#phone");
-    const iti = window.intlTelInput(input, {
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
-            updatePlaceholder(selectedCountryPlaceholder);
-            return selectedCountryPlaceholder;
-        },
-    });
-
-    // Örnek olarak: Numarayı uluslararası formatta alma
-    function getNumber() {
-        return iti.getNumber();
-    }
-    $(function (){
-        iti.setCountry("de");
-    });
-    input.addEventListener('countrychange', function () {
-        $("#phone").val("");
-    });
-
-    function updatePlaceholder(originalData) {
-        let mask = "";
-        mask = originalData.replace(/[0-9]/g, "9");
-
-        $("#phone").inputmask({"mask": mask});
-    }
-</script>
-
-
 
 </body>
 

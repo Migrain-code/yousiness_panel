@@ -7,6 +7,7 @@ use App\Mail\BasicMail;
 use App\Models\Business;
 use App\Models\SmsConfirmation;
 use App\Providers\RouteServiceProvider;
+use App\Services\SendMail;
 use App\Services\Sms;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -63,16 +64,20 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $data["slug"] = Str::slug($data["name"]);
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'owner'=> ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'max:20', 'unique:businesses'],
+            'slug' => ['required', 'string', 'unique:businesses'],
+            'owner' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'unique:businesses'],
             'conditions' => ['accepted'],
             'contact_info' => ['accepted'],
         ], [], [
             'name' => 'Salonname',
-            'email' => 'Telefonnummer',
-            'owner'=>'Salonbesitzer',
+            'slug' => 'Salonname',
+            'email' => 'E-mail',
+            'owner' => 'Salonbesitzer',
             'conditions' => "Geschäftsbedingungen",
             'contact_info' => "Kommunikationsberechtigungen",
         ]);
@@ -86,29 +91,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $generateCode=rand(100000, 999999);
+        $generateCode = rand(100000, 999999);
 
-        $phone=clearPhone($data["email"]);
+        $phone = $data["email"];
         $smsConfirmation = new SmsConfirmation();
         $smsConfirmation->phone = $phone;
         $smsConfirmation->action = "BUSINESS-REGISTER";
         $smsConfirmation->code = $generateCode;
         $smsConfirmation->expire_at = now()->addMinute(3);
         $smsConfirmation->save();
-        Sms::send($phone,"Für die Registrierung bei ".setting('appy_site_title')." ist der Verifizierungscode anzugeben " . $generateCode);
+        SendMail::send('SALON REGISTRIERUNG', "Für die Registrierung bei " . setting('appy_site_title') . " ist der Verifizierungscode anzugeben ", $phone,  $generateCode);
 
-        return Business::create([
-            'name' => $data['name'],
-            'slug' => Str::slug($data['name']),
-            'owner' => $data['owner'],
-            'email' => $phone,
-            'status'=>1,
-            'password' => Hash::make(Str::random(8)),
-            'package_id'=>1,
-            'verification_code'=>$generateCode,
-        ]);
+        $business = new Business();
+        $business->name = $data['name'];
+        $business->slug = Str::slug($data['name']);
+        $business->owner = $data['owner'];
+        $business->email = $phone;
+        $business->status = 1;
+        $business->password = Hash::make(Str::random(8));
+        $business->package_id = 1;
+        $business->verification_code = $generateCode;
+        \Session::put('registerBusiness', $business);
 
+        return $business;
     }
+
     protected function registered(Request $request, $user)
     {
         return to_route('business.verify');
