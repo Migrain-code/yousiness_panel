@@ -8,7 +8,7 @@
                     <div class="page-titles style1">
                         <div class="d-flex align-items-center">
                             <h2 class="heading">
-                                Setzen Sie ihr neues Passwort
+                                Setzen Sıe ıhr neues Passwort
                             </h2>
                         </div>
                         <div id="datepicker" class="input-group date dz-calender" data-date-format="dd.mm.yyyy">
