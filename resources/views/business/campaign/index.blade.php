@@ -62,7 +62,7 @@
                                @empty
                                    <tr>
                                        <td colspan="5">
-                                           <div class="alert alert-warning">Keine Kampagne hinzugefügt</div>
+                                           <div class="alert alert-warning text-center">Keine Kampagne hinzugefügt</div>
                                        </td>
                                    </tr>
                                @endforelse
