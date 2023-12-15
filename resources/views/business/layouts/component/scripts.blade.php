@@ -2,10 +2,7 @@
 <script src="/panel/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="/panel/assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
 <script src="/panel/assets/vendor/chart.js/Chart.bundle.min.js"></script>
-{{--
 <script src="/panel/assets/vendor/apexchart/apexchart.js"></script>
-
---}}
 <script src="/panel/assets/vendor/peity/jquery.peity.min.js"></script>
 <script src="/panel/assets/vendor/swiper/js/swiper-bundle.min.js"></script>
 <script src="/panel/assets/js/dashboard/dashboard-1.js"></script>

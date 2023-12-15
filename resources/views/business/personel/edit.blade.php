@@ -445,7 +445,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                         <div class="card-body px-4">
                                             <!-- --list- -->
                                             <div class="table-responsive">
-                                                <table id="example" class="display" style="min-width: 845px">
+                                                <table id="dataTable1" class="display" style="min-width: 845px">
                                                     <thead>
                                                     <tr>
                                                         <th>Name Nachname</th>
