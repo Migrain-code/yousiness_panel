@@ -311,7 +311,7 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
                                         <div class="tp-price__item p-relative">
                                             <div class="tp-price__icon">
-                                                <img src="/business/assets/img/price/price-icon-1.png" alt="">
+                                                <img src="{{asset($package->icon)}}" alt="">
                                             </div>
                                             <div class="tp-price__title-box">
                                                 <h4 class="tp-price__title-sm">{{$package->name}}</h4>
@@ -343,7 +343,7 @@
                                             </div>
                                             <div class="tp-price__btn tp-btn-price">
                                                 <span>{{$package->price==0 ? "Unentgeltlich": $package->price ."€ / Jahres"}}</span>
-                                                <a href="{{route('business.login')}}">Jetzt kaufen <i
+                                                <a href="{{route('business.login')}}">Buchen<i
                                                             class="fal fa-arrow-right"></i></a>
                                             </div>
                                         </div>
