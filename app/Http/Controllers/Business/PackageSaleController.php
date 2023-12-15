@@ -22,7 +22,7 @@ class PackageSaleController extends Controller
     public function index()
     {
         $package_types=[
-            'Seans',
+            'Sitzung',
             'Minute'
         ];
         $customerId = auth('business')->user()->customers()->pluck('customer_id');
