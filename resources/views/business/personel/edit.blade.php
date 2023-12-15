@@ -342,7 +342,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                                         @endif
 
 
-                                                                        <a class="dropdown-item btn btn-primary text-white" href="{{route('business.appointment.show', $appointment->id)}}"><i class="la la-info-circle"></i> Detay</a>
+                                                                        <a class="dropdown-item btn btn-primary text-white" href="{{route('business.appointment.show', $appointment->id)}}"><i class="la la-info-circle"></i> Detail</a>
                                                                     </div>
                                                                 </div>
                                                             </div>

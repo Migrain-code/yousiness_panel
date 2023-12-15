@@ -112,7 +112,7 @@
                                 <tbody style="font-size: 16px">
                                    @forelse($appointment->services as $service)
                                        <tr>
-                                           <td><img src="{{asset($service->personel->image)}}" width="40px" class="rounded-circle"> {{$service->personel->name}}</td>
+                                           <td><img src="{{asset($service->personel->image)}}" style="object-fit: cover;height: 35px;width: 35px" class="rounded-circle"> {{$service->personel->name}}</td>
                                            <td>{{$service->service->subCategory->name}}</td>
                                            <td>{{$service->start_time}}</td>
                                            <td>{{$service->end_time}}</td>
