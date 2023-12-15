@@ -264,7 +264,7 @@
                                             </div>
                                             <div class="tp-price__title-box">
                                                 <h4 class="tp-price__title-sm">{{$package->name}}</h4>
-                                                <p>{{$package->price==0 ? "Unentgeltlich": $package->price ."€ / Monat"}}</p>
+                                                <p>{{$package->price==0 ? "Gratis": $package->price ."€ / Monat"}}</p>
                                             </div>
                                             <div class="tp-price__feature">
                                                 <ul>
