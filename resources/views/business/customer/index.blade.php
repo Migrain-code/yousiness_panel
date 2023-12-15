@@ -12,7 +12,7 @@
                     Kunden
                     </h2>
                 </div>
-                <div id="datepicker" class="input-group date dz-calender" data-date-format="mm-dd-yyyy">
+                <div id="datepicker" class="input-group date dz-calender" data-date-format="dd.mm.yyyy">
 						<span class="input-group-addon d-flex align-items-center">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
