@@ -80,7 +80,7 @@ class BussinessPackageController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->dd();
+        //$request->dd();
         $request->validate([
             'name'=>"required",
             'price'=>"required",

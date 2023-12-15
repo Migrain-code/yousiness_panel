@@ -43,7 +43,7 @@
                            </div>
                            <div class="mb-3">
                                <label>Stripe Key</label>
-                               <input type="text" class="form-control input-default " name="stripe_key" placeholder="{{$bussinessPackage->stripe_key}}">
+                               <input type="text" class="form-control input-default " name="stripe_key" value="{{$bussinessPackage->stripe_key}}">
                            </div>
                            <div class="mb-3">
                                <label>İcon</label>
