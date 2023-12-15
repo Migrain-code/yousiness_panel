@@ -97,6 +97,7 @@ class BussinessPackageController extends Controller
         $bussinessPackage->type=$request->input('type');
         $bussinessPackage->price=$request->input('price');
         $bussinessPackage->stripe_key = $request->input('stripe_key');
+        $request->dd();
         if ($request->hasFile('packet_icon')){
             $bussinessPackage->icon = 'storage/'. $request->file('packet_icon')->store('packetIcons');
         }
