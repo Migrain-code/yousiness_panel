@@ -37,17 +37,22 @@ class BussinessPackageController extends Controller
             'price'=>"required",
             'type'=>"required",
             'stripe_key' => "required",
+            'packet_icon' => "required",
         ],[], [
             'name'=>"Paketname",
             'price'=>"Preis",
             'type'=>"Art",
             'stripe_key' => "Stripe KEY",
+            'packet_icon' => "Icon",
         ]);
         $bussinessPackage=new BussinessPackage();
         $bussinessPackage->name=$request->input('name');
         $bussinessPackage->slug=Str::slug($request->input('name'));
         $bussinessPackage->type=$request->input('type');
         $bussinessPackage->price=$request->input('price');
+        if ($request->hasFile('packet_icon')){
+            $bussinessPackage->icon = 'storage/'. $request->file('packet_icon')->store('packetIcons');
+        }
         $bussinessPackage->stripe_key = $request->input('stripe_key');
         if ($bussinessPackage->save()){
             return to_route('admin.businessPackage.index')->with('response', [
