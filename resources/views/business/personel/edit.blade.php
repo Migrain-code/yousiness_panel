@@ -148,8 +148,8 @@
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label">Genehmigungserlaubnis</label>
                                                     <select name="accept" class="form-control">
-                                                        <option value="1" @selected($personel->accept == 1)>İzin Ver</option>
-                                                        <option value="0" @selected($personel->accept == 0)>İzin Verme</option>
+                                                        <option value="1" @selected($personel->accept == 1)>Ja</option>
+                                                        <option value="0" @selected($personel->accept == 0)>Nein</option>
                                                     </select>
                                                 </div>
                                             </div>
