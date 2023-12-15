@@ -260,7 +260,7 @@
                         @include('layouts.component.error')
                         @include('layouts.component.alert')
                         <div class="signin-banner-title-box">
-                            <h4 class="signin-banner-from-title">Anmelden bei Yousiness (Business)</h4>
+                            <h4 class="signin-banner-from-title">Anmelden für Business Kunden</h4>
                         </div>
 
                         <div class="signin-banner-from-box">
