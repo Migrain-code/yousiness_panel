@@ -296,8 +296,8 @@
                 icon: 'info',
                 showDenyButton: true,
                 showCancelButton: false,
-                confirmButtonText: 'Yes',
-                denyButtonText: `No`,
+                confirmButtonText: 'Je',
+                denyButtonText: `Nein`,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
@@ -316,7 +316,7 @@
                                     .remove()
                                     .draw();
                                 Swal.fire({
-                                    text: "Hizmet Silindi!.",
+                                    text: "Dienstleistung gelöscht",
                                     icon: "success",
                                     buttonsStyling: false,
                                     confirmButtonText: "OK",
