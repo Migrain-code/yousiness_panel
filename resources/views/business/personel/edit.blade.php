@@ -460,9 +460,9 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                         <tr class="trans-td-list">
                                                             <td>{{$sale->customer->name ?? "Kunden"}}</td>
                                                             <td>{{$sale->product->name ?? "Product"}}</td>
-                                                            <td>{{$sale->amount}}</td>
+                                                            <td>{{$sale->piece}}</td>
                                                             <td>
-                                                                <span class="doller"> € {{$sale->total}}</span>
+                                                                <span class="doller">{{$sale->total}} € </span>
                                                             </td>
                                                             <td>
                                                                 <span class="date">{{$sale->created_at->format('d.m.Y h:i:s')}}</span>
