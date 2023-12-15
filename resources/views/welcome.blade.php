@@ -291,7 +291,7 @@
                                                 </ul>
                                             </div>
                                             <div class="tp-price__btn tp-btn-price">
-                                                <span>{{$package->price==0 ? "Unentgeltlich": $package->price ."€ / Jahres"}}</span>
+                                                <span>{{$package->price==0 ? "Gratis": $package->price ."€ / Jahres"}}</span>
                                                 <a href="{{route('business.login')}}">{{$package->price==0 ? "Jetzt Testen": "Buchen"}} <i
                                                             class="fal fa-arrow-right"></i></a>
                                             </div>
