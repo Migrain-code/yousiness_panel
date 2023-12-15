@@ -47,7 +47,7 @@
                                         <a href="#">
                                             Gewinn
                                         </a>
-                                        <span>€{{$totalPrice}}</span>
+                                        <span>{{$totalPrice}}€</span>
                                     </li>
                                 </ul>
                             </div>
