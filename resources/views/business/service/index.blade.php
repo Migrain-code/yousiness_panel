@@ -296,7 +296,7 @@
                 icon: 'info',
                 showDenyButton: true,
                 showCancelButton: false,
-                confirmButtonText: 'Je',
+                confirmButtonText: 'Ja',
                 denyButtonText: `Nein`,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
