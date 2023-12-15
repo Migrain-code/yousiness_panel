@@ -490,7 +490,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                             <div class="card event-agenda  h-auto">
                                                 <div class="card-header border-0 pb-0">
                                                     <div>
-                                                        <h2 class="heading">Nachrichten</h2>
+                                                        <h2 class="heading">Nachrıchten</h2>
                                                     </div>
                                                     <div class="add-icon">
                                                         <a href="#" class="add" data-bs-toggle="modal" data-bs-target="#personel-modal-notification">
