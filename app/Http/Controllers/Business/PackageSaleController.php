@@ -153,7 +153,12 @@ class PackageSaleController extends Controller
      */
     public function destroy(PackageSale $packageSale)
     {
-        //
+        if ($packageSale->delete()){
+            return response()->json([
+                'status'=>"success",
+                'message'=>"Paketverkauf Löschen"
+            ]);
+        }
     }
 
     function sayiDuzenle($sayi){
