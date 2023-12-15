@@ -102,7 +102,7 @@
     </div>
     <!-- Package Show Usages -->
     <div class="modal fade bd-example-modal-lg-4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Paketverwendungen</h5>
@@ -133,7 +133,7 @@
     </div>
     <!-- Package Add Usage -->
     <div class="modal fade bd-example-modal-lg-5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Nutzung hinzufügen</h5>
@@ -358,7 +358,7 @@
                         });
                     }
                     else{
-                        output += '<tr style="font-size:18px;font-weight: bold"><td colspan="2"> <span class="text-warning mx-2 my-2 w-100">Es wurde kein Verwendungsnachweis für diese Transaktion gefunden! </span> </td></tr>';
+                        output += '<tr style="font-size:18px;font-weight: bold"><td colspan="2"> <span class="text-warning mx-2 my-2 w-100">Es wurde kein eintrag für diese Transaktion gefunden! </span> </td></tr>';
                     }
                     // after finish creating html structure, append the output
                     // into the table
