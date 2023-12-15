@@ -194,7 +194,7 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
                                             </div>
                                             <div class="row">
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">Pausenanfang <span class="text-warning">(Zorunlu Değil)</span>
+                                                    <label class="form-label">Pausenanfang <span class="text-warning">(Optional)</span>
                                                         <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Pau enzeiten Ihrer Mitarbeiter eingetragen." title="Pausenanfang">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button>
@@ -203,7 +203,7 @@ Sie können Ihre Mitarbeiter für diese Zeiten einteilen." title="Arbeitszeit">
 
                                                 </div>
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label"> Pausenende <span class="text-warning">(Zorunlu Değil)</span>
+                                                    <label class="form-label"> Pausenende <span class="text-warning">(Optional)</span>
                                                         <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Pausenzeiten Ihrer Mitarbeiter eingetragen." title="Pausenende">
                                                             <i class="fa-solid fa-question-circle"></i>
                                                         </button>
