@@ -60,6 +60,11 @@
                                         </td>
                                     </tr>
                                @empty
+                                   <tr>
+                                       <td colspan="5">
+                                           <div class="alert alert-warning">Keine Kampagne hinzugefügt</div>
+                                       </td>
+                                   </tr>
                                @endforelse
                             </tbody>
                         </table>
