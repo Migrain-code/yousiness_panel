@@ -403,7 +403,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                         <th>Dienstleistungen</th>
                                                         <th>Anzahl</th>
                                                         <th>Betrag</th>
-                                                        <th>Tarihi</th>
+                                                        <th>Datum</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -445,7 +445,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                         <div class="card-body px-4">
                                             <!-- --list- -->
                                             <div class="table-responsive">
-                                                <table id="example4" class="display" style="min-width: 845px">
+                                                <table id="example3" class="display" style="min-width: 845px">
                                                     <thead>
                                                     <tr>
                                                         <th>Name Nachname</th>
