@@ -445,7 +445,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                         <div class="card-body px-4">
                                             <!-- --list- -->
                                             <div class="table-responsive">
-                                                <table id="example3" class="display" style="min-width: 845px">
+                                                <table id="example" class="display" style="min-width: 845px">
                                                     <thead>
                                                     <tr>
                                                         <th>Name Nachname</th>
@@ -551,7 +551,6 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
 @section('scripts')
     <script>
         var monthData = {!! $monthData !!};
-
     </script>
     <script src="/admin/assets/js/dashboard/banking.js"></script>
     <script>
