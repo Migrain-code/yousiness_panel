@@ -103,7 +103,7 @@
                                     .remove()
                                     .draw();
                                 Swal.fire({
-                                    text: "Talep Silindi!.",
+                                    text: "Anfrage gelöscht",
                                     icon: "success",
                                     buttonsStyling: false,
                                     confirmButtonText: "OK",
