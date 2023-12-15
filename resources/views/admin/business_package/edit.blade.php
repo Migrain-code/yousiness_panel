@@ -29,7 +29,7 @@
                 --}}
             </div>
             <div class="card-body">
-                   <form method="post" class="row"  action="{{route('admin.businessPackage.update', $bussinessPackage->id)}}">
+                   <form method="post" class="row"  action="{{route('admin.businessPackage.update', $bussinessPackage->id)}}" enctype="multipart/form-data">
                        @csrf
                        @method('PUT')
                        <div class="col-6">

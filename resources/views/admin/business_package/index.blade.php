@@ -33,7 +33,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                 </button>
                             </div>
-                            <form method="post" action="{{route('admin.businessPackage.store')}}">
+                            <form method="post" action="{{route('admin.businessPackage.store')}}" enctype="multipart/form-data">
                             <div class="modal-body">
 
                                     @csrf
