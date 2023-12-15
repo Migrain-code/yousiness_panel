@@ -413,7 +413,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                                 <td>{{$sale->service->subCategory->name ?? "Dienstleistungen"}}</td>
                                                                 <td>{{$sale->amount}}</td>
                                                                 <td>
-                                                                    <span class="doller"> € {{$sale->total}}</span>
+                                                                    <span class="doller"> {{$sale->total}} €</span>
                                                                 </td>
                                                                 <td>
                                                                     <span class="date">{{$sale->seller_date->format('d.m.Y h:i:s')}}</span>
