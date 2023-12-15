@@ -83,7 +83,7 @@
                                                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg-4" onclick="usages('{{$package->id}}')">Rechte ausgeübt</a>
                                                             <div class="dropdown-divider"></div>
                                                         @endif
-                                                        <a href="javascript:void(0)" onclick="onDelete('{{route('business.packageSale.destroy', $package->id)}}', '{{$loop->index}}')" class="btn btn-danger shadow btn-xs sharp">Löschen</a>
+                                                            <a class="dropdown-item text-warning" onclick="onDelete('{{route('business.packageSale.destroy', $package->id)}}', '{{$loop->index}}')">Löschen</a>
 
                                                     </div>
                                                 </div>
