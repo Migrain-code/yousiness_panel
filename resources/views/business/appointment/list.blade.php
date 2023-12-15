@@ -17,7 +17,7 @@
                 <div class="col-xl-12">
                     <div class="page-titles">
                         <div class="d-flex align-items-center">
-                            <h2 class="heading"> Terminliste </h2>
+                            <h2 class="heading"> Termınlıste </h2>
                         </div>
 
                     </div>
@@ -105,7 +105,7 @@
                                             <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
                                             </svg>
-                                            <h4>Stornierte</h4>
+                                            <h4>Storniert</h4>
                                         </div>
                                         <div  class="chart-num">
                                             <h2>{{authUser()->appointments()->where('status', 8)->count()}}</h2>
@@ -206,7 +206,17 @@
                                                             {!! $appointment->status("html") !!}
                                                         </td>
                                                         <td>
-                                                            {{$appointment->services->count()}}
+                                                            <div class="d-flex">
+                                                                @forelse($appointment->services as $service)
+                                                                    <label class="form-label">
+                                                                        <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="" title="{{$service->personel->name}}">
+                                                                            <img src="{{asset($service->personel->image)}}" style="object-fit: cover;height: 35px;width: 35px" class="rounded-circle">
+                                                                        </button>
+                                                                    </label>
+                                                                @empty
+
+                                                                @endforelse
+                                                            </div>
                                                         </td>
                                                         <td>
                                                             <div class="basic-dropdown">
