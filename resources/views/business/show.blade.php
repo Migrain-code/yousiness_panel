@@ -288,7 +288,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <button type="submit" class="btn btn-primary">Aktualisieren
+                                                <button type="submit" class="btn btn-primary">Speichern
                                                 </button>
                                             </div>
                                         </div>
@@ -330,7 +330,7 @@
                                                 <input type="time" id="opening-time" class="form-control"
                                                        name="end_time" value="{{$business->end_time}}" required>
                                             </div>
-                                            <button type="submit" class="btn btn-primary mt-3">Aktualisieren</button>
+                                            <button type="submit" class="btn btn-primary mt-3">Speichern</button>
                                         </form>
                                     </div>
                                 </div>
@@ -444,7 +444,7 @@
                                                         <input type="file" name="wallpaper" class="form-control">
                                                     </div>
                                                 </div>
-                                                <button class="btn btn-primary" type="submit">Aktualisieren
+                                                <button class="btn btn-primary" type="submit">Speichern
                                                 </button>
                                             </form>
                                         </div>
@@ -484,7 +484,7 @@
                                                 @empty
                                                 @endforelse
                                                 <!--/item-->
-                                            <button type="submit" class="btn btn-primary mt-3">Aktualisieren</button>
+                                            <button type="submit" class="btn btn-primary mt-3">Speichern</button>
                                         </form>
                                     </div>
                                 </div>
