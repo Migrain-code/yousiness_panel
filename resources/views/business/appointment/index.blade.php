@@ -126,7 +126,7 @@
                                             <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="0.425781" width="8" height="8" fill="#FCFCFC"/>
                                             </svg>
-                                            <h4>Stornierte</h4>
+                                            <h4>Storniert</h4>
                                         </div>
                                         <div  class="chart-num">
                                             <h2>{{authUser()->appointments()->where('status', 8)->count()}}</h2>
