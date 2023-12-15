@@ -5,7 +5,7 @@
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        Bearbeiten
+                        Bearbeıten
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="dd.mm.yyyy">
@@ -28,7 +28,7 @@
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Bearbeıten</div>
+                <div class="card-title">Bearbeiten</div>
             </div>
             <div class="card-body">
                 <form method="post" action="{{route('business.businessService.update', $businessService->id)}}">
