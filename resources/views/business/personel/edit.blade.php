@@ -110,7 +110,7 @@
                                     <a class="nav-link" data-bs-toggle="tab" href="#payments_order"><i class="la la-credit-card me-2"></i>Paket Verkauf </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#payments_packet"><i class="la la-credit-card me-2"></i> Prodükt Verkauf </a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#payments_packet"><i class="la la-credit-card me-2"></i> Produkt Verkauf </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" href="#notification"><i class="la la-envelope me-2"></i> Nachrichten </a>
