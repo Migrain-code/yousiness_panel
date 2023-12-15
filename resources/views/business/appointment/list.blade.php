@@ -210,7 +210,7 @@
                                                                 @forelse($appointment->services as $service)
                                                                     <label class="form-label">
                                                                         <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-toggle="tooltip" data-placement="top" title="{{$service->personel->name}}">
-                                                                            <img src="{{asset($service->personel->image)}}" style="object-fit: cover;height: 35px;width: 35px" class="rounded-circle">
+                                                                            <img src="{{asset($service->personel->image)}}" style="object-fit: cover;height: 45px;width: 45px" class="rounded-circle">
                                                                         </button>
                                                                     </label>
                                                                 @empty
