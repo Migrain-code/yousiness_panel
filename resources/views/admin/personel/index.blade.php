@@ -316,7 +316,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
        function onDelete(personel_url, index){
            var table = $('#example3').DataTable();
            Swal.fire({
-               title: 'Personeli Silmek istediğinize eminmisiniz?',
+               title: 'Sind Sie sicher, dass Sie es löschen wollen?',
                icon: 'info',
                showDenyButton: true,
                showCancelButton: false,

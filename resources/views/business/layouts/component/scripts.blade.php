@@ -54,7 +54,7 @@
     function deleteNote(note_url, index){
 
         Swal.fire({
-            title: 'Notu Silmek istediğinize eminmisiniz?',
+            title: 'Sind Sie sicher, dass Sie es löschen wollen?',
             icon: 'info',
             showDenyButton: true,
             showCancelButton: false,
