@@ -141,7 +141,7 @@
                     })
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
-                        text: "İşlem İptal Edildi!.",
+                        text: "Transaktion abgebrochen!.",
                         icon: "error",
                         buttonsStyling: false,
                         confirmButtonText: "Tamam!",

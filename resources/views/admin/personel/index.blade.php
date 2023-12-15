@@ -353,7 +353,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                       }
                   })
                } else if (result.isDenied) {
-                   Swal.fire('İşlem İptal Edildi', '', 'info')
+                   Swal.fire('Transaktion abgebrochen', '', 'info')
                }
            })
        }

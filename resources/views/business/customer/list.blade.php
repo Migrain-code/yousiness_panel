@@ -195,7 +195,7 @@
                         }
                     })
                 } else if (result.isDenied) {
-                    Swal.fire('İşlem İptal Edildi', '', 'info')
+                    Swal.fire('Transaktion abgebrochen', '', 'info')
                 }
             })
         }

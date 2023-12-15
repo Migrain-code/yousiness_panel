@@ -206,10 +206,10 @@
                                   .remove()
                                   .draw();
                               Swal.fire({
-                                  text: "Satış İşlemi Silindi!.",
+                                  text: "Transaktion gelöscht",
                                   icon: "success",
                                   buttonsStyling: false,
-                                  confirmButtonText: "Tamam!",
+                                  confirmButtonText: "Ok!",
                                   customClass: {
                                       confirmButton: "btn btn-primary",
                                   }
@@ -219,7 +219,7 @@
                       }
                   })
                } else if (result.isDenied) {
-                   Swal.fire('İşlem İptal Edildi', '', 'info')
+                   Swal.fire('Transaktion abgebrochen', '', 'info')
                }
            })
        }
