@@ -178,7 +178,7 @@
                                                 <th>Name Nachname</th>
                                                 <th style="max-width: 150px">Termin</th>
                                                 <th class="text-left" style="max-width: 150px;">Status</th>
-                                                <th style="text-align: left">Anzahl der Transaktionen</th>
+                                                <th style="text-align: left">Mitarbeiter</th>
                                                 <th>Transaktionen</th>
                                             </tr>
                                             </thead>
