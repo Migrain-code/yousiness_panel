@@ -241,7 +241,7 @@
                                     <button class="nav-link yearly" id="nav-profile-tab" data-bs-toggle="tab"
                                             data-bs-target="#nav-profile" type="button" role="tab"
                                             aria-controls="nav-profile" aria-selected="false" tabindex="-1"
-                                            style="margin-left: 30px;">
+                                            style="margin-left: -15px;">
                                             365 Tage
                                     </button>
                                     <span class="test"></span>
