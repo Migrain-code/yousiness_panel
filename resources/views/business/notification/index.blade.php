@@ -83,7 +83,7 @@
                 icon: 'info',
                 showDenyButton: true,
                 showCancelButton: false,
-                confirmButtonText: 'Sil',
+                confirmButtonText: 'Löschen',
                 denyButtonText: `Abbrechen`,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
