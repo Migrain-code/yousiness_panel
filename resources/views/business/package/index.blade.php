@@ -58,7 +58,7 @@
                             <tbody>
                                @forelse(auth('business')->user()->packages as $package)
                                     <tr>
-                                        <td>{{$package->seller_date->format('d.m.Y h:i:s')}}</td>
+                                        <td>{{$package->seller_date->format('d.m.Y')}} <br> {{$package->seller_date->format('h:i:s')}}</td>
                                         <td>{{$package->customer->name}}</td>
                                         <td>{{isset($package->service) && isset($package->service->subCategory) ? $package->service->subCategory->name . "(".$package->service->gender->name.")" : "löschen "}}</td>
                                         <td>{{$package->personel->name}}</td>
