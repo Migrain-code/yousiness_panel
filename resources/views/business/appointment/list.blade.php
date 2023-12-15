@@ -147,13 +147,9 @@
                         <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
                             <div class="card">
                                 <div class="card-header border-0 flex-wrap">
-                                    <h2 class="heading">Alle Termine</h2>
+                                    <h2 class="heading">Alle Termıne</h2>
                                     <div class="d-flex align-items-center">
-                                        <select class="image-select default-select dashboard-select me-4" aria-label="Default">
-                                            <option selected>Diesen Monat</option>
-                                            <option value="1">Diese Woche</option>
-                                            <option value="2">Dieses Jahr</option>
-                                        </select>
+
                                         <div class="dropdown">
                                             <a href="javascript:void(0);" class="btn-link btn sharp tp-btn btn-primary pill" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
