@@ -343,7 +343,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                   text: "Personel Silindi!.",
                                   icon: "success",
                                   buttonsStyling: false,
-                                  confirmButtonText: "Tamam!",
+                                  confirmButtonText: "OK",
                                   customClass: {
                                       confirmButton: "btn btn-primary",
                                   }

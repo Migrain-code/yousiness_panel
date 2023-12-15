@@ -149,7 +149,7 @@
                                     text: "Ürün Silindi!.",
                                     icon: "success",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Tamam!",
+                                    confirmButtonText: "OK",
                                     customClass: {
                                         confirmButton: "btn btn-primary",
                                     }

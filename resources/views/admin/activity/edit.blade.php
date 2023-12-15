@@ -369,7 +369,7 @@
                                     text: "Kayıt Silindi!.",
                                     icon: "success",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Tamam!",
+                                    confirmButtonText: "OK",
                                     customClass: {
                                         confirmButton: "btn btn-primary",
                                     }
@@ -383,7 +383,7 @@
                         text: "Transaktion abgebrochen!.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Tamam!",
+                        confirmButtonText: "OK",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }
@@ -407,7 +407,7 @@
                             text: res.message,
                             icon: "success",
                             buttonsStyling: false,
-                            confirmButtonText: "Tamam!",
+                            confirmButtonText: "OK",
                             customClass: {
                                 confirmButton: "btn btn-primary",
                             }
