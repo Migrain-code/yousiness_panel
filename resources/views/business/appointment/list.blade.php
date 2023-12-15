@@ -206,7 +206,7 @@
                                                             {!! $appointment->status("html") !!}
                                                         </td>
                                                         <td>
-                                                            <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
                                                                 @forelse($appointment->services as $service)
                                                                     <label class="form-label" style="margin-bottom: 0px">
                                                                         <button type="button" class="" style="width: 32px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-toggle="tooltip" data-placement="top" title="{{$service->personel->name}}">
