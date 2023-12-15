@@ -453,7 +453,7 @@
                                 <div id="category_tab" class="tab-pane fade">
                                     <div class="row border-bottom border-primary">
                                         <div class="col-12 my-2">
-                                            <span style="font-size: 25px; font-weight: bold">KTUALISIERUNG DER SALONARTEN</span>
+                                            <span style="font-size: 25px; font-weight: bold">AKTUALISIERUNG DER SALONARTEN</span>
                                             <a type="button" class="mx-2 text-primary" style="max-width: 12px"
                                                data-bs-container="body" data-bs-toggle="popover"
                                                data-bs-placement="bottom"
