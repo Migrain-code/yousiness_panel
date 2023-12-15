@@ -260,7 +260,7 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
                                         <div class="tp-price__item p-relative">
                                             <div class="tp-price__icon">
-                                                <img src="/business/assets/img/price/price-icon-1.png" alt="">
+                                                <img src="{{asset($package->icon)}}" alt="">
                                             </div>
                                             <div class="tp-price__title-box">
                                                 <h4 class="tp-price__title-sm">{{$package->name}}</h4>
