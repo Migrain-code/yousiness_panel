@@ -445,7 +445,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                         <div class="card-body px-4">
                                             <!-- --list- -->
                                             <div class="table-responsive">
-                                                <table id="dataTable1" class="display" style="min-width: 845px">
+                                                <table id="dataTableNew" class="display" style="min-width: 845px">
                                                     <thead>
                                                     <tr>
                                                         <th>Name Nachname</th>
@@ -561,6 +561,14 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
     </script>
     <script>
         $(document).ready(function() {
+            var table = $('#dataTableNew').DataTable({
+                searching: false,
+                paging:true,
+                select: false,
+                lengthChange:false ,
+
+            });
+
             function formatDateDay(dateStr){
                 var date = new Date(dateStr);
                 var formattedDate = date.getDate();
