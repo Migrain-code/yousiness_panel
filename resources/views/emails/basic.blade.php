@@ -21,7 +21,7 @@
         <tr>
             <td align="center" valign="center" style="text-align:center; padding: 40px">
                 <a href="" rel="noopener" target="_blank">
-                    <img alt="Logo" src="https://business.yousiness.com/storage/settings/3QJ8ZCfSXIGgqRO5JgkiKmo3UXvbECAHsu5U68Sp.png"/>
+                    <img alt="Logo" style="width: 250px" src="https://business.yousiness.com/storage/settings/3QJ8ZCfSXIGgqRO5JgkiKmo3UXvbECAHsu5U68Sp.png"/>
                 </a>
             </td>
         </tr>
