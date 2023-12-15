@@ -389,7 +389,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                     <div class="card lastest_trans">
                                         <div class="card-header border-0 flex-wrap pb-0">
                                             <div>
-                                                <h2 class="heading">PAKET VERKÂUFE</h2>
+                                                <h2 class="heading">PAKET VERKÄUFE</h2>
                                             </div>
 
                                         </div>
@@ -438,7 +438,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                     <div class="card lastest_trans">
                                         <div class="card-header border-0 flex-wrap pb-0">
                                             <div>
-                                                <h2 class="heading">PRODÜKT VERKÂUFE</h2>
+                                                <h2 class="heading">PRODUKT VERKÄUFE</h2>
                                             </div>
 
                                         </div>
