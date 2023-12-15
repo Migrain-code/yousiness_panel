@@ -45,7 +45,7 @@
                                 <select name="gender" id="gender" class="form-control">
                                     <option value="">Geschlecht Auswählen</option>
                                     <option value="1" @selected($businessService->type == 1)>Frau</option>
-                                    <option value="2" @selected($businessService->type == 2)>Männlich</option>
+                                    <option value="2" @selected($businessService->type == 2)>Mann</option>
                                 </select>
                             </div>
                         @else
