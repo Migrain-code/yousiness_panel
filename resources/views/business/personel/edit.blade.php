@@ -59,7 +59,7 @@
                 <div class="card your_balance">
                     <div class="card-header border-0">
                         <div>
-                            <h2 class="heading mb-1">Mitarbeiter Detail</h2>
+                            <h2 class="heading mb-1">MITARBEITER DETAIL</h2>
                             <span>{{now()->format('d.m.Y H:i:s')}}</span>
                         </div>
                     </div>

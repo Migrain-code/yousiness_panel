@@ -29224,6 +29224,8 @@ div#example5_wrapper .form-check-input {
     display: inline-block; }
 .author-profile .author-media img {
     width: 130px;
+    height: 130px;
+    object-fit: cover;
     max-height: 130px;
     max-width: 150px;
     border-radius: 100%;
