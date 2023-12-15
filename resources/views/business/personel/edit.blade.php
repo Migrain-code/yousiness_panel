@@ -506,7 +506,7 @@ Anteil auswählen, der seinem Anteil an den von ihm durchgeführten Transaktione
                                                         <div class="d-flex align-items-center event mx-3" style="border-bottom: 1px dashed #9568FF;">
                                                         <span class="event-date">
                                                             <h4>{{$notification->created_at->format('d')}}</h4>
-                                                            <span>{{$notification->created_at->translatedFormat('F')}}</span>
+                                                            <span>{{substr($notification->created_at->translatedFormat('F'), 0,2)}}</span>
                                                         </span>
                                                             <div class="event-info">
                                                                 <h6>
