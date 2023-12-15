@@ -268,7 +268,7 @@
                         });
                     }
                     else{
-                        $("#sub_category").append('<option>Es konnte nichts gefunden werden</option>')
+                        $("#sub_category").append('<option>nicht gefunden</option>')
                     }
                     $('#sub_category').selectpicker('refresh');
                 }

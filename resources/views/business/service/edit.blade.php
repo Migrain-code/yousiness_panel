@@ -38,7 +38,7 @@
                         @if(auth('business')->user()->type_id == 3)
                             <div class="mb-3 col-md-12">
                                 <label class="form-label"> Geschlecht von Kunde
-                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Burada işletmenizin hizmet veridiği cinsiyetler görüntülenir. Personele bu cinsiyet seçiminden istediğinizi belirleyebilirsiniz." title="Cinsiyet Ayarları">
+                                    <button type="button" class="" style="width: 19px;background: none;border: none;font-size: 10px;border-radius: 50%;color: #01a3ff;padding: 2px;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Hier werden die Geschlechter, die Ihr Salon bedient angezeigt. Sie können jedes dieser Geschlechter für Ihr Personal auswählen." title="Geschlechtsspezifische Einstellungen">
                                         <i class="fa-solid fa-question-circle"></i>
                                     </button>
                                 </label>
@@ -133,7 +133,7 @@
                 },
                 success:function (data){
                     if(data.length > 0) {
-                        $("#category").append('<option value="">Hizmet Tipi Seçiniz</option>')
+                        $("#category").append('<option value="">Dienstleistung Oberkategorie auswâhlen</option>')
                         $.each(data, function (index) {
 
                             if(data[index].id == category){
@@ -145,7 +145,7 @@
                         });
                     }
                     else{
-                        $("#category").append('<option>Bulunamadı</option>')
+                        $("#category").append('<option>nicht gefunden</option>')
                     }
                     $('#category').selectpicker('refresh');
                 }
