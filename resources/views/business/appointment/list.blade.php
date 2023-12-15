@@ -373,6 +373,9 @@
     <script>
         $(document).ready(function () {
             $('#example3').DataTable();
+
+                $('[data-toggle="tooltip"]').tooltip()
+
         });
         $("#checkAll").on("change", function () {
             $("td input, .custom-checkbox input").prop("checked", $(this).prop("checked"))
