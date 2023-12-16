@@ -5,12 +5,14 @@
                 <div class="contact-form-left">
                     <div class="contact-form-section-box pb-80">
                         <h5 class="inner-section-subtitle">Kontakt</h5>
-                        <h4 class="tp-section-title pb-10">Sizden Haber<br> Almak
+                        <h4 class="tp-section-title pb-10">
+                              Sizden Haber <br> Almak
                               <span>
                                  <img src="/business/assets/img/send-image.svg" style="width: 40px;height: 40px">
                               </span>
-                            İsteriz.</h4>
-                        <p>Bizimle İletişim Formu üzerinden<br> iletişime geçebilirsiniz.</p>
+                            İsteriz.
+                        </h4>
+                        <p>Bizimle İletişim Formu üzerinden <br> iletişime geçebilirsiniz.</p>
                     </div>
                     <div class="contact-form-social-box p-relative">
                         <div class="contact-form-social-item">

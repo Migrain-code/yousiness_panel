@@ -43,6 +43,11 @@ return [
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            'stream' => [
+                'ssl' => [
+                    'cafile' => '/usr/lib/ssl/certs/DigiCert_High_Assurance_EV_Root_CA.pem',
+                ],
+            ],
         ],
 
         'ses' => [
