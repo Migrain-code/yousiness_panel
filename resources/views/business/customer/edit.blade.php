@@ -1,15 +1,5 @@
 @extends('business.layouts.master')
-@section('styles')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-    <style>
-        .iti {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-    </style>
-@endsection
+
 @section('content')
     <div class="row">
         <div class="col-xl-12">
@@ -88,7 +78,16 @@
     </div>
 @endsection
 @section('scripts')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+    <style>
+        .iti {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
     <script>
         const input = document.querySelector("#phone");
