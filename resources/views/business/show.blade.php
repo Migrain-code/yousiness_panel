@@ -276,9 +276,9 @@
                                                            name="owner" class="form-control">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
-                                                    <label class="form-label">E-Mail  <span class="text-warning">(bei der Registrierung vewendete E-mail)</span></label>
+                                                    <label class="form-label">E-Mail  <span class="text-warning">(bei der Registrierung vewendete E-Mail)</span></label>
                                                     <input type="email" value="{{$business->email}}"
-                                                           placeholder="E-mail" name="email" class="form-control">
+                                                           placeholder="E-Mail" name="email" class="form-control">
                                                 </div>
 
                                                 <div class="mb-3 col-md-6">

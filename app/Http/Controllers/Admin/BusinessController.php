@@ -206,6 +206,7 @@ class BusinessController extends Controller
         $business->year=$request->year;
         $business->phone=$request->b_phone;
         $business->business_email=$request->b_email;
+        $business->order_number = $request->input('order_number');
         $business->city=$request->city;
         $business->address=$request->address;
         if ($request->hasFile('logo')){
@@ -218,7 +219,7 @@ class BusinessController extends Controller
         if ($business->save()){
             return back()->with('response', [
                 'status'=>"success",
-                'title'=>"Erfolgreich",
+                'title'=>"",
                 'message'=>"Ihre Informationen wurden erfolgreich aktualisiert"
             ]);
         }
@@ -262,7 +263,7 @@ class BusinessController extends Controller
         if ($business->save()){
             return back()->with('response', [
                 'status'=>"success",
-                'title'=>"Erfolgreich",
+                'title'=>"",
                 'message'=>"Ihre Informationen wurden erfolgreich aktualisiert"
             ]);
         }

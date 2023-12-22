@@ -264,13 +264,13 @@
                         </div>
 
                         <div class="signin-banner-from-box">
-                            <h5 class="signin-banner-from-subtitle">Es wird ein Verifizierungscode gesendet</h5>
+
                             <form action="{{route('business.login')}}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
-                                            <input type="text" name="email" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" placeholder="E-mail" value="{{old('email')}}"  class="inputText" required>
+                                            <input type="text" name="email" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" placeholder="E-Mail" value="{{old('email')}}"  class="inputText" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -308,7 +308,7 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="rememberMe" value="" id="flexCheckDefault">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        Erinnern Sie sich an mich
+                                                        Angemeldet bleiben
                                                     </label>
                                                 </div>
                                             </div>

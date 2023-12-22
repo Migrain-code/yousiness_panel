@@ -167,7 +167,7 @@ class BusinessController extends Controller
          if ($business->save()){
              return to_route('business.profile.show')->with('response', [
                  'status'=>"success",
-                 'title'=>"Erfolgreich",
+                 'title'=>"",
                  'message'=>"Ihre Informationen wurden erfolgreich aktualisiert"
              ]);
          }
@@ -185,7 +185,7 @@ class BusinessController extends Controller
         if ($business->save()){
             return to_route('business.profile.show')->with('response', [
                 'status'=>"success",
-                'title'=>"Erfolgreich",
+                'title'=>"",
                 'message'=>"Ihre Informationen wurden erfolgreich aktualisiert"
             ]);
         }

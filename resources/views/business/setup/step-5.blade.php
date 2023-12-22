@@ -80,12 +80,12 @@
                     <div class="alert alert-{{session('response.status')}}">{{session('response.message')}}</div>
                 @endif
                     <div class="row text-center">
-                    Ihr Yousiness-Installationsprozess wurde erfolgreich abgeschlossen.
-                        Sie können Ihr Panel jetzt mit der Schaltfläche „Panel anzeigen“ verwalten.
-                        Sie können Ihre systemischen Fragen und Probleme an den Support-Bereich Ihres Panels senden.
-                        Schulungsvideos wurden an Ihre E-Mail-Adresse gesendet.
+                        Ihr Yousiness Installationsprozess wurde erfolgreich abgeschlossen.
+                        Sie können Ihr Dashboard jetzt mit der Schaltfläche „Dashboard anzeigen“ verwalten.
+                        Sie können Ihre Technischen Fragen und Probleme an den Support bereich Ihres Dashboards senden.
+                        Erklärvideos wurden an Ihre E-Mail-Adresse gesendet.
                         <div class="onboarding-btn mt-2">
-                            <a href="{{route('business.home')}}">Gehen Sie zum Panel</a>
+                            <a href="{{route('business.home')}}">DAHSBOARD ANZEIGEN</a>
                         </div>
                     </div>
                 </div>

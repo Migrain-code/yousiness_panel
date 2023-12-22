@@ -315,7 +315,10 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/admin/assets/vendor/pickadate/picker.js"></script>
     <script src="/admin/assets/vendor/pickadate/picker.date.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/translations/de_DE.js" integrity="sha512-0NfaxlFyZVQ2rvDucMd6ACqThrzTY/T4m9YB3ahPcErr5VuwlTpFE8qQvpL79Sdq+SK8AUl7Lgqyt6Jb6GjVog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="/admin/assets/js/plugins-init/pickadate-init.js"></script>
+
     <script>  /*date format function*/
         function formatDate(date) {
             var currentDate = new Date(date);

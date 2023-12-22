@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="onboarding-btn">
-                <a href="#" onclick="$('#step1Form').submit()">Weitermachen</a>
+                <a href="#" onclick="$('#step1Form').submit()">WEITER</a>
             </div>
         </div>
     </div>

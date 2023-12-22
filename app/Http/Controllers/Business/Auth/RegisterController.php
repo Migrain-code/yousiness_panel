@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Business\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\BasicMail;
 use App\Models\Business;
+use App\Models\Page;
 use App\Models\SmsConfirmation;
 use App\Providers\RouteServiceProvider;
 use App\Services\SendMail;
@@ -52,7 +53,6 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-
         return view('business.auth.register');
     }
 
@@ -76,7 +76,7 @@ class RegisterController extends Controller
         ], [], [
             'name' => 'Salonname',
             'slug' => 'Salonname',
-            'email' => 'E-mail',
+            'email' => 'E-Mail',
             'owner' => 'Salonbesitzer',
             'conditions' => "Geschäftsbedingungen",
             'contact_info' => "Kommunikationsberechtigungen",

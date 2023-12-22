@@ -78,7 +78,7 @@
                             </select>
                         </div>
                         <div class="form-group col-lg-6">
-                            <label>Salon Mobilnummer</label>
+                            <label>Salon Telefonnummer</label>
                             <input type="text" class="form-control" name="phone" value="{{$business->phone}}" style="border-radius: 18px;height: 10px">
                         </div>
                         <div class="form-group col-lg-12">
@@ -126,7 +126,7 @@
                 </div>
             </div>
             <div class="onboarding-btn">
-                <a href="#" onclick="$('#step2Form').submit()">Weitermachen</a>
+                <a href="#" onclick="$('#step2Form').submit()">WEITER</a>
             </div>
         </div>
     </div>

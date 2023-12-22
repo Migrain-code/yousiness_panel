@@ -1,11 +1,11 @@
-@extends('business.layouts.master')
+@extends('admin.layouts.master')
 @section('content')
     <div class="row">
         <div class="col-xl-12">
             <div class="page-titles style1">
                 <div class="d-flex align-items-center">
                     <h2 class="heading">
-                        KUNDEN BEARBEITEN {{$customer->name}}
+                        Talep {{$businessContact->id}}
                     </h2>
                 </div>
                 <div id="datepicker" class="input-group date dz-calender" data-date-format="dd.mm.yyyy">
@@ -24,55 +24,51 @@
     </div>
     <div class="row mx-4">
         @include('business.layouts.component.alert')
-        @include('business.layouts.component.error')
     </div>
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Kunden Detail</div>
+                <div class="card-title">İletişim Mesajı Detayı</div>
             </div>
-            <form method="post" action="{{route('business.customer.update', $customer->id)}}">
-                @csrf
-                @method('PUT')
-                <div class="card-body">
-                    <div class="form-group">
-                        <label>Name Nachname</label>
-                        <input type="text" class="form-control" value="{{$customer->name}}" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label>Mobilenummer</label>
-                        <input type="number" class="form-control" value="{{$customer->email}}" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label>E-Mail</label>
-                        <input type="email" class="form-control" value="{{$customer->custom_email}}" name="custom_email">
-                    </div>
-                    <div class="form-group">
-                        <label>Geschlecht</label>
-                        <select name="gender" class="form-control">
-                            <option value="0" @selected($customer->gender == 0)>Mann</option>
-                            <option value="1" @selected($customer->gender == 1)>Frau</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Passwort</label>
-                        <input type="text" class="form-control" value="" name="password">
-                    </div>
-                    @if($customer->permissions)
-                        <div class="form-group">
-                            <div class="col-4 alert alert-{{$customer->permissions->is_email == 1 ? "success " : "danger "}}mt-2 me-2">E-posta İzni</div>
-                            <div class="col-4 alert alert-{{$customer->permissions->is_phone == 1 ? "success " : "danger "}}mt-2 me-2">Arama İzni</div>
-
-                            <div class="col-4 alert alert-{{$customer->permissions->is_notification == 1 ? "success " : "danger "}}mt-2 me-2">Bildirim İzni</div>
-                            <div class="col-4 alert alert-{{$customer->permissions->is_sms == 1 ? "success " : "danger "}}mt-2 me-2">Sms İzni</div>
+            <div class="card-body">
+                <form method="post" action="{{route('admin.businessContact.update', $businessContact->id)}}">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">Gönderenin Adı</label>
+                            <input type="text" class="form-control" name="fullName" readonly value="{{$businessContact->fullName}}">
                         </div>
-                    @endif
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Speichern</button>
-                </div>
-            </form>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">E-posta Adresi</label>
+                            <input type="text" class="form-control" name="email" readonly value="{{$businessContact->email}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">Telefonu</label>
+                            <input type="text" class="form-control" name="phone" readonly value="{{$businessContact->phone}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">Konu</label>
+                            <input type="text" class="form-control" name="subject" readonly value="{{$businessContact->subject}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">İçerik</label>
+                            <textarea type="number" class="form-control" rows="7" readonly name="content">{{$businessContact->message}}</textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Arandı Olarak Güncelle</button>
+                </form>
+
+            </div>
         </div>
     </div>
 @endsection

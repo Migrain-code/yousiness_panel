@@ -95,6 +95,7 @@ class PackageSaleController extends Controller
             'total' => "required",
             'personel_id' => "required",
             'package_type' => "required",
+            'seller_date_submit' => "required"
         ], [], [
             'customer_id'=> "Kunde",
             'service_id' => "Dienstleistung",
@@ -102,8 +103,9 @@ class PackageSaleController extends Controller
             'total' => "Betrag",
             'personel_id' => "Mitarbeiter",
             'package_type' => "Art",
+            'seller_date_submit' => "Datum"
         ]);
-        $translate_date=Carbon::parse($request->seller_date)->format('Y-m-d');
+        $translate_date=Carbon::parse($request->seller_date_submit)->format('Y-m-d');
 
         $packageSale=new PackageSale();
         $packageSale->business_id=auth('business')->id();

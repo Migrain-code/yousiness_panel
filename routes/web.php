@@ -137,6 +137,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('swiper', \App\Http\Controllers\Admin\SwiperController::class);
         Route::resource('activitySponsor', \App\Http\Controllers\Admin\ActivitySponsorController::class);
         Route::resource('business', \App\Http\Controllers\Admin\BusinessController::class);
+        Route::resource('businessContact', \App\Http\Controllers\BusinessContactController::class);
         Route::post('/business/add-service', [\App\Http\Controllers\Admin\BusinessController::class, 'addService'])->name('business.addService');
         Route::resource('propartie', \App\Http\Controllers\Admin\PropartieController::class);
         Route::resource('bussinessPackagePropartieList', \App\Http\Controllers\Admin\BussinessPackagePropartieListController::class);

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="de">
 
 <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keys')">
-    <title>@yield('title', config('settings.appy_site_title') .'|'. ' İşletme Giriş')</title>
+    <title>@yield('title', config('settings.appy_site_title') .'|'. ' E-Mail Verifizierung')</title>
     <style>
         .btn-mobile-menu-free{
             background: #4CAF50 !important;
@@ -210,8 +210,11 @@
                     </div>
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
-                            <h4 class="signin-banner-title tp-char-animation">Yousiness Business <br>
-                            Willkommen auf der Plattform</h4>
+                            <h4 class="signin-banner-title tp-char-animation">Wilkommen zu dem
+                                besten Termin<br>
+                                Management für Ihr
+                                Salon
+                            </h4>
                         </div>
                         <div class="signin-banner-img-box position-relative">
                             <div class="signin-banner-img signin-img-1 d-none d-md-block z-index-3">
@@ -237,7 +240,7 @@
                         @include('layouts.component.error')
 
                         <div class="signin-banner-title-box" style="text-align: center;margin-left: 28px;">
-                            <h4 class="signin-banner-from-title" >E-mail Bestätigung</h4>
+                            <h4 class="signin-banner-from-title" >E-Mail Verifizierung</h4>
                         </div>
 
                         <div class="signin-banner-from-box">
@@ -248,14 +251,14 @@
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
                                             <input type="text" name="verification_code" id="verification_code" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" value="{{old('email')}}"  class="inputText" required>
-                                            <span class="floating-label">Bestätigungscode</span>
+                                            <span class="floating-label">Verifizierungscode</span>
                                         </div>
                                     </div>
 
                                 </div>
 
                                 <div class="signin-banner-from-btn mb-20 text-center">
-                                    <button class="signin-btn ">Schicken</button>
+                                    <button class="signin-btn ">SENDEN</button>
                                 </div>
 
                             </form>

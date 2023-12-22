@@ -90,7 +90,7 @@ class CustomerController extends Controller
             $businessCustomer->save();
             return to_route('business.customer.index')->with('response', [
                 'status'=>"success",
-                'message'=>"Kunde hinzugefügt. Sie können nun Transaktionen für diesen Kunden durchführen."
+                'message'=>"Kunde erfolgreich hinzugefügt. Sie können nun Transaktionen für diesen Kunden durchführen."
             ]);
         }
 

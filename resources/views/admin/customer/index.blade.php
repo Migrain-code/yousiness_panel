@@ -135,7 +135,7 @@
                             <input type="number" class="form-control" name="email">
                         </div>
                         <div class="form-group">
-                            <label>E-mail</label>
+                            <label>E-Mail</label>
                             <input type="email" class="form-control" name="custom_email">
                         </div>
                         <div class="form-group">

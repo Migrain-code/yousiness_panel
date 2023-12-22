@@ -76,7 +76,7 @@
 
                             <!-- Harita Seçimi Alanı -->
                             <div id="map-container" style="position: relative;">
-                                <input type="search" name="longitude" id="searchInput">
+                                <input type="search" name="longitude" id="searchInput" placeholder="Adresse oder Salonnahmen eingeben">
                                 <div id="map" style="height: 400px;"></div>
                             </div>
 
@@ -98,7 +98,7 @@
             </div>
 
             <div class="onboarding-btn">
-                <a href="#" onclick="$('#step3Form').submit()">Weitermachen</a>
+                <a href="#" onclick="$('#step3Form').submit()">WEITER</a>
             </div>
         </div>
     </div>

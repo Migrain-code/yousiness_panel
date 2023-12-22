@@ -36,7 +36,7 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        if (auth('business')->user()->customers->count() > 0){
+        if (auth('business')->user()->customers->count() == 0){
             return back()->with('response', [
                'status' => "warning",
                'message' => "Sie können Kampagnen für Ihre Kunden definieren. Sie können jedoch keine Kampagne erstellen, weil die Anzahl Ihrer Kunden 0 ist."

@@ -18,6 +18,34 @@
                 </a>
             </li>
             <li>
+                    <a class="has-arrow " href="{{route('business.businessService.index')}}">
+                        <i class="material-icons-outlined">list</i>
+                        <span class="nav-text">Dienstleistungen</span>
+                    </a>
+                </li>
+            <li>
+                    <a class="has-arrow " disabled="disabled" href="{{route('business.customer.index')}}">
+                        <i class="material-icons-outlined">people</i>
+                        <span class="nav-text">Kunden</span>
+                    </a>
+                    {{--
+                        <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                        <i class="material-icons-outlined">people</i>
+                        <span class="nav-text">Kunden</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li>
+                            <a href="{{route('business.customer.index')}}">Registriert</a>
+                        </li>
+                        <li>
+                            <a href="{{route('business.customer.list')}}">Randevulu</a>
+                        </li>
+
+                    </ul>
+                    --}}
+
+                </li>
+            <li>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">business</i>
                     <span class="nav-text">Salon Management</span>
@@ -71,12 +99,7 @@
                 </ul>
             </li>
 
-            <li>
-                <a class="has-arrow " href="{{route('business.businessService.index')}}">
-                    <i class="material-icons-outlined">list</i>
-                    <span class="nav-text">Dienstleistungen</span>
-                </a>
-            </li>
+
             <li>
                 <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <i class="material-icons-outlined">event</i>
@@ -93,28 +116,7 @@
                 </ul>
 
             </li>
-            <li>
-                <a class="has-arrow " disabled="disabled" href="{{route('business.customer.index')}}">
-                    <i class="material-icons-outlined">people</i>
-                    <span class="nav-text">Kunden</span>
-                </a>
-                {{--
-                    <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-                    <i class="material-icons-outlined">people</i>
-                    <span class="nav-text">Kunden</span>
-                </a>
-                <ul aria-expanded="false">
-                    <li>
-                        <a href="{{route('business.customer.index')}}">Registriert</a>
-                    </li>
-                    <li>
-                        <a href="{{route('business.customer.list')}}">Randevulu</a>
-                    </li>
 
-                </ul>
-                --}}
-
-            </li>
             <li>
                 <a class="has-arrow " disabled="disabled" href="{{route('business.businessComment.index')}}">
                     <i class="material-icons-outlined">comment</i>

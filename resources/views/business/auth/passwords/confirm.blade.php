@@ -254,7 +254,7 @@
                                     <div class="col-12">
                                         <div class="postbox__comment-input mb-30">
                                             <input type="text" name="email" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;" value="{{old('email')}}"  class="inputText" required>
-                                            <span class="floating-label">E-mail</span>
+                                            <span class="floating-label">E-Mail</span>
                                         </div>
                                     </div>
 

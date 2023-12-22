@@ -63,7 +63,7 @@
                                 <th>Anmeldedatum</th>
                                 <th>Ist der Kunde registriert?</th>
                                 <th>Terminanzahl</th>
-                                <th>Gesperrt</th>
+                                <th>Status</th>
                                 <th>Transaktionen</th>
                             </tr>
                             </thead>

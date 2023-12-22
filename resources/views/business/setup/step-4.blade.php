@@ -211,12 +211,10 @@
                                                                                    class="form-check-input"
                                                                                    value="{{$package->id}}">
                                                                             <span class="visit-rsn" style="">
-                                                                           Abonnieren
+                                                                           Buchen
                                                                         </span>
                                                                         </label>
                                                                     </div>
-                                                                    ,
-
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -258,7 +256,7 @@
                                                                                    class="form-check-input"
                                                                                    value="{{$package->id}}">
                                                                             <span class="visit-rsn" style="">
-                                                                        Abonnieren
+                                                                        Buchen
                                                                         </span>
                                                                         </label>
                                                                     </div>
@@ -279,7 +277,7 @@
                     </div>
                 </div>
                 <div class="onboarding-btn">
-                    <a onclick="$('#step4Form').submit()" href="#">Weitermachen</a>
+                    <a onclick="$('#step4Form').submit()" href="#">WEITER</a>
                 </div>
             </div>
         </div>

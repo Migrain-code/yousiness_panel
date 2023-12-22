@@ -280,7 +280,7 @@
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label">E-Mail</label>
                                                     <input type="email" value="{{$business->owner_email}}"
-                                                           placeholder="E-mail" name="owner_email" class="form-control">
+                                                           placeholder="E-Mail" name="owner_email" class="form-control">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
                                                     <label class="form-label">Mobilnummer <span class="text-warning">(bei der Registrierung vewendete Mobilnummer)</span>
@@ -370,34 +370,22 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-3 col-md-4">
+                                                        <label class="form-label">Sıra Numarası</label>
+                                                        <input type="number" placeholder="Salon Öne Çıkan Numarası"
+                                                               value="{{$business->order_number}}" class="form-control"
+                                                               name="order_number">
+                                                    </div>
+                                                    <div class="mb-3 col-md-4">
                                                         <label class="form-label">Dauer der Dienstleistung</label>
                                                         <select class="form-control" name="minute">
-                                                            <option value="">Süre Seçiniz</option>
-                                                            <option value="5" @selected($business->appoinment_range=="5")>
-                                                                5 Minute
-                                                            </option>
-                                                            <option value="10" @selected($business->appoinment_range=="10")>
-                                                                10 Minute
-                                                            </option>
-                                                            <option value="15" @selected($business->appoinment_range=="15")>
-                                                                15 Minute
-                                                            </option>
-                                                            <option value="30" @selected($business->appoinment_range=="30")>
-                                                                30 Minute
-                                                            </option>
-                                                            <option value="40" @selected($business->appoinment_range=="40")>
-                                                                40 Minute
-                                                            </option>
-                                                            <option value="45" @selected($business->appoinment_range=="45")>
-                                                                45 Minute
-                                                            </option>
-                                                            <option value="60" @selected($business->appoinment_range=="60")>
-                                                                60 Minute
-                                                            </option>
+                                                            <option value="">Zeit Auswdhlen</option>
+                                                            @for($i = 5; $i <= 120; $i+=5)
+                                                                <option value="{{$i}}" @selected($business->appoinment_range==$i)>{{$i}} min.</option>
+                                                            @endfor
                                                         </select>
                                                     </div>
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-3 col-md-4">
                                                         <label class="form-label">Bestätigungsart</label>
                                                         <select class="form-control" name="approve_type">
                                                             <option value="">Bestätigungsart Wählen</option>

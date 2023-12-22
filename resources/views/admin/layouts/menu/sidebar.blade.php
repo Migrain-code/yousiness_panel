@@ -89,6 +89,7 @@
                     <li>
                         <a href="{{route('admin.page.index')}}">Rechtliches</a>
                     </li>
+
                 </ul>
             </li>
             <li @if(request()->routeIs('admin.blog.*')) class="mm-active"  @endif >
@@ -118,6 +119,9 @@
                     </li>
                     <li>
                         <a href="{{route('admin.business.settings')}}">Einstellungen</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.businessContact.index')}}">İletişim Mesajları</a>
                     </li>
                 </ul>
             </li>

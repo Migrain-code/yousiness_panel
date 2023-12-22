@@ -51,11 +51,11 @@ class VerifyController extends Controller
 
                 $this->addPermission($user->id);
 
-                SendMail::send('Ihre E-mail Überprüfung war erfolgreich', "Ihr Passwort für die Anmeldung bei " . config('settings.appy_site_title') . " lautet :", $user->email, $generatePassword);
+                SendMail::send('Ihre E-Mail Überprüfung war erfolgreich', "Ihr Passwort für die Anmeldung bei " . config('settings.appy_site_title') . "", $user->email, $generatePassword);
 
                 return to_route('business.login')->with('response', [
                     'status' => "success",
-                    'message' => "Ihre E-mail Überprüfung war erfolgreich .Für die Anmeldung in das System wurde Ihnen Ihr Passwort zugesendet."
+                    'message' => "Ihre E-Mail Überprüfung war erfolgreich.<br>Für die Anmeldung in das System wurde Ihnen<br>Ihr Passwort zugesendet."
                 ]);
             }
         } else {
@@ -99,24 +99,24 @@ class VerifyController extends Controller
         $request->validate([
             'email' => "required",
         ], [], [
-            'email' => "E-mail"
+            'email' => "E-Mail"
         ]);
         $business = Business::where('email', $request->email)->first();
         if (!$business) {
             return to_route('business.showForgotView')->with('response', [
                 'status' => "danger",
-                'message' => "Es ist bereits ein Benutzer mit dieser E-mail registriert."
+                'message' => "Es ist bereits ein Benutzer mit dieser E-Mail registriert."
             ]);
         } else {
             $generatePassword = rand(100000, 999999);
 
-            SendMail::send('Ihr Passwort für die Anmeldung bei', "Ihr Passwort für die Anmeldung bei " . config('settings.appy_site_title') . " lautet ",  $business->email, $generatePassword);
+            SendMail::send('Ihr Passwort für die Anmeldung bei '. config('settings.appy_site_title'), "Ihr Passwort für die Anmeldung bei " . config('settings.appy_site_title') . ": ",  $business->email, $generatePassword);
             $business->password = Hash::make($generatePassword);
             $business->password_status = 1;
             $business->save();
             return to_route('business.login')->with('response', [
                 'status' => "success",
-                'message' => "Ihre E-mail Überprüfung war erfolgreich. Für die Anmeldung in das System wurde Ihnen Ihr Passwort zugesendet.",
+                'message' => "Ihre E-Mail Überprüfung war erfolgreich. Für die Anmeldung in das System wurde Ihnen Ihr Passwort zugesendet.",
             ]);
 
         }
