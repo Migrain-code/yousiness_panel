@@ -162,6 +162,34 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>
+
+    <script>
+        const input = document.querySelector("#phone");
+        const iti = window.intlTelInput(input, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+                updatePlaceholder(selectedCountryPlaceholder);
+                return selectedCountryPlaceholder;
+            },
+        });
+
+        // Örnek olarak: Numarayı uluslararası formatta alma
+        function getNumber() {
+            return iti.getNumber();
+        }
+
+        input.addEventListener('countrychange', function () {
+            $("#phone").val("");
+        });
+
+        function updatePlaceholder(originalData) {
+            let mask = "";
+            mask = originalData.replace(/[0-9]/g, "9");
+
+            $("#phone").inputmask({"mask": mask});
+        }
+    </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function () {
@@ -223,32 +251,5 @@
         });
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>
 
-    <script>
-        const input = document.querySelector("#phone");
-        const iti = window.intlTelInput(input, {
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
-                updatePlaceholder(selectedCountryPlaceholder);
-                return selectedCountryPlaceholder;
-            },
-        });
-
-        // Örnek olarak: Numarayı uluslararası formatta alma
-        function getNumber() {
-            return iti.getNumber();
-        }
-
-        input.addEventListener('countrychange', function () {
-            $("#phone").val("");
-        });
-
-        function updatePlaceholder(originalData) {
-            let mask = "";
-            mask = originalData.replace(/[0-9]/g, "9");
-
-            $("#phone").inputmask({"mask": mask});
-        }
-    </script>
 @endsection
