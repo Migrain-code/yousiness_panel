@@ -237,7 +237,7 @@
                                     .remove()
                                     .draw();
                                 Swal.fire({
-                                    text: "Müşteri Silindi!.",
+                                    text: "Kunde gelöscht.",
                                     icon: "success",
                                     buttonsStyling: false,
                                     confirmButtonText: "OK",
