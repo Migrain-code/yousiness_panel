@@ -97,6 +97,7 @@ class CustomerController extends Controller
             $businessCustomer=new BusinessCustomer();
             $businessCustomer->business_id=auth('business')->id();
             $businessCustomer->customer_id=$customer->id;
+            $businessCustomer->type = 1;
             $businessCustomer->save();
             return to_route('business.customer.index')->with('response', [
                 'status'=>"success",
