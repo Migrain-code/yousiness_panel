@@ -86,7 +86,7 @@ class CustomerController extends Controller
             'gender'=> "Geschlecht",
 
         ]);
-        $findCustomer = Customer::where('email', clearPhone($request->email))->first();
+        $findCustomer = Customer::where('email', 'like', '%' . clearPhone($request->input('email')) . '%')->first();
         if ($findCustomer){
             return to_route('business.customer.index')->with('response', [
                 'status'=>"danger",
