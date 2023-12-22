@@ -68,35 +68,42 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @forelse($customers as $customer)
+                                @forelse(auth('business')->user()->customers as $customer)
                                     @if($customer)
                                         <tr>
                                             <td>
                                                 <img class="rounded-circle" width="35"
-                                                     src="{{image($customer->image)}}" alt="">
+                                                     src="{{image($customer->customer->image)}}" alt="">
                                             </td>
-                                            <td>{{$customer->name}}</td>
+                                            <td>{{$customer->customer->name}}</td>
                                             <td>
-                                                <a href="mailto:{{$customer->custom_email}}"><strong>{{$customer->custom_email}}</strong></a>
+                                                <a href="mailto:{{$customer->customer->custom_email}}"><strong>{{$customer->customer->custom_email}}</strong></a>
                                             </td>
                                             <td>
-                                                <a href="tel:{{$customer->phone}}"><strong>{{$customer->phone}}</strong></a>
+                                                <a href="tel:{{$customer->customer->phone}}"><strong>{{$customer->customer->phone}}</strong></a>
                                             </td>
-                                            <td>{{$customer->created_at->format('d.m.Y')}}</td>
-                                            <td>{{$customer->email != "" ? "Eingetragen" : "Nicht registriert"}}</td>
-                                            <td>{{$customer->businessAppointments(auth('business')->id())->count()}}</td>
+                                            <td>{{$customer->customer->created_at->format('d.m.Y')}}</td>
+                                            <td>{{$customer->customer->email != "" ? "Eingetragen" : "Nicht registriert"}}</td>
+                                            <td>{{$customer->customer->businessAppointments(auth('business')->id())->count()}}</td>
                                             <td>
-                                                @if($customer->status==1)
+                                                @if($customer->customer->status==1)
                                                     <span class="badge light badge-success">Aktiv</span>
                                                 @else
                                                     <span class="badge light badge-danger">Keine Verifizierung</span>
                                                 @endif
                                             </td>
                                             <td>
-                                                <div class="d-flex">
-                                                    <a href="{{route('business.customer.edit', $customer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                                    <a href="#" class="btn btn-danger shadow btn-xs sharp" onclick="onDelete('{{route('business.customer.destroy', $customer->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></a>
-                                                </div>
+                                                @if($customer->type == 1)
+                                                    <div class="d-flex">
+                                                        <a href="{{route('business.customer.edit', $customer->customer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a href="#" class="btn btn-danger shadow btn-xs sharp" onclick="onDelete('{{route('business.customer.destroy', $customer->customer->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></a>
+                                                    </div>
+                                                @else
+                                                    <div class="d-flex">
+                                                        <a href="{{route('business.customer.show', $customer->customer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-eye"></i></a>
+                                                    </div>
+                                                @endif
+
                                             </td>
                                         </tr>
                                     @endif
