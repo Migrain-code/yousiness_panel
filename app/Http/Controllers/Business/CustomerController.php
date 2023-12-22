@@ -24,7 +24,7 @@ class CustomerController extends Controller
             'Frau',
             'Mann'
         ];
-        $customerIds = auth('business')->customers()->pluck('customer_id');
+        $customerIds = auth('business')->user()->customers()->pluck('customer_id');
         $customers = Customer::whereIn('id', $customerIds)->get();
         return view('business.customer.index', compact('genderList', 'customers'));
     }
