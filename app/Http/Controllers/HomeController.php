@@ -25,13 +25,20 @@ use App\Models\Sponsor;
 use App\Models\Swiper;
 use App\Services\File;
 use App\Services\NetgsmSMS;
+use App\Services\SendMail;
 use App\Services\Sms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use GuzzleHttp\Client;
 class HomeController extends Controller
 {
-
+    public function sendMail()
+    {
+        $phone = "muhammetturkmenn52@gmail.com";
+        $generateCode = "553702";
+        SendMail::send('SALON REGISTRIERUNG', "Für die Registrierung bei Yousiness ist der Verifizierungscode anzugeben ", $phone, $generateCode);
+        return "Mail Gönderildi";
+    }
     public function index()
     {
         $business_categories=BusinessCategory::latest()->get();
