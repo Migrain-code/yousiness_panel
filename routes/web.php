@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::controller(\App\Http\Controllers\HomeController::class)->group(function (){
-    Route::post('send/mail', 'sendMail');
+    Route::get('send/mail', 'sendMail');
 
     Route::get('/', 'index')->name('welcome');
     Route::post('/bilgi-al', 'getInfo')->name('getInfo');
