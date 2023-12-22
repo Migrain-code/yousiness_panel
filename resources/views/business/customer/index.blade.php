@@ -68,7 +68,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @forelse($cutomers as $customer)
+                                @forelse($customers as $customer)
                                     @if($customer)
                                         <tr>
                                             <td>
