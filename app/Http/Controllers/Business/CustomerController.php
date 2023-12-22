@@ -71,6 +71,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->email = clearPhone($request->input('email'));
         $request->validate([
            'name'=>"required|string|min:3",
            'email'=>"required|string|min:11|unique:customers",
@@ -87,8 +88,8 @@ class CustomerController extends Controller
         ]);
         $customer=new Customer();
         $customer->name=$request->input('name');
-        $customer->email=$request->input('email');
-        $customer->phone=$request->input('email');
+        $customer->email=clearPhone($request->input('email'));
+        $customer->phone=clearPhone($request->input('email'));
         $customer->custom_email=$request->input('custom_email');
         $customer->password= Hash::make($request->input('password'));
         $customer->gender=$request->input('gender');
