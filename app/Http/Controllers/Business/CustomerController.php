@@ -24,11 +24,19 @@ class CustomerController extends Controller
             'Frau',
             'Mann'
         ];
-        dd($request->filled('type'));
+
         $customers = auth('business')->user()->customers()
             ->when($request->filled('type'), function ($q) use ($request) {
-               return $q->where('type', $request->input('type') == "registered" ? 1 : 0);
-            });
+                if ($request->input('type') == "registered"){
+                    return $q->where('type', 1);
+                }
+                elseif($request->input('type') == "appointment"){
+                    return $q->whereIn('type', [0]);
+                }
+                else{
+                    return $q->whereIn('type', [0,1]);
+                }
+            })->get();
         return view('business.customer.index', compact('genderList', 'customers'));
     }
 
