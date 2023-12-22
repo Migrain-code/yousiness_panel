@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label>Mobilenummer</label>
-                        <input type="number" class="form-control" value="{{$customer->email}}" name="email" id="phone">
+                        <input type="text" class="form-control" value="{{$customer->email}}" name="email" id="phone">
                     </div>
                     <div class="form-group">
                         <label>E-Mail</label>
