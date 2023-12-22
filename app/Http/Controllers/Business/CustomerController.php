@@ -86,27 +86,34 @@ class CustomerController extends Controller
             'gender'=> "Geschlecht",
 
         ]);
-        $customer=new Customer();
-        $customer->name=$request->input('name');
-        $customer->email=clearPhone($request->input('email'));
-        $customer->phone=clearPhone($request->input('email'));
-        $customer->custom_email=$request->input('custom_email');
-        $customer->password= Hash::make($request->input('password'));
-        $customer->gender=$request->input('gender');
-        $customer->status=1;
-        if ($customer->save()){
-            $businessCustomer=new BusinessCustomer();
-            $businessCustomer->business_id=auth('business')->id();
-            $businessCustomer->customer_id=$customer->id;
-            $businessCustomer->type = 1;
-            $businessCustomer->save();
+        $findCustomer = Customer::where('email', clearPhone($request->email))->first();
+        if ($findCustomer){
             return to_route('business.customer.index')->with('response', [
-                'status'=>"success",
-                'message'=>"Kunde erfolgreich hinzugefügt. Sie können nun Transaktionen für diesen Kunden durchführen."
+                'status'=>"danger",
+                'message'=>"Es ist bereits ein Benutzer mit dieser Mobilnummer registriert."
             ]);
         }
-
-
+        else{
+            $customer=new Customer();
+            $customer->name=$request->input('name');
+            $customer->email=clearPhone($request->input('email'));
+            $customer->phone=clearPhone($request->input('email'));
+            $customer->custom_email=$request->input('custom_email');
+            $customer->password= Hash::make($request->input('password'));
+            $customer->gender=$request->input('gender');
+            $customer->status=1;
+            if ($customer->save()){
+                $businessCustomer=new BusinessCustomer();
+                $businessCustomer->business_id=auth('business')->id();
+                $businessCustomer->customer_id=$customer->id;
+                $businessCustomer->type = 1;
+                $businessCustomer->save();
+                return to_route('business.customer.index')->with('response', [
+                    'status'=>"success",
+                    'message'=>"Kunde erfolgreich hinzugefügt. Sie können nun Transaktionen für diesen Kunden durchführen."
+                ]);
+            }
+        }
     }
 
     public function show(Customer $customer)
