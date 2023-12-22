@@ -68,7 +68,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @forelse(auth('business')->user()->customers as $customer)
+                                @forelse($customers as $customer)
                                     @if($customer)
                                         <tr>
                                             <td>

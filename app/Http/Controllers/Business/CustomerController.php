@@ -18,14 +18,16 @@ class CustomerController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $genderList=[
             'Frau',
             'Mann'
         ];
-        $customerIds = auth('business')->user()->customers()->pluck('customer_id');
-        $customers = Customer::whereIn('id', $customerIds)->get();
+        $customers = auth('business')->user()->customers()
+            ->when($request->filled('type'), function ($q) use ($request) {
+               return $q->where('type', $request->input('type') == "registered" ? 1 : 0);
+            });
         return view('business.customer.index', compact('genderList', 'customers'));
     }
 
