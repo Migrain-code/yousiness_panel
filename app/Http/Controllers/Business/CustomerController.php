@@ -24,10 +24,9 @@ class CustomerController extends Controller
             'Frau',
             'Mann'
         ];
-        $businessUser = auth('business')->user();
-
-        $bCustomers = $businessUser->appointments()->with('customer')->get()->pluck('customer');
-        return view('business.customer.index', compact('genderList', 'bCustomers'));
+        $customerIds = auth('business')->customers()->pluck('customer_id');
+        $customers = Customer::whereIn('id', $customerIds)->get();
+        return view('business.customer.index', compact('genderList', 'customers'));
     }
 
     public function listView()

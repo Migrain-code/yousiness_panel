@@ -68,8 +68,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @if(isset(request()->query()["type"]) && request()->query()["type"] == "registered")
-                                @forelse(auth('business')->user()->customers as $customer)
+                                @forelse($cutomers as $customer)
                                     @if($customer)
                                         <tr>
                                             <td>
@@ -103,103 +102,6 @@
                                     @endif
                                 @empty
                                 @endforelse
-                            @elseif(isset(request()->query()["type"]) && request()->query()["type"] == "appointment")
-                                @forelse($bCustomers as $businessCustomer)
-                                    @if($businessCustomer)
-                                        <tr>
-                                            <td>
-                                                <img class="rounded-circle" width="35"
-                                                     src="{{image($businessCustomer->image)}}" alt="">
-                                            </td>
-                                            <td>{{$businessCustomer->name}}</td>
-                                            <td>
-                                                <a href="mailto:{{$businessCustomer->custom_email}}"><strong>{{$businessCustomer->custom_email}}</strong></a>
-                                            </td>
-                                            <td>
-                                                <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
-                                            </td>
-                                            <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
-                                            <td>{{$businessCustomer->email != "" ? "Eingetragen" : "Nicht registriert"}}</td>
-                                            <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
-                                            <td>
-                                                @if($businessCustomer->status==1)
-                                                    <span class="badge light badge-success">Aktiv</span>
-                                                @else
-                                                    <span class="badge light badge-danger">Keine Verifizierung</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <a href="{{route('business.customer.show', $businessCustomer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-eye"></i></a>
-                                            </td>
-                                        </tr>
-                                    @endif
-                                @empty
-                                @endforelse
-                            @else
-                                @forelse(auth('business')->user()->customers as $customer)
-                                    <tr>
-                                            <td>
-                                                <img class="rounded-circle" width="35"
-                                                     src="{{image($customer->customer->image)}}" alt="">
-                                            </td>
-                                            <td>{{$customer->customer->name}}</td>
-                                            <td>
-                                                <a href="mailto:{{$customer->customer->custom_email}}"><strong>{{$customer->customer->custom_email}}</strong></a>
-                                            </td>
-                                            <td>
-                                                <a href="tel:{{$customer->customer->phone}}"><strong>{{$customer->customer->phone}}</strong></a>
-                                            </td>
-                                            <td>{{$customer->customer->created_at->format('d.m.Y')}}</td>
-                                            <td>{{$customer->customer->email != "" ? "Eingetragen" : "Nicht registriert"}}</td>
-                                            <td>{{$customer->customer->businessAppointments(auth('business')->id())->count()}}</td>
-                                            <td>
-                                                @if($customer->customer->status==1)
-                                                    <span class="badge light badge-success">Aktiv</span>
-                                                @else
-                                                    <span class="badge light badge-danger">Keine Verifizierung</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <a href="{{route('business.customer.edit', $customer->customer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                                    <a href="#" class="btn btn-danger shadow btn-xs sharp" onclick="onDelete('{{route('business.customer.destroy', $customer->customer->id)}}', '{{$loop->index}}')"><i class="fa fa-trash"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                @empty
-                                @endforelse
-                                @forelse($bCustomers as $businessCustomer)
-                                        <tr>
-                                            <td>
-                                                <img class="rounded-circle" width="35"
-                                                     src="{{image($businessCustomer->image)}}" alt="">
-                                            </td>
-                                            <td>{{$businessCustomer->name}}</td>
-                                            <td>
-                                                <a href="mailto:{{$businessCustomer->custom_email}}"><strong>{{$businessCustomer->custom_email}}</strong></a>
-                                            </td>
-                                            <td>
-                                                <a href="tel:{{$businessCustomer->phone}}"><strong>{{$businessCustomer->phone}}</strong></a>
-                                            </td>
-                                            <td>{{$businessCustomer->created_at->format('d.m.Y')}}</td>
-                                            <td>{{$businessCustomer->email != "" ? "Eingetragen" : "Nicht registriert"}}</td>
-                                            <td>{{$businessCustomer->businessAppointments(auth('business')->id())->count()}}</td>
-                                            <td>
-                                                @if($businessCustomer->status==1)
-                                                    <span class="badge light badge-success">Aktiv</span>
-                                                @else
-                                                    <span class="badge light badge-danger">Keine Verifizierung</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <a href="{{route('business.customer.show', $businessCustomer->id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-eye"></i></a>
-                                            </td>
-                                        </tr>
-                                @empty
-                                @endforelse
-                            @endif
-
-
                             </tbody>
                         </table>
                     </div>
