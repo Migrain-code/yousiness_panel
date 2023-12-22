@@ -151,10 +151,9 @@ class CustomerController extends Controller
             'gender'=> "Cinsiyet",
 
         ]);
-        if ($request->email == $customer->email){
+        if (clearPhone($request->email) == $customer->email){
             $customer->name=$request->input('name');
-            $customer->email=$request->input('email');
-            $customer->phone=$request->input('email');
+            $customer->phone=$request->input('custom_email');
             $customer->custom_email=$request->input('custom_email');
             if ($request->has('password'))
             {
@@ -170,7 +169,7 @@ class CustomerController extends Controller
             }
         }
         else{
-            $findCustomer = Customer::where('email', $request->email)->first();
+            $findCustomer = Customer::where('email', clearPhone($request->email))->first();
             if ($findCustomer){
                 return to_route('business.customer.edit', $customer->id)->with('response', [
                     'status'=>"danger",
@@ -179,8 +178,8 @@ class CustomerController extends Controller
             }
             else{
                 $customer->name=$request->input('name');
-                $customer->email=$request->input('email');
-                $customer->phone=$request->input('email');
+                $customer->email=clearPhone($request->input('email'));
+                $customer->phone=clearPhone($request->input('email'));
                 $customer->custom_email=$request->input('custom_email');
                 if ($request->has('password'))
                 {
