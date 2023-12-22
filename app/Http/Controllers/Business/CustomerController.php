@@ -24,6 +24,7 @@ class CustomerController extends Controller
             'Frau',
             'Mann'
         ];
+        $request->dd();
         $customers = auth('business')->user()->customers()
             ->when($request->filled('type'), function ($q) use ($request) {
                return $q->where('type', $request->input('type') == "registered" ? 1 : 0);
