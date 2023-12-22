@@ -36,8 +36,14 @@ class HomeController extends Controller
     {
         $phone = "muhammetturkmenn52@gmail.com";
         $generateCode = "553702";
-        SendMail::send('SALON REGISTRIERUNG', "Für die Registrierung bei Yousiness ist der Verifizierungscode anzugeben ", $phone, $generateCode);
-        return "Mail Gönderildi";
+        $response = SendMail::send('SALON REGISTRIERUNG', "Für die Registrierung bei Yousiness ist der Verifizierungscode anzugeben ", $phone, $generateCode);
+        if ($response){
+            return "Mail Gönderildi";
+        }
+        else{
+            return "Mail failed";
+
+        }
     }
     public function index()
     {
