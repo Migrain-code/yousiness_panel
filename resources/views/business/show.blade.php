@@ -314,9 +314,9 @@
                                             @csrf
                                             <div class="form-group my-2">
                                                 <label for="day">Ruhetag:</label>
-                                                <select id="day" name="day" class="form-control">
+                                                <select id="day" name="days[]" multiple class="form-control">
                                                     @foreach($dayList as $list)
-                                                        <option value="{{$list->id}}" @selected($business->off_day == $list->id)>{{$list->name}}</option>
+                                                        <option value="{{$list->id}}" @selected(in_array($list->id, $business->offDays()->pluck('day_id')->toArray()))>{{$list->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

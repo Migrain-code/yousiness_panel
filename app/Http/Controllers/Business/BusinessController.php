@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Business;
 use App\Http\Controllers\Controller;
 use App\Models\Business;
 use App\Models\BusinessCategory;
+use App\Models\BusinessOffDay;
 use App\Models\BusinessService;
 use App\Models\BusinessTypeCategory;
 use App\Models\BusinessWorkTime;
@@ -26,7 +27,7 @@ class BusinessController extends Controller
      */
     public function index()
     {
-        $businesses=Business::all();
+        $businesses = Business::all();
         return view('panel.business.index', compact('businesses'));
     }
 
@@ -37,8 +38,8 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        $types=BusinnessType::all();
-        $service_packages=ServicePackage::where('status', 1)->get();
+        $types = BusinnessType::all();
+        $service_packages = ServicePackage::where('status', 1)->get();
         return view('panel.business.create', compact('service_packages', 'types'));
     }
 
@@ -50,57 +51,60 @@ class BusinessController extends Controller
      */
     public function store(Request $request)
     {
-        $business= new Business();
-        $business->package_id=$request->input('package_id');
-        $business->name=$request->input('name');
-        $business->phone=$request->input('phone');
-        $business->city=$request->input('city');
-        $business->district=$request->input('district');
-        $business->type_id=$request->input('type_id');
-        $business->email=$request->input('email');
-        $business->password=Hash::make($request->input('password'));
+        $business = new Business();
+        $business->package_id = $request->input('package_id');
+        $business->name = $request->input('name');
+        $business->phone = $request->input('phone');
+        $business->city = $request->input('city');
+        $business->district = $request->input('district');
+        $business->type_id = $request->input('type_id');
+        $business->email = $request->input('email');
+        $business->password = Hash::make($request->input('password'));
         /*$business->logo='storage/'. $request->file('logo')->store('businnes_logo');
         $business->wallpaper='storage/'. $request->file('logo')->store('businnes_wallpaper');*/
-        if ($business->save()){
-            $counter=0;
+        if ($business->save()) {
+            $counter = 0;
             foreach ($request->start_time as $item) {
-                $work_time=new BusinessWorkTime();
-                $work_time->business_id=$business->id;
-                $work_time->start_time=$item;
-                $work_time->end_time=$request->end_time[$counter];
-                $work_time->status=boolval($request->status[$counter]);
-                $work_time->que=$counter;
+                $work_time = new BusinessWorkTime();
+                $work_time->business_id = $business->id;
+                $work_time->start_time = $item;
+                $work_time->end_time = $request->end_time[$counter];
+                $work_time->status = boolval($request->status[$counter]);
+                $work_time->que = $counter;
                 $work_time->save();
                 $counter++;
             }
             return to_route('panel.business.index')->with('response', [
-                'status'=>"success",
-                'title'=>"Başarılı",
-                'message'=>"Geschäft erfolgreich hinzugefügt"
+                'status' => "success",
+                'title' => "Başarılı",
+                'message' => "Geschäft erfolgreich hinzugefügt"
             ]);
         }
     }
-    public function addService(Request $request){
-        $service=new BusinessService();
-        $service->name=$request->input('name');
-        $service->business_id=$request->input('business_id');
-        $service->status=1;
-        if ($service->save()){
-            $partititon=new BussinessServicePartition();
-            $partititon->service_id=$service->id;
-            $partititon->name=$request->input('name');
-            $partititon->service_category=$request->input('service_category');
-            $partititon->service_sub_category=$request->input('service_sub_category');
-            $partititon->price=$request->input('price');
-            $partititon->status=1;
+
+    public function addService(Request $request)
+    {
+        $service = new BusinessService();
+        $service->name = $request->input('name');
+        $service->business_id = $request->input('business_id');
+        $service->status = 1;
+        if ($service->save()) {
+            $partititon = new BussinessServicePartition();
+            $partititon->service_id = $service->id;
+            $partititon->name = $request->input('name');
+            $partititon->service_category = $request->input('service_category');
+            $partititon->service_sub_category = $request->input('service_sub_category');
+            $partititon->price = $request->input('price');
+            $partititon->status = 1;
             $partititon->save();
             return to_route('panel.business.edit', $request->input('business_id'))->with('response', [
-                'status'=>"success",
-                'title'=>"Erfolgreich",
-                'message'=>"Dienst erfolgreich hinzugefügt"
+                'status' => "success",
+                'title' => "Erfolgreich",
+                'message' => "Dienst erfolgreich hinzugefügt"
             ]);
         }
     }
+
     /**
      * Display the specified resource.
      *
@@ -109,14 +113,14 @@ class BusinessController extends Controller
      */
     public function show()
     {
-        $dayList=DayList::all();
-        $business=auth('business')->user();
+        $dayList = DayList::all();
+        $business = auth('business')->user();
         //dd($business->workTimes);
-        $businessTypes=BusinnessType::all();
-        $business_categories= BusinessCategory::all();
+        $businessTypes = BusinnessType::all();
+        $business_categories = BusinessCategory::all();
 
         $selectedCategories = [];
-        foreach (auth('business')->user()->categories as $category){
+        foreach (auth('business')->user()->categories as $category) {
             $selectedCategories[] = $category->category_id;
         }
 
@@ -132,8 +136,8 @@ class BusinessController extends Controller
      */
     public function edit(Business $business)
     {
-        $categories= ServiceCategory::all();
-        $service_packages=ServicePackage::all();
+        $categories = ServiceCategory::all();
+        $service_packages = ServicePackage::all();
         return view('panel.business.edit', compact('service_packages', 'business', 'categories'));
     }
 
@@ -146,88 +150,96 @@ class BusinessController extends Controller
      */
     public function update(Request $request)
     {
-         $business= auth('business')->user();
+        $business = auth('business')->user();
 
-         $business->name=$request->business_name;
-         $business->type_id=$request->business_type;
-         $business->appoinment_range=$request->minute;
-         $business->approve_type=$request->approve_type;
-         $business->year=$request->year;
-         $business->phone=$request->b_phone;
-         $business->business_email=$request->b_email;
-         $business->city=$request->city;
-         $business->address=$request->address;
-         if ($request->hasFile('logo')){
-             $business->logo='storage/'. $request->file('logo')->store('business_logo');
-         }
-        if ($request->hasFile('wallpaper')){
-            $business->wallpaper='storage/'. $request->file('wallpaper')->store('business_wallpaper');
+        $business->name = $request->business_name;
+        $business->type_id = $request->business_type;
+        $business->appoinment_range = $request->minute;
+        $business->approve_type = $request->approve_type;
+        $business->year = $request->year;
+        $business->phone = $request->b_phone;
+        $business->business_email = $request->b_email;
+        $business->city = $request->city;
+        $business->address = $request->address;
+        if ($request->hasFile('logo')) {
+            $business->logo = 'storage/' . $request->file('logo')->store('business_logo');
+        }
+        if ($request->hasFile('wallpaper')) {
+            $business->wallpaper = 'storage/' . $request->file('wallpaper')->store('business_wallpaper');
         }
 
-         if ($business->save()){
-             return to_route('business.profile.show')->with('response', [
-                 'status'=>"success",
-                 'title'=>"",
-                 'message'=>"Ihre Informationen wurden erfolgreich aktualisiert"
-             ]);
-         }
+        if ($business->save()) {
+            return to_route('business.profile.show')->with('response', [
+                'status' => "success",
+                'title' => "",
+                'message' => "Ihre Informationen wurden erfolgreich aktualisiert"
+            ]);
+        }
     }
 
     public function updateOwner(Request $request)
     {
 
-        $business= auth('business')->user();
-        $business->owner=$request->owner;
-        $business->email=$request->email;
-        $business->owner_email=$request->input('owner_email');
-        $business->phone=$request->phone;
-        $business->password=Hash::make($request->input('password'));
-        if ($business->save()){
+        $business = auth('business')->user();
+        $business->owner = $request->owner;
+        $business->email = $request->email;
+        $business->owner_email = $request->input('owner_email');
+        $business->phone = $request->phone;
+        $business->password = Hash::make($request->input('password'));
+        if ($business->save()) {
             return to_route('business.profile.show')->with('response', [
-                'status'=>"success",
-                'title'=>"",
-                'message'=>"Ihre Informationen wurden erfolgreich aktualisiert"
+                'status' => "success",
+                'title' => "",
+                'message' => "Ihre Informationen wurden erfolgreich aktualisiert"
             ]);
         }
     }
+
     public function updateWorkTime(Request $request)
     {
-
-        $business= auth('business')->user();
-        $business->off_day = $request->input('day');
+        $business = auth('business')->user();
+        $business->off_day = 0;
         $business->start_time = $request->input('start_time');
         $business->end_time = $request->input('end_time');
         $business->save();
+        $business->offDays()->delete();
+        foreach ($request->days as $day){
+            $offDay = new BusinessOffDay();
+            $offDay->business_id = $business->id;
+            $offDay->day_id = $day;
+            $offDay->save();
+        }
         return to_route('business.profile.show')->with('response', [
-            'status'=>"success",
-            'title'=>"Başarılı",
-            'message'=>"Hier werden die Tage angezeigt, die nicht zu den Feiertagen Ihrer Mitarbeiter gehören. Sie müssen andere Feiertage als diese Tage für das Personal eingeben.niz Başarılı Bir Şekilde Güncellendi"
+            'status' => "success",
+            'title' => "Erfolgreich",
+            'message' => "Hier werden die Tage angezeigt, die nicht zu den Feiertagen Ihrer Mitarbeiter gehören. Sie müssen andere Feiertage als diese Tage für das Personal eingeben.niz Başarılı Bir Şekilde Güncellendi"
         ]);
     }
 
     public function updateCategory(Request $request)
     {
         $request->validate([
-            'category'=>"required",
+            'category' => "required",
         ], [], [
-            'category'=>"Geschäftskategorien"
+            'category' => "Geschäftskategorien"
         ]);
-        if (auth('business')->user()->categories->count() > 0){
-            foreach ( auth('business')->user()->categories as $category) {
+        if (auth('business')->user()->categories->count() > 0) {
+            foreach (auth('business')->user()->categories as $category) {
                 $category->delete();
             }
         }
-        foreach ($request->input('category') as $category){
+        foreach ($request->input('category') as $category) {
             $businessCategory = new BusinessTypeCategory();
             $businessCategory->category_id = $category;
             $businessCategory->business_id = auth('business')->id();
             $businessCategory->save();
         }
         return back()->with('response', [
-           'status' => "success",
-           'message' => "Unternehmenskategorien bearbeitet"
+            'status' => "success",
+            'message' => "Unternehmenskategorien bearbeitet"
         ]);
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -236,9 +248,9 @@ class BusinessController extends Controller
      */
     public function destroy(Business $business)
     {
-        if ($business->delete()){
+        if ($business->delete()) {
             return response()->json([
-                'status'=>"success",
+                'status' => "success",
             ]);
         }
     }

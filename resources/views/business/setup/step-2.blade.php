@@ -17,7 +17,15 @@
             height: 40px;
 
         }
-
+        .ts-wrapper.multi .ts-control > div {
+            cursor: pointer;
+            margin: 0 3px 3px 0;
+            padding: 2px 6px;
+            background: #f2f2f2;
+            color: #303030;
+            border: 0px solid #d0d0d0;
+            border-radius: 15px;
+        }
     </style>
 @endsection
 @section('content')
@@ -95,28 +103,28 @@
                                 @endforelse
                             </select>
                         </div>
-
                         <div class="form-group col-lg-6">
+                            <label>Öffnungszeit</label>
+                            <input type="time" class="form-control" name="start_time" style="border-radius: 18px;height: 10px" value="{{$business->start_time}}">
+
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Geschäftsschluss</label>
+                            <input type="time" class="form-control" name="end_time" style="border-radius: 18px;height: 10px" value="{{$business->end_time}}">
+
+                        </div>
+                        <div class="form-group col-lg-12">
                             <label>Ruhetag</label>
-                            <select class="form-select" name="offDay" style="border-radius: 18px">
+                            <select class="" multiple name="offDay[]" id="daySelect" style="border-radius: 18px">
                                 <option value="" selected>Wählen Sie Tag aus</option>
                                 @forelse($dayList as $list)
-                                    <option value="{{$list->id}}" @selected($business->off_day == $list->id)>{{$list->name}}</option>
+                                    <option value="{{$list->id}}" @selected(in_array($list->id, $business->offDays()->pluck('day_id')->toArray()))>{{$list->name}}</option>
                                 @empty
 
                                 @endforelse
                             </select>
                         </div>
-                        <div class="form-group col-lg-3">
-                            <label>Öffnungszeit</label>
-                            <input type="time" class="form-control" name="start_time" style="border-radius: 18px;height: 10px" value="{{$business->start_time}}">
 
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <label>Geschäftsschluss</label>
-                            <input type="time" class="form-control" name="end_time" style="border-radius: 18px;height: 10px" value="{{$business->end_time}}">
-
-                        </div>
                         <div class="form-group col-lg-12">
                             <label>Über das Geschäft</label>
                             <textarea class="form-control" rows="6" name="business_about">{{$business->about}}</textarea>
@@ -136,7 +144,9 @@
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
 
     <script>
+        var mySelect = new TomSelect("#daySelect", {
 
+        });
         var mySelect = new TomSelect("#city_service", {
             remoteUrl: '/api/city/search',
             remoteSearch: true,

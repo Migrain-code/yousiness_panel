@@ -112,7 +112,7 @@ class Business extends Authenticatable
 
     public function offDays()
     {
-        return $this->hasOne(DayList::class, 'id', 'off_day')->latest();
+        return $this->hasMany(BusinessOffDay::class, 'business_id', 'id')->latest();
     }
 
     public function notificationsMenu()

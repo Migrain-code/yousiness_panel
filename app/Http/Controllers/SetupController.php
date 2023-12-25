@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BusinessCategory;
+use App\Models\BusinessOffDay;
 use App\Models\BusinessTypeCategory;
 use App\Models\BusinnessType;
 use App\Models\BussinessPackage;
@@ -83,11 +84,19 @@ class SetupController extends Controller
         $business->phone=$request->input('phone');
         $business->city=$request->input('city');
         $business->district=$request->input('district');
-        $business->off_day=$request->input('offDay');
+        $business->off_day=1;
         $business->about=$request->input('business_about');
         $business->start_time=$request->input('start_time');
         $business->end_time=$request->input('end_time');
         $business->save();
+
+        $business->offDays()->delete();
+        foreach ($request->offDay as $day){
+            $offDay = new BusinessOffDay();
+            $offDay->business_id = $business->id;
+            $offDay->day_id = $day;
+            $offDay->save();
+        }
         return to_route('business.setup.step3');
     }
 
