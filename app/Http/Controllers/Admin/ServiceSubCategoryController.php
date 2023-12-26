@@ -7,6 +7,7 @@ use App\Models\ServiceCategory;
 use App\Models\ServiceSubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class ServiceSubCategoryController extends Controller
 {
@@ -44,6 +45,7 @@ class ServiceSubCategoryController extends Controller
         $serviceSubCategory=new ServiceSubCategory();
         $serviceSubCategory->category_id=$request->category_id;
         $serviceSubCategory->name=$request->name;
+        $serviceSubCategory->slug = Str::slug($request->name);
         if ($serviceSubCategory->save()){
             return to_route('admin.serviceSubCategory.index')->with('response', [
                 'status'=>"success",
@@ -95,6 +97,7 @@ class ServiceSubCategoryController extends Controller
         $serviceSubCategory->name=$request->name;
         $serviceSubCategory->featured=$request->number;
         $serviceSubCategory->is_abroad=boolval($request->is_abroad);
+        $serviceSubCategory->slug = Str::slug($request->name);
         if ($request->hasFile('icon')){
             $serviceSubCategory->icon='storage/'. $request->file('icon')->store('sub_category_icons');
         }
