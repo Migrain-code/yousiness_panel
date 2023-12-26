@@ -7,6 +7,7 @@ use App\Models\BusinnessType;
 use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class ServiceCategoryController extends Controller
 {
@@ -42,6 +43,7 @@ class ServiceCategoryController extends Controller
     {
         $serviceCategory=new ServiceCategory();
         $serviceCategory->name=$request->input('name');
+        $serviceCategory->slug=Str::slug($request->input('name'));
         $serviceCategory->type_id=$request->input('type_id');
         if ($serviceCategory->save()){
             return to_route('admin.serviceCategory.index')->with('response', [
@@ -91,6 +93,8 @@ class ServiceCategoryController extends Controller
     {
         $serviceCategory->name=$request->input('name');
         $serviceCategory->type_id=$request->input('type_id');
+        $serviceCategory->slug=Str::slug($request->input('name'));
+
         if($request->hasFile('cover_image')){
             $serviceCategory->cover_image='storage/'. $request->file('cover_image')->store('service_images');
         }
