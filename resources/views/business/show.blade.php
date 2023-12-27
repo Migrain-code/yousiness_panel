@@ -198,45 +198,80 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <div class="profile card card-body px-3 pt-3 pb-0">
-                <div class="profile-head">
-                    <div class="photo-content">
-                        <div class="cover-photo rounded"
-                             style="background: url({{asset($business->wallpaper)}});"></div>
-                    </div>
-                    <div class="profile-info">
-                        <div class="profile-photo">
-                            <a class="test-popup-link" href="{{asset($business->logo)}}"><img
-                                        src="{{asset($business->logo)}}" class="img-fluid rounded-circle" alt=""></a>
+                    <div class="profile-head">
+                        <div class="photo-content">
+                            <div class="cover-photo rounded"
+                                 style="background: url({{asset($business->wallpaper)}});"></div>
                         </div>
-                        <div class="profile-details">
-                            <div class="profile-name px-3 pt-2">
-                                <h2 class="text-primary mb-0">{{$business->name}}</h2>
+                        <div class="profile-info">
+                            <div class="profile-photo">
+                                <a class="test-popup-link" href="{{asset($business->logo)}}"><img
+                                            src="{{asset($business->logo)}}" class="img-fluid rounded-circle" alt=""></a>
                             </div>
-                            <div class="dropdown ms-auto">
-                                <div class="btn sharp btn-primary tp-btn" data-bs-toggle="dropdown">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                            <circle fill="#000000" cx="12" cy="5" r="2"></circle>
-                                            <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                                            <circle fill="#000000" cx="12" cy="19" r="2"></circle>
-                                        </g>
-                                    </svg>
+                            <div class="profile-details">
+                                <div class="profile-name px-3 pt-2">
+                                    <h2 class="text-primary mb-0">{{$business->name}}</h2>
                                 </div>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li class="dropdown-item"><a href="javascript:void(0)"><i
-                                                    class="fa fa-users text-primary me-2"></i> Mitarbeiterr </a></li>
-                                    <li class="dropdown-item"><a href="javascript:void(0)" data-bs-toggle="modal"
-                                                                 data-bs-target="#exampleModalCenter"><i
-                                                    class="fa fa-plus text-primary me-2"></i> Dienstleistungen </a></li>
-                                </ul>
+                                <div class="dropdown ms-auto">
+                                    <div class="btn sharp btn-primary tp-btn" data-bs-toggle="dropdown">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                <circle fill="#000000" cx="12" cy="5" r="2"></circle>
+                                                <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                                <circle fill="#000000" cx="12" cy="19" r="2"></circle>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li class="dropdown-item"><a href="javascript:void(0)"><i
+                                                        class="fa fa-users text-primary me-2"></i> Mitarbeiterr </a></li>
+                                        <li class="dropdown-item"><a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                     data-bs-target="#exampleModalCenter"><i
+                                                        class="fa fa-plus text-primary me-2"></i> Dienstleistungen </a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="profile card card-body px-3 pt-3 pb-0">
+
+                        <div class="card-title">
+                            Salon Detail
+                        </div>
+
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td><strong>Salonname</strong></td>
+                                <td>{{$business->name}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Salon Kategorie</strong></td>
+                                <td>{{$business->type->name}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Öffnungszeit</strong></td>
+                                <td>{{$business->start_time}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SchlieBzeit</strong></td>
+                                <td>{{$business->end_time}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PLZ /Stadt</strong></td>
+                                <td>{{$business->cities->post_code.",".$business->cities->name}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
             </div>
         </div>
     </div>
