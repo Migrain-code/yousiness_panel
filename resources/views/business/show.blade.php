@@ -202,17 +202,17 @@
             <div class="profile card card-body px-3 pt-3 pb-0">
                     <div class="profile-head">
                         <div class="photo-content">
-                            <div class="cover-photo rounded"
-                                 style="background: url({{asset($business->wallpaper)}});"></div>
+                            <img style="height: 395px;width: 100%;object-fit: cover;border-radius: 0.625rem;" src="{{asset($business->wallpaper)}}">
                         </div>
                         <div class="profile-info">
                             <div class="profile-photo">
-                                <a class="test-popup-link" href="{{asset($business->logo)}}"><img
-                                            src="{{asset($business->logo)}}" class="img-fluid rounded-circle" alt=""></a>
+                                <img src="{{asset($business->logo)}}"
+                                     class="rounded-circle" style="width: 120px;height: 120px;object-fit: cover;" alt=""/>
+
                             </div>
                             <div class="profile-details">
-                                <div class="profile-name px-3 pt-2">
-                                    <h2 class="text-primary mb-0">{{$business->name}}</h2>
+                                <div class="profile-name pt-2" style="padding-left:30px">
+                                    <h2 class="text-primary mb-0"  style="font-size: 1.7rem">{{\Illuminate\Support\Str::limit($business->name, 20)}}</h2>
                                 </div>
                                 <div class="dropdown ms-auto">
                                     <div class="btn sharp btn-primary tp-btn" data-bs-toggle="dropdown">
@@ -268,7 +268,22 @@
                                 <td><strong>PLZ /Stadt</strong></td>
                                 <td>{{$business->cities->post_code.",".$business->cities->name}}</td>
                             </tr>
-
+                            <tr>
+                                <td><strong>Mobile Nummer</strong></td>
+                                <td>{{$business->phone}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>E-Mail</strong></td>
+                                <td>{{$business->business_email}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dauer der Dienstleistung</strong></td>
+                                <td>{{$business->appoinment_range}} min.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adresse</strong></td>
+                                <td>{{$business->address}}</td>
+                            </tr>
                         </tbody>
                     </table>
 
