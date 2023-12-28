@@ -59,6 +59,12 @@
             transform: translateY(-4px);
             margin-left: 18px;
         }
+        .signin-banner-form-remember .form-check label {
+            font-weight: 400;
+            font-size: 12px !important;
+            line-height: 14px !important;
+            color: #7c7c7c;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
@@ -276,7 +282,7 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="1" name="conditions" id="flexCheckDefault" style="padding: 9px;">
                                                     <label class="form-check-label ml-5" for="flexCheckDefault">
-                                                            Ich habe die <a href="{{route('page.detail', $globalData['pages']->first()->slug)}}" class="" target="_blank">Datenschutzerklärung</a> und die <a href="{{route('page.detail', $globalData['pages']->where('id', 7)->first()->slug)}}" class="" target="_blank">AGB</a> gelesen und verstanden, akzeptiere diese durch Registrieren.
+                                                            Ich habe die <a href="{{route('page.detail', $globalData['pages']->first()->slug)}}" class="text-primary" target="_blank">Datenschutzerklärung</a> und die <a href="{{route('page.detail', $globalData['pages']->where('id', 7)->first()->slug)}}" class="text-primary" target="_blank">AGB</a> gelesen und verstanden, akzeptiere diese durch Registrieren.
                                                     </label>
                                                 </div>
                                             </div>
@@ -284,8 +290,8 @@
                                         <div class="col-12">
                                             <div class="postbox__comment-agree">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="contact_info" value="1" id="flexCheckDefault" style="padding: 9px;">
-                                                    <label class="form-check-label ml-5" for="flexCheckDefault" style="line-height: 1.3em">
+                                                    <input class="form-check-input" type="checkbox" name="contact_info" value="1" id="flexCheckDefault1" style="padding: 9px;">
+                                                    <label class="form-check-label ml-5" for="flexCheckDefault1" style="line-height: 1.3em">
                                                         <a href="#">
                                                             Information, Neuigkeiten über aktuelle Angebote und Beauty-News per E-Mail erhalten.
                                                         </a>

@@ -216,8 +216,8 @@
                     </div>
                     <div class="signin-banner-left-wrap">
                         <div class="signin-banner-title-box mb-100">
-                            <h4 class="signin-banner-title tp-char-animation">Yousiness Business <br>
-                            Willkommen auf der Plattform</h4>
+                            <h4 class="signin-banner-title tp-char-animation">Wilkommen zu dem besten Termin <br>
+                                Management für ihr Salon</h4>
                         </div>
                         <div class="signin-banner-img-box position-relative">
                             <div class="signin-banner-img signin-img-1 d-none d-md-block z-index-3">
@@ -247,7 +247,6 @@
                         </div>
 
                         <div class="signin-banner-from-box">
-                            <h5 class="signin-banner-from-subtitle">Es wird ein Verifizierungscode gesendet..</h5>
                             <form action="{{route('business.forgotPassword')}}" method="post">
                                 @csrf
                                 <div class="row">
@@ -261,7 +260,7 @@
                                 </div>
 
                                 <div class="signin-banner-from-btn mb-20 text-center">
-                                    <button class="signin-btn ">Schicken</button>
+                                    <button class="signin-btn ">Senden</button>
                                 </div>
 
                             </form>

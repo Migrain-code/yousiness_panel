@@ -53,6 +53,14 @@
                 box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
             }
         }
+        .signin-banner-from-title {
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 25px;
+            color: var(--tp-common-black);
+            padding-bottom: 30px;
+            letter-spacing: 1px;
+        }
     </style>
     <!-- Place favicon.ico in the root directory -->
     @include('layouts.component.styles')

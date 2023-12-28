@@ -72,14 +72,14 @@ class RegisterController extends Controller
             'owner' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'unique:businesses'],
             'conditions' => ['accepted'],
-            'contact_info' => ['accepted'],
+            //'contact_info' => ['accepted'],
         ], [], [
             'name' => 'Salonname',
             'slug' => 'Salonname',
             'email' => 'E-Mail',
             'owner' => 'Salonbesitzer',
             'conditions' => "Geschäftsbedingungen",
-            'contact_info' => "Kommunikationsberechtigungen",
+            //'contact_info' => "Kommunikationsberechtigungen",
         ]);
     }
 
