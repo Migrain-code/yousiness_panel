@@ -100,7 +100,16 @@ class RegisterController extends Controller
         $smsConfirmation->code = $generateCode;
         $smsConfirmation->expire_at = now()->addMinute(3);
         $smsConfirmation->save();
-        SendMail::send('SALON REGISTRIERUNG', "Für die Registrierung bei " . setting('appy_site_title') . " ist der Verifizierungscode anzugeben ", $phone,  $generateCode);
+
+        $message = "Hallo, <br>
+                Bitte bestätige, dass ".$phone." deine neue E-Mail-Adresse ist,<br>
+                indem du deinen 6-stelligen Verifizierungscode in der Yousiness Plattform eingibst.<br>
+                <br>
+                Unter <a href='https://yousiness.com/faq'></a> findest du Antworten auf die meisten Fragen und kannst dich mit uns in Verbindung setzen. Wir sind für dich da und helfen dir bei jedem Schritt. Los, es ist Zeit für eine Spritztour mit Yousiness!<br>
+                Viele Grüße,<br>
+                <br>
+                Ihr Yousiness Team";
+        SendMail::send('SALON REGISTRIERUNG', $message, $phone,  $generateCode);
 
         $business = new Business();
         $business->name = $data['name'];

@@ -51,7 +51,15 @@ class VerifyController extends Controller
 
                 $this->addPermission($user->id);
 
-                SendMail::send('Ihre E-Mail Überprüfung war erfolgreich', "Ihr Passwort für die Anmeldung bei " . config('settings.appy_site_title') . "", $user->email, $generatePassword);
+                $message = "Hallo, <br>
+                Bitte bestätige, dass ".$user->email." deine neue E-Mail-Adresse ist,<br>
+                indem du deinen 6-stelligen Verifizierungscode in der Yousiness Plattform eingibst.<br>
+                <br>
+                Unter <a href='https://yousiness.com/faq'></a> findest du Antworten auf die meisten Fragen und kannst dich mit uns in Verbindung setzen. Wir sind für dich da und helfen dir bei jedem Schritt. Los, es ist Zeit für eine Spritztour mit Yousiness!<br>
+                Viele Grüße,<br>
+                <br>
+                Ihr Yousiness Team";
+                SendMail::send('Ihre E-Mail Überprüfung war erfolgreich', $message , $user->email, $generatePassword);
 
                 return to_route('business.login')->with('response', [
                     'status' => "success",
