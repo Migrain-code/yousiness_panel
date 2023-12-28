@@ -47,9 +47,9 @@
     border-radius: 15px;
     width: 100%;
     line-height: 25px;
-    font-size: 15px;
+    font-size: 10px;
     font-weight: 600;">Die Nutzung der Yousiness Services und unserer Webseite ist Gegenstand unserer AGB und Datenschutzrichtlinien. <br>
-                    YOUSINESS GROUP, Maximinstr. 12 – 66763 Dillingen/Saar, www.yousiness.com, info@yousiness.com, +49 6831 960 21 63, USt-IdNr DE323101197
+                    YOUSINESS GROUP, Maximinstr. 12 – 66763 Dillingen/Saar, www.yousiness.com, info@yousiness.com,<br> +49 6831 960 21 63, USt-IdNr DE323101197
                 </p>
                 <p>Copyright © <a href="{{asset('/')}}" rel="noopener" target="_blank">{{config('settings.speed_site_title')}}</a>.</p>
             </td>
