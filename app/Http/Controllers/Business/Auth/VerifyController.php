@@ -110,7 +110,15 @@ class VerifyController extends Controller
         } else {
             $generatePassword = rand(100000, 999999);
 
-            SendMail::send('Ihr Passwort für die Anmeldung bei '. config('settings.appy_site_title'), "Ihr Passwort für die Anmeldung bei " . config('settings.appy_site_title') . ": ",  $business->email, $generatePassword);
+            $message = "Hallo, <br>
+                Bitte bestätige, dass ".$business->email." deine neue E-Mail-Adresse ist,<br>
+                indem du deinen 6-stelligen Verifizierungscode in der Yousiness Plattform eingibst.<br>
+                <br>
+                Unter <a href='https://yousiness.com/faq'></a> findest du Antworten auf die meisten Fragen und kannst dich mit uns in Verbindung setzen. Wir sind für dich da und helfen dir bei jedem Schritt. Los, es ist Zeit für eine Spritztour mit Yousiness!<br>
+                Viele Grüße,<br>
+                <br>
+                Ihr Yousiness Team";
+            SendMail::send('Ihr Passwort für die Anmeldung bei Yousiness', $message,  $business->email, $generatePassword);
             $business->password = Hash::make($generatePassword);
             $business->password_status = 1;
             $business->save();
