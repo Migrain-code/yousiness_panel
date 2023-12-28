@@ -32,7 +32,7 @@
                     </div>
                     @if(isset($data['code']))
                         <div style="margin-top: 15px; text-align: center">
-                            <b style="background-color: #d59c4b;color: white; font-size: 2.5rem;padding: 15px;border-radius: 40px">{{$data['code']}}</b>
+                            <b style="background-color: #d59c4b;color: white; font-size: 2rem;padding: 15px;border-radius: 40px">{{$data['code']}}</b>
                         </div>
                     @endif
 
@@ -45,11 +45,10 @@
                 <p style="padding: 20px;
     background-color: white;
     border-radius: 15px;
-    width: 100%;
-    line-height: 25px;
+    line-height: 17px;
     font-size: 10px;
     font-weight: 600;">Die Nutzung der Yousiness Services und unserer Webseite ist Gegenstand unserer AGB und Datenschutzrichtlinien. <br>
-                    YOUSINESS GROUP, Maximinstr. 12 – 66763 Dillingen/Saar, www.yousiness.com, info@yousiness.com,<br> +49 6831 960 21 63, USt-IdNr DE323101197
+                    YOUSINESS GROUP, Maximinstr. 12 – 66763 Dillingen/Saar, +49 6831 960 21 63 <br> www.yousiness.com, info@yousiness.com, USt-IdNr DE323101197
                 </p>
                 <p>Copyright © <a href="{{asset('/')}}" rel="noopener" target="_blank">{{config('settings.speed_site_title')}}</a>.</p>
             </td>
