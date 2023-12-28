@@ -70,7 +70,7 @@ class LoginController extends Controller
         } else {
             return to_route('business.login')->with('response', [
                 'status' => "danger",
-                'message' => "Ihre Mobilnummer oder Ihr Passwort ist falsch"
+                'message' => "Ihre E-Mail oder Ihr Passwort ist falsch"
             ]);
         }
     }
