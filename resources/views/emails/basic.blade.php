@@ -27,7 +27,7 @@
                         <img alt="Logo" style="width: 60%;border-top-right-radius: 6px;border-top-left-radius: 6px" src="https://business.yousiness.com/storage/settings/mail_logo.png" />
                     </div>
                     <!--begin:Email content-->
-                    <div style="text-align: left; font-weight: 400; font-size: 15px;padding: 25px">
+                    <div style="text-align: left; font-weight: 400; font-size: 15px;padding: 25px;color: black">
                         {!! $data['message'] !!}
                     </div>
                     @if(isset($data['code']))
