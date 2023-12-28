@@ -64,9 +64,9 @@
                     <!-- Slider Item -->
                     <div class="onboard-item text-center">
                         <div class="onboard-content">
-                            <h3>1.Schritt: Wählen Sie ihre Salon Kategorie(n) aus</h3>
+                            <h3>1.Schritt: Wählen Sie Ihre Salonkategorie(n) aus</h3>
                             <p>
-                            Wir werden ihren Salon in Kategorien einteilen. Deshalb ist es wichtig, dass sie die entsprechende Salon Arten auswählen.
+                            Wir werden Ihren Salon in Kategorien einteilen. Deshalb ist es wichtig, dass sie die entsprechende Salonkategorie(n) auswählen.
 
                             </p>
                         </div>
@@ -77,7 +77,7 @@
                         <div class="onboard-content">
                             <h3>2. Schritt: Salon Details angeben</h3>
                             <p>
-                            Geben Sie die Informationen zu Ihrem Salon ein und stellen Sie sicher, dass Ihre Kunden Sie zu den richtigen Daten und Zeiten erreichen können.
+                                Geben Sie die Geschäftsinformationen von Ihrem Salon ein und stellen Sie sicher, dass Ihre Kunden Sie zu den richtigen Daten und Zeiten erreichen können.
                             </p>
                         </div>
                     </div>
