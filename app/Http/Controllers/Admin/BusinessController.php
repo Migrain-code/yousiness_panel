@@ -253,7 +253,7 @@ class BusinessController extends Controller
                 return back()->with('response', [
                     'status'=>"danger",
                     'title'=>"Error",
-                    'message'=>"Es ist bereits ein Benutzer mit dieser Mobilnummer registriert"
+                    'message'=>"Es ist bereits ein Benutzer mit dieser E-mail registriert"
                 ]);
             }
         }
