@@ -76,7 +76,7 @@
 
                             <!-- Harita Seçimi Alanı -->
                             <div id="map-container" style="position: relative;">
-                                <input type="search" name="longitude" id="searchInput" placeholder="Adresse oder Salonnahmen eingeben">
+                                <input type="search" name="searchInput" id="searchInput" placeholder="Adresse oder Salonnahmen eingeben">
                                 <div id="map" style="height: 400px;"></div>
                             </div>
 
