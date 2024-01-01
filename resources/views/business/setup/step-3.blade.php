@@ -186,6 +186,11 @@
                     }
                     const latitude = place.geometry.location.lat();
                     const longitude = place.geometry.location.lng();
+
+                    document.getElementById('latitude').value = latitude;
+                    document.getElementById('longitude').value = longitude;
+                    console.log('tıklanan lat '+ latitude +" tıklanan long : "+ longitude)
+
                     reverseGeocode(latitude, longitude);
                     marker = new google.maps.Marker({
                         map: map,
