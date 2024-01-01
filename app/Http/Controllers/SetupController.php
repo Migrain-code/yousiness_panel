@@ -108,6 +108,7 @@ class SetupController extends Controller
     }
     public function step3Form(Request $request)
     {
+        $request->dd();
         $request->validate([
             'latitude' => "required",
             'address' => "required",
