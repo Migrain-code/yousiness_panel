@@ -40,7 +40,7 @@
                                     <select name="category_id" class="form-control mb-2">
                                         <option>Auswählen</option>
                                         @forelse($categories as $category)
-                                           <option value="{{$category->id}}">{{$category->name}}</option>
+                                           <option value="{{$category->id}}">{{$category->name. "(". $category->type->name .")"}}</option>
                                         @empty
 
                                         @endforelse
