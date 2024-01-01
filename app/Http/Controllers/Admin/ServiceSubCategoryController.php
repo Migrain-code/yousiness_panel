@@ -97,7 +97,7 @@ class ServiceSubCategoryController extends Controller
         $serviceSubCategory->name=$request->name;
         $serviceSubCategory->featured=$request->number;
         $serviceSubCategory->is_abroad=boolval($request->is_abroad);
-        $serviceSubCategory->slug = Str::slug($request->name);
+        $serviceSubCategory->slug = boolval($request->is_abroad) == 1 ? Str::slug($request->name). "-abroad" : Str::slug($request->name);
         if ($request->hasFile('icon')){
             $serviceSubCategory->icon='storage/'. $request->file('icon')->store('sub_category_icons');
         }
