@@ -140,11 +140,12 @@
                 marker = new google.maps.Marker({
                     position: { lat: latitude, lng: longitude },
                     map: map,
-                    title: 'Seçilen Konum'
+                    title: 'Selected Location'
                 });
 
                 document.getElementById('latitude').value = latitude;
                 document.getElementById('longitude').value = longitude;
+                console.log('tıklanan lat '+ latitude +" tıklanan long : "+ longitude)
             });
 
             // Sayfa yüklendiğinde işletme konumu veya varsayılan konumu göster
@@ -152,7 +153,7 @@
                 marker = new google.maps.Marker({
                     position: { lat: parseFloat(businessLat), lng: parseFloat(businessLong) },
                     map: map,
-                    title: 'Seçilen Konum'
+                    title: 'Selected Location'
                 });
             });
 
