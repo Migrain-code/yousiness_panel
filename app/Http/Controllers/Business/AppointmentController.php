@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\AppointmentServices;
 use App\Models\BusinessService;
+use App\Models\CustomerNotificationMobile;
 use App\Models\Personel;
 use App\Models\PersonelService;
 use Faker\Provider\Person;
@@ -50,6 +51,15 @@ class AppointmentController extends Controller
         $findAppointment = Appointment::find($id);
         $findAppointment->status = 8;
         $findAppointment->customer->sendSms($findAppointment->business->name. ' İşletmesine '. $findAppointment->start_time .' Tarihindeki Radevunuz İşletme Tarafından İptal Edildi');
+
+        $title = 'Ihr Termin wurde abgesagt.';
+        $body = "Ihr Termin für ".$findAppointment->business->name." wurde zur den ".$findAppointment->services->first()->start_time." absagen.";
+
+        $notification =new CustomerNotificationMobile();
+        $notification->customer_id = $appointment->customer->id;
+        $notification->title = $title;
+        $notification->content = $body;
+        $notification->save();
 
         if ($findAppointment->save()) {
             return back()->with('response', [

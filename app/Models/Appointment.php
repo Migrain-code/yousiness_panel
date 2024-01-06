@@ -61,13 +61,13 @@ class Appointment extends Model
     public function customer()
     {
         return $this->hasOne(Customer::class, 'id', 'customer_id')->withDefault([
-            'name' => "Silinmiş Müşteri",
-            'image' => "Silinmiş Müşteri",
-            'custom_email' => "Silinmiş Müşteri",
-            'phone' => "Silinmiş Müşteri",
+            'name' => "Gelöschter Kunde",
+            'image' => "Gelöschter Kunde",
+            'custom_email' => "Gelöschter Kunde",
+            'phone' => "Gelöschter Kunde",
             'created_at' => Carbon::now(),
-            'email' => "Silinmiş Müşteri",
-            'status' => "Silinmiş Müşteri",
+            'email' => "Gelöschter Kunde",
+            'status' => "Gelöschter Kunde",
         ]);
     }
     public function services()
