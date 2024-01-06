@@ -56,7 +56,7 @@ class AppointmentController extends Controller
         $body = "Ihr Termin für ".$findAppointment->business->name." wurde zur den ".$findAppointment->services->first()->start_time." absagen.";
 
         $notification =new CustomerNotificationMobile();
-        $notification->customer_id = $appointment->customer->id;
+        $notification->customer_id = $findAppointment->customer->id;
         $notification->title = $title;
         $notification->content = $body;
         $notification->save();
