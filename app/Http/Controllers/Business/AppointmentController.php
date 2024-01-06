@@ -29,7 +29,7 @@ class AppointmentController extends Controller
             ->whereRaw("STR_TO_DATE(date, '%d.%m.%Y') = ?", [Carbon::now()->format('Y-m-d')])
             ->orderByRaw("STR_TO_DATE(date, '%d.%m.%Y %H:%i')")
             ->get();
-        $appointments = Appointment::where('business_id',auth('business')->id())->get();
+        $appointments = Appointment::where('business_id',auth('business')->id())->whereNotIn('status', [8])->get();
 
         return view('business.appointment.index', compact('todayAppointments', 'appointments'));
     }
