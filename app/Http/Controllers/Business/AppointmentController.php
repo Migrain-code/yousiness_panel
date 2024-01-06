@@ -60,7 +60,11 @@ class AppointmentController extends Controller
         $notification->title = $title;
         $notification->content = $body;
         $notification->save();
-
+        if ($findAppointment->customer && $findAppointment->customer->device) {
+            $deviceToken = $findAppointment->customer->device->token;
+            $notification = new \App\Services\Notification();
+            $notification->sendPushNotification($deviceToken, $title, $body);
+        }
         if ($findAppointment->save()) {
             return back()->with('response', [
                 'status' => "success",
