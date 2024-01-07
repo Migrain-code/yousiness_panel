@@ -92,7 +92,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Kunde <span class="text-warning">{{auth('business')->user()->customers->count() == 0 ? "(Von Kundenliste Auswählen)":""}} </span></label>
                                 <select name="customer_id" class="form-control">
-                                    <option>Kunde Auswählen</option>
+                                    <option value="">Kunde Auswählen</option>
                                     @forelse($customers as $customer)
                                         <option value="{{$customer->id}}">{{$customer->name}}</option>
                                     @empty
@@ -124,7 +124,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Zahlungsart auswâhlen</label>
                                 <select name="payment_type" class="form-control">
-                                    <option>Zahlungsart auswâhlen</option>
+                                    <option value="">Zahlungsart auswâhlen</option>
                                     @forelse($payment_types as $payment)
                                         <option value="{{$loop->index}}">{{$payment}}</option>
                                     @empty
@@ -134,7 +134,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Verkäufer</label>
                                 <select name="personel_id" class="form-control">
-                                    <option>Personal Auswählen</option>
+                                    <option value="">Personal Auswählen</option>
                                     @forelse(auth('business')->user()->personel as $personel)
                                         <option value="{{$personel->id}}">{{$personel->name}}</option>
                                     @empty
