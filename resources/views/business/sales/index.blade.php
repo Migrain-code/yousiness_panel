@@ -102,7 +102,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Produkt</label>
                                 <select name="product_id" id="product_id" class="form-control">
-                                    <option>Produkt Auswählen</option>
+                                    <option value="">Produkt Auswählen</option>
                                     @forelse(auth('business')->user()->products as $product)
                                         <option value="{{$product->id}}">{{$product->name}}</option>
                                     @empty

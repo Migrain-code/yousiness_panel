@@ -44,7 +44,21 @@ class ProductSalesController extends Controller
     public function store(Request $request)
     {
 
-        //$request->dd();
+        $request->validate([
+            'customer_id' => "required",
+            'product_id' => "required",
+            'personel_id' => "required",
+            'payment_type' => "required",
+            'piece' => "required",
+            'price' => "required",
+        ], [], [
+            'customer_id' => "Kunde",
+            'product_id' => "Produkt",
+            'personel_id' => "Verkäufer",
+            'payment_type' => "Zahlungsart",
+            'piece' => "Anzahl",
+            'price' => "Betrag",
+        ]);
         $productSale = new ProductSales();
         $productSale->business_id = auth('business')->id();
         $productSale->customer_id = $request->input('customer_id');
