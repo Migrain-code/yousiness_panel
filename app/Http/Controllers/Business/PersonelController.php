@@ -331,7 +331,25 @@ class PersonelController extends Controller
      */
     public function update(Request $request, Personel $personel)
     {
-
+        $request->validate([
+            'email' => "required",
+            'phone' => "required|unique:personels",
+            'name' => "required",
+            'off_day' => "required",
+            'gender' => "required",
+            'rate' => "required",
+            'range' => "required",
+            'services' => "required",
+        ], [], [
+            'email' => "E-Mail",
+            'phone' => "Mobilnummer",
+            'name' => "Name",
+            'off_day' => "Freier Tag",
+            'gender' => "Geschlecht",
+            'rate' => "Arbeitsanteil",
+            'range' => "Zeit Auswählen",
+            'services' => "Dienstleistung",
+        ]);
         $personel->business_id = auth('business')->id();
         $personel->name = $request->input('name');
         $personel->email = $request->email;
