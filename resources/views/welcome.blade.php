@@ -39,6 +39,11 @@
             transition: 0.3s;
             z-index: -1;
         }
+        .app-information-area .tp-cta-five-section-box img {
+            width: 100%;
+            height: 600px;
+            border-radius:25px;
+        }
     </style>
 @endsection
 @section('content')
