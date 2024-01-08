@@ -383,14 +383,16 @@
 
             <div class="container-fluid g-0">
                 <div class="row g-0">
-                    <div class="col-6">
+                    {{--
+                        <div class="col-6">
                         <div class="tp-cta-five-section-box">
                             <h3 class="tp-section-title-5"><span>{{$section->title}}</span></h3>
                             {!! $section->description !!}
                         </div>
                     </div>
+                    --}}
 
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="tp-cta-five-section-box text-center">
                             <img src="{{asset($section->image)}}" alt="">
                         </div>
