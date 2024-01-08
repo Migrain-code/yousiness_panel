@@ -27,7 +27,7 @@ class HomeController extends Controller
                 ->latest()
                 ->get();
 
-            $appointments = auth('business')->user()->appointments()->where('status', 7)->get();
+            $appointments = auth('business')->user()->appointments()->where('status', 4)->get();
             $totalAppointments = auth('business')->user()->appointments()->count();
             foreach ($appointments as $row){
                     $earning+=$row->calculateTotal($row->services);
